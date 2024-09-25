@@ -9,9 +9,9 @@ with open (json_input_file) as f:
 
 with open (csv_output_file, "w") as f:
     csv_writer = csv.writer(f)
-    csv_writer.writerow(["source", "url", "json content"])
+    csv_writer.writerow(["source", "title", "url", "json content"])
 
     for entry in data:
-        csv_writer.writerow(["GitHub", entry["url"], json.dumps(entry)])
+        csv_writer.writerow(["GitHub", entry["title"], entry["url"], json.dumps(entry)])
 
 print(f"{json_input_file} converted ti .csv and written to {csv_output_file}")
