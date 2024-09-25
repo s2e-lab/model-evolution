@@ -17,8 +17,10 @@ pip install .
 ```
 
 ## Getting Models Metadata from HuggingFace
-- `get_models.py`: Script to get metadata of all models from HuggingFace. 
-Make sure to setup your [SSH](https://huggingface.co/docs/hub/en/security-git-ssh) keys to access the HuggingFace API. 
-
+- Step 1:
+  - `get_models.py`: Script to get metadata of all models from HuggingFace. 
+  Make sure to setup your [SSH](https://huggingface.co/docs/hub/en/security-git-ssh) keys locally to access the HuggingFace API. 
+- Step 2:
+  - `get_models_history.py`: Script to get metadata of all models from HuggingFace.
 
 ## Scraping StackOverflow posts
