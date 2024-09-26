@@ -1,64 +1,71 @@
-"""
-It is a Python script that clones a Git repository (if it doesn't already exist locally) and fetches the commit history within a specified date range.
-The script uses the `git` module from the `GitPython` library to interact with the Git repository.
-@author: Joanna C. S. Santos (joannacss@nd.edu)
-"""
-import csv
+import pandas as pd
 import os
 from datetime import datetime
-
+import shutil
 import git
+from tqdm import tqdm
 
 
-def clone(repo_url: str, repo_path: str):
+def clone(repo_url: str, clone_path: str) -> None:
+    """
+    Clone a repository from Hugging Face
+    :param repo_url: the repository URL (e.g., "huggingface/transformers")
+    :param clone_path: where to clone the repository locally.
+    """
+    clone_url = f"git@hf.co:{repo_url}"
     # Check if the repository directory already exists
-    if not os.path.exists(repo_path):
-        shutil.rmtree(repo_path, ignore_errors=True)
+    if not os.path.exists(clone_path):
+        shutil.rmtree(clone_path, ignore_errors=True)
+    git.Repo.clone_from(clone_url, clone_path)
 
-    git.Repo.clone_from(repo_url, repo_path)
 
-
-def get_commits_in_date_range(repo_path, start_date, end_date):
-    repo = git.Repo(repo_path)
+def get_commits(clone_path: str):
+    """
+    Get the commits from a repository
+    :param clone_path: where the repository is cloned.
+    :return: a list of tuples with the commit information.
+    """
+    repo = git.Repo(clone_path)
     commits = []
 
     # Iterate through the commits
     for commit in repo.iter_commits():
         commit_date = datetime.fromtimestamp(commit.committed_date)
-
-        # Check if the commit falls within the date range
-        if start_date <= commit_date <= end_date:
-            # commit_info = f"{commit.hexsha} | {commit.author.name} | {commit_date.strftime('%Y-%m-%d')} | {commit.message.strip()}"
-            # grabs as tuple
-            commit_info = (commit.hexsha, commit.author.name, commit_date.strftime('%Y-%m-%d'), commit.message.strip())
-            commits.append(commit_info)
+        changed_files = [x for x in commit.stats.files]
+        commits.append(
+            (commit.hexsha, commit.author.name, commit_date.strftime('%Y-%m-%d'),
+             commit.message, ";".join(changed_files))
+        )
 
     return commits
 
 
-# Example usage:
-repo_url = "saphvis/ngpx2022"  # Replace with your Git repository URL
-repo_url = "glif/how2draw"  # Replace with your Git repository URL
-clone_url = f"git@hf.co:{repo_url}"
-repo_path = os.path.join("./tmp", repo_url.replace("/", "+"))  # Replace with your desired local path
-start_date = datetime(2020, 1, 1)
-end_date = datetime(2024, 12, 31)
+if __name__ == "__main__":
+    # read start index and end index from the command line
+    import sys
+    sys.argv = ["get_repo_history.py", "0", "1"]
+    if len(sys.argv) > 1:
+        start_idx = int(sys.argv[1])
+        end_idx = int(sys.argv[2])
+    else:
+        print("Usage: python get_repo_history.py <start_index> <end_index>")
+        sys.exit(1)
 
-# Step 1: Clone the repository if it doesn't already exist
-clone(clone_url, repo_path)
 
-# Step 2: Fetch the commit metadata within the date range
-commit_metadata = get_commits_in_date_range(repo_path, start_date, end_date)
-commit_metadata = [(repo_url,) + commit for commit in commit_metadata]
 
-# Step 3: Save the list of commits to a file (repo_url + commit_info) as CSV
-output_file = f"{repo_url.replace('/', '+')}_commits.csv"
-with open(output_file, mode='w') as file:
-    writer = csv.writer(file)
-    writer.writerow(["Repo_url", "Commit ID", "Author", "Date", "Message"])
-    writer.writerows(commit_metadata)
+    input_file = "../data/huggingface_sort_by_createdAt_top996939_selected.json"
+    df = pd.read_json(input_file)
+    repo_urls = df["id"].tolist()
+    # iterates over the repositories
+    commits = []
+    for repo_url in tqdm(repo_urls[start_idx:end_idx]):
+        clone_path = os.path.join("./tmp", repo_url.replace("/", "+"))  # Replace with your desired local path
+        # clone(repo_url, clone_path)
+        repo_commits = get_commits(clone_path)
+        repo_commits = [(repo_url,) + c for c in repo_commits]
+        commits.extend(repo_commits)
 
-# Step 4: delete clone URL
-import shutil
+    # save the commits to CSV
 
-shutil.rmtree(repo_path)
+    df_commits = pd.DataFrame(commits, columns=["repo_url", "commit_hash", "author", "date", "message", "changed_files"])
+    df_commits.to_csv("../data/huggingface_sort_by_createdAt_top996939_selected_commits.csv", index=False)
