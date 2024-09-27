@@ -80,7 +80,7 @@ if __name__ == "__main__":
     errors = []
     for repo_url in tqdm(repo_urls[start_idx:end_idx], unit="repo"):
         try:
-            clone_path = os.path.join("./tmp", repo_url.replace("/", "+"))  # Replace with your desired local path
+            clone_path = os.path.join("./tmp", repo_url.replace("/", "+"))
             clone(repo_url, clone_path)
             repo_commits = get_commits(clone_path)
             repo_commits = [(repo_url,) + c for c in repo_commits]
