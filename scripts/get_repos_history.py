@@ -63,7 +63,7 @@ def get_commits(clone_path: str):
 
 
 if __name__ == "__main__":
-    # sys.argv = ["get_repos_history.py", "0", "2"]
+    sys.argv = ["get_repos_history.py", "0", "2"]
     # read start index and end index from the command line
     if len(sys.argv) > 1:
         start_idx = int(sys.argv[1])
