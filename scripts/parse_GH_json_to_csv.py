@@ -2,7 +2,7 @@ import json
 import csv
 
 json_input_file = '../data/GH_data_safetensor.json'
-csv_output_file = '../results/GH_data_safetensor.csv'
+csv_output_file = '../data/GH_data_safetensor.csv'
 
 with open (json_input_file) as f:
     data = json.load(f)

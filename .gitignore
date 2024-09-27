@@ -1,3 +1,10 @@
+#ioS
+.DS_Store
+Icon?
+
+scripts/tmp/
+tmp/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

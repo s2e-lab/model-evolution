@@ -14,39 +14,50 @@ from analyticaml.model_download import get_models_metadata
 if __name__ == '__main__':
     print("Getting models from Hugging Face API...")
     # Configure what  models to get from the Hugging Face API
-    total = None  # if None, it will retrieve all models
-    sorting_criteria = "createdAt"  # #"downloads"  # "likes" #
+    total = 1000  # if None, it will retrieve all models
+    sorting_criteria = "downloads"  #"createdAt" "likes" #
     full = True  # whether to get the full model information (true) or not (false)
     sort_direction = False  # True for ascending, False for descending
     # Retrieve the models
     models = get_models_metadata(sorting_criteria, total, full, sort_direction)
+    print("Downloaded", len(models), "models")
     # Parse
     results = []
-    print("Downloaded", len(models), "models")
+
     for model in models:
         results.append(vars(model))
+        repo_files = []
+        if model.siblings:
+            for sibling in model.siblings:
+                repo_file= vars(sibling)
+                repo_file["extension"] = repo_file["rfilename"].rsplit(".", 2)[-1]
+                repo_files.append(repo_file)
 
-    if not total: total = len(results)
+        results[-1]["siblings"] = repo_files
+
+    total = len(results)
 
     # Save the results
     print("Saving results")
-    results_dict = {"results": results}
-    output_file = Path(f"../results/huggingface_sort_by_{sorting_criteria}_top{total}.json")
+
+    output_file = Path(f"../data/huggingface_sort_by_{sorting_criteria}_top{total}.json")
     with open(output_file, "w") as outfile:
-        outfile.write(json.dumps(results_dict, indent=2, default=str))
+        outfile.write(json.dumps(results, indent=2, default=str))
 
-    # output csv is the same as the json file, but in csv format and with a suffix _model_files_filtered
-    output_csv = output_file.with_name(output_file.stem + "_model_files_filtered.csv")
-    with open(output_csv, "w") as f:
-        csv_writer = csv.writer(f, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL, lineterminator="\n")
-        csv_writer.writerow(["repo", "model_file", "extension"])
-        for model in results_dict["results"]:
-            siblings = model.get("siblings", [])
+    # # output csv is the same as the json file, but in csv format and with a suffix _model_files_filtered
+    # output_csv = output_file.with_name(output_file.stem + "_model_files_filtered.csv")
+    # with open(output_csv, "w") as f:
+    #     csv_writer = csv.writer(f, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL, lineterminator="\n")
+    #     csv_writer.writerow(["repo", "model_file", "extension"])
+    #     for model in results:
+    #         repo_files = model.get("siblings", [])
+    #
+    #         if repo_files:
+    #             for file in repo_files:
+    #                 extension = file["rfilename"].rsplit(".", 2)[-1]
+    #                 if extension in MODEL_FILE_EXTENSIONS:
+    #                     csv_writer.writerow([model["modelId"], file["rfilename"], extension])
 
-            if siblings:
-                for file in siblings:
-                    extension = file.rfilename.rsplit(".", 2)[-1]
-                    if extension in MODEL_FILE_EXTENSIONS:
-                        csv_writer.writerow([model["modelId"], file.rfilename, extension])
+    # print("Saved results to", output_csv)
 
-    print("Saved results to", output_csv)
+    print("Done!")
