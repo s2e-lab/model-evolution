@@ -1,5 +1,5 @@
 import json
-
+import sys
 def remove_duplicates(filename):
     # Load the data from the JSON file
     with open(filename, 'r', encoding='utf-8') as f:
@@ -26,6 +26,10 @@ def remove_duplicates(filename):
     
     return duplicate_count
 
-filename = '../data/SO_query_data.json'
-num_duplicates = remove_duplicates(filename)
-print(f"Number of duplicate entries removed: {num_duplicates}")
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python dupcheck-json.py <filename>")
+        sys.exit(1)
+    filename = sys.argv[1]
+    num_duplicates = remove_duplicates(filename)
+    print(f"Number of duplicate entries removed: {num_duplicates}")

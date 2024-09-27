@@ -133,6 +133,6 @@ for query in queries:
 
 print(f"Total number of pull requests: {n}")
 print(f"Total number of pull requests with bot: {n_with_bot}")
-with open('../data/GH_data_safetensor.json', 'w') as f:
+with open('../../data/GH_data_safetensor.json', 'w') as f:
     json.dump(pr_list, f)
 print(f"Data has been dumped in ../data/GH_data_safetensor.json.")

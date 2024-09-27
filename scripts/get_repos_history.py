@@ -63,14 +63,13 @@ def get_commits(clone_path: str):
 
 
 if __name__ == "__main__":
+    # sys.argv = ["get_repos_history.py", "0", "2"]
     # read start index and end index from the command line
-
-    sys.argv = ["get_repo_history.py", "0", "2"]
     if len(sys.argv) > 1:
         start_idx = int(sys.argv[1])
         end_idx = int(sys.argv[2])
     else:
-        print("Usage: python get_repo_history.py <start_index> <end_index>")
+        print("Usage: python get_repos_history.py <start_index> <end_index>")
         sys.exit(1)
 
     input_file = Path("../data/huggingface_sort_by_createdAt_top996939_selected.json")

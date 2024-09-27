@@ -25,11 +25,11 @@ def test_unique_urls(filename):
         print(f"\n{dups} duplicate URLs were found.")
 
 
-filename = '../data/GH_data_safetensor.json'
+filename = '../../data/GH_data_safetensor.json'
 test_unique_urls(filename)
 
 import json
 
 # Load existing data
-with open('../data/GH_data_safetensor.json', 'r') as file:
+with open('../../data/GH_data_safetensor.json', 'r') as file:
     data = json.load(file)
