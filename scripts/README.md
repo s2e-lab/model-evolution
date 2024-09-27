@@ -21,9 +21,10 @@ pip install .
 ## Data Collection
 
 ### Getting Models Metadata from HuggingFace
+***(Make sure that you've set up your [HF SSH keys](https://huggingface.co/docs/hub/en/security-git-ssh))***
+
 - **Step 1:**
   - `get_models.py`: Script to get metadata of all models from HuggingFace. 
-  Make sure that you've set up your [HF SSH keys](https://huggingface.co/docs/hub/en/security-git-ssh).
     ```bash
     python get_models.py
     ```
@@ -33,6 +34,11 @@ pip install .
   It requires the start and end index of the models to be processed.
     ```bash
     python get_repos_history.py <start_index> <end_index>
+    ```
+    Example: below it will process the first 517 models and then the next 517 models.
+    ```bash
+    python get_repos_history.py 0 517
+    python get_repos_history.py 517 1035 
     ```
 
 ### Scraping StackOverflow posts
