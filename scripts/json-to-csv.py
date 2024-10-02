@@ -16,7 +16,8 @@ def convert_json_to_csv(json_file, csv_file):
         # Iterate over items in the JSON
         for item in data.get("items", []):
             title = item.get('title', 'N/A')
-            url = item.get('url', 'N/A')  # Assuming the URL of the post is stored in the 'url' field
+            question_id = item.get('question_id', 'N/A')
+            url = f"https://stackoverflow.com/questions/{question_id}"
             source = 'Stack Overflow'
             json_content = json.dumps(item, ensure_ascii=False)  # Store the whole item as JSON content
 
