@@ -1,35 +1,38 @@
+"""
+This script checks if the Github JSON data file contains any duplicate items.
+"""
+
 import json
+import sys
 
-''' This script checks if the Github JSON data file contains any duplicate items. '''
 
-def test_unique_urls(filename):
+
+def remove_duplicates(filename):
+    # Load the data from the JSON file
     with open(filename, 'r') as f:
         data = json.load(f)
 
-    url_set = set()
-    url_dups = []
-    dups = 0
+    # Initialize structures for tracking duplicates
+    url_set, unique_items = set(), []
 
-    for entry in data:
-        url = entry['url']
-        if url in url_set:
-            print(f"Duplicate URL found: {url}")
-            url_dups.append(url)
-            dups += 1
-            continue
+    # Iterate over items to check for duplicates
+    for item in data:
+        url = item['url']
+        if url not in url_set:
+            unique_items.append(item)
         url_set.add(url)
 
-    if not url_dups:
-        print("All URLs are unique!")
-    else:
-        print(f"\n{dups} duplicate URLs were found.")
+    # Save the unique items back to the JSON file
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(unique_items, f, ensure_ascii=False, indent=4)
 
+    return len(data) - len(unique_items)
 
-filename = '../../data/GH_data_safetensor.json'
-test_unique_urls(filename)
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Usage: python GH_dupcheck.py <filename>")
+        sys.exit(1)
+    filename = sys.argv[1]
 
-import json
-
-# Load existing data
-with open('../../data/GH_data_safetensor.json', 'r') as file:
-    data = json.load(file)
+    num_duplicates = remove_duplicates(filename)
+    print(f"Number of duplicate entries removed: {num_duplicates}")

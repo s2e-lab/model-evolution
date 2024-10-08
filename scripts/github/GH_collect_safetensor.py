@@ -1,3 +1,8 @@
+"""
+This script collects GitHub pull requests that contain the words:
+    "safetensor" or "safe tensor" or "safetensors"
+in the title or body.
+"""
 import os
 import json
 import requests
@@ -6,9 +11,9 @@ import sys
 from dotenv import load_dotenv
 from tenacity import retry, stop_after_attempt, wait_fixed, retry_if_exception_type, wait_random_exponential
 
-''' This script collects GitHub pull requests that contain the words "safetensor" or "safe tensor" or "safetensors" in the title or body. '''
 
-class RateLimitException(Exception):                                                # function to handle rate limit errors
+# To handle rate limit errors
+class RateLimitException(Exception):
     pass
 
 
@@ -72,7 +77,8 @@ if __name__ == "__main__":
     load_dotenv()
     token = os.getenv("GITHUB_TOKEN")                                                   # get github token from .env file
     if not token:
-        raise ValueError("GITHUB_TOKEN is required.")
+        print("WARNING: running in anonymous mode! You will be rate limited!")
+        # raise ValueError("GITHUB_TOKEN is required.")
 
     url = 'https://api.github.com/search/issues'                                        # set base url as github api search endpoint
 
@@ -107,6 +113,8 @@ if __name__ == "__main__":
         'Accept': 'application/vnd.github.v3+json',
         'Content-Type': 'application/json'
     }
+    if not token:
+        del headers['Authorization']
 
     pr_list = []
 
@@ -137,7 +145,7 @@ if __name__ == "__main__":
                             'comments': comment_list
                         }
                         pr_list.append(pr_details)
-                        print(f"[{n}] TITLE: {pr['title']}\n")
+                        print(f"[{n}] TITLE: {pr['title']}")
                         n += 1
                 if 'next' in response_links:                                               # continue to next page if it exists
                     params['page'] += 1

@@ -29,7 +29,7 @@ def convert_json_to_csv(json_file, csv_file):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python json-to-csv.py <json-file> <csv-file>")
+        print("Usage: python json-to-csv.py <json-file>")
         sys.exit(1)
 
     json_file = sys.argv[1]
