@@ -18,7 +18,21 @@ pip install .
 - Set up your [SSH](https://huggingface.co/docs/hub/en/security-git-ssh) keys locally to access the HuggingFace API.
 
 
+
+
 ## Data Collection
+
+### Scraping StackOverflow posts and GitHub PRs
+- 
+- **Collecting PRs from GitHub:**
+    ```bash
+    GH-collection.sh
+    ```
+- **Collecting StackOverflow posts:**
+    ```bash
+    SO-collection.sh
+    ```
+
 
 ### Getting Models Metadata from HuggingFace
 ***(Make sure that you've set up your [HF SSH keys](https://huggingface.co/docs/hub/en/security-git-ssh))***
@@ -41,4 +55,4 @@ pip install .
     python get_repos_history.py 517 1035 
     ```
 
-### Scraping StackOverflow posts
+

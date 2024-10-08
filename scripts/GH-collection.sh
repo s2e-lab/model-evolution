@@ -1,6 +1,6 @@
 #!/bin/bash
 
-output_file='../data/GH_data_safetensor_new.json'
+output_file='../data/GH_data_safetensor.json'
 
 # Execute GH_collect_safetensor.py
 echo "Running GH_collect_safetensor.py..."
