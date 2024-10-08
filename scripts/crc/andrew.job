@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#$ -M bcasey6@nd.edu   # Email address for job notification
+#$ -m abe              # Send mail when job begins, ends and aborts
+#$ -pe smp 12          # Specify parallel environment and legal core size
+#$ -q long             # Specify queue
+#$ -N model_analysis   # Specify job name
+
+python get_repos_history.py 517 600
+python get_repos_history.py 600 700
+python get_repos_history.py 700 800
+python get_repos_history.py 800 900
+python get_repos_history.py 900 1035
