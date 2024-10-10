@@ -6,8 +6,9 @@ from pathlib import Path
 import git
 import pandas as pd
 from tqdm import tqdm
+import utils
 
-from scripts.utils import delete_folder
+
 
 
 def clone(repo_url: str, clone_path: str) -> None:
@@ -19,7 +20,7 @@ def clone(repo_url: str, clone_path: str) -> None:
     clone_url = f"git@hf.co:{repo_url}"
     # Check if the repository directory already exists
     if os.path.exists(clone_path):
-        delete_folder(clone_path)
+        utils.delete_folder(clone_path)
     git.Repo.clone_from(clone_url, clone_path)
 
 
@@ -72,7 +73,7 @@ if __name__ == "__main__":
             print(f"Error processing {repo_url}: {e}")
             errors.append((repo_url, e))
         finally:
-            delete_folder(clone_path)
+            utils.delete_folder(clone_path)
 
     # save the commits to CSV
     columns = ["repo_url", "commit_hash", "author", "date", "message", "changed_files", "all_files_in_tree"]

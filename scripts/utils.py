@@ -13,7 +13,7 @@ def delete_folder(folder_location: str) -> bool:
 
     # check if the folder still exists
     if os.path.exists(folder_location):
-        current_os = sys.platform.system()
+        current_os = sys.platform
         if current_os == "Windows": # Use rmdir for Windows
             os.system(f'rmdir /S /Q "{folder_location}"')
         else: # Use rm -rf for Linux/macOS
