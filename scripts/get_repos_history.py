@@ -17,19 +17,7 @@ from analyticaml import check_ssh_connection
 from tqdm import tqdm
 
 import utils
-
-
-def clone(repo_url: str, clone_path: str) -> None:
-    """
-    Clone a repository from Hugging Face
-    :param repo_url: the repository URL (e.g., "huggingface/transformers")
-    :param clone_path: where to clone the repository locally.
-    """
-    clone_url = f"git@hf.co:{repo_url}"
-    # Check if the repository directory already exists
-    if os.path.exists(clone_path):
-        utils.delete_folder(clone_path)
-    git.Repo.clone_from(clone_url, clone_path)
+from scripts.utils import clone
 
 
 def get_commits(clone_path: str):

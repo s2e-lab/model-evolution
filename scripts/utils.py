@@ -2,6 +2,9 @@ import os
 import shutil
 import sys
 
+import git
+from git import Repo
+
 
 def delete_folder(folder_location: str) -> bool:
     """
@@ -19,3 +22,17 @@ def delete_folder(folder_location: str) -> bool:
         else: # Use rm -rf for Linux/macOS
             os.system(f'rm -rf {folder_location}')
     return not os.path.exists(folder_location)
+
+
+def clone(repo_url: str, clone_path: str) -> Repo:
+    """
+    Clone a repository from Hugging Face
+    :param repo_url: the repository URL (e.g., "huggingface/transformers")
+    :param clone_path: where to clone the repository locally.
+    :return: the git repository object.
+    """
+    clone_url = f"git@hf.co:{repo_url}"
+    # Check if the repository directory already exists
+    if os.path.exists(clone_path):
+        delete_folder(clone_path)
+    return git.Repo.clone_from(clone_url, clone_path)
