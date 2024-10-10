@@ -65,6 +65,14 @@ The data will be saved in the `data` folder.
 - **Step 3:**
   - Merge the CSV files into a single file.
     ```bash
+    ./merge_commit_history.sh
     ```
+    
+- **Step 4:**
+  - `analyze_commit_history.py`: Script to analyze the commit history of the models to identify the serialization format using at a given time.
+    ```bash
+    python analyze_commit_history.py
+    ```
+    The script will generate a CSV file with the analysis results on the `../results/` folder.
 
 
