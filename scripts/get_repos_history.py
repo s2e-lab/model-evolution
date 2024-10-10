@@ -80,6 +80,7 @@ if __name__ == "__main__":
     #  set this to True if you want to retry the repositories that failed
     should_retry = True
     if should_retry:
+        print("Retrying the repositories that failed.")
         input_file = Path("../data/huggingface_sort_by_createdAt_top996939_errors_0_1035.csv")
         df = pd.read_csv(input_file)
         repo_urls = df["repo_url"].tolist()
@@ -91,6 +92,7 @@ if __name__ == "__main__":
         df = pd.read_json(input_file)
         repo_urls = df["id"].tolist()
         repo_urls = repo_urls[start_idx:end_idx]
+        print("Parsing repositories from", start_idx, "to", end_idx)
 
 
     # iterates over the repositories
