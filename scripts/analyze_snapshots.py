@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
-from analyticaml import MODEL_FILE_EXTENSIONS
+from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
 from analyticaml.model_parser import detect_serialization_format
 from tqdm import tqdm
 
@@ -30,6 +30,16 @@ def parse_args(max_commits: int):
     if len(sys.argv) > 1:
         start_idx = int(sys.argv[1])
         end_idx = int(sys.argv[2])
+        if end_idx >= max_commits:
+            print(f"The maximum number of commits is {max_commits}. End index must be smaller than that.")
+            sys.exit(1)
+        if start_idx > end_idx:
+            print("The start index must be smaller than the end index")
+            sys.exit(1)
+        if start_idx < 0:
+            print("The start index must be greater than or equal to 0")
+            sys.exit(1)
+
     else:
         print("Usage: python analyze_snapshots.py <start_index> <end_index>")
         print("Example: python analyze_snapshots.py 0 100")
@@ -44,6 +54,15 @@ if __name__ == '__main__':
     # sys.argv = ["analyze_snapshots.py", "2926", "2928"]
     # small repo that is easier to test: "savasy/bert-base-turkish-squad"
 
+    # Check if the SSH connection is working
+    if not check_ssh_connection():
+        print("Please set up your SSH keys on HuggingFace.")
+        print("https://huggingface.co/docs/hub/en/security-git-ssh")
+        print("Run the following command to check if your SSH connection is working:")
+        print("ssh -T git@hf.co")
+        print("If it is anonymous, you need to add your SSH key to your HuggingFace account.")
+        sys.exit(1)
+
     # Load the repositories and set nan columns to empty string
     input_file = Path("../data/huggingface_sort_by_createdAt_top996939_commits_0_1035.csv")
     repos = pd.read_csv(input_file).fillna("")
@@ -51,8 +70,6 @@ if __name__ == '__main__':
     # identify the commits that have model files
     repos = repos[repos["changed_files"].apply(lambda x: filter_by_extension(x))]
     repos.reset_index(drop=True, inplace=True)
-
-    print(f"Found {len(repos)} commits with model files")
 
     # Parse the command line arguments
     start_idx, end_idx = parse_args(len(repos))
