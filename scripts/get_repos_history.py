@@ -1,3 +1,11 @@
+"""
+This script clones the repositories from Hugging Face and extracts the commit history.
+It reads the repositories from a JSON file (subset of model repositories) and saves the commits to a CSV file.
+It also saves the errors to a separate CSV file.
+
+Notice that if you want to retry the repositories that failed, you should set the variable should_retry to True.
+@Author: Joanna C. S. Santos
+"""
 import os
 import sys
 from datetime import datetime
@@ -5,10 +13,10 @@ from pathlib import Path
 
 import git
 import pandas as pd
+from analyticaml import check_ssh_connection
 from tqdm import tqdm
+
 import utils
-
-
 
 
 def clone(repo_url: str, clone_path: str) -> None:
@@ -46,23 +54,49 @@ def get_commits(clone_path: str):
     return commits
 
 
-if __name__ == "__main__":
-    # sys.argv = ["get_repos_history.py", "0", "2"]
-    # read start index and end index from the command line
+def parse_args():
+    """
+    Parse the command line arguments
+    :return: the start index and end index
+    """
     if len(sys.argv) > 1:
         start_idx = int(sys.argv[1])
         end_idx = int(sys.argv[2])
     else:
         print("Usage: python get_repos_history.py <start_index> <end_index>")
         sys.exit(1)
+    return start_idx, end_idx
 
-    input_file = Path("../data/huggingface_sort_by_createdAt_top996939_selected.json")
-    df = pd.read_json(input_file)
-    repo_urls = df["id"].tolist()
+if __name__ == "__main__":
+    # Check if the SSH connection is working
+    if not check_ssh_connection():
+        print("Please set up your SSH keys on HuggingFace.")
+        print("https://huggingface.co/docs/hub/en/security-git-ssh")
+        print("Run the following command to check if your SSH connection is working:")
+        print("ssh -T git@hf.co")
+        print("If it is anonymous, you need to add your SSH key to your HuggingFace account.")
+        sys.exit(1)
+
+    #  set this to True if you want to retry the repositories that failed
+    should_retry = True
+    if should_retry:
+        input_file = Path("../data/huggingface_sort_by_createdAt_top996939_errors_0_1035.csv")
+        df = pd.read_csv(input_file)
+        repo_urls = df["repo_url"].tolist()
+        start_idx, end_idx = "RETRIED", len(repo_urls)
+    else:
+        # read start index and end index from the command line
+        start_idx, end_idx = parse_args()
+        input_file = Path("../data/huggingface_sort_by_createdAt_top996939_selected.json")
+        df = pd.read_json(input_file)
+        repo_urls = df["id"].tolist()
+        repo_urls = repo_urls[start_idx:end_idx]
+
+
     # iterates over the repositories
-    commits = []
-    errors = []
-    for repo_url in tqdm(repo_urls[start_idx:end_idx], unit="repo"):
+    commits, errors = [], []
+
+    for repo_url in tqdm(repo_urls, unit="repo"):
         try:
             clone_path = os.path.join("./tmp", repo_url.replace("/", "+"))
             clone(repo_url, clone_path)
@@ -82,7 +116,7 @@ if __name__ == "__main__":
     output_file = Path("../data") / output_file
     df_commits.to_csv(output_file, index=False)
 
-    # save errors
+    # save errors to CSV
     error_file = input_file.stem.replace("_selected", "_errors_") + f"{start_idx}_{end_idx}.csv"
     error_file = Path("../data") / error_file
     df_errors = pd.DataFrame(errors, columns=["repo_url", "error"])
