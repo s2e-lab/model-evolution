@@ -1,6 +1,4 @@
 # script to set up conda environment on CRC servers
-module load conda
-module load git
 conda create -n "HFStudy" python=3.11.0
 source activate base
 conda activate HFTests
