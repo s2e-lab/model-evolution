@@ -17,7 +17,7 @@ from analyticaml import check_ssh_connection
 from tqdm import tqdm
 
 import utils
-from scripts.utils import clone
+from utils import clone
 
 
 def get_commits(clone_path: str):

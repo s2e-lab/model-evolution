@@ -6,6 +6,7 @@ import pandas as pd
 from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
 from analyticaml.model_parser import detect_serialization_format
 from tqdm import tqdm
+import subprocess
 
 import utils
 
@@ -122,7 +123,7 @@ if __name__ == '__main__':
                 df_output.loc[len(df_output)] = {
                     "repo_url": repo_url,
                     "commit_hash": hash,
-                    "model_file_path": file,
+                    "model_file_path": os.path.join(repo_url, file),
                     "serialization_format": serialization_format}
                 print(f"File: {file}, Format: {serialization_format}")
         except Exception as e:
