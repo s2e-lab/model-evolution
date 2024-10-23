@@ -1,0 +1,626 @@
+repo_url,commit_hash,error
+sentence-transformers/msmarco-MiniLM-L-12-v3,67cbc8cda2d57acef96ed7b61caf837f9d3e5364,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/msmarco-MiniLM-L-12-v3 tmp/sentence-transformers+msmarco-MiniLM-L-12-v3
+  stderr: 'Cloning into 'tmp/sentence-transformers+msmarco-MiniLM-L-12-v3'...
+remote: 
+remote: ========================================================================
+remote: 
+remote: ERROR: 
+
+remote: 
+remote: ========================================================================
+remote: 
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+'"
+sentence-transformers/facebook-dpr-ctx_encoder-single-nq-base,b57a40d884e5a1d04645109bc89d0c0281f6cd9d,"Cmd('git') failed due to: exit code(1)
+  cmdline: git checkout b57a40d884e5a1d04645109bc89d0c0281f6cd9d
+  stderr: 'error: Your local changes to the following files would be overwritten by checkout:
+	onnx/model.onnx
+	onnx/model_O1.onnx
+	onnx/model_O2.onnx
+	onnx/model_O3.onnx
+	openvino/openvino_model.bin
+Please commit your changes or stash them before you switch branches.
+Aborting'"
+sentence-transformers/facebook-dpr-ctx_encoder-single-nq-base,f0b075e888d2f93f5bfd07c02590c798426f7087,"Cmd('git') failed due to: exit code(1)
+  cmdline: git checkout f0b075e888d2f93f5bfd07c02590c798426f7087
+  stderr: 'error: Your local changes to the following files would be overwritten by checkout:
+	model.safetensors
+	onnx/model.onnx
+	onnx/model_O1.onnx
+	onnx/model_O2.onnx
+	onnx/model_O3.onnx
+	openvino/openvino_model.bin
+Please commit your changes or stash them before you switch branches.
+Aborting'"
+sentence-transformers/facebook-dpr-ctx_encoder-multiset-base,f2bf369e779a1c658158d15609f63f90ca84b663,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/facebook-dpr-ctx_encoder-multiset-base tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base
+  stderr: 'Cloning into 'tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base'...
+Downloading model.safetensors (438 MB)
+Error downloading object: model.safetensors (cb53d07): Smudge error: Error downloading model.safetensors (cb53d07ffdb91b7d8c899022392758c197725577711143afdc93cee8c552fa63): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base/.git/lfs/incomplete/cb53d07ffdb91b7d8c899022392758c197725577711143afdc93cee8c552fa632692199267"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base/.git/lfs/incomplete/cb53d07ffdb91b7d8c899022392758c197725577711143afdc93cee8c552fa632692199267: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base/.git/lfs/logs/20241023T042726.611913573.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/facebook-dpr-ctx_encoder-multiset-base,ae43c02d3267d1f11db4e7bfcfefc684c83b0c69,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/facebook-dpr-ctx_encoder-multiset-base tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base
+  stderr: 'Cloning into 'tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base'...
+Downloading model.safetensors (438 MB)
+Error downloading object: model.safetensors (cb53d07): Smudge error: Error downloading model.safetensors (cb53d07ffdb91b7d8c899022392758c197725577711143afdc93cee8c552fa63): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base/.git/lfs/incomplete/cb53d07ffdb91b7d8c899022392758c197725577711143afdc93cee8c552fa631075633707"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base/.git/lfs/incomplete/cb53d07ffdb91b7d8c899022392758c197725577711143afdc93cee8c552fa631075633707: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base/.git/lfs/logs/20241023T042747.149327544.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/facebook-dpr-ctx_encoder-multiset-base,db454d5ae9d5123b5e14a42179c80e1fc31fe9fe,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/facebook-dpr-ctx_encoder-multiset-base tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base
+  stderr: 'Cloning into 'tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base'...
+Downloading model.safetensors (438 MB)
+Error downloading object: model.safetensors (cb53d07): Smudge error: Error downloading model.safetensors (cb53d07ffdb91b7d8c899022392758c197725577711143afdc93cee8c552fa63): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base/.git/lfs/incomplete/cb53d07ffdb91b7d8c899022392758c197725577711143afdc93cee8c552fa634227250586"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base/.git/lfs/incomplete/cb53d07ffdb91b7d8c899022392758c197725577711143afdc93cee8c552fa634227250586: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+facebook-dpr-ctx_encoder-multiset-base/.git/lfs/logs/20241023T042808.53666995.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/distiluse-base-multilingual-cased,9ede88e8d37351c09b7f460898bc8b2aaa0c8106,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distiluse-base-multilingual-cased tmp/sentence-transformers+distiluse-base-multilingual-cased
+  stderr: 'Cloning into 'tmp/sentence-transformers+distiluse-base-multilingual-cased'...
+Filtering content:  11% (2/17)
+Filtering content:  17% (3/17)
+Filtering content:  23% (4/17)
+Downloading model.safetensors (539 MB)
+Error downloading object: model.safetensors (e8c2aed): Smudge error: Error downloading model.safetensors (e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d7): open /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/incomplete/e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d73557064225: disk quota exceeded
+Unable to log panic to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/logs': mkdir /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/logs: disk quota exceeded
+
+git-lfs/3.5.1 (GitHub; linux amd64; go 1.21.7; git e237bb3a)
+git version 2.45.1
+
+$ git-lfs filter-process
+Error downloading object: model.safetensors (e8c2aed): Smudge error: Error downloading model.safetensors (e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d7): open /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/incomplete/e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d73557064225: disk quota exceeded
+
+open /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/incomplete/e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d73557064225: disk quota exceeded
+Error downloading model.safetensors (e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d7)
+github.com/git-lfs/git-lfs/v3/errors.newWrappedError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:229
+github.com/git-lfs/git-lfs/v3/errors.Wrapf
+	github.com/git-lfs/git-lfs/v3/errors/errors.go:85
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).downloadFile
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:134
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).Smudge
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:85
+github.com/git-lfs/git-lfs/v3/commands.smudge
+	github.com/git-lfs/git-lfs/v3/commands/command_smudge.go:128
+github.com/git-lfs/git-lfs/v3/commands.filterCommand
+	github.com/git-lfs/git-lfs/v3/commands/command_filter_process.go:131
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.7.0/command.go:944
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.7.0/command.go:1068
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.7.0/command.go:992
+github.com/git-lfs/git-lfs/v3/commands.Run
+	github.com/git-lfs/git-lfs/v3/commands/run.go:154
+main.main
+	./git-lfs.go:34
+runtime.main
+	runtime/proc.go:267
+runtime.goexit
+	runtime/asm_amd64.s:1650
+Smudge error
+github.com/git-lfs/git-lfs/v3/errors.newWrappedError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:229
+github.com/git-lfs/git-lfs/v3/errors.NewSmudgeError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:315
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).Smudge
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:102
+github.com/git-lfs/git-lfs/v3/commands.smudge
+	github.com/git-lfs/git-lfs/v3/commands/command_smudge.go:128
+github.com/git-lfs/git-lfs/v3/commands.filterCommand
+	github.com/git-lfs/git-lfs/v3/commands/command_filter_process.go:131
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.7.0/command.go:944
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.7.0/command.go:1068
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.7.0/command.go:992
+github.com/git-lfs/git-lfs/v3/commands.Run
+	github.com/git-lfs/git-lfs/v3/commands/run.go:154
+main.main
+	./git-lfs.go:34
+runtime.main
+	runtime/proc.go:267
+runtime.goexit
+	runtime/asm_amd64.s:1650
+
+Current time in UTC:
+2024-10-23 08:28:32
+
+Environment:
+LocalWorkingDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased
+LocalGitDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git
+LocalGitStorageDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git
+LocalMediaDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/objects
+LocalReferenceDirs=
+TempDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/tmp
+ConcurrentTransfers=8
+TusTransfers=false
+BasicTransfersOnly=false
+SkipDownloadErrors=false
+FetchRecentAlways=false
+FetchRecentRefsDays=7
+FetchRecentCommitsDays=0
+FetchRecentRefsIncludeRemotes=true
+PruneOffsetDays=3
+PruneVerifyRemoteAlways=false
+PruneVerifyUnreachableAlways=false
+PruneRemoteName=origin
+LfsStorageDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs
+AccessDownload=none
+AccessUpload=none
+DownloadTransfers=basic,lfs-standalone-file,ssh
+UploadTransfers=basic,lfs-standalone-file,ssh
+GIT_CLONE_TEMPLATE_DIR=/opt/crc/g/git/2.45.1/share/git-core/templates
+GIT_DIR=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git
+GIT_EXEC_PATH=/opt/crc/g/git/2.45.1/libexec/git-core
+GIT_ASKPASS=/afs/crc.nd.edu/user/a/acotaj/.vscode-server/cli/servers/Stable-384ff7382de624fb94dbaf6da11977bba1ecd427/server/extensions/git/dist/askpass.sh
+GIT_CLONE_PROTECTION_ACTIVE=false
+
+Client IP addresses:
+10.32.85.47
+169.254.1.2
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/distiluse-base-multilingual-cased,c40dc2c74df7dcba7ef11972be6ec8188c5f1969,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distiluse-base-multilingual-cased tmp/sentence-transformers+distiluse-base-multilingual-cased
+  stderr: 'Cloning into 'tmp/sentence-transformers+distiluse-base-multilingual-cased'...
+Filtering content:  11% (2/17)
+Filtering content:  17% (3/17)
+Filtering content:  23% (4/17)
+Downloading model.safetensors (539 MB)
+Error downloading object: model.safetensors (e8c2aed): Smudge error: Error downloading model.safetensors (e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d7): open /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/incomplete/e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d7869590786: disk quota exceeded
+Unable to log panic to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/logs': mkdir /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/logs: disk quota exceeded
+
+git-lfs/3.5.1 (GitHub; linux amd64; go 1.21.7; git e237bb3a)
+git version 2.45.1
+
+$ git-lfs filter-process
+Error downloading object: model.safetensors (e8c2aed): Smudge error: Error downloading model.safetensors (e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d7): open /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/incomplete/e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d7869590786: disk quota exceeded
+
+open /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/incomplete/e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d7869590786: disk quota exceeded
+Error downloading model.safetensors (e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d7)
+github.com/git-lfs/git-lfs/v3/errors.newWrappedError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:229
+github.com/git-lfs/git-lfs/v3/errors.Wrapf
+	github.com/git-lfs/git-lfs/v3/errors/errors.go:85
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).downloadFile
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:134
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).Smudge
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:85
+github.com/git-lfs/git-lfs/v3/commands.smudge
+	github.com/git-lfs/git-lfs/v3/commands/command_smudge.go:128
+github.com/git-lfs/git-lfs/v3/commands.filterCommand
+	github.com/git-lfs/git-lfs/v3/commands/command_filter_process.go:131
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.7.0/command.go:944
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.7.0/command.go:1068
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.7.0/command.go:992
+github.com/git-lfs/git-lfs/v3/commands.Run
+	github.com/git-lfs/git-lfs/v3/commands/run.go:154
+main.main
+	./git-lfs.go:34
+runtime.main
+	runtime/proc.go:267
+runtime.goexit
+	runtime/asm_amd64.s:1650
+Smudge error
+github.com/git-lfs/git-lfs/v3/errors.newWrappedError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:229
+github.com/git-lfs/git-lfs/v3/errors.NewSmudgeError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:315
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).Smudge
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:102
+github.com/git-lfs/git-lfs/v3/commands.smudge
+	github.com/git-lfs/git-lfs/v3/commands/command_smudge.go:128
+github.com/git-lfs/git-lfs/v3/commands.filterCommand
+	github.com/git-lfs/git-lfs/v3/commands/command_filter_process.go:131
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.7.0/command.go:944
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.7.0/command.go:1068
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.7.0/command.go:992
+github.com/git-lfs/git-lfs/v3/commands.Run
+	github.com/git-lfs/git-lfs/v3/commands/run.go:154
+main.main
+	./git-lfs.go:34
+runtime.main
+	runtime/proc.go:267
+runtime.goexit
+	runtime/asm_amd64.s:1650
+
+Current time in UTC:
+2024-10-23 08:28:56
+
+Environment:
+LocalWorkingDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased
+LocalGitDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git
+LocalGitStorageDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git
+LocalMediaDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/objects
+LocalReferenceDirs=
+TempDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/tmp
+ConcurrentTransfers=8
+TusTransfers=false
+BasicTransfersOnly=false
+SkipDownloadErrors=false
+FetchRecentAlways=false
+FetchRecentRefsDays=7
+FetchRecentCommitsDays=0
+FetchRecentRefsIncludeRemotes=true
+PruneOffsetDays=3
+PruneVerifyRemoteAlways=false
+PruneVerifyUnreachableAlways=false
+PruneRemoteName=origin
+LfsStorageDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs
+AccessDownload=none
+AccessUpload=none
+DownloadTransfers=basic,lfs-standalone-file,ssh
+UploadTransfers=basic,lfs-standalone-file,ssh
+GIT_CLONE_TEMPLATE_DIR=/opt/crc/g/git/2.45.1/share/git-core/templates
+GIT_DIR=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git
+GIT_EXEC_PATH=/opt/crc/g/git/2.45.1/libexec/git-core
+GIT_ASKPASS=/afs/crc.nd.edu/user/a/acotaj/.vscode-server/cli/servers/Stable-384ff7382de624fb94dbaf6da11977bba1ecd427/server/extensions/git/dist/askpass.sh
+GIT_CLONE_PROTECTION_ACTIVE=false
+
+Client IP addresses:
+10.32.85.47
+169.254.1.2
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/distiluse-base-multilingual-cased,12636a40b29586f98a8f25304b743b6e1529879b,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distiluse-base-multilingual-cased tmp/sentence-transformers+distiluse-base-multilingual-cased
+  stderr: 'Cloning into 'tmp/sentence-transformers+distiluse-base-multilingual-cased'...
+Filtering content:  11% (2/17)
+Filtering content:  17% (3/17)
+Filtering content:  23% (4/17)
+Downloading model.safetensors (539 MB)
+Error downloading object: model.safetensors (e8c2aed): Smudge error: Error downloading model.safetensors (e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d7): open /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/incomplete/e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d71856371275: disk quota exceeded
+Unable to log panic to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/logs': mkdir /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/logs: disk quota exceeded
+
+git-lfs/3.5.1 (GitHub; linux amd64; go 1.21.7; git e237bb3a)
+git version 2.45.1
+
+$ git-lfs filter-process
+Error downloading object: model.safetensors (e8c2aed): Smudge error: Error downloading model.safetensors (e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d7): open /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/incomplete/e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d71856371275: disk quota exceeded
+
+open /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/incomplete/e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d71856371275: disk quota exceeded
+Error downloading model.safetensors (e8c2aed21297045330bd7c36ad1fee2ca8a7c527ac94cf19d20c3dd2bee564d7)
+github.com/git-lfs/git-lfs/v3/errors.newWrappedError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:229
+github.com/git-lfs/git-lfs/v3/errors.Wrapf
+	github.com/git-lfs/git-lfs/v3/errors/errors.go:85
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).downloadFile
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:134
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).Smudge
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:85
+github.com/git-lfs/git-lfs/v3/commands.smudge
+	github.com/git-lfs/git-lfs/v3/commands/command_smudge.go:128
+github.com/git-lfs/git-lfs/v3/commands.filterCommand
+	github.com/git-lfs/git-lfs/v3/commands/command_filter_process.go:131
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.7.0/command.go:944
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.7.0/command.go:1068
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.7.0/command.go:992
+github.com/git-lfs/git-lfs/v3/commands.Run
+	github.com/git-lfs/git-lfs/v3/commands/run.go:154
+main.main
+	./git-lfs.go:34
+runtime.main
+	runtime/proc.go:267
+runtime.goexit
+	runtime/asm_amd64.s:1650
+Smudge error
+github.com/git-lfs/git-lfs/v3/errors.newWrappedError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:229
+github.com/git-lfs/git-lfs/v3/errors.NewSmudgeError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:315
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).Smudge
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:102
+github.com/git-lfs/git-lfs/v3/commands.smudge
+	github.com/git-lfs/git-lfs/v3/commands/command_smudge.go:128
+github.com/git-lfs/git-lfs/v3/commands.filterCommand
+	github.com/git-lfs/git-lfs/v3/commands/command_filter_process.go:131
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.7.0/command.go:944
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.7.0/command.go:1068
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.7.0/command.go:992
+github.com/git-lfs/git-lfs/v3/commands.Run
+	github.com/git-lfs/git-lfs/v3/commands/run.go:154
+main.main
+	./git-lfs.go:34
+runtime.main
+	runtime/proc.go:267
+runtime.goexit
+	runtime/asm_amd64.s:1650
+
+Current time in UTC:
+2024-10-23 08:29:21
+
+Environment:
+LocalWorkingDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased
+LocalGitDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git
+LocalGitStorageDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git
+LocalMediaDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/objects
+LocalReferenceDirs=
+TempDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs/tmp
+ConcurrentTransfers=8
+TusTransfers=false
+BasicTransfersOnly=false
+SkipDownloadErrors=false
+FetchRecentAlways=false
+FetchRecentRefsDays=7
+FetchRecentCommitsDays=0
+FetchRecentRefsIncludeRemotes=true
+PruneOffsetDays=3
+PruneVerifyRemoteAlways=false
+PruneVerifyUnreachableAlways=false
+PruneRemoteName=origin
+LfsStorageDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git/lfs
+AccessDownload=none
+AccessUpload=none
+DownloadTransfers=basic,lfs-standalone-file,ssh
+UploadTransfers=basic,lfs-standalone-file,ssh
+GIT_CLONE_TEMPLATE_DIR=/opt/crc/g/git/2.45.1/share/git-core/templates
+GIT_DIR=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+distiluse-base-multilingual-cased/.git
+GIT_EXEC_PATH=/opt/crc/g/git/2.45.1/libexec/git-core
+GIT_ASKPASS=/afs/crc.nd.edu/user/a/acotaj/.vscode-server/cli/servers/Stable-384ff7382de624fb94dbaf6da11977bba1ecd427/server/extensions/git/dist/askpass.sh
+GIT_CLONE_PROTECTION_ACTIVE=false
+
+Client IP addresses:
+10.32.85.47
+169.254.1.2
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/distiluse-base-multilingual-cased-v2,03a0532331151aeb3e1d2e602ffad62bb212a38d,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distiluse-base-multilingual-cased-v2 tmp/sentence-transformers+distiluse-base-multilingual-cased-v2
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distiluse-base-multilingual-cased-v2': Disk quota exceeded
+'"
+sentence-transformers/distiluse-base-multilingual-cased-v2,896fbacdabde59de4cb8d75dea7b9bff6066015c,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distiluse-base-multilingual-cased-v2 tmp/sentence-transformers+distiluse-base-multilingual-cased-v2
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distiluse-base-multilingual-cased-v2': Disk quota exceeded
+'"
+sentence-transformers/distiluse-base-multilingual-cased-v2,fcd5c2bb3e3aa74cd765d793fb576705e4ea797e,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distiluse-base-multilingual-cased-v2 tmp/sentence-transformers+distiluse-base-multilingual-cased-v2
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distiluse-base-multilingual-cased-v2': Disk quota exceeded
+'"
+sentence-transformers/distiluse-base-multilingual-cased-v1,ae9f5e096840ab325a30464d284f293fbea761a8,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distiluse-base-multilingual-cased-v1 tmp/sentence-transformers+distiluse-base-multilingual-cased-v1
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distiluse-base-multilingual-cased-v1': Disk quota exceeded
+'"
+sentence-transformers/distiluse-base-multilingual-cased-v1,756c7aa7d57c27bd1c71a483367c53966465f450,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distiluse-base-multilingual-cased-v1 tmp/sentence-transformers+distiluse-base-multilingual-cased-v1
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distiluse-base-multilingual-cased-v1': Disk quota exceeded
+'"
+sentence-transformers/distiluse-base-multilingual-cased-v1,66df1a0f9c18c61b8a3df1d8dcc466d64b81bcf1,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distiluse-base-multilingual-cased-v1 tmp/sentence-transformers+distiluse-base-multilingual-cased-v1
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distiluse-base-multilingual-cased-v1': Disk quota exceeded
+'"
+sentence-transformers/distilroberta-base-paraphrase-v1,465e8fcb787de877b98ea444e680f8fc8350fae7,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilroberta-base-paraphrase-v1 tmp/sentence-transformers+distilroberta-base-paraphrase-v1
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilroberta-base-paraphrase-v1': Disk quota exceeded
+'"
+sentence-transformers/distilroberta-base-paraphrase-v1,0191e446424b49506ba016264788b49bb7b11eb9,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilroberta-base-paraphrase-v1 tmp/sentence-transformers+distilroberta-base-paraphrase-v1
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilroberta-base-paraphrase-v1': Disk quota exceeded
+'"
+sentence-transformers/distilroberta-base-paraphrase-v1,c8e6ee34d9c72c6eb53e3383fdff8948e35ee518,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilroberta-base-paraphrase-v1 tmp/sentence-transformers+distilroberta-base-paraphrase-v1
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilroberta-base-paraphrase-v1': Disk quota exceeded
+'"
+sentence-transformers/distilroberta-base-msmarco-v2,b39d3bb53a0143f3af00fc9e45877d7852f12636,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilroberta-base-msmarco-v2 tmp/sentence-transformers+distilroberta-base-msmarco-v2
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilroberta-base-msmarco-v2': Disk quota exceeded
+'"
+sentence-transformers/distilroberta-base-msmarco-v2,f273032139d26a1e54280e0b7d2f4a2193de4feb,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilroberta-base-msmarco-v2 tmp/sentence-transformers+distilroberta-base-msmarco-v2
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilroberta-base-msmarco-v2': Disk quota exceeded
+'"
+sentence-transformers/distilroberta-base-msmarco-v2,17c0a13c8a1b95fc7b0480b20d044901cad20076,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilroberta-base-msmarco-v2 tmp/sentence-transformers+distilroberta-base-msmarco-v2
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilroberta-base-msmarco-v2': Disk quota exceeded
+'"
+sentence-transformers/distilroberta-base-msmarco-v1,3f6934fe72c36fc86107e29fbbfdd5f8dda84e4b,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilroberta-base-msmarco-v1 tmp/sentence-transformers+distilroberta-base-msmarco-v1
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilroberta-base-msmarco-v1': Disk quota exceeded
+'"
+sentence-transformers/distilroberta-base-msmarco-v1,b625c1f869c7869b660b456ecf8eff290d1333e3,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilroberta-base-msmarco-v1 tmp/sentence-transformers+distilroberta-base-msmarco-v1
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilroberta-base-msmarco-v1': Disk quota exceeded
+'"
+sentence-transformers/distilroberta-base-msmarco-v1,8e60d33196c28760e266f2fe3323b01bb8c4da8d,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilroberta-base-msmarco-v1 tmp/sentence-transformers+distilroberta-base-msmarco-v1
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilroberta-base-msmarco-v1': Disk quota exceeded
+'"
+sentence-transformers/distilbert-multilingual-nli-stsb-quora-ranking,117dd6a227afa30e2354289a96d2b2e983f35b5a,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-multilingual-nli-stsb-quora-ranking tmp/sentence-transformers+distilbert-multilingual-nli-stsb-quora-ranking
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-multilingual-nli-stsb-quora-ranking': Disk quota exceeded
+'"
+sentence-transformers/distilbert-multilingual-nli-stsb-quora-ranking,8ae74eb0fbe7c8d82bb3d1a91fca56f352074e7f,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-multilingual-nli-stsb-quora-ranking tmp/sentence-transformers+distilbert-multilingual-nli-stsb-quora-ranking
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-multilingual-nli-stsb-quora-ranking': Disk quota exceeded
+'"
+sentence-transformers/distilbert-multilingual-nli-stsb-quora-ranking,1243633b89935ef655296af3cb43c82177b7b1ad,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-multilingual-nli-stsb-quora-ranking tmp/sentence-transformers+distilbert-multilingual-nli-stsb-quora-ranking
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-multilingual-nli-stsb-quora-ranking': Disk quota exceeded
+'"
+sentence-transformers/distilbert-multilingual-nli-stsb-quora-ranking,16d14c788b26ba240428bf54b0e472026d913411,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-multilingual-nli-stsb-quora-ranking tmp/sentence-transformers+distilbert-multilingual-nli-stsb-quora-ranking
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-multilingual-nli-stsb-quora-ranking': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-stsb-quora-ranking,038c0dd35af3615fdec4477484e98db3c1583ada,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-stsb-quora-ranking tmp/sentence-transformers+distilbert-base-nli-stsb-quora-ranking
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-stsb-quora-ranking': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-stsb-quora-ranking,f39736041df2a9460ef1525cc9052c3fa39bebc2,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-stsb-quora-ranking tmp/sentence-transformers+distilbert-base-nli-stsb-quora-ranking
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-stsb-quora-ranking': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-stsb-quora-ranking,7dbfdec5e73883d2a0e79bfbbe7a84d8b93b25af,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-stsb-quora-ranking tmp/sentence-transformers+distilbert-base-nli-stsb-quora-ranking
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-stsb-quora-ranking': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-stsb-quora-ranking,1a948a26c6e5a8580d07a5e779ba076a35f6d5ce,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-stsb-quora-ranking tmp/sentence-transformers+distilbert-base-nli-stsb-quora-ranking
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-stsb-quora-ranking': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-stsb-mean-tokens,ec4fb043dbfe6eb0f6bb31c5d8ab8be458c02f4f,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-stsb-mean-tokens tmp/sentence-transformers+distilbert-base-nli-stsb-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-stsb-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-stsb-mean-tokens,888433dbfd0f07dc22d9e038d9acb20e5ca7e0d5,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-stsb-mean-tokens tmp/sentence-transformers+distilbert-base-nli-stsb-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-stsb-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-stsb-mean-tokens,baa1089bb44f08e63214b69caf05d3d9e16687c3,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-stsb-mean-tokens tmp/sentence-transformers+distilbert-base-nli-stsb-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-stsb-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-stsb-mean-tokens,abd12df2ac4bce36c00cef64b2357725f4c4b96a,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-stsb-mean-tokens tmp/sentence-transformers+distilbert-base-nli-stsb-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-stsb-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-mean-tokens,2781c006adbf3726b509caa8649fc8077ff0724d,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-mean-tokens tmp/sentence-transformers+distilbert-base-nli-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-mean-tokens,683b927b0b0f77e70b9a7d15f7f7601a515925a9,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-mean-tokens tmp/sentence-transformers+distilbert-base-nli-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-mean-tokens,c20c4ef342e25c72caa6fe5e26123b2642e5e052,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-mean-tokens tmp/sentence-transformers+distilbert-base-nli-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-max-tokens,f0cf640ec026d3aea7f5acc40581858d23eb85f1,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-max-tokens tmp/sentence-transformers+distilbert-base-nli-max-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-max-tokens': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-max-tokens,b406dc6411aa5f75c3703b7aa06851c8ddff8916,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-max-tokens tmp/sentence-transformers+distilbert-base-nli-max-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-max-tokens': Disk quota exceeded
+'"
+sentence-transformers/distilbert-base-nli-max-tokens,45506387300c5aa4ae26c24716e8a870f19ba670,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/distilbert-base-nli-max-tokens tmp/sentence-transformers+distilbert-base-nli-max-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+distilbert-base-nli-max-tokens': Disk quota exceeded
+'"
+sentence-transformers/clip-ViT-B-32,afe976e3f4ea04b633edb0089a7e5088ddbe9212,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/clip-ViT-B-32 tmp/sentence-transformers+clip-ViT-B-32
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+clip-ViT-B-32': Disk quota exceeded
+'"
+sentence-transformers/clip-ViT-B-32,ab9209f5e3c966abedd122c4476a44ab5217129a,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/clip-ViT-B-32 tmp/sentence-transformers+clip-ViT-B-32
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+clip-ViT-B-32': Disk quota exceeded
+'"
+sentence-transformers/clip-ViT-B-32,81479160d6574f2a0fdc50bc62a66fe86b0c08cc,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/clip-ViT-B-32 tmp/sentence-transformers+clip-ViT-B-32
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+clip-ViT-B-32': Disk quota exceeded
+'"
+sentence-transformers/clip-ViT-B-32-multilingual-v1,10b5b81a389a9c157ae791276b648365c541a19b,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/clip-ViT-B-32-multilingual-v1 tmp/sentence-transformers+clip-ViT-B-32-multilingual-v1
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+clip-ViT-B-32-multilingual-v1': Disk quota exceeded
+'"
+sentence-transformers/clip-ViT-B-32-multilingual-v1,200b64f20b3cef15ade0d31b1392519a46024087,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/clip-ViT-B-32-multilingual-v1 tmp/sentence-transformers+clip-ViT-B-32-multilingual-v1
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+clip-ViT-B-32-multilingual-v1': Disk quota exceeded
+'"
+sentence-transformers/clip-ViT-B-32-multilingual-v1,d27719bd842e85d6e9667f308279bfaa48a677e5,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/clip-ViT-B-32-multilingual-v1 tmp/sentence-transformers+clip-ViT-B-32-multilingual-v1
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+clip-ViT-B-32-multilingual-v1': Disk quota exceeded
+'"
+sentence-transformers/bert-large-nli-stsb-mean-tokens,405c03be69c5084dcdd6f73e17e0a07872cec436,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/bert-large-nli-stsb-mean-tokens tmp/sentence-transformers+bert-large-nli-stsb-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+bert-large-nli-stsb-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/bert-large-nli-stsb-mean-tokens,ab23972c686d191c5a1915b71cf453e20647cff1,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/bert-large-nli-stsb-mean-tokens tmp/sentence-transformers+bert-large-nli-stsb-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+bert-large-nli-stsb-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/bert-large-nli-stsb-mean-tokens,9de752b866b455613f6e65d7f46c639fb0f5129e,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/bert-large-nli-stsb-mean-tokens tmp/sentence-transformers+bert-large-nli-stsb-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+bert-large-nli-stsb-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/bert-large-nli-mean-tokens,415da850af1117ff0257c083d731080cf9a6f114,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/bert-large-nli-mean-tokens tmp/sentence-transformers+bert-large-nli-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+bert-large-nli-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/bert-large-nli-mean-tokens,321b149057b64563bfc7bd2b2fb7d685ea9e4014,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/bert-large-nli-mean-tokens tmp/sentence-transformers+bert-large-nli-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+bert-large-nli-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/bert-large-nli-mean-tokens,b7d6cdceeeb0c6bce11afaadb62551f02625c3c6,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/bert-large-nli-mean-tokens tmp/sentence-transformers+bert-large-nli-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+bert-large-nli-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/bert-large-nli-mean-tokens,7c5d4e913349fd40665fb0188faac60c1bd95764,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/bert-large-nli-mean-tokens tmp/sentence-transformers+bert-large-nli-mean-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+bert-large-nli-mean-tokens': Disk quota exceeded
+'"
+sentence-transformers/bert-large-nli-max-tokens,127dd6715ac16f13c33d23cd0ae08d928a90c3ce,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/bert-large-nli-max-tokens tmp/sentence-transformers+bert-large-nli-max-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+bert-large-nli-max-tokens': Disk quota exceeded
+'"
+sentence-transformers/bert-large-nli-max-tokens,1738a181e9e77a09752f92e6dbde15f4a5527d5c,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/bert-large-nli-max-tokens tmp/sentence-transformers+bert-large-nli-max-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+bert-large-nli-max-tokens': Disk quota exceeded
+'"
+sentence-transformers/bert-large-nli-max-tokens,8ea32875e009db37e0d3ed6050bfb8ad2052ba7d,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/bert-large-nli-max-tokens tmp/sentence-transformers+bert-large-nli-max-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+bert-large-nli-max-tokens': Disk quota exceeded
+'"
+sentence-transformers/bert-large-nli-max-tokens,52e47359f63823e26afaeaa3b47dded37db7df81,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/bert-large-nli-max-tokens tmp/sentence-transformers+bert-large-nli-max-tokens
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+bert-large-nli-max-tokens': Disk quota exceeded
+'"
+sentence-transformers/bert-large-nli-cls-token,00e4634e59516819b2fa94f66913794f405ec4fa,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/bert-large-nli-cls-token tmp/sentence-transformers+bert-large-nli-cls-token
+  stderr: 'fatal: could not create work tree dir 'tmp/sentence-transformers+bert-large-nli-cls-token': Disk quota exceeded
+'"
