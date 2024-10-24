@@ -1,0 +1,664 @@
+repo_url,commit_hash,error
+s-nlp/bart-base-detox,eb48f6ed5392621070d80c1d6a3e2c7c2c147d87,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:s-nlp/bart-base-detox tmp/s-nlp+bart-base-detox
+  stderr: 'Cloning into 'tmp/s-nlp+bart-base-detox'...
+Downloading model.safetensors (558 MB)
+Error downloading object: model.safetensors (97c9b38): Smudge error: Error downloading model.safetensors (97c9b38ad2bfe8ffc8a22463642810e14a089219f23e11ce0c9632644bd2d89b): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/s-nlp+bart-base-detox/.git/lfs/incomplete/97c9b38ad2bfe8ffc8a22463642810e14a089219f23e11ce0c9632644bd2d89b306963910"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/s-nlp+bart-base-detox/.git/lfs/incomplete/97c9b38ad2bfe8ffc8a22463642810e14a089219f23e11ce0c9632644bd2d89b306963910: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/s-nlp+bart-base-detox/.git/lfs/logs/20241023T125638.880323406.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+s-nlp/bart-base-detox,7de719b298c4635adb3fc145eed9ed34766627ae,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:s-nlp/bart-base-detox tmp/s-nlp+bart-base-detox
+  stderr: 'Cloning into 'tmp/s-nlp+bart-base-detox'...
+Downloading model.safetensors (558 MB)
+Error downloading object: model.safetensors (97c9b38): Smudge error: Error downloading model.safetensors (97c9b38ad2bfe8ffc8a22463642810e14a089219f23e11ce0c9632644bd2d89b): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/s-nlp+bart-base-detox/.git/lfs/incomplete/97c9b38ad2bfe8ffc8a22463642810e14a089219f23e11ce0c9632644bd2d89b793736111"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/s-nlp+bart-base-detox/.git/lfs/incomplete/97c9b38ad2bfe8ffc8a22463642810e14a089219f23e11ce0c9632644bd2d89b793736111: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/s-nlp+bart-base-detox/.git/lfs/logs/20241023T125651.651702884.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+RifsxD/DialoGPT-medium-raifu,7aa379d70cca9be708c53615282221cdbf23b5dd,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:RifsxD/DialoGPT-medium-raifu tmp/RifsxD+DialoGPT-medium-raifu
+  stderr: 'Cloning into 'tmp/RifsxD+DialoGPT-medium-raifu'...
+Downloading model.safetensors (1.4 GB)
+Error downloading object: model.safetensors (44c3a58): Smudge error: Error downloading model.safetensors (44c3a580a59bedb5081f9c527cce65ab0ce14e9ebacc0c8f4cbae766c6888a20): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RifsxD+DialoGPT-medium-raifu/.git/lfs/incomplete/44c3a580a59bedb5081f9c527cce65ab0ce14e9ebacc0c8f4cbae766c6888a202882705592"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RifsxD+DialoGPT-medium-raifu/.git/lfs/incomplete/44c3a580a59bedb5081f9c527cce65ab0ce14e9ebacc0c8f4cbae766c6888a202882705592: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RifsxD+DialoGPT-medium-raifu/.git/lfs/logs/20241023T125712.58244959.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+RifsxD/DialoGPT-medium-raifu,dbd84d72c7efb7d5693a6b6432d9debe97141dd0,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:RifsxD/DialoGPT-medium-raifu tmp/RifsxD+DialoGPT-medium-raifu
+  stderr: 'Cloning into 'tmp/RifsxD+DialoGPT-medium-raifu'...
+Downloading model.safetensors (1.4 GB)
+Error downloading object: model.safetensors (44c3a58): Smudge error: Error downloading model.safetensors (44c3a580a59bedb5081f9c527cce65ab0ce14e9ebacc0c8f4cbae766c6888a20): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RifsxD+DialoGPT-medium-raifu/.git/lfs/incomplete/44c3a580a59bedb5081f9c527cce65ab0ce14e9ebacc0c8f4cbae766c6888a201977620886"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RifsxD+DialoGPT-medium-raifu/.git/lfs/incomplete/44c3a580a59bedb5081f9c527cce65ab0ce14e9ebacc0c8f4cbae766c6888a201977620886: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RifsxD+DialoGPT-medium-raifu/.git/lfs/logs/20241023T125734.627421384.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+RJ3vans/SignTagger,bc0fc352ded2e38b4e30e1d4c31488f9ac386f0e,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:RJ3vans/SignTagger tmp/RJ3vans+SignTagger
+  stderr: 'Cloning into 'tmp/RJ3vans+SignTagger'...
+Downloading pytorch_model.bin (1.3 GB)
+Error downloading object: pytorch_model.bin (20d29ae): Smudge error: Error downloading pytorch_model.bin (20d29ae5822f6da73266e8e12a1ac8b5ebb2375ade01a82adc39b3eb01be52bb): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+SignTagger/.git/lfs/incomplete/20d29ae5822f6da73266e8e12a1ac8b5ebb2375ade01a82adc39b3eb01be52bb22815388"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+SignTagger/.git/lfs/incomplete/20d29ae5822f6da73266e8e12a1ac8b5ebb2375ade01a82adc39b3eb01be52bb22815388: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+SignTagger/.git/lfs/logs/20241023T125747.57329208.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+RJ3vans/SSMNspanTagger,e919953f24811141e84936b5aea8cae04b441495,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:RJ3vans/SSMNspanTagger tmp/RJ3vans+SSMNspanTagger
+  stderr: 'Cloning into 'tmp/RJ3vans+SSMNspanTagger'...
+Downloading pytorch_model.bin (1.3 GB)
+Error downloading object: pytorch_model.bin (a875e3a): Smudge error: Error downloading pytorch_model.bin (a875e3add4c4dc6f0d354d975e4b5e6b3bfb21708b5abf77ba389a81ec952a20): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+SSMNspanTagger/.git/lfs/incomplete/a875e3add4c4dc6f0d354d975e4b5e6b3bfb21708b5abf77ba389a81ec952a20855391390"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+SSMNspanTagger/.git/lfs/incomplete/a875e3add4c4dc6f0d354d975e4b5e6b3bfb21708b5abf77ba389a81ec952a20855391390: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+SSMNspanTagger/.git/lfs/logs/20241023T125800.753242039.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+RJ3vans/13.05.2022.SSCCVspanTagger,98b2bac636d81371d7c49a444942f0093dd6391d,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:RJ3vans/13.05.2022.SSCCVspanTagger tmp/RJ3vans+13.05.2022.SSCCVspanTagger
+  stderr: 'Cloning into 'tmp/RJ3vans+13.05.2022.SSCCVspanTagger'...
+Downloading pytorch_model.bin (1.3 GB)
+Error downloading object: pytorch_model.bin (0f0f49d): Smudge error: Error downloading pytorch_model.bin (0f0f49df4844377a6b38661927bffa8d08ef24ed88c9eaafae0504db14a8ad05): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+13.05.2022.SSCCVspanTagger/.git/lfs/incomplete/0f0f49df4844377a6b38661927bffa8d08ef24ed88c9eaafae0504db14a8ad052031213214"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+13.05.2022.SSCCVspanTagger/.git/lfs/incomplete/0f0f49df4844377a6b38661927bffa8d08ef24ed88c9eaafae0504db14a8ad052031213214: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+13.05.2022.SSCCVspanTagger/.git/lfs/logs/20241023T125813.685603581.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+RJ3vans/CMV1spanTagger,75c392d0f586cb92b82dd47e6f3c3e33dd0bcb05,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:RJ3vans/CMV1spanTagger tmp/RJ3vans+CMV1spanTagger
+  stderr: 'Cloning into 'tmp/RJ3vans+CMV1spanTagger'...
+Downloading pytorch_model.bin (1.3 GB)
+Error downloading object: pytorch_model.bin (76b8f8d): Smudge error: Error downloading pytorch_model.bin (76b8f8dca67ecf08cd36431354ce8eb92a3736447d899133191c0071e05071b7): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CMV1spanTagger/.git/lfs/incomplete/76b8f8dca67ecf08cd36431354ce8eb92a3736447d899133191c0071e05071b71345578095"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CMV1spanTagger/.git/lfs/incomplete/76b8f8dca67ecf08cd36431354ce8eb92a3736447d899133191c0071e05071b71345578095: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CMV1spanTagger/.git/lfs/logs/20241023T125827.368024653.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+RJ3vans/CMN1spanTagger,2210845e3cce33e466c017d34ebacf917bf37091,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:RJ3vans/CMN1spanTagger tmp/RJ3vans+CMN1spanTagger
+  stderr: 'Cloning into 'tmp/RJ3vans+CMN1spanTagger'...
+Downloading pytorch_model.bin (1.3 GB)
+Error downloading object: pytorch_model.bin (bcc0446): Smudge error: Error downloading pytorch_model.bin (bcc04464614f2cfccd349dce3c1596d0652ca428b4a92027060f9bba2e5cb2d2): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CMN1spanTagger/.git/lfs/incomplete/bcc04464614f2cfccd349dce3c1596d0652ca428b4a92027060f9bba2e5cb2d23280281075"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CMN1spanTagger/.git/lfs/incomplete/bcc04464614f2cfccd349dce3c1596d0652ca428b4a92027060f9bba2e5cb2d23280281075: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CMN1spanTagger/.git/lfs/logs/20241023T125843.561262996.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+RJ3vans/CCVspanTagger,846daae8b8c71ebd08c2e6cb28675a194679c548,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:RJ3vans/CCVspanTagger tmp/RJ3vans+CCVspanTagger
+  stderr: 'Cloning into 'tmp/RJ3vans+CCVspanTagger'...
+Updating files:  62% (5/8)
+Updating files:  75% (6/8)
+Updating files:  87% (7/8)
+Updating files: 100% (8/8)
+Updating files: 100% (8/8), done.
+Downloading pytorch_model.bin (1.3 GB)
+Error downloading object: pytorch_model.bin (bd00998): Smudge error: Error downloading pytorch_model.bin (bd009981e7941aaca2fdd69da2fa6fea5e75ca47acdab3873da8726f9a7df6f5): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CCVspanTagger/.git/lfs/incomplete/bd009981e7941aaca2fdd69da2fa6fea5e75ca47acdab3873da8726f9a7df6f53225694120"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CCVspanTagger/.git/lfs/incomplete/bd009981e7941aaca2fdd69da2fa6fea5e75ca47acdab3873da8726f9a7df6f53225694120: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CCVspanTagger/.git/lfs/logs/20241023T130005.41307131.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+RJ3vans/CCVspanTagger,a36e8bd92aaedd7b2eb88a519c767aa5cca67861,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:RJ3vans/CCVspanTagger tmp/RJ3vans+CCVspanTagger
+  stderr: 'Cloning into 'tmp/RJ3vans+CCVspanTagger'...
+Downloading pytorch_model.bin (1.3 GB)
+Error downloading object: pytorch_model.bin (bd00998): Smudge error: Error downloading pytorch_model.bin (bd009981e7941aaca2fdd69da2fa6fea5e75ca47acdab3873da8726f9a7df6f5): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CCVspanTagger/.git/lfs/incomplete/bd009981e7941aaca2fdd69da2fa6fea5e75ca47acdab3873da8726f9a7df6f5577236789"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CCVspanTagger/.git/lfs/incomplete/bd009981e7941aaca2fdd69da2fa6fea5e75ca47acdab3873da8726f9a7df6f5577236789: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CCVspanTagger/.git/lfs/logs/20241023T130058.447489708.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+RJ3vans/CCVspanTagger,b10a17221d4b66a8f399b36e9ab6b04ea6cf0ea0,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:RJ3vans/CCVspanTagger tmp/RJ3vans+CCVspanTagger
+  stderr: 'Cloning into 'tmp/RJ3vans+CCVspanTagger'...
+Downloading pytorch_model.bin (1.3 GB)
+Error downloading object: pytorch_model.bin (bd00998): Smudge error: Error downloading pytorch_model.bin (bd009981e7941aaca2fdd69da2fa6fea5e75ca47acdab3873da8726f9a7df6f5): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CCVspanTagger/.git/lfs/incomplete/bd009981e7941aaca2fdd69da2fa6fea5e75ca47acdab3873da8726f9a7df6f51580339170"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CCVspanTagger/.git/lfs/incomplete/bd009981e7941aaca2fdd69da2fa6fea5e75ca47acdab3873da8726f9a7df6f51580339170: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CCVspanTagger/.git/lfs/logs/20241023T130115.569744921.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+RJ3vans/CCVspanTagger,1e7bd80a6196f97d91bc1af4b27963f55aad8467,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:RJ3vans/CCVspanTagger tmp/RJ3vans+CCVspanTagger
+  stderr: 'Cloning into 'tmp/RJ3vans+CCVspanTagger'...
+Downloading pytorch_model.bin (1.3 GB)
+Error downloading object: pytorch_model.bin (bd00998): Smudge error: Error downloading pytorch_model.bin (bd009981e7941aaca2fdd69da2fa6fea5e75ca47acdab3873da8726f9a7df6f5): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CCVspanTagger/.git/lfs/incomplete/bd009981e7941aaca2fdd69da2fa6fea5e75ca47acdab3873da8726f9a7df6f51830555974"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CCVspanTagger/.git/lfs/incomplete/bd009981e7941aaca2fdd69da2fa6fea5e75ca47acdab3873da8726f9a7df6f51830555974: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/RJ3vans+CCVspanTagger/.git/lfs/logs/20241023T130128.125558306.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+Omar95farag/distilbert-base-uncased-finetuned-clinc,19cebbef17a10522574ea845350daf08bb033fb3,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Omar95farag/distilbert-base-uncased-finetuned-clinc tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc
+  stderr: 'Cloning into 'tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc'...
+Downloading pytorch_model.bin (268 MB)
+Error downloading object: pytorch_model.bin (8111c03): Smudge error: Error downloading pytorch_model.bin (8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c92746317041"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c92746317041: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/logs/20241023T130132.576614325.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+Omar95farag/distilbert-base-uncased-finetuned-clinc,8a97a2052aa842381c499bfe64b6829bb875f832,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Omar95farag/distilbert-base-uncased-finetuned-clinc tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc
+  stderr: 'Cloning into 'tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc'...
+Downloading pytorch_model.bin (268 MB)
+Error downloading object: pytorch_model.bin (8111c03): Smudge error: Error downloading pytorch_model.bin (8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9989370251"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9989370251: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/logs/20241023T130136.581940862.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+Omar95farag/distilbert-base-uncased-finetuned-clinc,e65299c825829bca45db5a935155e07b0d329c5e,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Omar95farag/distilbert-base-uncased-finetuned-clinc tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc
+  stderr: 'Cloning into 'tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc'...
+Downloading pytorch_model.bin (268 MB)
+Error downloading object: pytorch_model.bin (8111c03): Smudge error: Error downloading pytorch_model.bin (8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9470059792"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9470059792: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/logs/20241023T130140.735467497.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+Omar95farag/distilbert-base-uncased-finetuned-clinc,ac92e730ca62a7bfd3b7d015d8282d1bdefac4df,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Omar95farag/distilbert-base-uncased-finetuned-clinc tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc
+  stderr: 'Cloning into 'tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc'...
+Downloading pytorch_model.bin (268 MB)
+Error downloading object: pytorch_model.bin (8111c03): Smudge error: Error downloading pytorch_model.bin (8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c91635899776"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c91635899776: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/logs/20241023T130144.836103468.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+Omar95farag/distilbert-base-uncased-finetuned-clinc,99ee094ca9784068bab0157752594b33766aec2a,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Omar95farag/distilbert-base-uncased-finetuned-clinc tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc
+  stderr: 'Cloning into 'tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc'...
+Downloading pytorch_model.bin (268 MB)
+Error downloading object: pytorch_model.bin (8111c03): Smudge error: Error downloading pytorch_model.bin (8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9921923708"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9921923708: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/logs/20241023T130149.333640577.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+Omar95farag/distilbert-base-uncased-finetuned-clinc,9472b14fa07147805ba90177aa2c9c5abd901843,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Omar95farag/distilbert-base-uncased-finetuned-clinc tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc
+  stderr: 'Cloning into 'tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc'...
+Downloading pytorch_model.bin (268 MB)
+Error downloading object: pytorch_model.bin (8111c03): Smudge error: Error downloading pytorch_model.bin (8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c92874921636"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c92874921636: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/logs/20241023T130153.426974565.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+Omar95farag/distilbert-base-uncased-finetuned-clinc,cb9a6e390ffc43ede5e5fcdfaa3198405498285f,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Omar95farag/distilbert-base-uncased-finetuned-clinc tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc
+  stderr: 'Cloning into 'tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc'...
+Downloading pytorch_model.bin (268 MB)
+Error downloading object: pytorch_model.bin (8111c03): Smudge error: Error downloading pytorch_model.bin (8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c93152287589"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c93152287589: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/logs/20241023T130157.523760558.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+Omar95farag/distilbert-base-uncased-finetuned-clinc,4ba05f05342dc96f4e12cbcdfc2a840bbcd96c22,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Omar95farag/distilbert-base-uncased-finetuned-clinc tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc
+  stderr: 'Cloning into 'tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc'...
+Downloading pytorch_model.bin (268 MB)
+Error downloading object: pytorch_model.bin (8111c03): Smudge error: Error downloading pytorch_model.bin (8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c91196352604"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c91196352604: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/logs/20241023T130203.610990682.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+Omar95farag/distilbert-base-uncased-finetuned-clinc,b25960d577897ed5e20b921a98c20c7b632ae73b,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Omar95farag/distilbert-base-uncased-finetuned-clinc tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc
+  stderr: 'Cloning into 'tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc'...
+Downloading pytorch_model.bin (268 MB)
+Error downloading object: pytorch_model.bin (8111c03): Smudge error: Error downloading pytorch_model.bin (8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c9): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c92284512837"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/incomplete/8111c034d5dba14a7a9f8892cfaf93cd547774eef279148a257d48b8b6a519c92284512837: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-finetuned-clinc/.git/lfs/logs/20241023T130207.867654846.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+Omar95farag/distilbert-base-uncased-distilled-clinc,63fe65f2ec1b0e801f3313aa9768245b358b8b33,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Omar95farag/distilbert-base-uncased-distilled-clinc tmp/Omar95farag+distilbert-base-uncased-distilled-clinc
+  stderr: 'Cloning into 'tmp/Omar95farag+distilbert-base-uncased-distilled-clinc'...
+Downloading pytorch_model.bin (268 MB)
+Error downloading object: pytorch_model.bin (dee6d83): Smudge error: Error downloading pytorch_model.bin (dee6d8318058e0acfe0bfa2f37a22c3884ff73d421468e65e0ee55de91fa7408): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-distilled-clinc/.git/lfs/incomplete/dee6d8318058e0acfe0bfa2f37a22c3884ff73d421468e65e0ee55de91fa7408173295087"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-distilled-clinc/.git/lfs/incomplete/dee6d8318058e0acfe0bfa2f37a22c3884ff73d421468e65e0ee55de91fa7408173295087: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-distilled-clinc/.git/lfs/logs/20241023T130212.546453912.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+Omar95farag/distilbert-base-uncased-distilled-clinc,e581d4a5a69046a490a15aa919a72e0ca152eb5e,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Omar95farag/distilbert-base-uncased-distilled-clinc tmp/Omar95farag+distilbert-base-uncased-distilled-clinc
+  stderr: 'Cloning into 'tmp/Omar95farag+distilbert-base-uncased-distilled-clinc'...
+Downloading pytorch_model.bin (268 MB)
+Error downloading object: pytorch_model.bin (dee6d83): Smudge error: Error downloading pytorch_model.bin (dee6d8318058e0acfe0bfa2f37a22c3884ff73d421468e65e0ee55de91fa7408): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-distilled-clinc/.git/lfs/incomplete/dee6d8318058e0acfe0bfa2f37a22c3884ff73d421468e65e0ee55de91fa74081340745759"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-distilled-clinc/.git/lfs/incomplete/dee6d8318058e0acfe0bfa2f37a22c3884ff73d421468e65e0ee55de91fa74081340745759: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/Omar95farag+distilbert-base-uncased-distilled-clinc/.git/lfs/logs/20241023T130216.702965226.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+NYTK/sentiment-hts5-xlm-roberta-hungarian,7e086e8cfe5b50ab723a3f2bb25e11fb38f90988,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:NYTK/sentiment-hts5-xlm-roberta-hungarian tmp/NYTK+sentiment-hts5-xlm-roberta-hungarian
+  stderr: 'Cloning into 'tmp/NYTK+sentiment-hts5-xlm-roberta-hungarian'...
+Downloading pytorch_model.bin (1.1 GB)
+Error downloading object: pytorch_model.bin (5fc9980): Smudge error: Error downloading pytorch_model.bin (5fc998099c5f2d7247e80c918ee1c006f8f6b0b80376843a35204578e883b868): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/NYTK+sentiment-hts5-xlm-roberta-hungarian/.git/lfs/incomplete/5fc998099c5f2d7247e80c918ee1c006f8f6b0b80376843a35204578e883b8683727042545"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/NYTK+sentiment-hts5-xlm-roberta-hungarian/.git/lfs/incomplete/5fc998099c5f2d7247e80c918ee1c006f8f6b0b80376843a35204578e883b8683727042545: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/NYTK+sentiment-hts5-xlm-roberta-hungarian/.git/lfs/logs/20241023T130229.048749322.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+NYTK/sentiment-hts5-hubert-hungarian,6a417a1ef39aff559738691f683f59d1051b5b2c,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:NYTK/sentiment-hts5-hubert-hungarian tmp/NYTK+sentiment-hts5-hubert-hungarian
+  stderr: 'Cloning into 'tmp/NYTK+sentiment-hts5-hubert-hungarian'...
+Downloading pytorch_model.bin (443 MB)
+Error downloading object: pytorch_model.bin (33cce4e): Smudge error: Error downloading pytorch_model.bin (33cce4e9bc11775812196b90f9743a5dba157e30810e16e080e48578888c338d): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/NYTK+sentiment-hts5-hubert-hungarian/.git/lfs/incomplete/33cce4e9bc11775812196b90f9743a5dba157e30810e16e080e48578888c338d1573555413"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/NYTK+sentiment-hts5-hubert-hungarian/.git/lfs/incomplete/33cce4e9bc11775812196b90f9743a5dba157e30810e16e080e48578888c338d1573555413: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/NYTK+sentiment-hts5-hubert-hungarian/.git/lfs/logs/20241023T130235.47962835.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+NYTK/sentiment-hts2-xlm-roberta-hungarian,c4c7886e80c75bd1b7aa1d87cd5ab67220e0286b,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:NYTK/sentiment-hts2-xlm-roberta-hungarian tmp/NYTK+sentiment-hts2-xlm-roberta-hungarian
+  stderr: 'Cloning into 'tmp/NYTK+sentiment-hts2-xlm-roberta-hungarian'...
+Downloading pytorch_model.bin (266 MB)
+Error downloading object: pytorch_model.bin (329ac4c): Smudge error: Error downloading pytorch_model.bin (329ac4c3e6466e8350e3535af128695bb33bf03863386bbcfdd55f963c21a205): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/NYTK+sentiment-hts2-xlm-roberta-hungarian/.git/lfs/incomplete/329ac4c3e6466e8350e3535af128695bb33bf03863386bbcfdd55f963c21a2053828636642"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/NYTK+sentiment-hts2-xlm-roberta-hungarian/.git/lfs/incomplete/329ac4c3e6466e8350e3535af128695bb33bf03863386bbcfdd55f963c21a2053828636642: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/NYTK+sentiment-hts2-xlm-roberta-hungarian/.git/lfs/logs/20241023T130239.985986241.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+NYTK/sentiment-hts2-hubert-hungarian,71ca38d12d69b0b90c615f0d945dbdf1e66ca282,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:NYTK/sentiment-hts2-hubert-hungarian tmp/NYTK+sentiment-hts2-hubert-hungarian
+  stderr: 'Cloning into 'tmp/NYTK+sentiment-hts2-hubert-hungarian'...
+Downloading pytorch_model.bin (443 MB)
+Error downloading object: pytorch_model.bin (51113ca): Smudge error: Error downloading pytorch_model.bin (51113caf669c9959fe872511df05a38d6b5d06a98e498c510542aa831dd36012): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/NYTK+sentiment-hts2-hubert-hungarian/.git/lfs/incomplete/51113caf669c9959fe872511df05a38d6b5d06a98e498c510542aa831dd360121294441971"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/NYTK+sentiment-hts2-hubert-hungarian/.git/lfs/incomplete/51113caf669c9959fe872511df05a38d6b5d06a98e498c510542aa831dd360121294441971: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/NYTK+sentiment-hts2-hubert-hungarian/.git/lfs/logs/20241023T130246.249475516.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MrGentle/DeltaModel-genius1,3e9dd1992d42fb95d1a875c3533d07d12237a2b4,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MrGentle/DeltaModel-genius1 tmp/MrGentle+DeltaModel-genius1
+  stderr: 'Cloning into 'tmp/MrGentle+DeltaModel-genius1'...
+Downloading model.safetensors (3.1 GB)
+Error downloading object: model.safetensors (54ffaa3): Smudge error: Error downloading model.safetensors (54ffaa322069dc7d1e10cf86f3beb59ed68de73716b873345396c9ea44704d88): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MrGentle+DeltaModel-genius1/.git/lfs/incomplete/54ffaa322069dc7d1e10cf86f3beb59ed68de73716b873345396c9ea44704d882853050083"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MrGentle+DeltaModel-genius1/.git/lfs/incomplete/54ffaa322069dc7d1e10cf86f3beb59ed68de73716b873345396c9ea44704d882853050083: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MrGentle+DeltaModel-genius1/.git/lfs/logs/20241023T130329.338391758.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MrGentle/DeltaModel-genius1,4abeef9fbfbc072133071e45c3b1d29164a158b5,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MrGentle/DeltaModel-genius1 tmp/MrGentle+DeltaModel-genius1
+  stderr: 'Cloning into 'tmp/MrGentle+DeltaModel-genius1'...
+Downloading model.safetensors (3.1 GB)
+Error downloading object: model.safetensors (54ffaa3): Smudge error: Error downloading model.safetensors (54ffaa322069dc7d1e10cf86f3beb59ed68de73716b873345396c9ea44704d88): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MrGentle+DeltaModel-genius1/.git/lfs/incomplete/54ffaa322069dc7d1e10cf86f3beb59ed68de73716b873345396c9ea44704d88497290581"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MrGentle+DeltaModel-genius1/.git/lfs/incomplete/54ffaa322069dc7d1e10cf86f3beb59ed68de73716b873345396c9ea44704d88497290581: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MrGentle+DeltaModel-genius1/.git/lfs/logs/20241023T130416.05406582.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MrGentle/DeltaModel-genius1,a8b73708add44ae648c9c921ec023d8ad27edf39,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MrGentle/DeltaModel-genius1 tmp/MrGentle+DeltaModel-genius1
+  stderr: 'Cloning into 'tmp/MrGentle+DeltaModel-genius1'...
+Updating files:  60% (6/10)
+Updating files:  70% (7/10)
+Updating files:  80% (8/10)
+Updating files:  90% (9/10)
+Updating files: 100% (10/10)
+Updating files: 100% (10/10), done.
+Downloading model.safetensors (3.1 GB)
+Error downloading object: model.safetensors (54ffaa3): Smudge error: Error downloading model.safetensors (54ffaa322069dc7d1e10cf86f3beb59ed68de73716b873345396c9ea44704d88): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MrGentle+DeltaModel-genius1/.git/lfs/incomplete/54ffaa322069dc7d1e10cf86f3beb59ed68de73716b873345396c9ea44704d881160889682"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MrGentle+DeltaModel-genius1/.git/lfs/incomplete/54ffaa322069dc7d1e10cf86f3beb59ed68de73716b873345396c9ea44704d881160889682: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MrGentle+DeltaModel-genius1/.git/lfs/logs/20241023T130618.642931226.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MoritzLaurer/xtremedistil-l6-h256-mnli-fever-anli-ling-binary,33a6fa7f48c9ad94604462ee03e5bc78944c5b48,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/xtremedistil-l6-h256-mnli-fever-anli-ling-binary tmp/MoritzLaurer+xtremedistil-l6-h256-mnli-fever-anli-ling-binary
+  stderr: 'Cloning into 'tmp/MoritzLaurer+xtremedistil-l6-h256-mnli-fever-anli-ling-binary'...
+Downloading pytorch_model.bin (26 MB)
+Error downloading object: pytorch_model.bin (7842358): Smudge error: Error downloading pytorch_model.bin (7842358cfd6f7d1ef6e7f2e8cdbc7c730d295e319b459e9aebfc27ab9b3f38ce): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+xtremedistil-l6-h256-mnli-fever-anli-ling-binary/.git/lfs/incomplete/7842358cfd6f7d1ef6e7f2e8cdbc7c730d295e319b459e9aebfc27ab9b3f38ce3367748831"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+xtremedistil-l6-h256-mnli-fever-anli-ling-binary/.git/lfs/incomplete/7842358cfd6f7d1ef6e7f2e8cdbc7c730d295e319b459e9aebfc27ab9b3f38ce3367748831: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+xtremedistil-l6-h256-mnli-fever-anli-ling-binary/.git/lfs/logs/20241023T130622.430519977.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MoritzLaurer/mDeBERTa-v3-base-mnli-xnli,8adb042d524ecd5c26d3e3ba0e3fbcf7e2d0864c,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/mDeBERTa-v3-base-mnli-xnli tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli
+  stderr: 'Cloning into 'tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli'...
+Downloading model.safetensors (558 MB)
+Error downloading object: model.safetensors (65af59b): Smudge error: Error downloading model.safetensors (65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/incomplete/65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e2117392467"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/incomplete/65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e2117392467: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/logs/20241023T130636.438251433.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MoritzLaurer/mDeBERTa-v3-base-mnli-xnli,e81df37a43831f49262ce562447d2dc4ca6cd54a,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/mDeBERTa-v3-base-mnli-xnli tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli
+  stderr: 'Cloning into 'tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli'...
+Downloading model.safetensors (558 MB)
+Error downloading object: model.safetensors (65af59b): Smudge error: Error downloading model.safetensors (65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/incomplete/65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e3255858097"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/incomplete/65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e3255858097: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/logs/20241023T130652.975178024.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MoritzLaurer/mDeBERTa-v3-base-mnli-xnli,add259bc35998d3be7ab934fd31181cd47703690,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/mDeBERTa-v3-base-mnli-xnli tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli
+  stderr: 'Cloning into 'tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli'...
+Downloading model.safetensors (558 MB)
+Error downloading object: model.safetensors (65af59b): Smudge error: Error downloading model.safetensors (65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/incomplete/65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e2686675104"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/incomplete/65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e2686675104: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/logs/20241023T130707.26968258.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MoritzLaurer/mDeBERTa-v3-base-mnli-xnli,aa728f3a52f04fc70ed2d1a33343d5f0037fd611,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/mDeBERTa-v3-base-mnli-xnli tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli
+  stderr: 'Cloning into 'tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli'...
+Downloading model.safetensors (558 MB)
+Error downloading object: model.safetensors (65af59b): Smudge error: Error downloading model.safetensors (65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/incomplete/65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e2059785769"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/incomplete/65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e2059785769: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/logs/20241023T130721.454095142.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MoritzLaurer/mDeBERTa-v3-base-mnli-xnli,899fa3ee8006648e3597110c9de1ccce285694ff,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/mDeBERTa-v3-base-mnli-xnli tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli
+  stderr: 'Cloning into 'tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli'...
+Filtering content:  33% (2/6)
+Downloading model.safetensors (558 MB)
+Error downloading object: model.safetensors (65af59b): Smudge error: Error downloading model.safetensors (65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/incomplete/65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e2014773457"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/incomplete/65af59b1ff4450b09ecbf13ca35c840dbf038b26ff8e10e5ea89ca724828ed1e2014773457: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/MoritzLaurer+mDeBERTa-v3-base-mnli-xnli/.git/lfs/logs/20241023T130737.404245855.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MoritzLaurer/DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary,a58af174048eef544605c377c47cbbef3d66973c,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary tmp/MoritzLaurer+DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary
+  stderr: 'Cloning into 'tmp/MoritzLaurer+DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary'...
+error: external filter 'git-lfs filter-process' failed
+error: git-lfs filter-process died of signal 15
+fatal: spm.model: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MoritzLaurer/DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary,1013d1a53cc6f7357172e9be30ce83b3c2e2e97c,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary tmp/MoritzLaurer+DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary
+  stderr: 'Cloning into 'tmp/MoritzLaurer+DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary'...
+error: external filter 'git-lfs filter-process' failed
+error: git-lfs filter-process died of signal 15
+fatal: spm.model: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MoritzLaurer/DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary,5659c76dcea029e562398d80af574c575ac79f8c,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary tmp/MoritzLaurer+DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary
+  stderr: 'Cloning into 'tmp/MoritzLaurer+DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary'...
+error: external filter 'git-lfs filter-process' failed
+error: git-lfs filter-process died of signal 15
+fatal: spm.model: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MoritzLaurer/DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary,657d8d6ca61e56b1ff018817e0c4f0e04a25a544,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary tmp/MoritzLaurer+DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary
+  stderr: 'Cloning into 'tmp/MoritzLaurer+DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary'...
+error: external filter 'git-lfs filter-process' failed
+error: git-lfs filter-process died of signal 15
+fatal: spm.model: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli,eb8b17b1983bca679126ea69b12b5d28c5fe9b9a,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli tmp/MoritzLaurer+DeBERTa-v3-base-mnli-fever-anli
+  stderr: 'fatal: could not create work tree dir 'tmp/MoritzLaurer+DeBERTa-v3-base-mnli-fever-anli': Disk quota exceeded
+'"
+MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli,2e3cc950cb15bf05c2146ba51ea5f1307fd7fe14,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli tmp/MoritzLaurer+DeBERTa-v3-base-mnli-fever-anli
+  stderr: 'fatal: could not create work tree dir 'tmp/MoritzLaurer+DeBERTa-v3-base-mnli-fever-anli': Disk quota exceeded
+'"
+MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli,8a44294420965f107f505df5aaea11aa5ec7862e,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli tmp/MoritzLaurer+DeBERTa-v3-base-mnli-fever-anli
+  stderr: 'fatal: could not create work tree dir 'tmp/MoritzLaurer+DeBERTa-v3-base-mnli-fever-anli': Disk quota exceeded
+'"
+laiking/bert-base-german-cased-gnad10,37d8d40544a94b7474a6dc1fae4fb09c04756c05,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:laiking/bert-base-german-cased-gnad10 tmp/laiking+bert-base-german-cased-gnad10
+  stderr: 'fatal: could not create work tree dir 'tmp/laiking+bert-base-german-cased-gnad10': Disk quota exceeded
+'"
+laiking/bert-base-german-cased-gnad10,c3993046d7580335ca1c52b2e543fb449b4be00b,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:laiking/bert-base-german-cased-gnad10 tmp/laiking+bert-base-german-cased-gnad10
+  stderr: 'fatal: could not create work tree dir 'tmp/laiking+bert-base-german-cased-gnad10': Disk quota exceeded
+'"
+MarioPenguin/beto_amazon_posneu,8bc2bb3730753e940764da132f7dfaf420f1d091,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MarioPenguin/beto_amazon_posneu tmp/MarioPenguin+beto_amazon_posneu
+  stderr: 'fatal: could not create work tree dir 'tmp/MarioPenguin+beto_amazon_posneu': Disk quota exceeded
+'"
+MarioPenguin/beto_amazon_posneu,792733bf8acc514d30dea08c3cfd26343223a948,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MarioPenguin/beto_amazon_posneu tmp/MarioPenguin+beto_amazon_posneu
+  stderr: 'fatal: could not create work tree dir 'tmp/MarioPenguin+beto_amazon_posneu': Disk quota exceeded
+'"
+MUNasir/umsuka-en-zu,746e23ffeec34a5d9eaec714b04424429edc63cd,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MUNasir/umsuka-en-zu tmp/MUNasir+umsuka-en-zu
+  stderr: 'fatal: could not create work tree dir 'tmp/MUNasir+umsuka-en-zu': Disk quota exceeded
+'"
+MUNasir/umsuka-en-zu,1f3f27a7a1e13f487bb2d9bf093a7e423debd55c,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MUNasir/umsuka-en-zu tmp/MUNasir+umsuka-en-zu
+  stderr: 'fatal: could not create work tree dir 'tmp/MUNasir+umsuka-en-zu': Disk quota exceeded
+'"
+MUNasir/umsuka-en-zu,bc92fbe8fcf7516734f65527def5d4250ea9a22f,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MUNasir/umsuka-en-zu tmp/MUNasir+umsuka-en-zu
+  stderr: 'fatal: could not create work tree dir 'tmp/MUNasir+umsuka-en-zu': Disk quota exceeded
+'"
+MUNasir/umsuka-en-zu,36a84f2e9d6d2e916f254d3dd4e5bd79e86293d2,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:MUNasir/umsuka-en-zu tmp/MUNasir+umsuka-en-zu
+  stderr: 'fatal: could not create work tree dir 'tmp/MUNasir+umsuka-en-zu': Disk quota exceeded
+'"
+LennartKeller/longformer-gottbert-base-8192-aw512,230ecb809ed842587e16bbac0286a165b39309f0,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:LennartKeller/longformer-gottbert-base-8192-aw512 tmp/LennartKeller+longformer-gottbert-base-8192-aw512
+  stderr: 'fatal: could not create work tree dir 'tmp/LennartKeller+longformer-gottbert-base-8192-aw512': Disk quota exceeded
+'"
+LennartKeller/longformer-gottbert-base-8192-aw512,bc04f3b040cdbe0bd8eebd9e9e70745e0a914580,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:LennartKeller/longformer-gottbert-base-8192-aw512 tmp/LennartKeller+longformer-gottbert-base-8192-aw512
+  stderr: 'fatal: could not create work tree dir 'tmp/LennartKeller+longformer-gottbert-base-8192-aw512': Disk quota exceeded
+'"

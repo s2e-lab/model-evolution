@@ -1,0 +1,893 @@
+repo_url,commit_hash,error
+sentence-transformers/all-roberta-large-v1,b6bc5d5b432a2d5d8391548b05673cf86723a87e,"Cmd('git') failed due to: exit code(1)
+  cmdline: git checkout b6bc5d5b432a2d5d8391548b05673cf86723a87e
+  stderr: 'error: Your local changes to the following files would be overwritten by checkout:
+	model.safetensors
+Please commit your changes or stash them before you switch branches.
+Aborting'"
+sentence-transformers/all-mpnet-base-v1,4b86b374cf0bfa96f60b87869635a86f69e104d9,"Cmd('git') failed due to: exit code(1)
+  cmdline: git checkout 4b86b374cf0bfa96f60b87869635a86f69e104d9
+  stderr: 'error: Your local changes to the following files would be overwritten by checkout:
+	onnx/model_O1.onnx
+	onnx/model_O2.onnx
+	onnx/model_O3.onnx
+	openvino/openvino_model.bin
+Please commit your changes or stash them before you switch branches.
+Aborting'"
+sentence-transformers/all-mpnet-base-v1,c84216ca104c670045594e4ddd046962489ccc06,"Cmd('git') failed due to: exit code(1)
+  cmdline: git checkout c84216ca104c670045594e4ddd046962489ccc06
+  stderr: 'error: Your local changes to the following files would be overwritten by checkout:
+	model.safetensors
+	onnx/model_O1.onnx
+	onnx/model_O2.onnx
+	onnx/model_O3.onnx
+	openvino/openvino_model.bin
+Please commit your changes or stash them before you switch branches.
+Aborting'"
+sentence-transformers/all-distilroberta-v1,14e2a3f3090548596d23882845152a951333c0e3,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-distilroberta-v1 tmp/sentence-transformers+all-distilroberta-v1
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-distilroberta-v1'...
+Downloading model.safetensors (328 MB)
+Error downloading object: model.safetensors (3c739fa): Smudge error: Error downloading model.safetensors (3c739fad12f3f12428a677cfcc73391a5860a8bad0ff7a971fd67e6065201fc2): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-distilroberta-v1/.git/lfs/incomplete/3c739fad12f3f12428a677cfcc73391a5860a8bad0ff7a971fd67e6065201fc24026456785"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-distilroberta-v1/.git/lfs/incomplete/3c739fad12f3f12428a677cfcc73391a5860a8bad0ff7a971fd67e6065201fc24026456785: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-distilroberta-v1/.git/lfs/logs/20241023T045214.303741822.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/all-distilroberta-v1,ac8d0d1351fa467025e4371e38a8442360654a4c,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-distilroberta-v1 tmp/sentence-transformers+all-distilroberta-v1
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-distilroberta-v1'...
+Downloading model.safetensors (328 MB)
+Error downloading object: model.safetensors (3c739fa): Smudge error: Error downloading model.safetensors (3c739fad12f3f12428a677cfcc73391a5860a8bad0ff7a971fd67e6065201fc2): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-distilroberta-v1/.git/lfs/incomplete/3c739fad12f3f12428a677cfcc73391a5860a8bad0ff7a971fd67e6065201fc23236747567"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-distilroberta-v1/.git/lfs/incomplete/3c739fad12f3f12428a677cfcc73391a5860a8bad0ff7a971fd67e6065201fc23236747567: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-distilroberta-v1/.git/lfs/logs/20241023T045230.107627696.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/all-MiniLM-L6-v2,8b3219a92973c328a8e22fadcfa821b5dc75636a,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-MiniLM-L6-v2 tmp/sentence-transformers+all-MiniLM-L6-v2
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-MiniLM-L6-v2'...
+Downloading model.safetensors (91 MB)
+Error downloading object: model.safetensors (53aa511): Smudge error: Error downloading model.safetensors (53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/incomplete/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db3639010519"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/incomplete/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db3639010519: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/logs/20241023T045236.503061218.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/all-MiniLM-L6-v2,46605decb5369335a3847c9f41bb0b896c07dd1a,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-MiniLM-L6-v2 tmp/sentence-transformers+all-MiniLM-L6-v2
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-MiniLM-L6-v2'...
+Downloading model.safetensors (91 MB)
+Error downloading object: model.safetensors (53aa511): Smudge error: Error downloading model.safetensors (53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/incomplete/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db2307843271"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/incomplete/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db2307843271: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/logs/20241023T045242.680426721.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/all-MiniLM-L6-v2,3746fd5f4cfd46ae64fc781df53e7cbb7849eb62,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-MiniLM-L6-v2 tmp/sentence-transformers+all-MiniLM-L6-v2
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-MiniLM-L6-v2'...
+Downloading model.safetensors (91 MB)
+Error downloading object: model.safetensors (53aa511): Smudge error: Error downloading model.safetensors (53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/incomplete/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db2258282775"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/incomplete/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db2258282775: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/logs/20241023T045249.384262406.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/all-MiniLM-L6-v2,2cfdf1ac2b3fc894d8239133174385c0baed9a17,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-MiniLM-L6-v2 tmp/sentence-transformers+all-MiniLM-L6-v2
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-MiniLM-L6-v2'...
+Downloading model.safetensors (91 MB)
+Error downloading object: model.safetensors (53aa511): Smudge error: Error downloading model.safetensors (53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/incomplete/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db3741594188"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/incomplete/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db3741594188: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/logs/20241023T045255.913220152.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/all-MiniLM-L6-v2,acbb28c8aa70f5503c85d6b90e8cd65606993a20,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-MiniLM-L6-v2 tmp/sentence-transformers+all-MiniLM-L6-v2
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-MiniLM-L6-v2'...
+Downloading model.safetensors (91 MB)
+Error downloading object: model.safetensors (53aa511): Smudge error: Error downloading model.safetensors (53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/incomplete/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db2010702191"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/incomplete/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db2010702191: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v2/.git/lfs/logs/20241023T045302.115926044.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/all-MiniLM-L6-v1,4ccf77db5049cc31b815180ea2d79ff4d4a1fccd,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-MiniLM-L6-v1 tmp/sentence-transformers+all-MiniLM-L6-v1
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-MiniLM-L6-v1'...
+Downloading model.safetensors (91 MB)
+Error downloading object: model.safetensors (8945e61): Smudge error: Error downloading model.safetensors (8945e61c4024ed7c0045f34fe5b8efc90a80b760768cdb1728fccfe3bbf122b9): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v1/.git/lfs/incomplete/8945e61c4024ed7c0045f34fe5b8efc90a80b760768cdb1728fccfe3bbf122b93886014150"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v1/.git/lfs/incomplete/8945e61c4024ed7c0045f34fe5b8efc90a80b760768cdb1728fccfe3bbf122b93886014150: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v1/.git/lfs/logs/20241023T045307.583163682.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/all-MiniLM-L6-v1,61e09b17912b00d11964d763292e1ea2058cf84c,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-MiniLM-L6-v1 tmp/sentence-transformers+all-MiniLM-L6-v1
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-MiniLM-L6-v1'...
+Downloading model.safetensors (91 MB)
+Error downloading object: model.safetensors (8945e61): Smudge error: Error downloading model.safetensors (8945e61c4024ed7c0045f34fe5b8efc90a80b760768cdb1728fccfe3bbf122b9): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v1/.git/lfs/incomplete/8945e61c4024ed7c0045f34fe5b8efc90a80b760768cdb1728fccfe3bbf122b94053320227"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v1/.git/lfs/incomplete/8945e61c4024ed7c0045f34fe5b8efc90a80b760768cdb1728fccfe3bbf122b94053320227: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L6-v1/.git/lfs/logs/20241023T045313.486305105.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/all-MiniLM-L12-v2,a05860a77cef7b37e0048a7864658139bc18a854,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-MiniLM-L12-v2 tmp/sentence-transformers+all-MiniLM-L12-v2
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-MiniLM-L12-v2'...
+Downloading model.safetensors (134 MB)
+Error downloading object: model.safetensors (d2d541e): Smudge error: Error downloading model.safetensors (d2d541e5f101695ae495eacd867a8d025ecfe8f9674fb23aa6cf93cdb60a5542): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L12-v2/.git/lfs/incomplete/d2d541e5f101695ae495eacd867a8d025ecfe8f9674fb23aa6cf93cdb60a55421975104725"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L12-v2/.git/lfs/incomplete/d2d541e5f101695ae495eacd867a8d025ecfe8f9674fb23aa6cf93cdb60a55421975104725: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L12-v2/.git/lfs/logs/20241023T045320.859871025.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/all-MiniLM-L12-v2,01e1a19f47cbdbe489da7bd30b8436620aeab787,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-MiniLM-L12-v2 tmp/sentence-transformers+all-MiniLM-L12-v2
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-MiniLM-L12-v2'...
+Downloading model.safetensors (134 MB)
+Error downloading object: model.safetensors (d2d541e): Smudge error: Error downloading model.safetensors (d2d541e5f101695ae495eacd867a8d025ecfe8f9674fb23aa6cf93cdb60a5542): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L12-v2/.git/lfs/incomplete/d2d541e5f101695ae495eacd867a8d025ecfe8f9674fb23aa6cf93cdb60a5542563892060"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L12-v2/.git/lfs/incomplete/d2d541e5f101695ae495eacd867a8d025ecfe8f9674fb23aa6cf93cdb60a5542563892060: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L12-v2/.git/lfs/logs/20241023T045328.894090643.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/all-MiniLM-L12-v1,0845ca5ddc07524b3196519cf3940ceb86cf106c,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-MiniLM-L12-v1 tmp/sentence-transformers+all-MiniLM-L12-v1
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-MiniLM-L12-v1'...
+Downloading model.safetensors (134 MB)
+Error downloading object: model.safetensors (8ca4a4f): Smudge error: Error downloading model.safetensors (8ca4a4f68fce4ed0c3dda8672b353e32ce56c231021411ac6fba12ba52ef803c): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L12-v1/.git/lfs/incomplete/8ca4a4f68fce4ed0c3dda8672b353e32ce56c231021411ac6fba12ba52ef803c3834659757"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L12-v1/.git/lfs/incomplete/8ca4a4f68fce4ed0c3dda8672b353e32ce56c231021411ac6fba12ba52ef803c3834659757: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L12-v1/.git/lfs/logs/20241023T045335.782764767.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/all-MiniLM-L12-v1,c31a12dd004471f37329b1ec3c164b192167d12f,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/all-MiniLM-L12-v1 tmp/sentence-transformers+all-MiniLM-L12-v1
+  stderr: 'Cloning into 'tmp/sentence-transformers+all-MiniLM-L12-v1'...
+Downloading model.safetensors (134 MB)
+Error downloading object: model.safetensors (8ca4a4f): Smudge error: Error downloading model.safetensors (8ca4a4f68fce4ed0c3dda8672b353e32ce56c231021411ac6fba12ba52ef803c): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L12-v1/.git/lfs/incomplete/8ca4a4f68fce4ed0c3dda8672b353e32ce56c231021411ac6fba12ba52ef803c980961181"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L12-v1/.git/lfs/incomplete/8ca4a4f68fce4ed0c3dda8672b353e32ce56c231021411ac6fba12ba52ef803c980961181: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+all-MiniLM-L12-v1/.git/lfs/logs/20241023T045342.876892117.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/LaBSE,e34fab64a3011d2176c99545a93d5cbddc9a91b7,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/LaBSE tmp/sentence-transformers+LaBSE
+  stderr: 'Cloning into 'tmp/sentence-transformers+LaBSE'...
+Downloading 2_Dense/model.safetensors (2.4 MB)
+Error downloading object: 2_Dense/model.safetensors (f866c94): Smudge error: Error downloading 2_Dense/model.safetensors (f866c945fa2147ce4940c8ead0b4b20af4217e0f4664bd35f41c2a0967c4fe77): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/incomplete/f866c945fa2147ce4940c8ead0b4b20af4217e0f4664bd35f41c2a0967c4fe774156900060"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/incomplete/f866c945fa2147ce4940c8ead0b4b20af4217e0f4664bd35f41c2a0967c4fe774156900060: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/logs/20241023T045423.90609011.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: 2_Dense/model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/LaBSE,50fe0940fa3ca3be4d2170f21395beb6d581fc44,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/LaBSE tmp/sentence-transformers+LaBSE
+  stderr: 'Cloning into 'tmp/sentence-transformers+LaBSE'...
+Downloading 2_Dense/model.safetensors (2.4 MB)
+Error downloading object: 2_Dense/model.safetensors (f866c94): Smudge error: Error downloading 2_Dense/model.safetensors (f866c945fa2147ce4940c8ead0b4b20af4217e0f4664bd35f41c2a0967c4fe77): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/incomplete/f866c945fa2147ce4940c8ead0b4b20af4217e0f4664bd35f41c2a0967c4fe771691304072"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/incomplete/f866c945fa2147ce4940c8ead0b4b20af4217e0f4664bd35f41c2a0967c4fe771691304072: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/logs/20241023T045504.18768411.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: 2_Dense/model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/LaBSE,931b5f9a111859fa72549cd1a7cb32168ebbe010,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/LaBSE tmp/sentence-transformers+LaBSE
+  stderr: 'Cloning into 'tmp/sentence-transformers+LaBSE'...
+Downloading 2_Dense/pytorch_model.bin (2.4 MB)
+Error downloading object: 2_Dense/pytorch_model.bin (06fb851): Smudge error: Error downloading 2_Dense/pytorch_model.bin (06fb85120e40adf0ab188c4f0cc7684f702cb2023532947d1b85f325b0a3645c): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/incomplete/06fb85120e40adf0ab188c4f0cc7684f702cb2023532947d1b85f325b0a3645c2383712460"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/incomplete/06fb85120e40adf0ab188c4f0cc7684f702cb2023532947d1b85f325b0a3645c2383712460: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/logs/20241023T045546.424620881.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: 2_Dense/pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/LaBSE,61966e1a4e66ba8c615d326d83c70bf9a0dcd900,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/LaBSE tmp/sentence-transformers+LaBSE
+  stderr: 'Cloning into 'tmp/sentence-transformers+LaBSE'...
+Downloading 2_Dense/pytorch_model.bin (2.4 MB)
+Error downloading object: 2_Dense/pytorch_model.bin (06fb851): Smudge error: Error downloading 2_Dense/pytorch_model.bin (06fb85120e40adf0ab188c4f0cc7684f702cb2023532947d1b85f325b0a3645c): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/incomplete/06fb85120e40adf0ab188c4f0cc7684f702cb2023532947d1b85f325b0a3645c721205702"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/incomplete/06fb85120e40adf0ab188c4f0cc7684f702cb2023532947d1b85f325b0a3645c721205702: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/logs/20241023T045627.076708168.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: 2_Dense/pytorch_model.bin: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sentence-transformers/LaBSE,c3d93bf212bc3758f6c5f5b226aa196fb6ab5cf3,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sentence-transformers/LaBSE tmp/sentence-transformers+LaBSE
+  stderr: 'Cloning into 'tmp/sentence-transformers+LaBSE'...
+Downloading 2_Dense/model.safetensors (2.4 MB)
+Error downloading object: 2_Dense/model.safetensors (f866c94): Smudge error: Error downloading 2_Dense/model.safetensors (f866c945fa2147ce4940c8ead0b4b20af4217e0f4664bd35f41c2a0967c4fe77): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/incomplete/f866c945fa2147ce4940c8ead0b4b20af4217e0f4664bd35f41c2a0967c4fe773493147147"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/incomplete/f866c945fa2147ce4940c8ead0b4b20af4217e0f4664bd35f41c2a0967c4fe773493147147: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sentence-transformers+LaBSE/.git/lfs/logs/20241023T045709.15199592.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: 2_Dense/model.safetensors: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+sdadas/polish-roberta-large-v2,ea0ae716face05348ff9942983538ce456745239,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sdadas/polish-roberta-large-v2 tmp/sdadas+polish-roberta-large-v2
+  stderr: 'Cloning into 'tmp/sdadas+polish-roberta-large-v2'...
+fatal: fsync error on '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sdadas+polish-roberta-large-v2/.git/objects/pack/tmp_pack_PcJKbu': Disk quota exceeded
+fatal: fetch-pack: invalid index-pack output
+'"
+sdadas/polish-roberta-large-v2,69ea1e794fd8137a824c3f569c1b44fd01b30fce,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:sdadas/polish-roberta-large-v2 tmp/sdadas+polish-roberta-large-v2
+  stderr: 'Cloning into 'tmp/sdadas+polish-roberta-large-v2'...
+fatal: fsync error on '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/sdadas+polish-roberta-large-v2/.git/objects/pack/tmp_pack_gLNH0o': Disk quota exceeded
+fatal: fetch-pack: invalid index-pack output
+'"
+ai-forever/sbert_large_nlu_ru,d3aabf318bd76818b967ec2d9f4221d7891b5cdf,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:ai-forever/sbert_large_nlu_ru tmp/ai-forever+sbert_large_nlu_ru
+  stderr: 'Cloning into 'tmp/ai-forever+sbert_large_nlu_ru'...
+fatal: cannot write keep file '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/ai-forever+sbert_large_nlu_ru/.git/objects/pack/pack-ae52001ca2f6d89f4b35e5c5830257f4ddc0af5e.keep': Disk quota exceeded
+fatal: fetch-pack: invalid index-pack output
+'"
+ai-forever/sbert_large_nlu_ru,af977d5dfa46a3635e29bf0ef383f2df2a08d47a,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:ai-forever/sbert_large_nlu_ru tmp/ai-forever+sbert_large_nlu_ru
+  stderr: 'Cloning into 'tmp/ai-forever+sbert_large_nlu_ru'...
+fatal: cannot write keep file '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/ai-forever+sbert_large_nlu_ru/.git/objects/pack/pack-3a201fdc002291cb274630998702646fe2757fad.keep': Disk quota exceeded
+fatal: fetch-pack: invalid index-pack output
+'"
+ai-forever/sbert_large_nlu_ru,6ef8561f2e0b07e4ef4d96ef5942c1c1c98efdab,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:ai-forever/sbert_large_nlu_ru tmp/ai-forever+sbert_large_nlu_ru
+  stderr: 'Cloning into 'tmp/ai-forever+sbert_large_nlu_ru'...
+fatal: cannot write keep file '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/ai-forever+sbert_large_nlu_ru/.git/objects/pack/pack-944a9278b9b7e74955d8539b294240279460a6b6.keep': Disk quota exceeded
+fatal: fetch-pack: invalid index-pack output
+'"
+ai-forever/sbert_large_mt_nlu_ru,05300876c2b83f46d3ddd422a7f17e45cf633bb0,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:ai-forever/sbert_large_mt_nlu_ru tmp/ai-forever+sbert_large_mt_nlu_ru
+  stderr: 'Cloning into 'tmp/ai-forever+sbert_large_mt_nlu_ru'...
+fatal: cannot write keep file '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/ai-forever+sbert_large_mt_nlu_ru/.git/objects/pack/pack-2640b61d76e3616bb51aaa93aa7d2bd67a162eb0.keep': Disk quota exceeded
+fatal: fetch-pack: invalid index-pack output
+'"
+ai-forever/sbert_large_mt_nlu_ru,16b3550b547b568042b790f3a0929846af60a024,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:ai-forever/sbert_large_mt_nlu_ru tmp/ai-forever+sbert_large_mt_nlu_ru
+  stderr: 'Cloning into 'tmp/ai-forever+sbert_large_mt_nlu_ru'...
+fatal: cannot write keep file '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/ai-forever+sbert_large_mt_nlu_ru/.git/objects/pack/pack-2640b61d76e3616bb51aaa93aa7d2bd67a162eb0.keep': Disk quota exceeded
+fatal: fetch-pack: invalid index-pack output
+'"
+ai-forever/sbert_large_mt_nlu_ru,4b10cf97f86cd5319d7512cd7e982009e90bff5b,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:ai-forever/sbert_large_mt_nlu_ru tmp/ai-forever+sbert_large_mt_nlu_ru
+  stderr: 'Cloning into 'tmp/ai-forever+sbert_large_mt_nlu_ru'...
+fatal: cannot write keep file '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/ai-forever+sbert_large_mt_nlu_ru/.git/objects/pack/pack-43b70eb7d21265a5be7f59df0c45f182b4f3658e.keep': Disk quota exceeded
+fatal: fetch-pack: invalid index-pack output
+'"
+savasy/bert-turkish-text-classification,31e695d0c6889e90246df29922cb666d3e55c60c,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:savasy/bert-turkish-text-classification tmp/savasy+bert-turkish-text-classification
+  stderr: 'Cloning into 'tmp/savasy+bert-turkish-text-classification'...
+Downloading flax_model.msgpack (442 MB)
+Error downloading object: flax_model.msgpack (7c9845c): Smudge error: Error downloading flax_model.msgpack (7c9845c0fac6b789f6d8796a0c9f77875eecfdfc57e244709057f535cbb633c3): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-turkish-text-classification/.git/lfs/incomplete/7c9845c0fac6b789f6d8796a0c9f77875eecfdfc57e244709057f535cbb633c32915195081"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-turkish-text-classification/.git/lfs/incomplete/7c9845c0fac6b789f6d8796a0c9f77875eecfdfc57e244709057f535cbb633c32915195081: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-turkish-text-classification/.git/lfs/logs/20241023T045725.763754003.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: flax_model.msgpack: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+savasy/bert-turkish-text-classification,dbbba4f88091ad46a3e2bd0bb9126027c487b656,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:savasy/bert-turkish-text-classification tmp/savasy+bert-turkish-text-classification
+  stderr: 'Cloning into 'tmp/savasy+bert-turkish-text-classification'...
+Downloading flax_model.msgpack (442 MB)
+Error downloading object: flax_model.msgpack (7c9845c): Smudge error: Error downloading flax_model.msgpack (7c9845c0fac6b789f6d8796a0c9f77875eecfdfc57e244709057f535cbb633c3): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-turkish-text-classification/.git/lfs/incomplete/7c9845c0fac6b789f6d8796a0c9f77875eecfdfc57e244709057f535cbb633c31381935258"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-turkish-text-classification/.git/lfs/incomplete/7c9845c0fac6b789f6d8796a0c9f77875eecfdfc57e244709057f535cbb633c31381935258: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-turkish-text-classification/.git/lfs/logs/20241023T045734.903881256.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: flax_model.msgpack: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+savasy/bert-turkish-text-classification,053c3d208ed2e90c03bada1c58907a8b3ac689fb,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:savasy/bert-turkish-text-classification tmp/savasy+bert-turkish-text-classification
+  stderr: 'Cloning into 'tmp/savasy+bert-turkish-text-classification'...
+Downloading flax_model.msgpack (442 MB)
+Error downloading object: flax_model.msgpack (7c9845c): Smudge error: Error downloading flax_model.msgpack (7c9845c0fac6b789f6d8796a0c9f77875eecfdfc57e244709057f535cbb633c3): can't close temporary file ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-turkish-text-classification/.git/lfs/incomplete/7c9845c0fac6b789f6d8796a0c9f77875eecfdfc57e244709057f535cbb633c32775616180"": close /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-turkish-text-classification/.git/lfs/incomplete/7c9845c0fac6b789f6d8796a0c9f77875eecfdfc57e244709057f535cbb633c32775616180: disk quota exceeded
+
+Errors logged to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-turkish-text-classification/.git/lfs/logs/20241023T045745.209752451.log'.
+Use `git lfs logs last` to view the log.
+error: external filter 'git-lfs filter-process' failed
+fatal: flax_model.msgpack: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+savasy/bert-base-turkish-squad,29841ac386224581d23994f4d1a16201a3bbfa1d,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:savasy/bert-base-turkish-squad tmp/savasy+bert-base-turkish-squad
+  stderr: 'Cloning into 'tmp/savasy+bert-base-turkish-squad'...
+fatal: fsync error on '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-squad/.git/objects/pack/tmp_pack_qm0L2C': Disk quota exceeded
+fatal: fetch-pack: invalid index-pack output
+'"
+savasy/bert-base-turkish-squad,e60da07ef4a47323e188b9dedf1267c21f88b369,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:savasy/bert-base-turkish-squad tmp/savasy+bert-base-turkish-squad
+  stderr: 'Cloning into 'tmp/savasy+bert-base-turkish-squad'...
+fatal: fsync error on '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-squad/.git/objects/pack/tmp_pack_yQtaiy': Disk quota exceeded
+fatal: fetch-pack: invalid index-pack output
+'"
+savasy/bert-base-turkish-squad,944b3b5e1167b523bc7725be88dee7a811b4d636,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:savasy/bert-base-turkish-squad tmp/savasy+bert-base-turkish-squad
+  stderr: 'Cloning into 'tmp/savasy+bert-base-turkish-squad'...
+fatal: fsync error on '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-squad/.git/objects/pack/tmp_pack_RxJFm1': Disk quota exceeded
+fatal: fetch-pack: invalid index-pack output
+'"
+savasy/bert-base-turkish-sentiment-cased,453309215a1f3a79efec5a9ee726090d558413bb,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:savasy/bert-base-turkish-sentiment-cased tmp/savasy+bert-base-turkish-sentiment-cased
+  stderr: 'Cloning into 'tmp/savasy+bert-base-turkish-sentiment-cased'...
+Downloading flax_model.msgpack (442 MB)
+Error downloading object: flax_model.msgpack (c1a430a): Smudge error: Error downloading flax_model.msgpack (c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba): cannot replace ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba"" with ""/tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba1655173279"": rename /tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba1655173279 /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba: invalid cross-device link
+Unable to log panic to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/logs': mkdir /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/logs: disk quota exceeded
+
+git-lfs/3.5.1 (GitHub; linux amd64; go 1.21.7; git e237bb3a)
+git version 2.45.1
+
+$ git-lfs filter-process
+Error downloading object: flax_model.msgpack (c1a430a): Smudge error: Error downloading flax_model.msgpack (c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba): cannot replace ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba"" with ""/tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba1655173279"": rename /tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba1655173279 /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba: invalid cross-device link
+
+cannot replace ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba"" with ""/tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba1655173279"": rename /tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba1655173279 /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba: invalid cross-device link
+github.com/git-lfs/git-lfs/v3/errors.New
+	github.com/git-lfs/git-lfs/v3/errors/errors.go:62
+github.com/git-lfs/git-lfs/v3/tools.RenameFileCopyPermissions
+	github.com/git-lfs/git-lfs/v3/tools/filetools.go:84
+github.com/git-lfs/git-lfs/v3/tq.(*basicDownloadAdapter).download
+	github.com/git-lfs/git-lfs/v3/tq/basic_download.go:256
+github.com/git-lfs/git-lfs/v3/tq.(*basicDownloadAdapter).DoTransfer
+	github.com/git-lfs/git-lfs/v3/tq/basic_download.go:96
+github.com/git-lfs/git-lfs/v3/tq.(*adapterBase).worker
+	github.com/git-lfs/git-lfs/v3/tq/adapterbase.go:183
+runtime.goexit
+	runtime/asm_amd64.s:1650
+Error downloading flax_model.msgpack (c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba)
+github.com/git-lfs/git-lfs/v3/errors.newWrappedError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:229
+github.com/git-lfs/git-lfs/v3/errors.Wrapf
+	github.com/git-lfs/git-lfs/v3/errors/errors.go:85
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).downloadFile
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:134
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).Smudge
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:85
+github.com/git-lfs/git-lfs/v3/commands.smudge
+	github.com/git-lfs/git-lfs/v3/commands/command_smudge.go:128
+github.com/git-lfs/git-lfs/v3/commands.filterCommand
+	github.com/git-lfs/git-lfs/v3/commands/command_filter_process.go:131
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.7.0/command.go:944
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.7.0/command.go:1068
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.7.0/command.go:992
+github.com/git-lfs/git-lfs/v3/commands.Run
+	github.com/git-lfs/git-lfs/v3/commands/run.go:154
+main.main
+	./git-lfs.go:34
+runtime.main
+	runtime/proc.go:267
+runtime.goexit
+	runtime/asm_amd64.s:1650
+Smudge error
+github.com/git-lfs/git-lfs/v3/errors.newWrappedError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:229
+github.com/git-lfs/git-lfs/v3/errors.NewSmudgeError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:315
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).Smudge
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:102
+github.com/git-lfs/git-lfs/v3/commands.smudge
+	github.com/git-lfs/git-lfs/v3/commands/command_smudge.go:128
+github.com/git-lfs/git-lfs/v3/commands.filterCommand
+	github.com/git-lfs/git-lfs/v3/commands/command_filter_process.go:131
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.7.0/command.go:944
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.7.0/command.go:1068
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.7.0/command.go:992
+github.com/git-lfs/git-lfs/v3/commands.Run
+	github.com/git-lfs/git-lfs/v3/commands/run.go:154
+main.main
+	./git-lfs.go:34
+runtime.main
+	runtime/proc.go:267
+runtime.goexit
+	runtime/asm_amd64.s:1650
+
+Current time in UTC:
+2024-10-23 08:58:19
+
+Environment:
+LocalWorkingDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased
+LocalGitDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git
+LocalGitStorageDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git
+LocalMediaDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects
+LocalReferenceDirs=
+TempDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/tmp
+ConcurrentTransfers=8
+TusTransfers=false
+BasicTransfersOnly=false
+SkipDownloadErrors=false
+FetchRecentAlways=false
+FetchRecentRefsDays=7
+FetchRecentCommitsDays=0
+FetchRecentRefsIncludeRemotes=true
+PruneOffsetDays=3
+PruneVerifyRemoteAlways=false
+PruneVerifyUnreachableAlways=false
+PruneRemoteName=origin
+LfsStorageDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs
+AccessDownload=none
+AccessUpload=none
+DownloadTransfers=basic,lfs-standalone-file,ssh
+UploadTransfers=basic,lfs-standalone-file,ssh
+GIT_CLONE_TEMPLATE_DIR=/opt/crc/g/git/2.45.1/share/git-core/templates
+GIT_DIR=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git
+GIT_EXEC_PATH=/opt/crc/g/git/2.45.1/libexec/git-core
+GIT_ASKPASS=/afs/crc.nd.edu/user/a/acotaj/.vscode-server/cli/servers/Stable-384ff7382de624fb94dbaf6da11977bba1ecd427/server/extensions/git/dist/askpass.sh
+GIT_CLONE_PROTECTION_ACTIVE=false
+
+Client IP addresses:
+10.32.85.47
+169.254.1.2
+error: external filter 'git-lfs filter-process' failed
+fatal: flax_model.msgpack: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+savasy/bert-base-turkish-sentiment-cased,e7a3b588dd4dd6e067fee10a1201eb50e54a78d4,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:savasy/bert-base-turkish-sentiment-cased tmp/savasy+bert-base-turkish-sentiment-cased
+  stderr: 'Cloning into 'tmp/savasy+bert-base-turkish-sentiment-cased'...
+Downloading flax_model.msgpack (442 MB)
+Error downloading object: flax_model.msgpack (c1a430a): Smudge error: Error downloading flax_model.msgpack (c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba): cannot replace ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba"" with ""/tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba855947097"": rename /tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba855947097 /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba: invalid cross-device link
+Unable to log panic to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/logs': mkdir /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/logs: disk quota exceeded
+
+git-lfs/3.5.1 (GitHub; linux amd64; go 1.21.7; git e237bb3a)
+git version 2.45.1
+
+$ git-lfs filter-process
+Error downloading object: flax_model.msgpack (c1a430a): Smudge error: Error downloading flax_model.msgpack (c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba): cannot replace ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba"" with ""/tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba855947097"": rename /tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba855947097 /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba: invalid cross-device link
+
+cannot replace ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba"" with ""/tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba855947097"": rename /tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba855947097 /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba: invalid cross-device link
+github.com/git-lfs/git-lfs/v3/errors.New
+	github.com/git-lfs/git-lfs/v3/errors/errors.go:62
+github.com/git-lfs/git-lfs/v3/tools.RenameFileCopyPermissions
+	github.com/git-lfs/git-lfs/v3/tools/filetools.go:84
+github.com/git-lfs/git-lfs/v3/tq.(*basicDownloadAdapter).download
+	github.com/git-lfs/git-lfs/v3/tq/basic_download.go:256
+github.com/git-lfs/git-lfs/v3/tq.(*basicDownloadAdapter).DoTransfer
+	github.com/git-lfs/git-lfs/v3/tq/basic_download.go:96
+github.com/git-lfs/git-lfs/v3/tq.(*adapterBase).worker
+	github.com/git-lfs/git-lfs/v3/tq/adapterbase.go:183
+runtime.goexit
+	runtime/asm_amd64.s:1650
+Error downloading flax_model.msgpack (c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba)
+github.com/git-lfs/git-lfs/v3/errors.newWrappedError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:229
+github.com/git-lfs/git-lfs/v3/errors.Wrapf
+	github.com/git-lfs/git-lfs/v3/errors/errors.go:85
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).downloadFile
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:134
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).Smudge
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:85
+github.com/git-lfs/git-lfs/v3/commands.smudge
+	github.com/git-lfs/git-lfs/v3/commands/command_smudge.go:128
+github.com/git-lfs/git-lfs/v3/commands.filterCommand
+	github.com/git-lfs/git-lfs/v3/commands/command_filter_process.go:131
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.7.0/command.go:944
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.7.0/command.go:1068
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.7.0/command.go:992
+github.com/git-lfs/git-lfs/v3/commands.Run
+	github.com/git-lfs/git-lfs/v3/commands/run.go:154
+main.main
+	./git-lfs.go:34
+runtime.main
+	runtime/proc.go:267
+runtime.goexit
+	runtime/asm_amd64.s:1650
+Smudge error
+github.com/git-lfs/git-lfs/v3/errors.newWrappedError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:229
+github.com/git-lfs/git-lfs/v3/errors.NewSmudgeError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:315
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).Smudge
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:102
+github.com/git-lfs/git-lfs/v3/commands.smudge
+	github.com/git-lfs/git-lfs/v3/commands/command_smudge.go:128
+github.com/git-lfs/git-lfs/v3/commands.filterCommand
+	github.com/git-lfs/git-lfs/v3/commands/command_filter_process.go:131
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.7.0/command.go:944
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.7.0/command.go:1068
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.7.0/command.go:992
+github.com/git-lfs/git-lfs/v3/commands.Run
+	github.com/git-lfs/git-lfs/v3/commands/run.go:154
+main.main
+	./git-lfs.go:34
+runtime.main
+	runtime/proc.go:267
+runtime.goexit
+	runtime/asm_amd64.s:1650
+
+Current time in UTC:
+2024-10-23 08:58:56
+
+Environment:
+LocalWorkingDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased
+LocalGitDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git
+LocalGitStorageDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git
+LocalMediaDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects
+LocalReferenceDirs=
+TempDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/tmp
+ConcurrentTransfers=8
+TusTransfers=false
+BasicTransfersOnly=false
+SkipDownloadErrors=false
+FetchRecentAlways=false
+FetchRecentRefsDays=7
+FetchRecentCommitsDays=0
+FetchRecentRefsIncludeRemotes=true
+PruneOffsetDays=3
+PruneVerifyRemoteAlways=false
+PruneVerifyUnreachableAlways=false
+PruneRemoteName=origin
+LfsStorageDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs
+AccessDownload=none
+AccessUpload=none
+DownloadTransfers=basic,lfs-standalone-file,ssh
+UploadTransfers=basic,lfs-standalone-file,ssh
+GIT_CLONE_TEMPLATE_DIR=/opt/crc/g/git/2.45.1/share/git-core/templates
+GIT_DIR=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git
+GIT_EXEC_PATH=/opt/crc/g/git/2.45.1/libexec/git-core
+GIT_ASKPASS=/afs/crc.nd.edu/user/a/acotaj/.vscode-server/cli/servers/Stable-384ff7382de624fb94dbaf6da11977bba1ecd427/server/extensions/git/dist/askpass.sh
+GIT_CLONE_PROTECTION_ACTIVE=false
+
+Client IP addresses:
+10.32.85.47
+169.254.1.2
+error: external filter 'git-lfs filter-process' failed
+fatal: flax_model.msgpack: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+savasy/bert-base-turkish-sentiment-cased,c56c69e8573845b07dcb2ed032b5b312df2eae84,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:savasy/bert-base-turkish-sentiment-cased tmp/savasy+bert-base-turkish-sentiment-cased
+  stderr: 'Cloning into 'tmp/savasy+bert-base-turkish-sentiment-cased'...
+Downloading flax_model.msgpack (442 MB)
+Error downloading object: flax_model.msgpack (c1a430a): Smudge error: Error downloading flax_model.msgpack (c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba): cannot replace ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba"" with ""/tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba2939532516"": rename /tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba2939532516 /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba: invalid cross-device link
+Unable to log panic to '/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/logs': mkdir /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/logs: disk quota exceeded
+
+git-lfs/3.5.1 (GitHub; linux amd64; go 1.21.7; git e237bb3a)
+git version 2.45.1
+
+$ git-lfs filter-process
+Error downloading object: flax_model.msgpack (c1a430a): Smudge error: Error downloading flax_model.msgpack (c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba): cannot replace ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba"" with ""/tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba2939532516"": rename /tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba2939532516 /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba: invalid cross-device link
+
+cannot replace ""/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba"" with ""/tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba2939532516"": rename /tmp/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba2939532516 /afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects/c1/a4/c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba: invalid cross-device link
+github.com/git-lfs/git-lfs/v3/errors.New
+	github.com/git-lfs/git-lfs/v3/errors/errors.go:62
+github.com/git-lfs/git-lfs/v3/tools.RenameFileCopyPermissions
+	github.com/git-lfs/git-lfs/v3/tools/filetools.go:84
+github.com/git-lfs/git-lfs/v3/tq.(*basicDownloadAdapter).download
+	github.com/git-lfs/git-lfs/v3/tq/basic_download.go:256
+github.com/git-lfs/git-lfs/v3/tq.(*basicDownloadAdapter).DoTransfer
+	github.com/git-lfs/git-lfs/v3/tq/basic_download.go:96
+github.com/git-lfs/git-lfs/v3/tq.(*adapterBase).worker
+	github.com/git-lfs/git-lfs/v3/tq/adapterbase.go:183
+runtime.goexit
+	runtime/asm_amd64.s:1650
+Error downloading flax_model.msgpack (c1a430a0686f01d196df33f8d9342497077e93ef201e1007a476da0e5eecb3ba)
+github.com/git-lfs/git-lfs/v3/errors.newWrappedError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:229
+github.com/git-lfs/git-lfs/v3/errors.Wrapf
+	github.com/git-lfs/git-lfs/v3/errors/errors.go:85
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).downloadFile
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:134
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).Smudge
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:85
+github.com/git-lfs/git-lfs/v3/commands.smudge
+	github.com/git-lfs/git-lfs/v3/commands/command_smudge.go:128
+github.com/git-lfs/git-lfs/v3/commands.filterCommand
+	github.com/git-lfs/git-lfs/v3/commands/command_filter_process.go:131
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.7.0/command.go:944
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.7.0/command.go:1068
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.7.0/command.go:992
+github.com/git-lfs/git-lfs/v3/commands.Run
+	github.com/git-lfs/git-lfs/v3/commands/run.go:154
+main.main
+	./git-lfs.go:34
+runtime.main
+	runtime/proc.go:267
+runtime.goexit
+	runtime/asm_amd64.s:1650
+Smudge error
+github.com/git-lfs/git-lfs/v3/errors.newWrappedError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:229
+github.com/git-lfs/git-lfs/v3/errors.NewSmudgeError
+	github.com/git-lfs/git-lfs/v3/errors/types.go:315
+github.com/git-lfs/git-lfs/v3/lfs.(*GitFilter).Smudge
+	github.com/git-lfs/git-lfs/v3/lfs/gitfilter_smudge.go:102
+github.com/git-lfs/git-lfs/v3/commands.smudge
+	github.com/git-lfs/git-lfs/v3/commands/command_smudge.go:128
+github.com/git-lfs/git-lfs/v3/commands.filterCommand
+	github.com/git-lfs/git-lfs/v3/commands/command_filter_process.go:131
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.7.0/command.go:944
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.7.0/command.go:1068
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.7.0/command.go:992
+github.com/git-lfs/git-lfs/v3/commands.Run
+	github.com/git-lfs/git-lfs/v3/commands/run.go:154
+main.main
+	./git-lfs.go:34
+runtime.main
+	runtime/proc.go:267
+runtime.goexit
+	runtime/asm_amd64.s:1650
+
+Current time in UTC:
+2024-10-23 08:59:32
+
+Environment:
+LocalWorkingDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased
+LocalGitDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git
+LocalGitStorageDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git
+LocalMediaDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/objects
+LocalReferenceDirs=
+TempDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs/tmp
+ConcurrentTransfers=8
+TusTransfers=false
+BasicTransfersOnly=false
+SkipDownloadErrors=false
+FetchRecentAlways=false
+FetchRecentRefsDays=7
+FetchRecentCommitsDays=0
+FetchRecentRefsIncludeRemotes=true
+PruneOffsetDays=3
+PruneVerifyRemoteAlways=false
+PruneVerifyUnreachableAlways=false
+PruneRemoteName=origin
+LfsStorageDir=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git/lfs
+AccessDownload=none
+AccessUpload=none
+DownloadTransfers=basic,lfs-standalone-file,ssh
+UploadTransfers=basic,lfs-standalone-file,ssh
+GIT_CLONE_TEMPLATE_DIR=/opt/crc/g/git/2.45.1/share/git-core/templates
+GIT_DIR=/afs/crc.nd.edu/user/a/acotaj/wip-model-evolution/scripts/tmp/savasy+bert-base-turkish-sentiment-cased/.git
+GIT_EXEC_PATH=/opt/crc/g/git/2.45.1/libexec/git-core
+GIT_ASKPASS=/afs/crc.nd.edu/user/a/acotaj/.vscode-server/cli/servers/Stable-384ff7382de624fb94dbaf6da11977bba1ecd427/server/extensions/git/dist/askpass.sh
+GIT_CLONE_PROTECTION_ACTIVE=false
+
+Client IP addresses:
+10.32.85.47
+169.254.1.2
+error: external filter 'git-lfs filter-process' failed
+fatal: flax_model.msgpack: smudge filter lfs failed
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+'"
+savasy/bert-base-turkish-ner-cased,d1cd705eb7b6ed243c59ea0f988deac0df01db08,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:savasy/bert-base-turkish-ner-cased tmp/savasy+bert-base-turkish-ner-cased
+  stderr: 'fatal: could not create work tree dir 'tmp/savasy+bert-base-turkish-ner-cased': Disk quota exceeded
+'"
+savasy/bert-base-turkish-ner-cased,573e8fbfb6c07aa0eeaf6cda0f3844fb91e88fac,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:savasy/bert-base-turkish-ner-cased tmp/savasy+bert-base-turkish-ner-cased
+  stderr: 'fatal: could not create work tree dir 'tmp/savasy+bert-base-turkish-ner-cased': Disk quota exceeded
+'"
+savasy/bert-base-turkish-ner-cased,e2cfd6ed6c76884f3278e436a2433a8d0556bc9f,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:savasy/bert-base-turkish-ner-cased tmp/savasy+bert-base-turkish-ner-cased
+  stderr: 'fatal: could not create work tree dir 'tmp/savasy+bert-base-turkish-ner-cased': Disk quota exceeded
+'"
+Ashishkr/query_wellformedness_score,d0e3c491e2176d17c6cc979620757612fa979bc0,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Ashishkr/query_wellformedness_score tmp/Ashishkr+query_wellformedness_score
+  stderr: 'fatal: could not create work tree dir 'tmp/Ashishkr+query_wellformedness_score': Disk quota exceeded
+'"
+Ashishkr/query_wellformedness_score,d0e4485ca60b6b2c5cbf91f216f0e61a0d25b106,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:Ashishkr/query_wellformedness_score tmp/Ashishkr+query_wellformedness_score
+  stderr: 'fatal: could not create work tree dir 'tmp/Ashishkr+query_wellformedness_score': Disk quota exceeded
+'"
+ruslanmv/TensorFlowTTS,cd3ba6da357b81435a9e2e9f5c5fc667157dc5b0,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:ruslanmv/TensorFlowTTS tmp/ruslanmv+TensorFlowTTS
+  stderr: 'fatal: could not create work tree dir 'tmp/ruslanmv+TensorFlowTTS': Disk quota exceeded
+'"
+rinna/japanese-roberta-base,a6292480cf298a973a593c011eb7703e25f802cc,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:rinna/japanese-roberta-base tmp/rinna+japanese-roberta-base
+  stderr: 'fatal: could not create work tree dir 'tmp/rinna+japanese-roberta-base': Disk quota exceeded
+'"
+rinna/japanese-roberta-base,71935ded0d79b9c706225e36ea34535417bdc7dd,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:rinna/japanese-roberta-base tmp/rinna+japanese-roberta-base
+  stderr: 'fatal: could not create work tree dir 'tmp/rinna+japanese-roberta-base': Disk quota exceeded
+'"
+rinna/japanese-gpt2-xsmall,d539bf1f1586f871c417c404007a2ec4eeaaa2e0,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:rinna/japanese-gpt2-xsmall tmp/rinna+japanese-gpt2-xsmall
+  stderr: 'fatal: could not create work tree dir 'tmp/rinna+japanese-gpt2-xsmall': Disk quota exceeded
+'"
+rinna/japanese-gpt2-xsmall,7ca3df45e951936f148905573d5b33b09276e970,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:rinna/japanese-gpt2-xsmall tmp/rinna+japanese-gpt2-xsmall
+  stderr: 'fatal: could not create work tree dir 'tmp/rinna+japanese-gpt2-xsmall': Disk quota exceeded
+'"
+rinna/japanese-gpt2-small,8e5d4b47796688b90ce0a006aa05389a33a88985,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:rinna/japanese-gpt2-small tmp/rinna+japanese-gpt2-small
+  stderr: 'fatal: could not create work tree dir 'tmp/rinna+japanese-gpt2-small': Disk quota exceeded
+'"
+rinna/japanese-gpt2-small,0ba65729b8e57b7433f850771ac12186119a0826,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:rinna/japanese-gpt2-small tmp/rinna+japanese-gpt2-small
+  stderr: 'fatal: could not create work tree dir 'tmp/rinna+japanese-gpt2-small': Disk quota exceeded
+'"
+rinna/japanese-gpt2-medium,7f8349fabd40edf09dec4d045dfe8c7e7500c52f,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:rinna/japanese-gpt2-medium tmp/rinna+japanese-gpt2-medium
+  stderr: 'fatal: could not create work tree dir 'tmp/rinna+japanese-gpt2-medium': Disk quota exceeded
+'"
+rinna/japanese-gpt2-medium,ae4875affd0259f0cd8debaea23174fc524c05df,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:rinna/japanese-gpt2-medium tmp/rinna+japanese-gpt2-medium
+  stderr: 'fatal: could not create work tree dir 'tmp/rinna+japanese-gpt2-medium': Disk quota exceeded
+'"
+rinna/japanese-gpt2-medium,58026e851cdf8471a9b65c53236a5429c51e6c9b,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:rinna/japanese-gpt2-medium tmp/rinna+japanese-gpt2-medium
+  stderr: 'fatal: could not create work tree dir 'tmp/rinna+japanese-gpt2-medium': Disk quota exceeded
+'"
+rinna/japanese-gpt-1b,44d3fdefa7186e6e6738a308579d15fd0fc9cbad,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:rinna/japanese-gpt-1b tmp/rinna+japanese-gpt-1b
+  stderr: 'fatal: could not create work tree dir 'tmp/rinna+japanese-gpt-1b': Disk quota exceeded
+'"
+rinna/japanese-gpt-1b,8a10e98c3d402812c6e689aa712cfb4db0cd53ab,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:rinna/japanese-gpt-1b tmp/rinna+japanese-gpt-1b
+  stderr: 'fatal: could not create work tree dir 'tmp/rinna+japanese-gpt-1b': Disk quota exceeded
+'"
+ravirajoshi/wav2vec2-large-xls-r-300m-marathi-lm-boosted,db5f2afbe916897c0197740b46a89e8c01410059,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:ravirajoshi/wav2vec2-large-xls-r-300m-marathi-lm-boosted tmp/ravirajoshi+wav2vec2-large-xls-r-300m-marathi-lm-boosted
+  stderr: 'fatal: could not create work tree dir 'tmp/ravirajoshi+wav2vec2-large-xls-r-300m-marathi-lm-boosted': Disk quota exceeded
+'"
+ravirajoshi/wav2vec2-large-xls-r-300m-marathi-lm-boosted,d6606aaf109c0e28df0225c46c01b94fe37b8208,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:ravirajoshi/wav2vec2-large-xls-r-300m-marathi-lm-boosted tmp/ravirajoshi+wav2vec2-large-xls-r-300m-marathi-lm-boosted
+  stderr: 'fatal: could not create work tree dir 'tmp/ravirajoshi+wav2vec2-large-xls-r-300m-marathi-lm-boosted': Disk quota exceeded
+'"
+ravirajoshi/wav2vec2-large-xls-r-300m-marathi-lm-boosted,389185a8cb965839f66c16de4aa2e275375eb175,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:ravirajoshi/wav2vec2-large-xls-r-300m-marathi-lm-boosted tmp/ravirajoshi+wav2vec2-large-xls-r-300m-marathi-lm-boosted
+  stderr: 'fatal: could not create work tree dir 'tmp/ravirajoshi+wav2vec2-large-xls-r-300m-marathi-lm-boosted': Disk quota exceeded
+'"
+ravirajoshi/wav2vec2-large-xls-r-300m-hindi-lm-boosted,d0320875137c417b5bca62d802c9741769dfe441,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:ravirajoshi/wav2vec2-large-xls-r-300m-hindi-lm-boosted tmp/ravirajoshi+wav2vec2-large-xls-r-300m-hindi-lm-boosted
+  stderr: 'fatal: could not create work tree dir 'tmp/ravirajoshi+wav2vec2-large-xls-r-300m-hindi-lm-boosted': Disk quota exceeded
+'"
+raruidol/ArgumentMining-EN-ARI-US2016,b556fc7af04ebf3383bc1c4d4bac0478a80daa3a,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:raruidol/ArgumentMining-EN-ARI-US2016 tmp/raruidol+ArgumentMining-EN-ARI-US2016
+  stderr: 'fatal: could not create work tree dir 'tmp/raruidol+ArgumentMining-EN-ARI-US2016': Disk quota exceeded
+'"
+qanastek/pos-french,cfae9802a88e659d286c19da42ec05a5328f5bf4,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:qanastek/pos-french tmp/qanastek+pos-french
+  stderr: 'fatal: could not create work tree dir 'tmp/qanastek+pos-french': Disk quota exceeded
+'"
+qanastek/pos-french,19bd32ef65708c45ee9cac5d9c43b7105462ec93,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:qanastek/pos-french tmp/qanastek+pos-french
+  stderr: 'fatal: could not create work tree dir 'tmp/qanastek+pos-french': Disk quota exceeded
+'"
+qanastek/pos-french,b897cce8866e23ded20bc03f2b95c4de774e2edc,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:qanastek/pos-french tmp/qanastek+pos-french
+  stderr: 'fatal: could not create work tree dir 'tmp/qanastek+pos-french': Disk quota exceeded
+'"
+pysentimiento/robertuito-sentiment-analysis,c9045a75d17f43ce9452e4d2dd39e0583e06fe1e,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:pysentimiento/robertuito-sentiment-analysis tmp/pysentimiento+robertuito-sentiment-analysis
+  stderr: 'fatal: could not create work tree dir 'tmp/pysentimiento+robertuito-sentiment-analysis': Disk quota exceeded
+'"
+pysentimiento/robertuito-sentiment-analysis,a67a88f0b348b80b7194d86c6801f03ba24d5d84,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:pysentimiento/robertuito-sentiment-analysis tmp/pysentimiento+robertuito-sentiment-analysis
+  stderr: 'fatal: could not create work tree dir 'tmp/pysentimiento+robertuito-sentiment-analysis': Disk quota exceeded
+'"
+pysentimiento/robertuito-sentiment-analysis,e3be95c8efad7f480ce8aab2221188ecb78e40f3,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:pysentimiento/robertuito-sentiment-analysis tmp/pysentimiento+robertuito-sentiment-analysis
+  stderr: 'fatal: could not create work tree dir 'tmp/pysentimiento+robertuito-sentiment-analysis': Disk quota exceeded
+'"
+pysentimiento/robertuito-sentiment-analysis,91676c9328602946c91ed2926a0475033256be08,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:pysentimiento/robertuito-sentiment-analysis tmp/pysentimiento+robertuito-sentiment-analysis
+  stderr: 'fatal: could not create work tree dir 'tmp/pysentimiento+robertuito-sentiment-analysis': Disk quota exceeded
+'"
+pszemraj/distill-pegasus-CompMath,3f371f4ce849f9742a3eeeaf79e00ccf0879f51b,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- git@hf.co:pszemraj/distill-pegasus-CompMath tmp/pszemraj+distill-pegasus-CompMath
+  stderr: 'fatal: could not create work tree dir 'tmp/pszemraj+distill-pegasus-CompMath': Disk quota exceeded
+'"
