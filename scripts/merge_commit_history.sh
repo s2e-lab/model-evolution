@@ -1,36 +1,10 @@
 ## Usage: bash scripts/merge_commit_history.sh
 ## Description: Merge all the commit history files into a single file
-#
-#cd ../data
-#
-## Find the first and last index of the commit history files
-#first_index=$(ls huggingface_sort_by_createdAt_top996939_commits_*.csv | head -n 1 | sed -E 's/.*_([0-9]+)_[0-9]+\.csv/\1/') &&
-#last_index=$(ls huggingface_sort_by_createdAt_top996939_commits_*.csv | tail -n 1 | sed -E 's/.*_[0-9]+_([0-9]+)\.csv/\1/') &&
-#output_file="huggingface_sort_by_createdAt_top996939_commits_${first_index}_${last_index}.csv" &&
-#
-## Check if the output file already exists
-#if [ -f "$output_file" ]; then
-#    echo "Output file $output_file already exists. Please remove it before running this script."
-#    exit 1
-#fi
-#
-## Start merging the commit history files
-#echo "Merging commit history files into $output_file"
-#head -n 1 $(ls huggingface_sort_by_createdAt_top996939_commits_*.csv | head -n 1) > "$output_file" &&
-#tail -n +2 -q huggingface_sort_by_createdAt_top996939_commits_*.csv >> "$output_file"
-#
-#
-## Check integrity by counting rows
-#original_count=$(tail -n +2 -q huggingface_sort_by_createdAt_top996939_commits_*.csv | wc -l) &&
-#merged_count=$(tail -n +2 "$output_file" | wc -l)
-#
-#if [ "$original_count" -eq "$merged_count" ]; then
-#    echo "Merge successful: $original_count entries."
-#else
-#    echo "Merge failed: Original count is $original_count but merged count is $merged_count."
-#fi
-#
-#cd ../scripts
+## Input: several files named as:
+##    data/huggingface_sort_by_createdAt_top996939_commits_[0-9]+_[0-9]+.csv
+## Output:
+##    data/huggingface_sort_by_createdAt_top996939_commits_<first_index>_<last_index>.csv
+
 
 cd ../data
 

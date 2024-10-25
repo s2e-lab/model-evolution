@@ -49,7 +49,18 @@ The data will be saved in the `data` folder.
     ```bash
     python get_models.py
     ```
+    It will save the metadata of all models in the `../data/` folder.
+    File name will be `huggingface_sort_by_createdAt_topN.json`, where `N` is the number of model repositories.
+
 - **Step 2:**
+  - `./notebooks/select_models.ipynb`: Script to filter the repositories from HuggingFace using our filtering criteria based on creation / last update dates. 
+    ```bash
+    cd notebooks
+    jupyter notebook select_models.ipynb
+    ```
+    It will select model repositories and save the filtered list at `../data/huggingface_sort_by_createdAt_topN_selected.json`.   
+  
+- **Step 3:**
   - `get_models_history.py`: Script to get metadata of all models from HuggingFace. 
   It will produce commit history for each model repository and save it on the data folder. 
   It requires the start and end index of the models to be processed.
@@ -62,13 +73,14 @@ The data will be saved in the `data` folder.
     python get_repos_history.py 517 1035 
     ```
     
-- **Step 3:**
-  - Merge the CSV files into a single file.
+- **Step 4:**
+  - Merge the CSV files for the commit history into a single file.
     ```bash
     ./merge_commit_history.sh
     ```
+    The script will merge all the CSV files in the `../data/` folder into a single file `../data/huggingface_sort_by_createdAt_top996939_commits_<first_index>_<last_index>.csv`.
     
-- **Step 4:**
+- **Step 5:**
   - `analyze_commit_history.py`: Script to analyze the commit history of the models to identify the serialization format using at a given time.
     ```bash
     python analyze_commit_history.py
