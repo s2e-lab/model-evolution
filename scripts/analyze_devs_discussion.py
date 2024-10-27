@@ -3,7 +3,7 @@ import sys
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
+from utils import calculate_sample_size
 
 def compute_similarity(query: str, df: pd.DataFrame, columns: []):
     """
@@ -41,4 +41,8 @@ if __name__ == '__main__':
     df = df.rename(columns={'json content': 'content'})
     df['is_true_positive'] = None
     df['comments'] = None
-    df.to_csv(filename.replace(".csv", "_similarities.csv"), index=False)
+
+    sample_size = calculate_sample_size(len(df), 0.95, 0.05)
+    # save only the first sample_size rows
+    df = df.head(sample_size)
+    df.to_csv(filename.replace(".csv", "_similarities.csv"), index=True)
