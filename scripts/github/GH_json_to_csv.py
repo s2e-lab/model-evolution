@@ -3,11 +3,11 @@ import csv
 import sys
 
 def convert_json_to_csv(json_input_file, csv_output_file):
-    with open (json_input_file) as f:
+    with open (json_input_file, encoding='utf-8') as f:
         data = json.load(f)
 
-    with open (csv_output_file, "w") as f:
-        csv_writer = csv.writer(f)
+    with open (csv_output_file, "w", encoding='utf-8') as f:
+        csv_writer = csv.writer(f, delimiter=",", quotechar='"',  lineterminator="\n")
         csv_writer.writerow(["source", "title", "url", "json content"])
 
         for entry in data:
