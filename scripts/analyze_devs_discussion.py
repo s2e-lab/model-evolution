@@ -48,9 +48,12 @@ if __name__ == '__main__':
     # calculate sample size
     sample_size = calculate_sample_size(len(df), 0.95, 0.05)
 
+    # make index start at 1
+    df.index = df.index + 1
+
     # save only the first sample_size rows
-    df = df.head(sample_size)
-    output_filename = filename.replace('.csv', '_sampled.csv')
+    output_filename = filename.replace('.csv', '_sorted.csv')
     df.to_csv(output_filename, index=True)
 
-    print(f"{sample_size} samples saved to {output_filename}")
+    print(f"Samples saved to {output_filename}")
+    print(f"Sample size: {sample_size}")
