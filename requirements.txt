@@ -29,5 +29,8 @@ python-call-graph==2.1.2
 python-dotenv==1.0.1
 jupyter==1.1.1
 #analytica-ml==0.1.0
+seaborn==0.13.2
+plotly==5.24.1
+
 
 
