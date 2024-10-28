@@ -8,7 +8,7 @@ def convert_json_to_csv(json_input_file, csv_output_file):
 
     with open (csv_output_file, "w", encoding='utf-8') as f:
         csv_writer = csv.writer(f, delimiter=",", quotechar='"',  lineterminator="\n")
-        csv_writer.writerow(["source", "title", "url", "json content"])
+        csv_writer.writerow(["source", "title", "url", "json_content"])
 
         for entry in data:
             csv_writer.writerow(["GitHub", entry["title"], entry["url"], json.dumps(entry)])

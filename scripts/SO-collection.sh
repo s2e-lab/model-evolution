@@ -42,4 +42,18 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-echo "All scripts executed successfully."
+# Compute cosine similarity
+echo "# Computing cosine similarity..."
+csv_file=${output_file%.*}.csv
+python3 analyze_devs_discussion.py $csv_file
+
+# Check if analyze_devs_discussion.py was successful
+if [ $? -ne 0 ]; then
+  echo "Error: analyze_devs_discussion.py did not run successfully."
+  exit 1
+fi
+
+# delete the CSV file
+rm $csv_file
+
+

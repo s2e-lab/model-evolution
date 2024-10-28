@@ -22,27 +22,35 @@ def compute_similarity(query: str, df: pd.DataFrame, columns: []):
 
 
 if __name__ == '__main__':
-    sys.argv.append('../data/GH_data_safetensor.csv')
+    # sys.argv.append("../data/GH_data_safetensor.csv")
     if len(sys.argv) < 2:
         print("Usage: python analyze_devs_discussion.py <filename>")
         sys.exit(1)
     filename = sys.argv[1]
 
+    # Load the data
     df = pd.read_csv(filename)
+
+    # Define query and compute cosine similarity
     query = "model serialization safetensors"
-    cosine_similarities = compute_similarity(query, df, ['json content'])
+    cosine_similarities = compute_similarity(query, df, ['json_content'])
     df['cosine_similarity'] = cosine_similarities
 
     # sort by cosine similarity (descending)
     df = df.sort_values(by='cosine_similarity', ascending=False)
-    # keep only the headers source, and json_content
-    df = df[['cosine_similarity', 'source', 'json content']]
-    # rename json content to content
-    df = df.rename(columns={'json content': 'content'})
+    # format the dataframe columns
+    df = df[['cosine_similarity', 'source', 'json_content']]
+    df = df.rename(columns={'json_content': 'content'})
+    df.rename_axis('id', inplace=True)
     df['is_true_positive'] = None
     df['comments'] = None
 
+    # calculate sample size
     sample_size = calculate_sample_size(len(df), 0.95, 0.05)
+
     # save only the first sample_size rows
     df = df.head(sample_size)
-    df.to_csv(filename.replace(".csv", "_similarities.csv"), index=True)
+    output_filename = filename.replace('.csv', '_sampled.csv')
+    df.to_csv(output_filename, index=True)
+
+    print(f"{sample_size} samples saved to {output_filename}")

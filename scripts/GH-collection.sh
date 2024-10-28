@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Execute GH_dupcheck.py
-echo "Running GH_dupcheck.py..."
+echo "# Running GH_dupcheck.py..."
 python3 github/GH_dupcheck.py $output_file
 
 # Check if GH_dupcheck.py was successful
@@ -23,7 +23,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Convert JSON to CSV
-echo "Converting JSON to CSV..."
+echo "# Converting JSON to CSV..."
 python3 github/GH_json_to_csv.py $output_file
 # Check if GH_json_to_csv.py was successful
 if [ $? -ne 0 ]; then
@@ -31,4 +31,18 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-echo "All scripts executed successfully."
+# Compute cosine similarity
+echo "# Computing cosine similarity..."
+csv_file=${output_file%.*}.csv
+python3 analyze_devs_discussion.py $csv_file
+
+# Check if analyze_devs_discussion.py was successful
+if [ $? -ne 0 ]; then
+  echo "Error: analyze_devs_discussion.py did not run successfully."
+  exit 1
+fi
+
+# delete the CSV file
+rm $csv_file
+
+
