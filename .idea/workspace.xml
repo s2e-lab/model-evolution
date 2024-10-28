@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/GH_data_safetensor.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/GH_data_safetensor.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/github/GH_dupcheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/github/GH_dupcheck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/github/GH_json_to_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/github/GH_json_to_csv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/data/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +103,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730046160513</updated>
-      <workItem from="1730046162976" duration="2982000" />
+      <workItem from="1730046162976" duration="7005000" />
     </task>
     <servers />
   </component>
