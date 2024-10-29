@@ -107,7 +107,7 @@ if __name__ == '__main__':
     # get batch from repos starting at start_idx and ending at end_idx (inclusive)
     batch = df_commits[start_idx:end_idx + 1]
     # iterate over the range of commits
-    for index, row in tqdm(batch.iterrows(), total=len(batch)):
+    for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
         try:
             # checkout repository at that commit hash
             hash = row["commit_hash"]
@@ -145,7 +145,7 @@ if __name__ == '__main__':
                     "commit_hash": hash,
                     "model_file_path": os.path.join(repo_url, file_path),
                     "serialization_format": serialization_format}
-                print(f"File: {file_path}, Format: {serialization_format}")
+                # print(f"File: {file_path}, Format: {serialization_format}")
         except Exception as e:
             print(f"Error processing {hash}: {e}")
             df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": hash, "error": e}
