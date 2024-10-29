@@ -27,8 +27,6 @@ def read_commits():
         df.at[index, 'date'] = matched_row['date'].values[0]
         df.at[index, 'message'] = matched_row['message'].values[0]
 
-
-
     df['date'] = pd.to_datetime(df['date'])
 
     # Calculate elapsed days since reference date
@@ -46,4 +44,11 @@ def get_safetensors_releases():
     df_releases['elapsed_days'] = (df_releases['date'] - SAFETENSORS_RELEASE_DATE).dt.days
     # remove rc releases
     df_releases = df_releases[~df_releases['tag'].str.contains('rc')]
+
+    # for releases on the same date, prefer the one that does not start with python-
+    df_releases = df_releases.sort_values(['date', 'tag'], ascending=[True, False]).drop_duplicates('date', keep='first')
+
+    # remove the python- prefix from the tag
+    df_releases['tag'] = df_releases['tag'].str.replace('python-', '')
+
     return df_releases
