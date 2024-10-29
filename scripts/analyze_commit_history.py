@@ -6,7 +6,6 @@ import pandas as pd
 from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
 from analyticaml.model_parser import detect_serialization_format
 from tqdm import tqdm
-import subprocess
 
 import utils
 
@@ -21,6 +20,15 @@ def filter_by_extension(changed_files: str):
     changed_files = changed_files.split(";")
     file_extensions = [Path(f).suffix[1:] for f in changed_files]
     return any([ext in MODEL_FILE_EXTENSIONS for ext in file_extensions])
+
+
+def is_model_file(file_path: str):
+    """
+    Check if the file is a model file
+    :param file_path: the file path
+    :return: True if the file is a model file, False otherwise.
+    """
+    return Path(file_path).suffix[1:] in MODEL_FILE_EXTENSIONS
 
 
 def parse_args(max_commits: int):
@@ -50,11 +58,20 @@ def parse_args(max_commits: int):
     return start_idx, end_idx
 
 
+def is_deleted_file(commit_file_obj: dict, full_file_path: str|Path):
+    """
+    Check if the file is deleted
+    :param file_path: the file path
+    :return: True if the file is deleted, False otherwise
+    """
+    return not os.path.exists(full_file_path) and commit_file_obj["deletions"] == commit_file_obj["lines"]
+
+
 if __name__ == '__main__':
     # JUST TO DEBUG
-    # sys.argv = ["analyze_snapshots.py", "2926", "2928"]
+    # sys.argv = ["analyze_snapshots.py", "225", "231"]
     # small repo that is easier to test: "savasy/bert-base-turkish-squad"
-
+    # stanfordnlp / stanza - lij
     # Check if the SSH connection is working
     if not check_ssh_connection():
         print("Please set up your SSH keys on HuggingFace.")
@@ -66,14 +83,16 @@ if __name__ == '__main__':
 
     # Load the repositories and set nan columns to empty string
     input_file = Path("../data/huggingface_sort_by_createdAt_top996939_commits_0_1035.csv")
-    repos = pd.read_csv(input_file).fillna("")
+    df_commits = pd.read_csv(input_file).fillna("")
+    print("Total number of commits:", len(df_commits))
 
     # identify the commits that have model files
-    repos = repos[repos["changed_files"].apply(lambda x: filter_by_extension(x))]
-    repos.reset_index(drop=True, inplace=True)
+    df_commits = df_commits[df_commits["changed_files"].apply(lambda x: filter_by_extension(x))]
+    df_commits.reset_index(drop=True, inplace=True)
+    print("Number of commits touching at least one model file:", len(df_commits))
 
     # Parse the command line arguments
-    start_idx, end_idx = parse_args(len(repos))
+    start_idx, end_idx = parse_args(len(df_commits))
 
     # this is the last repository URL and object, used to avoid cloning the same repository multiple times
     last_repo_url, last_repo_obj = None, None
@@ -85,13 +104,10 @@ if __name__ == '__main__':
     # create the output dataframes
     df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format"])
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
-
-    # iterate over the commits
-    for index, row in tqdm(repos.iterrows(), total=len(repos)):
-        # ignore the commits that are not in the range
-        if index < start_idx: continue
-        if index > end_idx: break
-        # print(index)
+    # get batch from repos starting at start_idx and ending at end_idx (inclusive)
+    batch = df_commits[start_idx:end_idx + 1]
+    # iterate over the range of commits
+    for index, row in tqdm(batch.iterrows(), total=len(batch)):
         try:
             # checkout repository at that commit hash
             hash = row["commit_hash"]
@@ -112,20 +128,24 @@ if __name__ == '__main__':
             # checkout the commit hash
             last_repo_obj.git.checkout(hash)
 
-            # now identify the model files and its format
-            changed_files = row["changed_files"].split(";")
-            for file in changed_files:
-                if not filter_by_extension(file):
+            # commit object
+            commit = last_repo_obj.commit(hash)
+
+            # iterate over the files touched in the commit (modified, added, or deleted)
+            for file_path, commit_file_obj in commit.stats.files.items():
+                full_file_path = os.path.join(clone_path, file_path)
+
+                if is_deleted_file(commit_file_obj, full_file_path) or not is_model_file(file_path):
                     continue
-                file_path = os.path.join(clone_path, file)
-                serialization_format = detect_serialization_format(file_path)
+
+                serialization_format = detect_serialization_format(full_file_path)
                 # add to df_output
                 df_output.loc[len(df_output)] = {
                     "repo_url": repo_url,
                     "commit_hash": hash,
-                    "model_file_path": os.path.join(repo_url, file),
+                    "model_file_path": os.path.join(repo_url, file_path),
                     "serialization_format": serialization_format}
-                print(f"File: {file}, Format: {serialization_format}")
+                print(f"File: {file_path}, Format: {serialization_format}")
         except Exception as e:
             print(f"Error processing {hash}: {e}")
             df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": hash, "error": e}
