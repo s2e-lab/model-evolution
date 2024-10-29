@@ -31,7 +31,7 @@ python-call-graph = "==2.1.2"
 analyticaml = { path = "./../AnalyticaML", editable = true }
 jupyter = "*"
 plotly = "==5.24.1"
-seaborn = "==0.13.2"
+seaborn = "*"
 
 [dev-packages]
 
