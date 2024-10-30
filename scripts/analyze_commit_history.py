@@ -126,7 +126,7 @@ if __name__ == '__main__':
                 last_repo_url, last_repo_obj = repo_url, repo
 
             # checkout the commit hash
-            last_repo_obj.git.checkout(hash)
+            last_repo_obj.git.checkout(hash, force=True)
 
             # commit object
             commit = last_repo_obj.commit(hash)
