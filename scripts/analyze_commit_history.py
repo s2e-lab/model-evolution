@@ -78,10 +78,10 @@ if __name__ == '__main__':
     atexit.register(cleanup)
 
     # JUST TO RERUN MISSING COMMITS
-    sys.argv = ["analyze_snapshots.py", "1057", "1057"]
-    sys.argv = ["analyze_snapshots.py", "2455", "2455"] #TODO: check WTF is wrong with this shit
-    sys.argv = ["analyze_snapshots.py", "2479", "2481"]
-    sys.argv = ["analyze_snapshots.py", "1315", "1326"]
+    # sys.argv = ["analyze_snapshots.py", "1057", "1057"]
+    # sys.argv = ["analyze_snapshots.py", "2455", "2455"] #TODO: check WTF is wrong with this shit
+    # sys.argv = ["analyze_snapshots.py", "2479", "2481"]
+    # sys.argv = ["analyze_snapshots.py", "1315", "1326"]
 
     # Check if the SSH connection is working
     if not check_ssh_connection():
@@ -148,7 +148,12 @@ if __name__ == '__main__':
             for file_path, commit_file_obj in commit.stats.files.items():
                 full_file_path = os.path.join(clone_path, file_path)
 
+                # check if it is a model file and has not been deleted in commit
                 if is_deleted_file(commit_file_obj, full_file_path) or not is_model_file(file_path):
+                    continue
+
+                # check if it is a symbolic file pointing to nowhere
+                if os.path.islink(full_file_path) and not os.path.exists(full_file_path):
                     continue
 
                 serialization_format = detect_serialization_format(full_file_path)

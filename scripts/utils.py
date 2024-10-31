@@ -1,3 +1,4 @@
+import math
 import os
 import shutil
 import sys
@@ -36,9 +37,6 @@ def clone(repo_url: str, clone_path: str) -> Repo:
     if os.path.exists(clone_path):
         delete_folder(clone_path)
     return git.Repo.clone_from(clone_url, clone_path)
-
-
-import math
 
 
 def calculate_sample_size(population_size: int,

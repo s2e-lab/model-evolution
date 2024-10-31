@@ -1,2 +1,1 @@
 repo_url,commit_hash,error
-speechbrain/asr-transformer-transformerlm-librispeech,3fec198dc03f9bbaa5debc36dd04ef5f3cc99582,[Errno 2] No such file or directory: 'tmp/speechbrain+asr-transformer-transformerlm-librispeech/pretrained_models/asr-transformer-transformerlm-librispeech/asr.ckpt'
