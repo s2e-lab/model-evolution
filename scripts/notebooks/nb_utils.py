@@ -11,7 +11,7 @@ SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-23")
 
 
 def read_commits():
-    df = pd.read_csv(Path('../../results/repository_evolution_0-4924_fixed_bug_MERGED.csv'))
+    df = pd.read_csv(Path('../../results/repository_evolution_0_5014.csv'))
     df_commits = pd.read_csv(Path('../../data/huggingface_sort_by_createdAt_top996939_commits_0_1035.csv'))
 
     # grabs the date from df2 and adds it to df based on commit_hash and repo_url matching
