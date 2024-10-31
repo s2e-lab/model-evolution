@@ -1,0 +1,6 @@
+repo_url,commit_hash,model_file_path,serialization_format
+speechbrain/SLU-direct-SLURP-hubert-enc,7ab725aa102ac04c090cf74d7bf25a829f87e243,speechbrain/SLU-direct-SLURP-hubert-enc/hubert.ckpt,torch.save
+speechbrain/SLU-direct-SLURP-hubert-enc,7ab725aa102ac04c090cf74d7bf25a829f87e243,speechbrain/SLU-direct-SLURP-hubert-enc/model.ckpt,torch.save
+speechbrain/SLU-direct-SLURP-hubert-enc,feed30d58811c727f8e12fb10264e563b7319827,speechbrain/SLU-direct-SLURP-hubert-enc/tokenizer_58_unigram.model,ONNX
+speechbrain/REAL-M-sisnr-estimator,9a645d81dd0ad4706ef29d910fd11388da06fce9,speechbrain/REAL-M-sisnr-estimator/encoder.ckpt,torch.save
+speechbrain/REAL-M-sisnr-estimator,9a645d81dd0ad4706ef29d910fd11388da06fce9,speechbrain/REAL-M-sisnr-estimator/encoder_out.ckpt,torch.save

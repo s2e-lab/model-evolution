@@ -1,7 +1,7 @@
 import os
 import sys
 from pathlib import Path
-
+import atexit
 import pandas as pd
 from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
 from analyticaml.model_parser import detect_serialization_format
@@ -50,7 +50,7 @@ def parse_args(max_commits: int):
             sys.exit(1)
 
     else:
-        print("Usage: python analyze_snapshots.py <start_index> <end_index>")
+        print(f"Usage: python {os.path.basename(__file__)} <start_index> <end_index>")
         print("Example: python analyze_snapshots.py 0 100")
         print("This will analyze the commits from index 0 to 100 (inclusive in both ends)")
         print(f"Note: The maximum number of commits is {max_commits}")
@@ -67,11 +67,22 @@ def is_deleted_file(commit_file_obj: dict, full_file_path: str|Path):
     return not os.path.exists(full_file_path) and commit_file_obj["deletions"] == commit_file_obj["lines"]
 
 
+
+def cleanup():
+    print("Performing cleanup...")
+    # delete the temporary folder
+    utils.delete_folder(temp_folder)
+
+
 if __name__ == '__main__':
-    # JUST TO DEBUG
-    # sys.argv = ["analyze_snapshots.py", "225", "231"]
-    # small repo that is easier to test: "savasy/bert-base-turkish-squad"
-    # stanfordnlp / stanza - lij
+    atexit.register(cleanup)
+
+    # JUST TO RERUN MISSING COMMITS
+    # sys.argv = ["analyze_snapshots.py", "1057", "1057"]
+    # sys.argv = ["analyze_snapshots.py", "2455", "2455"] #TODO: check WTF is wrong with this shit
+    # sys.argv = ["analyze_snapshots.py", "2479", "2481"]
+    # sys.argv = ["analyze_snapshots.py", "1315", "1326"]
+
     # Check if the SSH connection is working
     if not check_ssh_connection():
         print("Please set up your SSH keys on HuggingFace.")
@@ -86,7 +97,7 @@ if __name__ == '__main__':
     df_commits = pd.read_csv(input_file).fillna("")
     print("Total number of commits:", len(df_commits))
 
-    # identify the commits that have model files
+    # identify the commits that have at least one model file
     df_commits = df_commits[df_commits["changed_files"].apply(lambda x: filter_by_extension(x))]
     df_commits.reset_index(drop=True, inplace=True)
     print("Number of commits touching at least one model file:", len(df_commits))
@@ -106,6 +117,8 @@ if __name__ == '__main__':
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
     # get batch from repos starting at start_idx and ending at end_idx (inclusive)
     batch = df_commits[start_idx:end_idx + 1]
+
+    print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
         try:
@@ -135,7 +148,12 @@ if __name__ == '__main__':
             for file_path, commit_file_obj in commit.stats.files.items():
                 full_file_path = os.path.join(clone_path, file_path)
 
+                # check if it is a model file and has not been deleted in commit
                 if is_deleted_file(commit_file_obj, full_file_path) or not is_model_file(file_path):
+                    continue
+
+                # check if it is a symbolic file pointing to nowhere
+                if os.path.islink(full_file_path) and not os.path.exists(full_file_path):
                     continue
 
                 serialization_format = detect_serialization_format(full_file_path)
@@ -150,8 +168,7 @@ if __name__ == '__main__':
             print(f"Error processing {hash}: {e}")
             df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": hash, "error": e}
 
-    # delete the temporary folder
-    utils.delete_folder(temp_folder)
+
 
     # save the output dataframes
     output_file = f"repository_evolution_{start_idx}_{end_idx}.csv"
