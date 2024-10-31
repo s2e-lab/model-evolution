@@ -16,12 +16,13 @@ def read_commits():
     # local cache: commit_hash + repo_url -> date
     info_to_date = dict()
     for index, row in df_commits.iterrows():
-        info_to_date[row['commit_hash'] + row['repo_url']] = row['date']
+        info_to_date[row['commit_hash'] + row['repo_url']] = row
     # grabs the date from df2 and adds it to df based on commit_hash and repo_url matching
     for index, row in df.iterrows():
         commit_hash = row['commit_hash']
         repo_url = row['repo_url']
-        row['date'] = info_to_date[commit_hash + repo_url]
+        row['date'] = info_to_date[commit_hash + repo_url]['date']
+        row['message'] = info_to_date[commit_hash + repo_url]['message']
 
     df['date'] = pd.to_datetime(df['date'])
 
