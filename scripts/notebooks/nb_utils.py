@@ -13,19 +13,15 @@ SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-23")
 def read_commits():
     df = pd.read_csv(Path('../../results/repository_evolution_0_5014.csv'))
     df_commits = pd.read_csv(Path('../../data/huggingface_sort_by_createdAt_top996939_commits_0_1035.csv'))
-
+    # local cache: commit_hash + repo_url -> date
+    info_to_date = dict()
+    for index, row in df_commits.iterrows():
+        info_to_date[row['commit_hash'] + row['repo_url']] = row['date']
     # grabs the date from df2 and adds it to df based on commit_hash and repo_url matching
-    df['date'] = ""
     for index, row in df.iterrows():
         commit_hash = row['commit_hash']
         repo_url = row['repo_url']
-        matched_row = df_commits.loc[
-            (df_commits['commit_hash'] == commit_hash) &
-            (df_commits['repo_url'] == repo_url)
-            ]
-
-        df.at[index, 'date'] = matched_row['date'].values[0]
-        df.at[index, 'message'] = matched_row['message'].values[0]
+        row['date'] = info_to_date[commit_hash + repo_url]
 
     df['date'] = pd.to_datetime(df['date'])
 
