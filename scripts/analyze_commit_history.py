@@ -97,7 +97,7 @@ if __name__ == '__main__':
     df_commits = pd.read_csv(input_file).fillna("")
     print("Total number of commits:", len(df_commits))
 
-    # identify the commits that have model files
+    # identify the commits that have at least one model file
     df_commits = df_commits[df_commits["changed_files"].apply(lambda x: filter_by_extension(x))]
     df_commits.reset_index(drop=True, inplace=True)
     print("Number of commits touching at least one model file:", len(df_commits))
