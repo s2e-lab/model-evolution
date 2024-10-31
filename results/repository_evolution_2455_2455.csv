@@ -1,3 +1,0 @@
-repo_url,commit_hash,model_file_path,serialization_format
-speechbrain/asr-transformer-transformerlm-librispeech,3fec198dc03f9bbaa5debc36dd04ef5f3cc99582,speechbrain/asr-transformer-transformerlm-librispeech/asr.ckpt,torch.save
-speechbrain/asr-transformer-transformerlm-librispeech,3fec198dc03f9bbaa5debc36dd04ef5f3cc99582,speechbrain/asr-transformer-transformerlm-librispeech/normalizer.ckpt,torch.save

@@ -1,3 +1,0 @@
-repo_url,commit_hash,model_file_path,serialization_format
-JbIPS/DogRace,a5ccd2ef5e2257d8d1350f0f58b63dab2e1d4cc0,JbIPS/DogRace/model/keras_metadata.pb,ONNX
-JbIPS/DogRace,a5ccd2ef5e2257d8d1350f0f58b63dab2e1d4cc0,JbIPS/DogRace/model/saved_model.pb,ONNX
