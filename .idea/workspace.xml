@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis_old.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ1SafetensorsAdoption.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1SafetensorsAdoption.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq1.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +136,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730046160513</updated>
-      <workItem from="1730046162976" duration="27401000" />
+      <workItem from="1730046162976" duration="29269000" />
     </task>
     <servers />
   </component>
