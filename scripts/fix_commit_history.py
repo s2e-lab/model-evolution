@@ -1,7 +1,8 @@
+import atexit
 import os
 import sys
 from pathlib import Path
-import atexit
+
 import pandas as pd
 from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
 from analyticaml.model_parser import detect_serialization_format
@@ -53,19 +54,18 @@ def parse_args(max_commits: int):
         print(f"Usage: python {os.path.basename(__file__)} <start_index> <end_index>")
         print("Example: python analyze_snapshots.py 0 100")
         print("This will analyze the commits from index 0 to 100 (inclusive in both ends)")
-        print(f"Note: The maximum number of commits is {max_commits}")
+        print(f"Note: The maximum end index  is {max_commits - 1}")
         sys.exit(1)
     return start_idx, end_idx
 
 
-def is_deleted_file(commit_file_obj: dict, full_file_path: str|Path):
+def is_deleted_file(commit_file_obj: dict, full_file_path: str | Path):
     """
     Check if the file is deleted
     :param file_path: the file path
     :return: True if the file is deleted, False otherwise
     """
     return not os.path.exists(full_file_path) and commit_file_obj["deletions"] == commit_file_obj["lines"]
-
 
 
 def cleanup():
@@ -85,7 +85,8 @@ if __name__ == '__main__':
     # sys.argv = ["analyze_snapshots.py", "1057", "1057"]
     # sys.argv = ["analyze_snapshots.py", "2455", "2455"] #TODO: check WTF is wrong with this shit
     # sys.argv = ["analyze_snapshots.py", "2479", "2481"]
-    # sys.argv = ["analyze_snapshots.py", "1315", "1326"]
+    sys.argv = ["analyze_snapshots.py", "0", "5014"]
+
 
     # Check if the SSH connection is working
     if not check_ssh_connection():
@@ -96,17 +97,15 @@ if __name__ == '__main__':
         print("If it is anonymous, you need to add your SSH key to your HuggingFace account.")
         sys.exit(1)
 
-
     # load prior results to create a local cache
     cache_file = Path("../results/repository_evolution_0_5014.csv")
     df_commits = pd.read_csv(cache_file).fillna("")
-    cache = dict() # key = repo_url + commit_hash + model_file -> serialization_format
-    # create cache
-    # for index, row in df_commits.iterrows():
-    #     cache[]
-
-
-    exit(1)
+    cache = dict()  # key = repo_url + commit_hash + model_file_path -> serialization_format
+    # iterate over dataframe to create cache
+    for index, row in df_commits.iterrows():
+        model_file_path = row['model_file_path'].replace(row['repo_url'] + "/", "")
+        key = (row['repo_url'], row['commit_hash'], model_file_path)
+        cache[key] = row['serialization_format']
 
     # Load the repositories and set nan columns to empty string
     input_file = Path("../data/huggingface_sort_by_createdAt_top996939_commits_0_1035.csv")
@@ -124,8 +123,6 @@ if __name__ == '__main__':
     # this is the last repository URL and object, used to avoid cloning the same repository multiple times
     last_repo_url, last_repo_obj = None, None
 
-
-
     # create the output dataframes
     df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format"])
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
@@ -135,6 +132,32 @@ if __name__ == '__main__':
     print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
+        # check whether all files are in cache
+        all_in_cache = True
+        for file_path in row["changed_files"].split(";"):
+            key = (row['repo_url'], row['commit_hash'], file_path)
+            # check file extension is in MODEL_FILE_EXTENSIONS
+            if is_model_file(file_path) and key not in cache:
+                all_in_cache = False
+                print(f"Not in cache: {key}")
+                break
+
+        if all_in_cache:
+            for file_path in row["changed_files"].split(";"):
+                if not is_model_file(file_path):
+                    continue
+                key = (row['repo_url'], row['commit_hash'], file_path)
+                df_output.loc[len(df_output)] = {
+                    "repo_url": row["repo_url"],
+                    "commit_hash": row["commit_hash"],
+                    "model_file_path": file_path,
+                    "serialization_format": cache[key],
+                    "message": row["message"],
+                    "author": row["author"],
+                    "date": row["date"],
+                }
+            continue
+
         try:
             # checkout repository at that commit hash
             hash = row["commit_hash"]
@@ -168,23 +191,25 @@ if __name__ == '__main__':
 
                 # check if it is a symbolic file pointing to nowhere
                 if os.path.islink(full_file_path) and not os.path.exists(full_file_path):
-                    continue
-
-                serialization_format = detect_serialization_format(full_file_path)
+                    serialization_format = "undetermined (symbolic link)"
+                else:
+                    serialization_format = detect_serialization_format(full_file_path)
                 # add to df_output
                 df_output.loc[len(df_output)] = {
                     "repo_url": repo_url,
                     "commit_hash": hash,
                     "model_file_path": os.path.join(repo_url, file_path),
-                    "serialization_format": serialization_format}
+                    "serialization_format": serialization_format,
+                    "message": row["message"],
+                    "author": row["author"],
+                    "date": row["date"]
+                }
                 # print(f"File: {file_path}, Format: {serialization_format}")
         except Exception as e:
             print(f"Error processing {hash}: {e}")
             df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": hash, "error": e}
 
-
-
     # save the output dataframes
-    output_file = f"repository_evolution_{start_idx}_{end_idx}.csv"
+    output_file = f"fixed_repository_evolution_{start_idx}_{end_idx}.csv"
     df_output.to_csv(Path("../results") / output_file, index=False)
     df_errors.to_csv(Path("../results") / output_file.replace(".csv", "_errors.csv"), index=False)
