@@ -18,12 +18,12 @@ def delete_folder(folder_location: str) -> bool:
     # check if the folder still exists
     if os.path.exists(folder_location):
         current_os = sys.platform
-        if current_os == "Windows":  # Use rmdir for Windows
+        if current_os.lower() in ["windows", "win32"]:  # Use rmdir for Windows
             os.system(f'rmdir /S /Q "{folder_location}"')
         else:  # Use rm -rf for Linux/macOS
             os.system(f'rm -rf {folder_location}')
-    if os.path.exists(folder_location):
-        raise Exception(f"Failed to delete the folder: {folder_location}")
+    # if os.path.exists(folder_location):
+    #     raise Exception(f"Failed to delete the folder: {folder_location}")
     return not os.path.exists(folder_location)
 
 
