@@ -2,6 +2,7 @@
 This script is used to check the status of the PRs that were created by the sfconvertbot.
 @Author: Joanna C. S. Santos
 """
+import os
 from pathlib import Path
 
 import requests
@@ -48,6 +49,9 @@ if __name__ == '__main__':
         df_sfconvert.loc[i, 'discussion_metadata'] = extract_discussion_metadata(pr_url)
         # SAVES THE DATAFRAME EVERY 500 ITERATIONS
         if i != 0 and i % 500 == 0:
-            df_sfconvert.to_csv(Path(f'../results/sfconvertbot_pr_metadata_{i}.csv'), index=False)
+            df_sfconvert.to_csv(Path(f'../data/sfconvertbot_pr_metadata_{i}.csv'), index=False)
 
-    df_sfconvert.to_csv(Path('../results/sfconvertbot_pr_metadata.csv'), index=False)
+    df_sfconvert.to_csv(Path('../data/sfconvertbot_pr_metadata.csv'), index=False)
+    # delete the checkpoint files
+    for i in range(500, len(df_sfconvert), 500):
+        os.remove(Path(f'../data/sfconvertbot_pr_metadata_{i}.csv'))
