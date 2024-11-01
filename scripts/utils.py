@@ -22,6 +22,8 @@ def delete_folder(folder_location: str) -> bool:
             os.system(f'rmdir /S /Q "{folder_location}"')
         else:  # Use rm -rf for Linux/macOS
             os.system(f'rm -rf {folder_location}')
+    if os.path.exists(folder_location):
+        raise Exception(f"Failed to delete the folder: {folder_location}")
     return not os.path.exists(folder_location)
 
 
