@@ -51,7 +51,7 @@ def parse_args():
         start_idx = int(sys.argv[1])
         end_idx = int(sys.argv[2])
     else:
-        print("Usage: python get_repos_history.py <start_index> <end_index>")
+        print("Usage: python get_commit_logs.py <start_index> <end_index>")
         sys.exit(1)
     return start_idx, end_idx
 

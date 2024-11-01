@@ -2,8 +2,10 @@
 ## Description: Merge all the commit history files into a single file
 ## Input: several files named as:
 ##    data/huggingface_sort_by_createdAt_top996939_commits_[0-9]+_[0-9]+.csv
+##    data/huggingface_sort_by_createdAt_top996939_errors_[0-9]+_[0-9]+.csv
 ## Output:
 ##    data/huggingface_sort_by_createdAt_top996939_commits_<first_index>_<last_index>.csv
+##    data/huggingface_sort_by_createdAt_top996939_errors_<first_index>_<last_index>.csv
 
 
 cd ../data

@@ -62,12 +62,12 @@ The data will be saved in the `data` folder.
 It will produce commit history for each model repository and save it on the data folder. 
 It requires the start and end index of the models to be processed.
 ```bash
-python get_repos_history.py <start_index> <end_index>
+python get_commit_logs.py <start_index> <end_index>
 ```
 Example: below it will process the first 517 models and then the next 517 models.
 ```bash
-python get_repos_history.py 0 517
-python get_repos_history.py 517 1035 
+python get_commit_logs.py 0 517
+python get_commit_logs.py 517 1035 
 ```
     
 #### Step 4: Merging the commit history into a single CSV file
