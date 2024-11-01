@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1SafetensorsAdoption.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1SafetensorsAdoption.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/safetensors_commits_by_bot.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/safetensors_commits_by_bot.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/notebooks/nb_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/nb_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,29 +29,29 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2o1nt8F7NWZWAQ6oppkKt19V1UP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Portfolio/GitHub/wip-model-evolution",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Portfolio/GitHub/wip-model-evolution&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.analyze_commit_history">
     <configuration name="GH_dupcheck" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="wip-model-evolution" />
@@ -136,7 +140,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730046160513</updated>
-      <workItem from="1730046162976" duration="29269000" />
+      <workItem from="1730046162976" duration="30720000" />
+      <workItem from="1730419554050" duration="1038000" />
     </task>
     <servers />
   </component>
