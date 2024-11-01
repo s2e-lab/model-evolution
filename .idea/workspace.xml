@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/notebooks/heatmap4.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/notebooks/heatmap5.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/NotoEmoji-Regular.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/heatmap1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/heatmap1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1CommitsDistribution.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1CommitsDistribution.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1Heatmap.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1Heatmap.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/repository_evolution_0_5014.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/repository_evolution_0_5014.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/safetensors_commits_by_bot.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/safetensors_commits_by_bot.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +46,7 @@
     "WebServerToolWindowFactoryState": "false",
     "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Portfolio/GitHub/wip-model-evolution/scripts/notebooks",
+    "last_opened_file_path": "D:/Portfolio/GitHub/wip-model-evolution/assets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,6 +57,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Portfolio\GitHub\wip-model-evolution\assets" />
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\scripts\notebooks" />
     </key>
   </component>
@@ -170,7 +174,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730046160513</updated>
       <workItem from="1730046162976" duration="30720000" />
-      <workItem from="1730419554050" duration="12817000" />
+      <workItem from="1730419554050" duration="15384000" />
     </task>
     <servers />
   </component>
