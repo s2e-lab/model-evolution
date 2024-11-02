@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/notebooks/rq4_analysis.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/fix_commit_history.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/fix_commit_history.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/merge_commit_history.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/merge_commit_history.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jupyter Notebook" />
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -62,7 +62,7 @@
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.fix_commit_history">
+  <component name="RunManager" selected="Python.get_sfconvert_prs">
     <configuration name="GH_dupcheck" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="wip-model-evolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -182,8 +182,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.fix_commit_history" />
         <item itemvalue="Python.get_sfconvert_prs" />
+        <item itemvalue="Python.fix_commit_history" />
         <item itemvalue="Python.analyze_commit_history" />
         <item itemvalue="Python.GH_json_to_csv" />
         <item itemvalue="Python.GH_dupcheck" />
@@ -199,7 +199,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730046160513</updated>
       <workItem from="1730046162976" duration="30720000" />
-      <workItem from="1730419554050" duration="26812000" />
+      <workItem from="1730419554050" duration="30675000" />
     </task>
     <servers />
   </component>
@@ -211,7 +211,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scripts/fix_commit_history.py</url>
-          <line>173</line>
+          <line>169</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
@@ -223,7 +223,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/wip_model_evolution$fix_commit_history.coverage" NAME="fix_commit_history Coverage Results" MODIFIED="1730504374588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/wip_model_evolution$fix_commit_history.coverage" NAME="fix_commit_history Coverage Results" MODIFIED="1730510159945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$GH_dupcheck.coverage" NAME="GH_dupcheck Coverage Results" MODIFIED="1730054334860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/github" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$analyze_commit_history.coverage" NAME="analyze_commit_history Coverage Results" MODIFIED="1730246599262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$GH_json_to_csv.coverage" NAME="GH_json_to_csv Coverage Results" MODIFIED="1730054500639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/github" />

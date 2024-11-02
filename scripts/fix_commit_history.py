@@ -82,12 +82,8 @@ if __name__ == '__main__':
     atexit.register(cleanup)
 
     # JUST TO RERUN MISSING COMMITS
-    # sys.argv = ["analyze_snapshots.py", "1057", "1057"]
-    # sys.argv = ["analyze_snapshots.py", "2455", "2455"] #TODO: check WTF is wrong with this shit
-    # sys.argv = ["analyze_snapshots.py", "2479", "2481"]
-    # sys.argv = ["analyze_snapshots.py", "0", "5014"]
     sys.argv = ["analyze_snapshots.py", "0", "999"]
-    # sys.argv = ["analyze_snapshots.py", "1000", "2999"]
+    sys.argv = ["analyze_snapshots.py", "1000", "2999"]
     # sys.argv = ["analyze_snapshots.py", "3000", "4999"]
     # sys.argv = ["analyze_snapshots.py", "4000", "5014"]
 

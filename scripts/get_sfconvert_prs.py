@@ -11,7 +11,7 @@ from datasets import load_dataset
 from tqdm import tqdm
 
 
-def extract_discussion_metadata(pr_url:str)->str:
+def extract_discussion_metadata(pr_url:str)->tuple:
     """
     Extracts the discussion metadata from the PR URL.
     :param pr_url: the URL of the PR.
@@ -22,7 +22,8 @@ def extract_discussion_metadata(pr_url:str)->str:
 
     # Check if the request was successful
     if response.status_code != 200:
-        return "HTTP Error (status code: {response.status_code})"
+        msg = f"HTTP Error (status code: {response.status_code})"
+        return msg, msg
 
     # Parse the page content
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -30,11 +31,15 @@ def extract_discussion_metadata(pr_url:str)->str:
     # Find all divs with class "SVELTE_HYDRATER contents" and data-target="DiscussionEvents"
     discussion_events = soup.find_all('div', class_='SVELTE_HYDRATER contents',
                                       attrs={'data-target': 'DiscussionEvents'})
-    if len(discussion_events) > 0:
-        div = discussion_events[0]
-        return div.get('data-props')
 
-    return None
+    discussion_header = soup.find_all('div', class_='SVELTE_HYDRATER contents',
+                                      attrs={'data-target': 'DiscussionHeader'})
+    events, header = None, None
+    if len(discussion_events) > 0:
+        events = discussion_events[0].get('data-props')
+    if len(discussion_header) > 0:
+        header = discussion_header[0].get('data-props')
+    return events, header
 
 
 if __name__ == '__main__':
@@ -46,7 +51,9 @@ if __name__ == '__main__':
     # iterate over dataframe to check whether the PRs were merged
     for i, row in tqdm(df_sfconvert.iterrows(), total=len(df_sfconvert)):
         pr_url = row['pr_url']
-        df_sfconvert.loc[i, 'discussion_metadata'] = extract_discussion_metadata(pr_url)
+        events, header = extract_discussion_metadata(pr_url)
+        df_sfconvert.loc[i, 'discussion_metadata'] = events
+        df_sfconvert.loc[i, 'header_metadata'] = header
         # SAVES THE DATAFRAME EVERY 500 ITERATIONS
         if i != 0 and i % 500 == 0:
             df_sfconvert.to_csv(Path(f'../data/sfconvertbot_pr_metadata_{i}.csv'), index=False)
