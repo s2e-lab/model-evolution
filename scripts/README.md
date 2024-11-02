@@ -23,24 +23,7 @@ pip install .
 
 ## Data Collection
 
-### RQ4: Scraping StackOverflow posts and GitHub PRs
 
-1) Create a `.env` file in the root directory with the following content:
-```bash
-GITHUB_TOKEN=<your_github_token>
-
-```
-2) Now, you can run the following shell scripts to collect data from GitHub and StackOverflow.
-
-- **Collecting PRs from GitHub:** Run the shell script below to trigger the data collection process.
-    ```bash
-    GH-collection.sh
-    ```
-- **Collecting StackOverflow posts:** Run the shell script below to trigger the data collection process.
-    ```bash
-    SO-collection.sh
-    ```
-The data will be saved in the `data` folder.
 
 ### RQ1/RQ2: Getting Models Metadata & Commits from HuggingFace
 ***(Make sure that you've set up your [HF SSH keys](https://huggingface.co/docs/hub/en/security-git-ssh))***
@@ -75,11 +58,13 @@ python get_commit_logs.py 517 1035
 ```
     
 #### Step 4: Merging the commit history into a single CSV file
-- `./merge_commit_history.sh`: Merge the CSV files for the commit history into a single file.
+- `./merge_csvs.sh`: Merge the CSV files for the commit history into a single file.
   ```bash
-  ./merge_commit_history.sh
+  ./merge_csvs.sh ../data huggingface_sort_by_createdAt_top996939_
   ```
-  The script will merge all the CSV files in the `../data/` folder into a single file `../data/huggingface_sort_by_createdAt_top996939_commits_<first_index>_<last_index>.csv`.
+  The script will merge all the CSV files in the `../data/` folder into tw single files:
+`../data/huggingface_sort_by_createdAt_top996939_commits_<first_index>_<last_index>.csv`
+and `../data/huggingface_sort_by_createdAt_top996939_errors_<first_index>_<last_index>.csv`.
     
 #### Step 5: Analyzing the commit history to identify the serialization format
 - `analyze_commit_history.py`: Script to analyze the commit history of the models to identify the serialization format using at a given time.
@@ -88,6 +73,30 @@ python get_commit_logs.py 517 1035
   ```
   It requires the start and end index of the commits to be processed.
   The script will generate a CSV file with the commit history analysis on the `../results/` folder. 
+
+### RQ3: Scraping StackOverflow posts and GitHub PRs
+
+#### Step 1: Create a `.env` file
+Create a `.env` file in the root directory with the following content:
+```bash
+GITHUB_TOKEN=<your_github_token>
+```
+Replace `<your_github_token>` with your GitHub token. 
+You can create a token by following the instructions [here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+
+#### Step 2: Run our crawlers
+
+Now, you can run the following shell scripts to collect data from GitHub and StackOverflow.
+
+- **Collecting PRs from GitHub:** Run the shell script below to trigger the data collection process.
+    ```bash
+    ./GH-collection.sh
+    ```
+- **Collecting StackOverflow posts:** Run the shell script below to trigger the data collection process.
+    ```bash
+    ./SO-collection.sh
+    ```
+The data will be saved in the `data` folder.
 
 ### RQ4: Getting SFConvertBot Data
 
@@ -114,17 +123,18 @@ python get_commit_logs.py 517 1035
 
 
 #### Step 3: Crawling the PRs from the SFConvertBot's community activity
-- `crawl_bot_activity.py`: Script to get the data from the SFConvertBot's community [activity](https://huggingface.co/SFconvertbot/activity/community).
+- `./bot/crawl_bot_activity.py`: Script to get the data from the SFConvertBot's community [activity](https://huggingface.co/SFconvertbot/activity/community).
   ```bash
-  python crawl_bot.py
+  cd bot
+  python crawl_bot_activity.py
   ```
   It will save the data in `../data/sfconvertbot_community_activity.csv`.
 
 #### Step 4: Analyzing and Merging the SFConvertBot's PRs
-- `./notebooks/analyze_sfconvertbot_prs.ipynb`: Script to analyze and merge the SFConvertBot's PRs.
+- `./bot/analyze_bot_activity.py`: Script to analyze and merge the SFConvertBot's PRs.
   ```bash
-  cd notebooks
-  jupyter notebook analyze_sfconvertbot_prs.ipynb
+  cd bot
+    python analyze_bot_activity.py
   ```
   It will save the data in `../data/sfconvertbot_prs.csv`.
 

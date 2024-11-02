@@ -1,4 +1,4 @@
-## Usage: bash scripts/merge_csv.sh
+## Usage: bash scripts/merge_csvs.sh
 ## Description: Merge all the CSV files into a single file.
 ## Input: several files named with the same prefix. For example:
 ##    data/huggingface_sort_by_createdAt_top996939_commits_[0-9]+_[0-9]+.csv
@@ -17,9 +17,9 @@ fi
 prefix=$2
 if [ -z "$prefix" ]; then
     echo "Please provide the prefix as the second parameter."
-    echo "Example: bash ./merge_csv.sh ../data huggingface_sort_by_createdAt_top996939_"
-    echho "Example: bash ./merge_csv.sh ../data fixed_repository_evolution_"
-    echho "Example: bash ./merge_csv.sh ../data repository_evolution_"
+    echo "Example: ./merge_csv.sh ../data huggingface_sort_by_createdAt_top996939_"
+    echho "Example: ./merge_csv.sh ../data fixed_repository_evolution_"
+    echho "Example: ./merge_csv.sh ../data repository_evolution_"
     exit 1
 fi
 
