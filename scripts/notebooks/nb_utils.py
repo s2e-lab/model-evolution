@@ -7,7 +7,7 @@ SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-23")
 
 
 def read_commits():
-    df = pd.read_csv(Path('../../results/repository_evolution_0_5014.csv'))
+    df = pd.read_csv(Path('../../data/fixed_repository_evolution_commits_0_5014.csv'))
     df_commits = pd.read_csv(Path('../../data/huggingface_sort_by_createdAt_top996939_commits_0_1035.csv'))
     # local cache: commit_hash + repo_url -> date
     info_to_date = dict()

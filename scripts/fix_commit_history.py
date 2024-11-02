@@ -82,7 +82,8 @@ if __name__ == '__main__':
     atexit.register(cleanup)
 
     # JUST TO RERUN MISSING COMMITS
-    sys.argv = ["analyze_snapshots.py", "0",  "2999"]
+    sys.argv = ["analyze_snapshots.py", "0",  "9"]
+    # sys.argv = ["analyze_snapshots.py", "0",  "2999"]
     # sys.argv = ["analyze_snapshots.py", "3000", "4999"]
     # sys.argv = ["analyze_snapshots.py", "5000", "5014"]
 
@@ -123,7 +124,7 @@ if __name__ == '__main__':
     last_repo_url, last_repo_obj, last_clone_path = None, None, None
 
     # create the output dataframes
-    df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format"])
+    df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date"])
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
     # get batch from repos starting at start_idx and ending at end_idx (inclusive)
     batch = df_commits[start_idx:end_idx + 1]
@@ -209,7 +210,10 @@ if __name__ == '__main__':
             print(f"Error processing {hash}: {e}")
             df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": hash, "error": e}
 
+    print(df_output.head()        )
     # save the output dataframes
-    output_file = f"fixed_repository_evolution_{start_idx}_{end_idx}.csv"
+    output_file = f"fixed_repository_evolution_commits_{start_idx}_{end_idx}.csv"
     df_output.to_csv(Path("../data") / output_file, index=False)
-    df_errors.to_csv(Path("../data") / output_file.replace(".csv", "_errors.csv"), index=False)
+    df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors.csv"), index=False)
+
+    print(f"Output saved to ../data/{output_file}"          )
