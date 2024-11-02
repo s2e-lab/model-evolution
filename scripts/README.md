@@ -60,7 +60,7 @@ The data will be saved in the `data` folder.
 #### Step 3: Getting the commit history of the models
 - `get_models_history.py`: Script to get metadata of all models from HuggingFace. 
 It will produce commit history for each model repository and save it on the data folder. 
-It requires the start and end index of the models to be processed.
+It requires the start and end index of the models to be processed. This script will take a long time to run (~1 day).
 ```bash
 python get_commit_logs.py <start_index> <end_index>
 ```
@@ -97,12 +97,27 @@ python get_commit_logs.py 517 1035
   We manually removed the `python-` suffixes and removed duplicates prior to generating our charts. 
 
 #### Step 2: Extract SFConvertBot PRs 
-- `get_sfconvert_prs.py`: Script to get the data from the SFConvertBot.
+- `get_sfconvert_prs.py`: Script to get the data from the SFConvertBot's conversion [dataset](https://huggingface.co/datasets/safetensors/conversions).
   ```bash
   python get_sfconvert_prs.py
   ```
   It will save the data in `../data/sfconvertbot_pr_metadata.csv`.
 
+
+#### Step 3: Crawling the PRs from the SFConvertBot's community activity
+- `get_sfconvertbot_community_activity.py`: Script to get the data from the SFConvertBot's community [activity](https://huggingface.co/SFconvertbot/activity/community).
+  ```bash
+  python get_sfconvertbot_community_activity.py
+  ```
+  It will save the data in `../data/sfconvertbot_community_activity.csv`.
+
+#### Step 4: Analyzing and Merging the SFConvertBot's PRs
+- `./notebooks/analyze_sfconvertbot_prs.ipynb`: Script to analyze and merge the SFConvertBot's PRs.
+  ```bash
+  cd notebooks
+  jupyter notebook analyze_sfconvertbot_prs.ipynb
+  ```
+  It will save the data in `../data/sfconvertbot_prs.csv`.
 
 ## Data Analysis
 
