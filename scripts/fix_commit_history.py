@@ -211,5 +211,5 @@ if __name__ == '__main__':
 
     # save the output dataframes
     output_file = f"fixed_repository_evolution_{start_idx}_{end_idx}.csv"
-    df_output.to_csv(Path("../results") / output_file, index=False)
-    df_errors.to_csv(Path("../results") / output_file.replace(".csv", "_errors.csv"), index=False)
+    df_output.to_csv(Path("../data") / output_file, index=False)
+    df_errors.to_csv(Path("../data") / output_file.replace(".csv", "_errors.csv"), index=False)
