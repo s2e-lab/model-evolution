@@ -114,21 +114,22 @@ The data will be saved in the `data` folder.
   Notice that safetensors has versions released on the same date (one named `v0.N.M` and the other `python-v0.N.M`). 
   We manually removed the `python-` suffixes and removed duplicates prior to generating our charts. 
 
-#### Step 2: Extract SFConvertBot PRs 
-- `get_sfconvert_prs.py`: Script to get the data from the SFConvertBot's conversion [dataset](https://huggingface.co/datasets/safetensors/conversions).
+#### Step 2: Crawling the PRs from the SFConvertBot's community activity
+- `./bot/crawl_bot_activity.py`: Script to get a list of PRs from the SFConvertBot's community [activity](https://huggingface.co/SFconvertbot/activity/community).
+  ```bash
+  cd bot
+  python crawl_bot_activity.py
+  ```
+  It will save the data in `../data/sfconvertbot_pr_urls.csv`.
+
+#### Step 3: Extract SFConvertBot PRs' metadata 
+- `get_sfconvert_prs.py`: Script to get the metadata from the SFConvertBot's conversion [dataset](https://huggingface.co/datasets/safetensors/conversions).
   ```bash
   python get_sfconvert_prs.py
   ```
   It will save the data in `../data/sfconvertbot_pr_metadata.csv`.
 
 
-#### Step 3: Crawling the PRs from the SFConvertBot's community activity
-- `./bot/crawl_bot_activity.py`: Script to get the data from the SFConvertBot's community [activity](https://huggingface.co/SFconvertbot/activity/community).
-  ```bash
-  cd bot
-  python crawl_bot_activity.py
-  ```
-  It will save the data in `../data/sfconvertbot_community_activity.csv`.
 
 #### Step 4: Analyzing and Merging the SFConvertBot's PRs
 - `./bot/analyze_bot_activity.py`: Script to analyze and merge the SFConvertBot's PRs.

@@ -5,22 +5,24 @@ The discussion URLs are saved to a CSV file named discussion_urls.csv in the dat
 @Author: Joanna C. S. Santos
 """
 import csv
+import json
+import math
+import time
 from pathlib import Path
 
+from bs4 import BeautifulSoup
 from datasets import tqdm
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
-from bs4 import BeautifulSoup
-import time
-import math
-import json
+from selenium.webdriver.common.by import By
+
+
 def get_num_contributions():
     page_source = driver.page_source
     soup = BeautifulSoup(page_source, 'html.parser')
     # find div with class = "SVELTE_HYDRATER contents" and data-target = "UserProfile"
     user_profile = soup.find_all('div', class_='SVELTE_HYDRATER contents',
-                                  attrs={'data-target': 'UserProfile'})
+                                 attrs={'data-target': 'UserProfile'})
     # parse json in the attribute data-props
     user_profile_json = json.loads(user_profile[0].get('data-props'))
     activities = user_profile_json['activities']
@@ -30,6 +32,7 @@ def get_num_contributions():
             discussion_data = activity['discussionData']
             print(discussion_data['title'])
     return len(user_profile_json['activities'])
+
 
 def load_more():
     # num_activities = get_num_contributions()
@@ -50,6 +53,7 @@ def load_more():
             # Break if the "Load More" button is not found or cannot be clicked
             break
 
+
 def parse_discussions() -> None:
     """
     Parse the page source to find and save new discussion URLs to CSV
@@ -68,7 +72,6 @@ def parse_discussions() -> None:
                 writer.writerow([full_url])
 
 
-
 if __name__ == '__main__':
     # Initialize WebDriver
     driver = webdriver.Firefox()
@@ -81,7 +84,7 @@ if __name__ == '__main__':
         # Load as many discussions as possible
         load_more()
         # Get the page source and parse it
-        output_file = Path("../../data/sfconvertbot_activity.csv")
+        output_file = Path("../../data/sfconvertbot_pr_urls.csv")
         parse_discussions()
 
     finally:

@@ -23,7 +23,7 @@ def load_all_discussions():
             soup = BeautifulSoup(page_source, 'html.parser')
 
             # Find and save new discussion URLs to CSV
-            with open("../../data/discussion_urls.csv", "a", newline="") as file:
+            with open("../../data/old_bot/discussion_urls.csv", "a", newline="") as file:
                 writer = csv.writer(file)
                 for link in soup.find_all('a', href=True):
                     href = link['href']
