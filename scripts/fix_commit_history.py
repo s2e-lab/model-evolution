@@ -82,10 +82,11 @@ if __name__ == '__main__':
     atexit.register(cleanup)
 
     # JUST TO RERUN MISSING COMMITS
-    sys.argv = ["analyze_snapshots.py", "0",  "9"]
+    # sys.argv = ["analyze_snapshots.py", "0",  "9"]
     # sys.argv = ["analyze_snapshots.py", "0",  "2999"]
     # sys.argv = ["analyze_snapshots.py", "3000", "4999"]
     # sys.argv = ["analyze_snapshots.py", "5000", "5014"]
+    sys.argv = ["analyze_snapshots.py", "0", "5014"]
 
 
     # Check if the SSH connection is working
@@ -98,7 +99,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     # load prior results to create a local cache
-    cache_file = Path("../results/repository_evolution_0_5014.csv")
+    cache_file = Path("../data/fixed_repository_evolution_commits_0_5014.csv")
     df_commits = pd.read_csv(cache_file).fillna("")
     cache = dict()  # key = repo_url + commit_hash + model_file_path -> serialization_format
     # iterate over dataframe to create cache
@@ -212,7 +213,7 @@ if __name__ == '__main__':
 
     print(df_output.head()        )
     # save the output dataframes
-    output_file = f"fixed_repository_evolution_commits_{start_idx}_{end_idx}.csv"
+    output_file = f"fixed2_repository_evolution_commits_{start_idx}_{end_idx}.csv"
     df_output.to_csv(Path("../data") / output_file, index=False)
     df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors.csv"), index=False)
 
