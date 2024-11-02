@@ -9,8 +9,8 @@ from tqdm import tqdm
 import pandas as pd
 
 if __name__ == '__main__':
-    input_file = Path('../data/sfconvertbot_pr_metadata.csv')
-    output_file = Path('../data/sfconvertbot_pr_metadata_filtered.csv')
+    input_file = Path('../../data/sfconvertbot_pr_metadata.csv')
+    output_file = Path('../../data/sfconvertbot_pr_metadata_filtered.csv')
     df = pd.read_csv(input_file)
     # create a dataframe to store the filtered PRs
     df_filtered = pd.DataFrame(columns=df.columns)
