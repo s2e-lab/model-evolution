@@ -6,6 +6,10 @@
 - [Git](https://git-scm.com/downloads)
 - [HuggingFace](https://huggingface.co/) account
 - [SSH](https://huggingface.co/docs/hub/en/security-git-ssh) keys for HuggingFace.
+- [GeckoDriver](https://github.com/mozilla/geckodriver/releases) for Selenium (for SFConvertBot data collection)
+- [Firefox](https://www.mozilla.org/en-US/firefox/new/) browser (for SFConvertBot data collection)
+
+**All scripts were tested on Windows 10 and macOS. The scripts should work on Linux as well, but we did not test them on this platform.**
 
 ## Setup
 - Install the required packages using `pip install -r requirements.txt`
@@ -19,7 +23,7 @@ pip install .
 
 ## Data Collection
 
-### Scraping StackOverflow posts and GitHub PRs
+### RQ4: Scraping StackOverflow posts and GitHub PRs
 
 1) Create a `.env` file in the root directory with the following content:
 ```bash
@@ -38,7 +42,7 @@ GITHUB_TOKEN=<your_github_token>
     ```
 The data will be saved in the `data` folder.
 
-### Getting Models Metadata & Commits from HuggingFace
+### RQ1/RQ2: Getting Models Metadata & Commits from HuggingFace
 ***(Make sure that you've set up your [HF SSH keys](https://huggingface.co/docs/hub/en/security-git-ssh))***
 
 #### Step 1: Getting the metadata of the models
@@ -85,7 +89,12 @@ python get_commit_logs.py 517 1035
   It requires the start and end index of the commits to be processed.
   The script will generate a CSV file with the commit history analysis on the `../results/` folder. 
 
-### Getting SFConvertBot Data
+### RQ4: Getting SFConvertBot Data
+
+#### Step 0: Install the required packages
+- Download the web driver for the Firefox browser and extract it to your PATH (e.g., /usr/local/bin).
+- If it is not in `PATH` you need tro set the path in the `crawl_bot.py` script.
+
 
 #### Step 1: Extract Safetensors' versions 
 - `get_sfconvertbot_tags.sh`: Script to get all the safetensors versions.
@@ -105,9 +114,9 @@ python get_commit_logs.py 517 1035
 
 
 #### Step 3: Crawling the PRs from the SFConvertBot's community activity
-- `get_sfconvertbot_community_activity.py`: Script to get the data from the SFConvertBot's community [activity](https://huggingface.co/SFconvertbot/activity/community).
+- `crawl_bot_activity.py`: Script to get the data from the SFConvertBot's community [activity](https://huggingface.co/SFconvertbot/activity/community).
   ```bash
-  python get_sfconvertbot_community_activity.py
+  python crawl_bot.py
   ```
   It will save the data in `../data/sfconvertbot_community_activity.csv`.
 

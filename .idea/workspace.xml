@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/data/discussion_urls.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/fixed_repository_evolution_commits_0_2999.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/fixed_repository_evolution_commits_3000_4999.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/fixed_repository_evolution_commits_5000_5014.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/fixed_repository_evolution_errors_0_2999.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/fixed_repository_evolution_errors_3000_4999.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/fixed_repository_evolution_errors_5000_5014.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/merge_csv.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discussion_urls.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fixed_repository_evolution_0_2999.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fixed_repository_evolution_0_2999_errors.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fixed_repository_evolution_3000_4999.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fixed_repository_evolution_3000_4999_errors.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fixed_repository_evolution_5000_5014.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/fixed_repository_evolution_5000_5014_errors.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wip.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/bot/crawl_bot_activity.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +74,9 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\scripts\bot" />
-      <recent name="D:\Portfolio\GitHub\wip-model-evolution\assets" />
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\data" />
+      <recent name="D:\Portfolio\GitHub\wip-model-evolution\scripts" />
+      <recent name="D:\Portfolio\GitHub\wip-model-evolution\assets" />
     </key>
   </component>
   <component name="RunManager" selected="Python.fix_commit_history">
@@ -198,7 +216,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730046160513</updated>
       <workItem from="1730046162976" duration="30720000" />
-      <workItem from="1730419554050" duration="35640000" />
+      <workItem from="1730419554050" duration="37274000" />
     </task>
     <servers />
   </component>
@@ -210,7 +228,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scripts/fix_commit_history.py</url>
-          <line>169</line>
+          <line>168</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
@@ -222,7 +240,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/wip_model_evolution$fix_commit_history.coverage" NAME="fix_commit_history Coverage Results" MODIFIED="1730513856321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/wip_model_evolution$fix_commit_history.coverage" NAME="fix_commit_history Coverage Results" MODIFIED="1730517922549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$GH_dupcheck.coverage" NAME="GH_dupcheck Coverage Results" MODIFIED="1730054334860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/github" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$analyze_commit_history.coverage" NAME="analyze_commit_history Coverage Results" MODIFIED="1730246599262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$GH_json_to_csv.coverage" NAME="GH_json_to_csv Coverage Results" MODIFIED="1730054500639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/github" />
