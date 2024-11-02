@@ -32,6 +32,7 @@ analyticaml = { path = "./../AnalyticaML", editable = true }
 jupyter = "*"
 plotly = "==5.24.1"
 seaborn = "*"
+selenium = "*"
 
 [dev-packages]
 
