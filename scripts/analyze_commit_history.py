@@ -1,7 +1,8 @@
+import atexit
 import os
 import sys
 from pathlib import Path
-import atexit
+
 import pandas as pd
 from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
 from analyticaml.model_parser import detect_serialization_format
@@ -53,19 +54,18 @@ def parse_args(max_commits: int):
         print(f"Usage: python {os.path.basename(__file__)} <start_index> <end_index>")
         print("Example: python analyze_snapshots.py 0 100")
         print("This will analyze the commits from index 0 to 100 (inclusive in both ends)")
-        print(f"Note: The maximum number of commits is {max_commits}")
+        print(f"Note: The maximum end index  is {max_commits - 1}")
         sys.exit(1)
     return start_idx, end_idx
 
 
-def is_deleted_file(commit_file_obj: dict, full_file_path: str|Path):
+def is_deleted_file(commit_file_obj: dict, full_file_path: str | Path):
     """
     Check if the file is deleted
     :param file_path: the file path
     :return: True if the file is deleted, False otherwise
     """
     return not os.path.exists(full_file_path) and commit_file_obj["deletions"] == commit_file_obj["lines"]
-
 
 
 def cleanup():
@@ -75,13 +75,19 @@ def cleanup():
 
 
 if __name__ == '__main__':
+    # create a temporary folder to clone the repositories
+    temp_folder = Path("./tmp")
+    temp_folder.mkdir(exist_ok=True)
+
     atexit.register(cleanup)
 
     # JUST TO RERUN MISSING COMMITS
-    # sys.argv = ["analyze_snapshots.py", "1057", "1057"]
-    # sys.argv = ["analyze_snapshots.py", "2455", "2455"] #TODO: check WTF is wrong with this shit
-    # sys.argv = ["analyze_snapshots.py", "2479", "2481"]
-    # sys.argv = ["analyze_snapshots.py", "1315", "1326"]
+    # sys.argv = ["analyze_snapshots.py", "0",  "9"]
+    # sys.argv = ["analyze_snapshots.py", "0",  "2999"]
+    # sys.argv = ["analyze_snapshots.py", "3000", "4999"]
+    # sys.argv = ["analyze_snapshots.py", "5000", "5014"]
+    sys.argv = [{os.path.basename(__file__)}, "0", "5014"]
+
 
     # Check if the SSH connection is working
     if not check_ssh_connection():
@@ -106,14 +112,10 @@ if __name__ == '__main__':
     start_idx, end_idx = parse_args(len(df_commits))
 
     # this is the last repository URL and object, used to avoid cloning the same repository multiple times
-    last_repo_url, last_repo_obj = None, None
-
-    # create a temporary folder to clone the repositories
-    temp_folder = Path("./tmp")
-    temp_folder.mkdir(exist_ok=True)
+    last_repo_url, last_repo_obj, last_clone_path = None, None, None
 
     # create the output dataframes
-    df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format"])
+    df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date"])
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
     # get batch from repos starting at start_idx and ending at end_idx (inclusive)
     batch = df_commits[start_idx:end_idx + 1]
@@ -130,13 +132,14 @@ if __name__ == '__main__':
 
             if last_repo_url != repo_url:
                 # close the last repository and delete the folder
-                if last_repo_obj is not None:
+                if last_repo_obj:
                     last_repo_obj.close()
-                    utils.delete_folder(clone_path)
+                    utils.delete_folder(last_clone_path)
+
                 # clone the repository
                 repo = utils.clone(repo_url, clone_path)
                 # update the last repository URL and object
-                last_repo_url, last_repo_obj = repo_url, repo
+                last_repo_url, last_repo_obj, last_clone_path = repo_url, repo, clone_path
 
             # checkout the commit hash
             last_repo_obj.git.checkout(hash, force=True)
@@ -154,23 +157,28 @@ if __name__ == '__main__':
 
                 # check if it is a symbolic file pointing to nowhere
                 if os.path.islink(full_file_path) and not os.path.exists(full_file_path):
-                    continue
-
-                serialization_format = detect_serialization_format(full_file_path)
+                    serialization_format = "undetermined (symbolic link)"
+                else:
+                    serialization_format = detect_serialization_format(full_file_path)
                 # add to df_output
                 df_output.loc[len(df_output)] = {
                     "repo_url": repo_url,
                     "commit_hash": hash,
                     "model_file_path": os.path.join(repo_url, file_path),
-                    "serialization_format": serialization_format}
+                    "serialization_format": serialization_format,
+                    "message": row["message"],
+                    "author": row["author"],
+                    "date": row["date"]
+                }
                 # print(f"File: {file_path}, Format: {serialization_format}")
         except Exception as e:
             print(f"Error processing {hash}: {e}")
             df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": hash, "error": e}
 
 
-
     # save the output dataframes
-    output_file = f"repository_evolution_{start_idx}_{end_idx}.csv"
-    df_output.to_csv(Path("../results") / output_file, index=False)
-    df_errors.to_csv(Path("../results") / output_file.replace(".csv", "_errors.csv"), index=False)
+    output_file = f"repository_evolution_commits_{start_idx}_{end_idx}.csv"
+    df_output.to_csv(Path("../data") / output_file, index=False)
+    df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors.csv"), index=False)
+
+    print(f"Output saved to ../data/{output_file}")
