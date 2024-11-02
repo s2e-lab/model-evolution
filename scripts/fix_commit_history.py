@@ -82,10 +82,9 @@ if __name__ == '__main__':
     atexit.register(cleanup)
 
     # JUST TO RERUN MISSING COMMITS
-    sys.argv = ["analyze_snapshots.py", "0", "999"]
-    sys.argv = ["analyze_snapshots.py", "1000", "2999"]
+    sys.argv = ["analyze_snapshots.py", "0",  "2999"]
     # sys.argv = ["analyze_snapshots.py", "3000", "4999"]
-    # sys.argv = ["analyze_snapshots.py", "4000", "5014"]
+    # sys.argv = ["analyze_snapshots.py", "5000", "5014"]
 
 
     # Check if the SSH connection is working
