@@ -2,6 +2,7 @@
 This script crawls the Hugging Face Community Bot activity page and saves all discussion URLs to a CSV file.
 The script uses Selenium to interact with the page and BeautifulSoup to parse the HTML content.
 The discussion URLs are saved to a CSV file named discussion_urls.csv in the data directory.
+@Author: Joanna C. S. Santos
 """
 import csv
 from selenium import webdriver
