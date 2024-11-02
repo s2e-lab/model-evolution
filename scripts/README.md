@@ -101,8 +101,8 @@ The data will be saved in the `data` folder.
 ### RQ4: Getting SFConvertBot Data
 
 #### Step 0: Install the required packages
-- Download the web driver for the Firefox browser and extract it to your PATH (e.g., /usr/local/bin).
-- If it is not in `PATH` you need tro set the path in the `crawl_bot.py` script.
+- Download the [web driver](https://github.com/mozilla/geckodriver/releases) for the Firefox browser and extract it to your PATH (e.g., /usr/local/bin).
+- If it is not in `PATH` you need to set its path in the `crawl_bot_activity.py` script.
 
 
 #### Step 1: Extract Safetensors' versions 

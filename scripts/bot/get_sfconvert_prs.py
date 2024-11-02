@@ -12,8 +12,8 @@ import json
 from bot_utils import extract_discussion_metadata
 
 if __name__ == '__main__':
-    df = pd.read_csv("../../data/discussion_urls.csv")
-    out_file_prefix = '../../data/crawled_sfconvertbot_pr_metadata'
+    df = pd.read_csv("../../data/old_bot/discussion_urls.csv")
+    out_file_prefix = '../../data/sfconvertbot_pr_metadata'
 
     # iterate over dataframe to check whether the PRs were merged
     for i, row in tqdm(df.iterrows(), total=len(df)):
