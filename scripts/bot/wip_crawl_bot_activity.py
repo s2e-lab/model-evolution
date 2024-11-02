@@ -7,22 +7,44 @@ The discussion URLs are saved to a CSV file named discussion_urls.csv in the dat
 import csv
 from pathlib import Path
 
+from datasets import tqdm
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
 from bs4 import BeautifulSoup
 import time
-
+import math
+import json
+def get_num_contributions():
+    page_source = driver.page_source
+    soup = BeautifulSoup(page_source, 'html.parser')
+    # find div with class = "SVELTE_HYDRATER contents" and data-target = "UserProfile"
+    user_profile = soup.find_all('div', class_='SVELTE_HYDRATER contents',
+                                  attrs={'data-target': 'UserProfile'})
+    # parse json in the attribute data-props
+    user_profile_json = json.loads(user_profile[0].get('data-props'))
+    activities = user_profile_json['activities']
+    for activity in activities:
+        print(activity['type'])
+        if activity['type'] == 'discussion':
+            discussion_data = activity['discussionData']
+            print(discussion_data['title'])
+    return len(user_profile_json['activities'])
 
 def load_more():
-    while True:
+    # num_activities = get_num_contributions()
+    num_pages = math.ceil(46931 / 20)
+    sleep_time = 1.8
+    # num_pages = 10
+    for i in tqdm(range(num_pages)):
+        # print(get_num_contributions())
         try:
             # Locate and click the "Load More" button
             load_more_button = driver.find_element(By.XPATH, "//button[contains(text(), 'Load more')]")
             load_more_button.click()
 
             # Wait for new content to load
-            time.sleep(2)
+            time.sleep(sleep_time)
 
         except (NoSuchElementException, ElementClickInterceptedException):
             # Break if the "Load More" button is not found or cannot be clicked
@@ -53,6 +75,8 @@ if __name__ == '__main__':
     try:
         # Open the URL
         url = "https://huggingface.co/SFconvertbot/activity/community"
+        # url = "https://huggingface.co/julien-c/activity/community"
+        # url = "https://huggingface.co/lsiddiqsunny/activity/community"
         driver.get(url)
         # Load as many discussions as possible
         load_more()

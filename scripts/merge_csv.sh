@@ -17,21 +17,25 @@ fi
 prefix=$2
 if [ -z "$prefix" ]; then
     echo "Please provide the prefix as the second parameter."
-    echo "Example: bash ./merge_csv.sh data huggingface_sort_by_createdAt_top996939_"
-    echho "Example: bash ./merge_csv.sh data fixed_repository_evolution_"
-    echho "Example: bash ./merge_csv.sh data repository_evolution_"
+    echo "Example: bash ./merge_csv.sh ../data huggingface_sort_by_createdAt_top996939_"
+    echho "Example: bash ./merge_csv.sh ../data fixed_repository_evolution_"
+    echho "Example: bash ./merge_csv.sh ../data repository_evolution_"
     exit 1
 fi
 
 
 # cd to the folder
+echo "Merging CSV files in folder $folder"
 cd $folder
 
+# print current directory
+echo "Current directory: $(pwd)"
 
 for suffix in "commits" "errors"; do
     # Determine the file pattern based on the suffix
     file_pattern="huggingface_sort_by_createdAt_top996939_${suffix}_*.csv"
     file_pattern="${prefix}${suffix}_*.csv"
+    echo "ls $file_pattern"
     files=($(ls $file_pattern))
     total_files=${#files[@]}
     if [ $total_files -eq 0 ]; then
