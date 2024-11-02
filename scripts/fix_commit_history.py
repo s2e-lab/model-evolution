@@ -85,7 +85,11 @@ if __name__ == '__main__':
     # sys.argv = ["analyze_snapshots.py", "1057", "1057"]
     # sys.argv = ["analyze_snapshots.py", "2455", "2455"] #TODO: check WTF is wrong with this shit
     # sys.argv = ["analyze_snapshots.py", "2479", "2481"]
-    sys.argv = ["analyze_snapshots.py", "0", "5014"]
+    # sys.argv = ["analyze_snapshots.py", "0", "5014"]
+    sys.argv = ["analyze_snapshots.py", "0", "999"]
+    # sys.argv = ["analyze_snapshots.py", "1000", "2999"]
+    # sys.argv = ["analyze_snapshots.py", "3000", "4999"]
+    # sys.argv = ["analyze_snapshots.py", "4000", "5014"]
 
 
     # Check if the SSH connection is working
@@ -121,7 +125,7 @@ if __name__ == '__main__':
     start_idx, end_idx = parse_args(len(df_commits))
 
     # this is the last repository URL and object, used to avoid cloning the same repository multiple times
-    last_repo_url, last_repo_obj = None, None
+    last_repo_url, last_repo_obj, last_clone_path = None, None, None
 
     # create the output dataframes
     df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format"])
@@ -167,13 +171,14 @@ if __name__ == '__main__':
 
             if last_repo_url != repo_url:
                 # close the last repository and delete the folder
-                if last_repo_obj is not None:
+                if last_repo_obj:
                     last_repo_obj.close()
-                    utils.delete_folder(clone_path)
+                    utils.delete_folder(last_clone_path)
+
                 # clone the repository
                 repo = utils.clone(repo_url, clone_path)
                 # update the last repository URL and object
-                last_repo_url, last_repo_obj = repo_url, repo
+                last_repo_url, last_repo_obj, last_clone_path = repo_url, repo, clone_path
 
             # checkout the commit hash
             last_repo_obj.git.checkout(hash, force=True)
