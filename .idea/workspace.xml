@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/bot/crawl_bot_activity.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/bot/crawl_bot_activity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/linaqruf_pr_urls.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/bot/get_sfconvert_prs.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/bot/get_sfconvert_prs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,7 +200,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730046160513</updated>
       <workItem from="1730046162976" duration="30720000" />
-      <workItem from="1730419554050" duration="42112000" />
+      <workItem from="1730419554050" duration="42313000" />
     </task>
     <servers />
   </component>

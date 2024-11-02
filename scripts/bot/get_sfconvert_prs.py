@@ -12,7 +12,7 @@ import json
 from bot_utils import extract_discussion_metadata
 
 if __name__ == '__main__':
-    df = pd.read_csv("../../data/old_bot/discussion_urls.csv")
+    df = pd.read_csv(Path("../../data/sfconvertbot_pr_urls.csv"))
     out_file_prefix = '../../data/sfconvertbot_pr_metadata'
 
     # iterate over dataframe to check whether the PRs were merged
