@@ -1,7 +1,8 @@
+import zipfile
 from pathlib import Path
 
 import pandas as pd
-
+import os
 # Reference date when safetensors was released
 SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-23")
 # Data and results directories
@@ -41,3 +42,9 @@ def get_safetensors_releases():
     df_releases['tag'] = df_releases['tag'].str.replace('python-', '')
 
     return df_releases
+
+
+def unzip(zip_path, extract_to='.'):
+    # Unzip the file
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        zip_ref.extractall(extract_to)
