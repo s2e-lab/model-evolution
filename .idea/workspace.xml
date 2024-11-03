@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/fixed_repository_evolution_commits_0_5014.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/fixed_repository_evolution_commits_0_5014.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/fix_commit_history.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/fix_commit_history.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +64,7 @@
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.crawl_bot_activity">
+  <component name="RunManager" selected="Python.fix_commit_history">
     <configuration name="analyze_commit_history" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="wip-model-evolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -182,9 +184,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.fix_commit_history" />
         <item itemvalue="Python.crawl_bot_activity" />
         <item itemvalue="Python.get_sfconvert_prs (1)" />
-        <item itemvalue="Python.fix_commit_history" />
         <item itemvalue="Python.get_sfconvert_prs" />
         <item itemvalue="Python.analyze_commit_history" />
       </list>
@@ -199,7 +201,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730046160513</updated>
       <workItem from="1730046162976" duration="30720000" />
-      <workItem from="1730419554050" duration="44558000" />
+      <workItem from="1730419554050" duration="47582000" />
     </task>
     <servers />
   </component>
@@ -233,7 +235,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/wip_model_evolution$fix_commit_history.coverage" NAME="fix_commit_history Coverage Results" MODIFIED="1730570525418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/wip_model_evolution$fix_commit_history.coverage" NAME="fix_commit_history Coverage Results" MODIFIED="1730607632493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$GH_dupcheck.coverage" NAME="GH_dupcheck Coverage Results" MODIFIED="1730054334860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/github" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$analyze_commit_history.coverage" NAME="analyze_commit_history Coverage Results" MODIFIED="1730246599262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$GH_json_to_csv.coverage" NAME="GH_json_to_csv Coverage Results" MODIFIED="1730054500639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/github" />
