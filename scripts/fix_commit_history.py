@@ -131,6 +131,7 @@ if __name__ == '__main__':
     batch = df_commits[start_idx:end_idx + 1]
 
     print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
+    save_at = 100
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
         # check whether all files are in cache
@@ -142,7 +143,7 @@ if __name__ == '__main__':
                 all_in_cache = False
                 print(f"Not in cache: {key}")
                 break
-
+        # if in cache, pull metadata from catche
         if all_in_cache:
             for file_path in row["changed_files"].split(";"):
                 if not is_model_file(file_path):
@@ -157,64 +158,69 @@ if __name__ == '__main__':
                     "author": row["author"],
                     "date": row["date"],
                 }
-            continue
+        else:
+            try:
+                # checkout repository at that commit hash
+                hash = row["commit_hash"]
+                repo_url = row["repo_url"]
 
-        try:
-            # checkout repository at that commit hash
-            hash = row["commit_hash"]
-            repo_url = row["repo_url"]
+                clone_path = temp_folder / repo_url.replace("/", "+")
 
-            clone_path = temp_folder / repo_url.replace("/", "+")
+                if last_repo_url != repo_url:
+                    # close the last repository and delete the folder
+                    if last_repo_obj:
+                        last_repo_obj.close()
+                        utils.delete_folder(last_clone_path)
 
-            if last_repo_url != repo_url:
-                # close the last repository and delete the folder
-                if last_repo_obj:
-                    last_repo_obj.close()
-                    utils.delete_folder(last_clone_path)
+                    # clone the repository
+                    repo = utils.clone(repo_url, clone_path)
+                    # update the last repository URL and object
+                    last_repo_url, last_repo_obj, last_clone_path = repo_url, repo, clone_path
 
-                # clone the repository
-                repo = utils.clone(repo_url, clone_path)
-                # update the last repository URL and object
-                last_repo_url, last_repo_obj, last_clone_path = repo_url, repo, clone_path
+                # checkout the commit hash
+                last_repo_obj.git.checkout(hash, force=True)
 
-            # checkout the commit hash
-            last_repo_obj.git.checkout(hash, force=True)
+                # commit object
+                commit = last_repo_obj.commit(hash)
 
-            # commit object
-            commit = last_repo_obj.commit(hash)
+                # iterate over the files touched in the commit (modified, added, or deleted)
+                for file_path, commit_file_obj in commit.stats.files.items():
+                    full_file_path = os.path.join(clone_path, file_path)
 
-            # iterate over the files touched in the commit (modified, added, or deleted)
-            for file_path, commit_file_obj in commit.stats.files.items():
-                full_file_path = os.path.join(clone_path, file_path)
+                    # check if it is a model file and has not been deleted in commit
+                    if is_deleted_file(commit_file_obj, full_file_path) or not is_model_file(file_path):
+                        continue
 
-                # check if it is a model file and has not been deleted in commit
-                if is_deleted_file(commit_file_obj, full_file_path) or not is_model_file(file_path):
-                    continue
+                    # check if it is a symbolic file pointing to nowhere
+                    if os.path.islink(full_file_path) and not os.path.exists(full_file_path):
+                        serialization_format = "undetermined (symbolic link)"
+                    else:
+                        serialization_format = detect_serialization_format(full_file_path)
+                    # add to df_output
+                    df_output.loc[len(df_output)] = {
+                        "repo_url": repo_url,
+                        "commit_hash": hash,
+                        "model_file_path": os.path.join(repo_url, file_path),
+                        "serialization_format": serialization_format,
+                        "message": row["message"],
+                        "author": row["author"],
+                        "date": row["date"]
+                    }
+                    # print(f"File: {file_path}, Format: {serialization_format}")
+            except Exception as e:
+                print(f"Error processing {hash}: {e}")
+                df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": hash, "error": e}
 
-                # check if it is a symbolic file pointing to nowhere
-                if os.path.islink(full_file_path) and not os.path.exists(full_file_path):
-                    serialization_format = "undetermined (symbolic link)"
-                else:
-                    serialization_format = detect_serialization_format(full_file_path)
-                # add to df_output
-                df_output.loc[len(df_output)] = {
-                    "repo_url": repo_url,
-                    "commit_hash": hash,
-                    "model_file_path": os.path.join(repo_url, file_path),
-                    "serialization_format": serialization_format,
-                    "message": row["message"],
-                    "author": row["author"],
-                    "date": row["date"]
-                }
-                # print(f"File: {file_path}, Format: {serialization_format}")
-        except Exception as e:
-            print(f"Error processing {hash}: {e}")
-            df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": hash, "error": e}
+        # SAVES THE DATAFRAME EVERY save_at ITERATIONS
+        if index != 0 and index % save_at == 0:
+            output_file = f"fixed2_repository_evolution_commits_{start_idx}_{end_idx}.csv"
+            df_output.to_csv(Path("../data") / output_file, index=False)
+            df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors.csv"), index=False)
 
-    print(df_output.head()        )
+
     # save the output dataframes
     output_file = f"fixed2_repository_evolution_commits_{start_idx}_{end_idx}.csv"
     df_output.to_csv(Path("../data") / output_file, index=False)
     df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors.csv"), index=False)
 
-    print(f"Output saved to ../data/{output_file}"          )
+    print(f"Output saved to ../data/{output_file}")
