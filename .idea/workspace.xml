@@ -184,11 +184,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.TO_DELETE_fix_commit_history" />
       <item itemvalue="Python.crawl_bot_activity" />
       <item itemvalue="Python.get_sfconvert_prs" />
       <item itemvalue="Python.get_sfconvert_prs (1)" />
       <item itemvalue="Python.analyze_commit_history" />
-      <item itemvalue="Python.TO_DELETE_fix_commit_history" />
     </list>
     <recent_temporary>
       <list>
