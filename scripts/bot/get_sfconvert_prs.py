@@ -24,13 +24,17 @@ def load_conversion_dataset():
     :return: a cache where the key is the pr_url and the value is the row within the data frame.
     """
     df = pd.read_csv(DATA_DIR / 'hf_conversions.csv').fillna("")
+    # remove duplicates (we found a few [8] duplicates in this dataset!)
+    df.drop_duplicates(subset='pr_url', inplace=True)
     cache = {}  # key is the PR URL
     for index, row in df.iterrows():
         pr_url = row['pr_url'].split("#")[0]
         if row['model_id']:
+            # ensure timestamps are consistent across datasets
             header = row['header_metadata'] if row['header_metadata'] else ""
             json_header = json.loads(row['header_metadata']) if header.startswith('{') else None
             row['time'] = json_header['discussion']['createdAt'] if json_header else None
+            # after ensuring timestamps are consistent, we can add to cache
             cache[pr_url] = row
     return cache
 
@@ -44,7 +48,7 @@ if __name__ == '__main__':
 
     # load the PR URLs from the sfconvertbot
     df = pd.read_csv(DATA_DIR / 'sfconvertbot_pr_urls.csv')
-    out_file_prefix = '../../data/TO_DELETE_sfconvertbot_pr_metadata'
+    out_file_prefix = '../../data/sfconvertbot_pr_metadata'
     processed_prs = set()
 
     # iterate over dataframe to check whether the PRs were merged
