@@ -74,7 +74,6 @@ if __name__ == '__main__':
         # username = "julien-c"
         # username = "lsiddiqsunny"
         # username = "Linaqruf"
-        # username
         username = "SFconvertbot"
 
         # Open the URL

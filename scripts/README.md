@@ -122,25 +122,46 @@ The data will be saved in the `data` folder.
   ```
   It will save the data in `../data/sfconvertbot_pr_urls.csv`.
 
-#### Step 3: Extract SFConvertBot PRs' metadata 
-- `get_sfconvert_prs.py`: Script to get the metadata from the SFConvertBot's conversion [dataset](https://huggingface.co/datasets/safetensors/conversions).
+#### Step 3: Get Conversion Dataset from HuggingFace
+- `get_conversions_dataset.py`: Script to get the SFConvertBot's conversion [dataset](https://huggingface.co/datasets/safetensors/conversions).
+  ```bash
+  python get_sfconvert_dataset.py
+  ```
+  It will save the data in `../data/hf_conversions.csv`.
+
+#### Step 4: Extract SFConvertBot activities' metadata and merge with convert dataset 
+- `get_sfconvert_prs.py`: Script to get the metadata from the SFConvertBot's PR URLs obtained in step 2 and merge with the dataset obtained in step 3.
   ```bash
   python get_sfconvert_prs.py
   ```
-  It will save the data in `../data/sfconvertbot_pr_metadata.csv`.
+  It will save the data in `../data/sfconvertbot_pr_metadata.csv.zip`.
+  File is zipped because it is too large to be stored in the repository.
 
-
-
-#### Step 4: Analyzing and Merging the SFConvertBot's PRs
-- `./bot/analyze_bot_activity.py`: Script to analyze and merge the SFConvertBot's PRs.
-  ```bash
-  cd bot
-    python analyze_bot_activity.py
-  ```
-  It will save the data in `../data/sfconvertbot_prs.csv`.
+  
 
 ## Data Analysis
 
 All of the analysis and charts shown in the paper are generated using the Jupyter notebooks in the `notebooks` folder.
 Each RQ has a separate notebook for analysis.
 
+- `./notebooks/rq1_analysis.ipynb`: Analysis of RQ1.
+- `./notebooks/rq2_analysis.ipynb`: Analysis of RQ2.
+- `./notebooks/rq3_analysis.ipynb`: Analysis of RQ3.
+- `./notebooks/rq4_analysis.ipynb`: Analysis of RQ4.
+
+To run the notebooks, you need to start the Jupyter server by running the command below:
+```bash
+cd notebooks
+jupyter notebook
+```
+Then, open the desired notebook and run the cells.
+
+## License
+TBD.
+
+## Citation
+TBD.
+
+## Contributors
+J. 
+Does

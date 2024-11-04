@@ -7,47 +7,27 @@ import os
 from pathlib import Path
 
 import pandas as pd
-from datasets import load_dataset
 from tqdm import tqdm
 
 from scripts.bot.bot_utils import extract_discussion_metadata
 
-
-def save_checkpoint(df: pd.DataFrame, out_file_prefix: str, i: int, save_at: int) -> None:
-    """
-    Saves the dataframe to a CSV file and deletes the prior checkpoint file.
-    :param df: the dataframe to be saved.
-    :param out_file_prefix: a prefix for the output file (including parent folders).
-    :param i: a suffix
-    :param save_at:  the number of iterations to save the checkpoint.
-    """
-    df.to_csv(Path(f'../../data/{out_file_prefix}_{i}.csv'), index=False)
-    # delete prior checkpoint file
-    prior_file = Path(f'../../data/{out_file_prefix}_{i - save_at}.csv')
-    if prior_file.exists():
-        os.remove(prior_file)
-
-
 if __name__ == '__main__':
+    # load prior results from data/bot_cache
+    prior_files = [f for f in os.listdir(Path('../../data/bot_cache')) if f.endswith('.csv')]
+    cache = dict()  # key = pr_url, value = row
+    for f in prior_files:
+        df = pd.read_csv(os.path.join('../../data/bot_cache', f)).fillna("")
+        for index, row in df.iterrows():
+            pr_url = row['pr_url'].split("#")[0]
+            if row['model_id']:
+                cache[pr_url] = row
 
-    save_at = 500
-
-    # load prior results from the conversion dataset
-    df = pd.read_csv(Path('../../data/hf_conversions.csv')).fillna("")
-    cache = {} # key is the PR URL
-    for index, row in df.iterrows():
-        pr_url = row['pr_url'].split("#")[0]
-        if row['model_id']:
-            cache[pr_url] = row
-
-    # load the PR URLs from the sfconvertbot
     df = pd.read_csv(Path("../../data/sfconvertbot_pr_urls.csv"))
-    out_file_prefix = '../../data/TO_DELETE_sfconvertbot_pr_metadata'
-    processed_prs = set()
+    out_file_prefix = '../../data/sfconvertbot_pr_metadata'
+
     # iterate over dataframe to check whether the PRs were merged
     for i, row in tqdm(df.iterrows(), total=len(df)):
         pr_url = row['pr_url'].split("#")[0]
-        processed_prs.add(pr_url)
         if pr_url in cache:
             row = cache[pr_url]
             df.loc[i, 'discussion_metadata'] = row['discussion_metadata']
@@ -65,18 +45,15 @@ if __name__ == '__main__':
             df.loc[i, 'time'] = json_header['discussion']['createdAt'] if json_header else None
 
         # SAVES THE DATAFRAME EVERY 500 ITERATIONS
-        if i != 0 and i % save_at == 0:
-            save_checkpoint(df, out_file_prefix, i, save_at)
-
-    # add in any PRs that were not processed from the cache
-    for pr_url, row in cache.items():
-        if pr_url not in processed_prs:
-            df = df.append(row, ignore_index=True)
-
+        if i != 0 and i % 500 == 0:
+            df.to_csv(Path(out_file_prefix + f'_{i}.csv'), index=False)
+            # delete prior checkpoint file
+            if Path(out_file_prefix + f'_{i - 500}.csv').exists():
+                os.remove(Path(out_file_prefix + f'_{i - 500}.csv'))
 
     df.to_csv(Path(out_file_prefix + '.csv'), index=False)
-    # delete last checkpoint files
-    for i in range(save_at, len(df), save_at):
+    # delete the  checkpoint files
+    for i in range(500, len(df), 500):
         check_file = Path(out_file_prefix + f'_{i}.csv')
         if check_file.exists():
             os.remove(check_file)
