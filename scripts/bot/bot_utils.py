@@ -1,6 +1,9 @@
+import os
+from pathlib import Path
+
+import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-from datasets import load_dataset
 
 
 def extract_discussion_metadata(pr_url: str) -> tuple:
@@ -34,28 +37,16 @@ def extract_discussion_metadata(pr_url: str) -> tuple:
     return events, header
 
 
-def get_bot_conversions(out_file_prefix: str) -> None:
+def save_checkpoint(df: pd.DataFrame, out_file_prefix: str, i: int, save_at: int) -> None:
     """
-    This function loads the `safetensors/conversions` dataset from the Hugging Face Datasets library.
-    This is an obsolete dataset that contains PRs created by the sfconvertbot.
-    The function iterates over the dataset and extracts the discussion metadata from the PRs and saves it.
+    Saves the dataframe to a CSV file and deletes the prior checkpoint file.
+    :param df: the dataframe to be saved.
+    :param out_file_prefix: a prefix for the output file (including parent folders).
+    :param i: a suffix
+    :param save_at:  the number of iterations to save the checkpoint.
     """
-    ds = load_dataset("safetensors/conversions")['train']
-    # convert dataset to dataframe
-    df_sfconvert = ds.to_pandas()
-    df_sfconvert['time'].min(), df_sfconvert['time'].max()
-
-    # iterate over dataframe to check whether the PRs were merged
-    for i, row in tqdm(df_sfconvert.iterrows(), total=len(df_sfconvert)):
-        pr_url = row['pr_url']
-        events, header = extract_discussion_metadata(pr_url)
-        df_sfconvert.loc[i, 'discussion_metadata'] = events
-        df_sfconvert.loc[i, 'header_metadata'] = header
-        # SAVES THE DATAFRAME EVERY 500 ITERATIONS
-        if i != 0 and i % 500 == 0:
-            df_sfconvert.to_csv(Path(f'../../data/{out_file_prefix}_{i}.csv'), index=False)
-
-    df_sfconvert.to_csv(Path(f'../../data/{out_file_prefix}.csv'), index=False)
-    # delete the checkpoint files
-    for i in range(500, len(df_sfconvert), 500):
-        os.remove(Path(f'../data/../{out_file_prefix}_{i}.csv'))
+    df.to_csv(Path(f'../../data/{out_file_prefix}_{i}.csv'), index=False)
+    # delete prior checkpoint file
+    prior_file = Path(f'../../data/{out_file_prefix}_{i - save_at}.csv')
+    if prior_file.exists():
+        os.remove(prior_file)
