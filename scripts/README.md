@@ -20,6 +20,8 @@ cd AnalyticaML
 pip install .
 ```
 - Set up your [SSH](https://huggingface.co/docs/hub/en/security-git-ssh) keys locally to access the HuggingFace API.
+- Download the [web driver](https://github.com/mozilla/geckodriver/releases) for the Firefox browser and extract it to your PATH (e.g., /usr/local/bin).
+- If it is not in `PATH` you need to set its path in the `crawl_bot_activity.py` script.
 
 ## Data Collection
 
@@ -97,13 +99,13 @@ Now, you can run the following shell scripts to collect data from GitHub and Sta
     ./SO-collection.sh
     ```
 The data will be saved in the `data` folder.
-
+- **Collecting Safetensors' Discussions  on HuggingFace**: Run the Python script below to.
+    ```bash
+    cd bot
+    python crawl_safetensors_discussions.py
+    ```
+  
 ### RQ4: Getting SFConvertBot Data
-
-#### Step 0: Install the required packages
-- Download the [web driver](https://github.com/mozilla/geckodriver/releases) for the Firefox browser and extract it to your PATH (e.g., /usr/local/bin).
-- If it is not in `PATH` you need to set its path in the `crawl_bot_activity.py` script.
-
 
 #### Step 1: Extract Safetensors' versions 
 - `get_sfconvertbot_tags.sh`: Script to get all the safetensors versions.
