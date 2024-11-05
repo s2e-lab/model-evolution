@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sfconvertbot_pr_metadata.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/results/RQ4StatusDistribution.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ4StatusDistribution.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ4TimeToFirstResponse.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ4TimeToFirstResponse.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/rq4_dataset_stats.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/rq4_dataset_stats.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sfconvertbot_pr_metadata_filtered.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/sfconvertbot_pr_metadata_filtered.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/bot/TO_DELETE_inspect_space.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/bot/TO_DELETE_inspect_space.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq4_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq4_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +201,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730046160513</updated>
       <workItem from="1730046162976" duration="30720000" />
-      <workItem from="1730419554050" duration="75778000" />
+      <workItem from="1730419554050" duration="78107000" />
     </task>
     <servers />
   </component>
