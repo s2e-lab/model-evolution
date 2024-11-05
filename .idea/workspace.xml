@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/bot/crawl_safetensors_discussions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Combined_Status_Distribution.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ4StatusDistribution-Hugging Face Staff.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ4StatusDistribution-Hugging Face Staff.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ4StatusDistribution-Non-Hugging Face Staff.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ4StatusDistribution-Non-Hugging Face Staff.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ4StatusDistribution.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ4StatusDistribution.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/rq4_dataset_stats.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/rq4_dataset_stats.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq4_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq4_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -68,7 +63,7 @@
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.get_sfconvert_prs (1)">
+  <component name="RunManager" selected="Python.crawl_safetensors_discussions (1)">
     <configuration name="TO_DELETE_fix_commit_history" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="wip-model-evolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -113,7 +108,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="crawl_bot_activity" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="crawl_safetensors_discussions (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="wip-model-evolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -126,7 +121,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/bot/crawl_bot_activity.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/bot/crawl_safetensors_discussions.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="crawl_safetensors_discussions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="wip-model-evolution" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts/bot" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="D:\Portfolio\GitHub\wip-model-evolution\scripts\bot\crawl_safetensors_discussions.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -157,42 +174,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="get_sfconvert_prs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="wip-model-evolution" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/get_sfconvert_prs.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.TO_DELETE_fix_commit_history" />
-      <item itemvalue="Python.crawl_bot_activity" />
-      <item itemvalue="Python.get_sfconvert_prs" />
+      <item itemvalue="Python.crawl_safetensors_discussions" />
+      <item itemvalue="Python.crawl_safetensors_discussions (1)" />
       <item itemvalue="Python.get_sfconvert_prs (1)" />
       <item itemvalue="Python.analyze_commit_history" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.crawl_safetensors_discussions (1)" />
+        <item itemvalue="Python.crawl_safetensors_discussions" />
         <item itemvalue="Python.get_sfconvert_prs (1)" />
         <item itemvalue="Python.analyze_commit_history" />
         <item itemvalue="Python.TO_DELETE_fix_commit_history" />
-        <item itemvalue="Python.crawl_bot_activity" />
-        <item itemvalue="Python.get_sfconvert_prs" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +200,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730046160513</updated>
       <workItem from="1730046162976" duration="30720000" />
-      <workItem from="1730419554050" duration="80152000" />
+      <workItem from="1730419554050" duration="82119000" />
     </task>
     <servers />
   </component>
@@ -220,6 +215,16 @@
           <line>170</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scripts/bot/crawl_safetensors_discussions.py</url>
+          <line>75</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scripts/bot/crawl_safetensors_discussions.py</url>
+          <line>74</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -230,9 +235,11 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/wip_model_evolution$fix_commit_history.coverage" NAME="fix_commit_history Coverage Results" MODIFIED="1730607632493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/wip_model_evolution$crawl_safetensors_discussions__1_.coverage" NAME="crawl_safetensors_discussions (1) Coverage Results" MODIFIED="1730824909063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$GH_dupcheck.coverage" NAME="GH_dupcheck Coverage Results" MODIFIED="1730054334860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/github" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$analyze_commit_history.coverage" NAME="analyze_commit_history Coverage Results" MODIFIED="1730643633004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$GH_json_to_csv.coverage" NAME="GH_json_to_csv Coverage Results" MODIFIED="1730054500639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/github" />
+    <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_craw_safetensors_discussion.coverage" NAME="TO_DELETE_craw_safetensors_discussion Coverage Results" MODIFIED="1730824189735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$crawl_bot_activity.coverage" NAME="crawl_bot_activity Coverage Results" MODIFIED="1730577333927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$get_sfconvert_prs__1_.coverage" NAME="get_sfconvert_prs (1) Coverage Results" MODIFIED="1730766022374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$get_sfconvert_prs.coverage" NAME="get_sfconvert_prs Coverage Results" MODIFIED="1730510966297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
