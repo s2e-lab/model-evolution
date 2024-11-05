@@ -67,7 +67,7 @@ if __name__ == '__main__':
             # Close the browser
             driver.quit()
 
-    output_file = Path(f"../../data/converter_discussion_url.csv")
+    output_file = Path(f"../../data/converter_discussion_urls.csv")
     # save the results
     with open(output_file, "w", newline="", encoding="utf8") as file:
         writer = csv.writer(file, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
