@@ -39,9 +39,9 @@ def extract_discussion_metadata(pr_url: str) -> tuple:
 
 def save_checkpoint(df: pd.DataFrame, out_file_prefix: str, i: int, save_at: int) -> None:
     """
-    Saves the dataframe to a CSV file and deletes the prior checkpoint file.
+    Saves the dataframe to a CSV file and deletes the prior checkpoint file. Checkpoint files are saved at the data folder.
     :param df: the dataframe to be saved.
-    :param out_file_prefix: a prefix for the output file (including parent folders).
+    :param out_file_prefix: a prefix for the output file.
     :param i: a suffix
     :param save_at:  the number of iterations to save the checkpoint.
     """

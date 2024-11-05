@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/rq4_dataset_stats.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/rq4_dataset_stats.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/bot/bot_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/bot/bot_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/bot/crawl_bot_activity.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/bot/crawl_bot_activity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/bot/get_sfconvert_prs.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/bot/get_sfconvert_prs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq4_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq4_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +65,7 @@
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.analyze_commit_history">
+  <component name="RunManager" selected="Python.get_sfconvert_prs (1)">
     <configuration name="TO_DELETE_fix_commit_history" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="wip-model-evolution" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -187,10 +185,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.get_sfconvert_prs (1)" />
         <item itemvalue="Python.analyze_commit_history" />
         <item itemvalue="Python.TO_DELETE_fix_commit_history" />
         <item itemvalue="Python.crawl_bot_activity" />
-        <item itemvalue="Python.get_sfconvert_prs (1)" />
         <item itemvalue="Python.get_sfconvert_prs" />
       </list>
     </recent_temporary>
@@ -204,7 +202,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730046160513</updated>
       <workItem from="1730046162976" duration="30720000" />
-      <workItem from="1730419554050" duration="65974000" />
+      <workItem from="1730419554050" duration="72968000" />
     </task>
     <servers />
   </component>
@@ -233,7 +231,7 @@
     <SUITE FILE_PATH="coverage/wip_model_evolution$analyze_commit_history.coverage" NAME="analyze_commit_history Coverage Results" MODIFIED="1730643633004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$GH_json_to_csv.coverage" NAME="GH_json_to_csv Coverage Results" MODIFIED="1730054500639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/github" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$crawl_bot_activity.coverage" NAME="crawl_bot_activity Coverage Results" MODIFIED="1730577333927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
-    <SUITE FILE_PATH="coverage/wip_model_evolution$get_sfconvert_prs__1_.coverage" NAME="get_sfconvert_prs (1) Coverage Results" MODIFIED="1730575843485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
+    <SUITE FILE_PATH="coverage/wip_model_evolution$get_sfconvert_prs__1_.coverage" NAME="get_sfconvert_prs (1) Coverage Results" MODIFIED="1730766022374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$get_sfconvert_prs.coverage" NAME="get_sfconvert_prs Coverage Results" MODIFIED="1730510966297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
   </component>
 </project>

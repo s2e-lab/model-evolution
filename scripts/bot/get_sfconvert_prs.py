@@ -43,12 +43,12 @@ if __name__ == '__main__':
     # load prior results from the conversion dataset
     cache = load_conversion_dataset()
 
-    # save the data every 500 iterations
-    save_at = 500
+    # specify the save rate for the last 500 iterations
+    save_at = 250
 
     # load the PR URLs from the sfconvertbot
     df = pd.read_csv(DATA_DIR / 'sfconvertbot_pr_urls.csv')
-    out_file_prefix = '../../data/sfconvertbot_pr_metadata'
+    out_file_prefix = 'sfconvertbot_pr_metadata'
     processed_prs = set()
 
     # iterate over dataframe to check whether the PRs were merged
@@ -82,10 +82,10 @@ if __name__ == '__main__':
             processed_prs.add(pr_url)
 
     # save the final data frame
-    df.to_csv(Path(out_file_prefix + '.csv'), index=False)
+    df.to_csv(DATA_DIR / (out_file_prefix + '.csv'), index=False)
 
     # delete last checkpoint files
     for i in range(save_at, len(df), save_at):
-        check_file = Path(out_file_prefix + f'_{i}.csv')
+        check_file = DATA_DIR / (out_file_prefix + f'_{i}.csv')
         if check_file.exists():
             os.remove(check_file)
