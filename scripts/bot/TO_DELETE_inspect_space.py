@@ -6,17 +6,25 @@ for repo in repo_names:
     info = huggingface_hub.space_info(repo)
     print(repo, "created_at", info.created_at, "duplicated from", info.cardData.duplicated_from, sep='\t')
 
+# When was the dataset creation enabled?
+# Nov 30, 2022: https://huggingface.co/spaces/safetensors/convert/commit/cbdc5ec5c839e8e69875a9607401bd137dd75a9b
 
-
+# The commit below is when they started tracking the conversion activity and saving it to a dataset
+# OCt 31, 2022: https://huggingface.co/spaces/safetensors/convert/commit/88775d17c29cc2b3eabf4d2a515608e7f1b4367c
+#
 # This is when the dataset creation was disabled for the space safetensors/convert
-# https://huggingface.co/spaces/safetensors/convert/commit/0b0a7a0e4fe0dc5a68dd847d9ca6c024fb134df4
-# It seems that in prior versions the script used the user's token to create the PR
+# Apr 6, 2023:https://huggingface.co/spaces/safetensors/convert/commit/0b0a7a0e4fe0dc5a68dd847d9ca6c024fb134df4
+
+# It seems that in prior versions the script used the user's token to create the PR. This explains why I see commits not by the bot!
 # https://huggingface.co/spaces/safetensors/convert/blob/9c99c64d6853249eaa9412ae378352a2f5f90d0a/convert.py
-# This explains why I see commits not by the bot!
+
+
+
+
 
 
 # Here is the timeline:
 # 1. The space was created on 2022-10-28
 # 2. The space implementation up to this commit was using the user's token to create the PRs. Thus, the commits are not by the bot.
-# 3. The space started to track the conversion activity and saving it to  a dataset on [DATE HERE] and stopped doing it on [DATE HERE].
+# 3. The space started to track the conversion activity and saving it to  a dataset on Oct 31, 2022 and stopped doing it on Apr 6, 2023.
 # 4. Starting on [DATE HERE] the space started to use the bot to create the PRs.
