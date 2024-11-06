@@ -5,19 +5,15 @@ The commit history is saved to a CSV file (any caught exceptions are added to a 
 @Author: Joanna C. S. Santos
 """
 import json
+import os
+import zipfile
+from collections import OrderedDict
 # %%
 from pathlib import Path
 
 import pandas as pd
-import os
-import zipfile
-
+from huggingface_hub import model_info
 from tqdm import tqdm
-
-from scripts import utils
-from scripts.get_commit_logs import get_commits
-from scripts.utils import clone
-from collections import OrderedDict
 
 DATA_DIR = Path('../data')
 RESULTS_DIR = Path('../results')
@@ -47,79 +43,48 @@ def find_merged_repos() -> set:
     return merged_repos.keys()
 
 
-def load_prior_commits(filename: str):
-    """
-    Load the prior commits from the CSV files.
-    :return: a dataframe with the prior commits.
-    """
-    # load the prior commits
-    df_commits = pd.read_csv(DATA_DIR / filename)
-    cache = dict()
-    for index, row in tqdm(df_commits.iterrows(), total=len(df_commits), unit="cache commit"):
-        repo_url = row['repo_url']
-        if repo_url not in cache:
-            cache[repo_url] = []
-        cache[repo_url].append(tuple([row[c] for c in columns]))
-    return cache
 
 
 if __name__ == '__main__':
-    columns = ["repo_url", "commit_hash", "author", "date", "message", "changed_files", "all_files_in_tree"]
-    merged_repos = find_merged_repos()
-    cache = load_prior_commits('huggingface_sort_by_createdAt_top996939_commits_0_1035.csv')
-    # cache2 = load_prior_commits('merged_prs_commits_200.csv')
-    # # merge cache2 to cache
-    # for repo_url, commits in cache2.items():
-    #     if repo_url in cache:
-    #         cache[repo_url].extend(commits)
-    #     else:
-    #         cache[repo_url] = commits
 
+    columns = ["model_id", "created_at", "last_modified", "all_files_in_tree"]
+    merged_repos = find_merged_repos()
+    file_prefix = 'merged_prs_repo_files'
     # iterates over the repositories
     commits, errors = [], []
-    save_at = 10  # indicate how many iterations to save the dataframes
+    save_at = 100  # indicate how many iterations to save the dataframes
 
-    for index, repo_url in tqdm(enumerate(merged_repos), unit="repo", total=len(merged_repos)):
-        clone_path = os.path.join("./tmp", repo_url.replace("/", "+"))
+    for index, repo_url in tqdm(enumerate(list(merged_repos)), unit="repo", total=len(merged_repos)):
         try:
-            if repo_url in cache:
-                repo_commits = cache[repo_url]
-                commits.extend(repo_commits)
-                continue
-            # else:
-            #     continue
-            # if not in cache, clone the repository to get the commits
-            clone(repo_url, clone_path)
-            repo_commits = get_commits(clone_path)
-            commits.extend([(repo_url,) + c for c in repo_commits])
+            info = model_info(repo_url, files_metadata=True)
+            files = [x.rfilename for x in info.siblings]
+            commits.append((repo_url, info.created_at, info.last_modified, ";".join(files)))
+
             if index > 0 and index % save_at == 0:
-                output_file = f"merged_prs_commits_{index}.csv"
+                output_file = f"{file_prefix}_{index}.csv"
                 df_commits = pd.DataFrame(commits, columns=columns)
                 df_commits.to_csv(DATA_DIR / output_file, index=False)
                 # delete prior checkpoint
-                if os.path.exists(DATA_DIR / f"merged_prs_commits_{index - save_at}.csv"):
-                    os.remove(DATA_DIR / f"merged_prs_commits_{index - save_at}.csv")
+                if os.path.exists(DATA_DIR / f"{file_prefix}_{index - save_at}.csv"):
+                    os.remove(DATA_DIR / f"{file_prefix}_{index - save_at}.csv")
                 print(f"Commits saved to {output_file}")
         except Exception as e:
             print(f"Error processing {repo_url}: {e}")
             errors.append((repo_url, e))
-        finally:
-            if clone_path and os.path.exists(clone_path):
-                utils.delete_folder(clone_path)
 
     # save the commits to CSV
     df_commits = pd.DataFrame(commits, columns=columns)
-    output_file = f"merged_prs_commits.csv"
+    output_file = f"{file_prefix}.csv"
     df_commits.to_csv(DATA_DIR / output_file, index=False)
 
     # save errors to CSV
-    error_file = output_file.replace("commits", "commits_errors")
+    error_file = output_file.replace("repo_files", "repo_files_errors")
     df_errors = pd.DataFrame(errors, columns=["repo_url", "error"])
     df_errors.to_csv(DATA_DIR / error_file, index=False)
 
     # delete prior checkpoints
     for i in range(0, len(merged_repos), save_at):
-        if os.path.exists(DATA_DIR / f"merged_prs_commits_{i}.csv"):
-            os.remove(DATA_DIR / f"merged_prs_commits_{i}.csv")
+        if os.path.exists(DATA_DIR / f"{file_prefix}_{i}.csv"):
+            os.remove(DATA_DIR / f"{file_prefix}_{i}.csv")
 
     print(f"Commits saved to {output_file}")
