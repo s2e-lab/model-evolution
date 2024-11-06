@@ -54,7 +54,7 @@ if __name__ == '__main__':
     commits, errors = [], []
     save_at = 100  # indicate how many iterations to save the dataframes
 
-    for index, repo_url in tqdm(enumerate(list(merged_repos)), unit="repo", total=len(merged_repos)):
+    for index, repo_url in tqdm(enumerate(merged_repos), unit="repo", total=len(merged_repos)):
         try:
             info = model_info(repo_url, files_metadata=True)
             files = [x.rfilename for x in info.siblings]
