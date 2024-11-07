@@ -47,7 +47,7 @@ pip install .
   It will select model repositories and save the filtered list at `../data/huggingface_sort_by_createdAt_topN_selected.json`.   
   
 #### Step 3: Getting the commit history of the models
-- `get_models_history.py`: Script to get metadata of all models from HuggingFace. 
+- `get_commit_logs.py`: Script to get metadata of all models from HuggingFace. 
 It will produce commit history for each model repository and save it on the data folder. 
 It requires the start and end index of the models to be processed. This script will take a long time to run (~1 day).
 ```bash
@@ -58,6 +58,8 @@ Example: below it will process the first 517 models and then the next 517 models
 python get_commit_logs.py 0 517
 python get_commit_logs.py 517 1035 
 ```
+It will save the commit history for each model in the `../data/` folder.
+File names will be `huggingface_sort_by_createdAt_topN_commits_<first_index>_<last_index>.csv` and `huggingface_sort_by_createdAt_topN_commits_<first_index>_<last_index>.csv`.
     
 #### Step 4: Merging the commit history into a single CSV file
 - `./merge_csvs.sh`: Merge the CSV files for the commit history into a single file.
