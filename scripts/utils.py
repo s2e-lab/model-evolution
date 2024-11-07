@@ -2,9 +2,13 @@ import math
 import os
 import shutil
 import sys
+from pathlib import Path
 
 import git
 from git import Repo
+
+DATA_DIR = Path("../data")
+RESULTS_DIR = Path("../results")
 
 
 def delete_folder(folder_location: str) -> bool:

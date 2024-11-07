@@ -37,12 +37,12 @@ pip install .
   ```
   It will save the metadata of all models in the `../data/` folder.
   File name will be `huggingface_sort_by_createdAt_topN.json`, where `N` is the number of model repositories.
+  You should zip this file and place it on the data folder. Name it as `huggingface_sort_by_createdAt_topN.json.zip`.
 
 #### Step 2: Filtering the models using the criteria described in our methodology
-- `./notebooks/select_models.ipynb`: Script to filter the repositories from HuggingFace using our filtering criteria based on creation / last update dates. 
+- `./select_models.py`: Script to filter the repositories from HuggingFace using our filtering criteria based on creation / last update dates. 
   ```bash
-  cd notebooks
-  jupyter notebook select_models.ipynb
+    python select_models.py
   ```
   It will select model repositories and save the filtered list at `../data/huggingface_sort_by_createdAt_topN_selected.json`.   
   
