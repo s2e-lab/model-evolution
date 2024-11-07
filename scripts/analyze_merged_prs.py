@@ -1,14 +1,17 @@
 """
 This script analyzes the PRs opened by Hugging Face's conversion tool and that were merged.
-For each of these PRs, it identifies the associated repo and extracts the commit history.
-The commit history is saved to a CSV file (any caught exceptions are added to a separate CSV file).
+For each of these PRs, it identifies the associated repo and extracts the files that are currently in it.
+This is saved to a CSV file with the following columns:
+- model_id: the model ID of the repo
+- created_at: the creation date of the repo
+- last_modified: the last modification date of the repo
+- all_files_in_tree: a string with all the files in the repo, separated by a semicolon.
 @Author: Joanna C. S. Santos
 """
 import json
 import os
 import zipfile
 from collections import OrderedDict
-# %%
 from pathlib import Path
 
 import pandas as pd
@@ -41,8 +44,6 @@ def find_merged_repos() -> set:
         if status == 'merged':
             merged_repos[row['model_id']] = ""
     return merged_repos.keys()
-
-
 
 
 if __name__ == '__main__':
