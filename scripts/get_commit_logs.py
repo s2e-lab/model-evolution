@@ -110,8 +110,6 @@ if __name__ == "__main__":
         start_idx, end_idx = "RETRIED", len(repo_urls)
     else:
         # read start index and end index from the command line
-        sys.argv.append(0)
-        sys.argv.append(1035)
         start_idx, end_idx = parse_args()
         input_file = Path("../data/huggingface_sort_by_createdAt_top996939_selected.json")
         df = pd.read_json(input_file)

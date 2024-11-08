@@ -59,20 +59,42 @@ def parse_args(max_commits: int):
     return start_idx, end_idx
 
 
-def is_deleted_file(commit_file_obj: dict, full_file_path: str | Path):
-    """
-    Check if the file is deleted
-    :param file_path: the file path
-    :return: True if the file is deleted, False otherwise
-    """
-    return not os.path.exists(full_file_path) and commit_file_obj["deletions"] == commit_file_obj["lines"]
-
-
 def cleanup():
     print("Performing cleanup...")
     # delete the temporary folder
     utils.delete_folder(temp_folder)
 
+
+def load_cache(filepath: str | Path) -> dict:
+    df_commits = pd.read_csv(filepath).fillna("")
+    cache = dict()  # key = repo_url + commit_hash + model_file_path -> serialization_format
+    # iterate over dataframe to create cache
+    for index, row in df_commits.iterrows():
+        model_file_path = row['model_file_path'].replace(row['repo_url'] + "/", "")
+        key = (row['repo_url'], row['commit_hash'], model_file_path)
+        cache[key] = row['serialization_format']
+    return cache
+
+
+def is_all_in_cache(cache: dict, row: pd.Series) -> bool:
+    for file_path in row["all_files_in_tree"].split(";"):
+        key = (row['repo_url'], row['commit_hash'], file_path)
+        # check file extension is in MODEL_FILE_EXTENSIONS
+        if is_model_file(file_path) and key not in cache:
+            return False
+    return True
+
+def get_from_cache(cache: dict, row: pd.Series) -> pd.DataFrame:
+    key = (row['repo_url'], row['commit_hash'], file_path)
+    return {
+        "repo_url": row["repo_url"],
+        "commit_hash": row["commit_hash"],
+        "model_file_path": file_path,
+        "serialization_format": cache[key],
+        "message": row["message"],
+        "author": row["author"],
+        "date": row["date"],
+    }
 
 if __name__ == '__main__':
     # create a temporary folder to clone the repositories
@@ -89,7 +111,6 @@ if __name__ == '__main__':
     # sys.argv = ["analyze_snapshots.py", "0", "5014"]
     sys.argv = ["", "0", "4888"]
 
-
     # Check if the SSH connection is working
     if not check_ssh_connection():
         print("Please set up your SSH keys on HuggingFace.")
@@ -100,17 +121,11 @@ if __name__ == '__main__':
         sys.exit(1)
 
     # load prior results to create a local cache
-    cache_file = Path("../data/fixed3_repository_evolution_commits_0_5014.csv")
-    df_commits = pd.read_csv(cache_file).fillna("")
-    cache = dict()  # key = repo_url + commit_hash + model_file_path -> serialization_format
-    # iterate over dataframe to create cache
-    for index, row in df_commits.iterrows():
-        model_file_path = row['model_file_path'].replace(row['repo_url'] + "/", "")
-        key = (row['repo_url'], row['commit_hash'], model_file_path)
-        cache[key] = row['serialization_format']
+    cache_file = Path("../data/cache/fixed3_repository_evolution_commits_0_5014.csv")
+    cache = load_cache(cache_file)
 
     # Load the repositories and set nan columns to empty string
-    input_file = Path("../data/NEW2_FILTERED_huggingface_sort_by_createdAt_top996939_commits_0_1035.csv")
+    input_file = Path("../data/huggingface_sort_by_createdAt_top996939_commits_0_1035.csv")
     df_commits = pd.read_csv(input_file).fillna("")
     print("Total number of commits:", len(df_commits))
 
@@ -126,42 +141,29 @@ if __name__ == '__main__':
     last_repo_url, last_repo_obj, last_clone_path = None, None, None
 
     # create the output dataframes
-    df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date"])
+    df_output = pd.DataFrame(
+        columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date"])
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
     # get batch from repos starting at start_idx and ending at end_idx (inclusive)
     batch = df_commits[start_idx:end_idx + 1]
-
+    # Analysis configuation
     print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
     save_at = 100
     n = 0
+    out_suffix = "repository_evolution_commits"
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
         # check whether all files are in cache
-        all_in_cache = True
-        for file_path in row["all_files_in_tree"].split(";"):
-            key = (row['repo_url'], row['commit_hash'], file_path)
-            # check file extension is in MODEL_FILE_EXTENSIONS
-            if is_model_file(file_path) and key not in cache:
-                all_in_cache = False
-                # print(f"Not in cache: {key}")
-                break
+        all_in_cache = is_all_in_cache(cache, row)
+        all_files_in_tree = row["all_files_in_tree"].split(";")
 
         # if in cache, pull metadata from catche
         if all_in_cache:
-            for file_path in row["all_files_in_tree"].split(";"):
-                if not is_model_file(file_path):
-                    continue
-                key = (row['repo_url'], row['commit_hash'], file_path)
-                df_output.loc[len(df_output)] = {
-                    "repo_url": row["repo_url"],
-                    "commit_hash": row["commit_hash"],
-                    "model_file_path": file_path,
-                    "serialization_format": cache[key],
-                    "message": row["message"],
-                    "author": row["author"],
-                    "date": row["date"],
-                }
             n += 1
+            for file_path in all_files_in_tree:
+                if is_model_file(file_path):
+                    df_output.loc[len(df_output)] = get_from_cache(cache, row)
+
         else:
             continue
             try:
@@ -178,7 +180,7 @@ if __name__ == '__main__':
                         utils.delete_folder(last_clone_path)
 
                     # clone the repository
-                    repo = utils.clone(repo_url, clone_path,single_branch=True, no_tags=True)
+                    repo = utils.clone(repo_url, clone_path, single_branch=True, no_tags=True)
                     # update the last repository URL and object
                     last_repo_url, last_repo_obj, last_clone_path = repo_url, repo, clone_path
 
@@ -218,16 +220,14 @@ if __name__ == '__main__':
 
         # SAVES THE DATAFRAME EVERY save_at ITERATIONS
         if index != 0 and index % save_at == 0:
-            output_file = f"NEW_repository_evolution_commits_{start_idx}_{end_idx}.csv"
+            output_file = f"{out_suffix}_{start_idx}_{end_idx}.csv"
             df_output.to_csv(Path("../data") / output_file, index=False)
             df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors"), index=False)
-
-
 
     print(f"How many in cache? {n} commits.")
 
     # save the output dataframes
-    output_file = f"NEW_repository_evolution_commits_{start_idx}_{end_idx}.csv"
+    output_file = f"{out_suffix}_{start_idx}_{end_idx}.csv"
     df_output.to_csv(Path("../data") / output_file, index=False)
     df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors"), index=False)
 
