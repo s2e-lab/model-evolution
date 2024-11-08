@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="" />
+    <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/fixed3_repository_evolution_commits_0_5014.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/fixed3_repository_evolution_commits_0_5014.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/fixed3_repository_evolution_errors_0_5014.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/fixed3_repository_evolution_errors_0_5014.csv" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -198,7 +202,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730046160513</updated>
       <workItem from="1730046162976" duration="30720000" />
-      <workItem from="1730419554050" duration="107395000" />
+      <workItem from="1730419554050" duration="108558000" />
     </task>
     <servers />
   </component>

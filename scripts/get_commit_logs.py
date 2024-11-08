@@ -101,10 +101,10 @@ if __name__ == "__main__":
         sys.exit(1)
 
     #  set this to True if you want to retry the repositories that failed
-    should_retry = False
+    should_retry = True
     if should_retry:
         print("Retrying the repositories that failed.")
-        input_file = Path("../data/huggingface_sort_by_createdAt_top996939_errors_0_1035.csv")
+        input_file = Path("../data/huggingface_sort_by_createdAt_top996939_errors_TO_DELETE0_1035.csv0_1035.csv")
         df = pd.read_csv(input_file)
         repo_urls = df["repo_url"].tolist()
         start_idx, end_idx = "RETRIED", len(repo_urls)
