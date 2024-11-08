@@ -76,15 +76,14 @@ def load_cache(filepath: str | Path) -> dict:
     return cache
 
 
-def is_all_in_cache(cache: dict, row: pd.Series) -> bool:
-    for file_path in row["all_files_in_tree"].split(";"):
-        key = (row['repo_url'], row['commit_hash'], file_path)
-        # check file extension is in MODEL_FILE_EXTENSIONS
-        if is_model_file(file_path) and key not in cache:
+def is_all_in_cache(cache: dict, row: pd.Series, all_model_files) -> bool:
+    for f in all_model_files:
+        if (row['repo_url'], row['commit_hash'], f) not in cache:
             return False
     return True
 
-def get_from_cache(cache: dict, row: pd.Series) -> pd.DataFrame:
+
+def get_from_cache(cache: dict, row: pd.Series, file_path: str) -> pd.DataFrame:
     key = (row['repo_url'], row['commit_hash'], file_path)
     return {
         "repo_url": row["repo_url"],
@@ -96,20 +95,17 @@ def get_from_cache(cache: dict, row: pd.Series) -> pd.DataFrame:
         "date": row["date"],
     }
 
+
 if __name__ == '__main__':
     # create a temporary folder to clone the repositories
     temp_folder = Path("./tmp")
     temp_folder.mkdir(exist_ok=True)
-
+    # register the cleanup function to be called at the end
     atexit.register(cleanup)
 
     # JUST TO RERUN MISSING COMMITS
-    # sys.argv = ["analyze_snapshots.py", "0",  "9"]
-    # sys.argv = ["analyze_snapshots.py", "0",  "2999"]
-    # sys.argv = ["analyze_snapshots.py", "3000", "4999"]
-    # sys.argv = ["analyze_snapshots.py", "5000", "5014"]
-    # sys.argv = ["analyze_snapshots.py", "0", "5014"]
-    sys.argv = ["", "0", "4888"]
+    # sys.argv = ["", "0", "4888"]
+    sys.argv = ["", "0", "4"]
 
     # Check if the SSH connection is working
     if not check_ssh_connection():
@@ -154,23 +150,19 @@ if __name__ == '__main__':
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
         # check whether all files are in cache
-        all_in_cache = is_all_in_cache(cache, row)
-        all_files_in_tree = row["all_files_in_tree"].split(";")
+        all_model_files = [f for f in row["all_files_in_tree"].split(";") if is_model_file(f)]
+        all_in_cache = is_all_in_cache(cache, row, all_model_files)
 
         # if in cache, pull metadata from catche
         if all_in_cache:
             n += 1
-            for file_path in all_files_in_tree:
-                if is_model_file(file_path):
-                    df_output.loc[len(df_output)] = get_from_cache(cache, row)
-
+            rows = [get_from_cache(cache, row, f) for f in all_model_files]
+            df_output = pd.concat([df_output, pd.DataFrame(rows)], ignore_index=True)
         else:
-            continue
             try:
                 # checkout repository at that commit hash
                 commit_hash = row["commit_hash"]
                 repo_url = row["repo_url"]
-
                 clone_path = temp_folder / repo_url.replace("/", "+")
 
                 if last_repo_url != repo_url:
@@ -178,7 +170,6 @@ if __name__ == '__main__':
                     if last_repo_obj:
                         last_repo_obj.close()
                         utils.delete_folder(last_clone_path)
-
                     # clone the repository
                     repo = utils.clone(repo_url, clone_path, single_branch=True, no_tags=True)
                     # update the last repository URL and object
@@ -187,20 +178,12 @@ if __name__ == '__main__':
                 # checkout the commit hash
                 last_repo_obj.git.checkout(commit_hash, force=True)
 
-                # commit object
-                commit = last_repo_obj.commit(commit_hash)
-
                 # iterate over the files touched in the commit (modified, added, or deleted)
-                for file_path, commit_file_obj in commit.stats.files.items():
+                for file_path in all_model_files:
                     full_file_path = os.path.join(clone_path, file_path)
-
-                    # check if it is a model file and has not been deleted in commit
-                    if is_deleted_file(commit_file_obj, full_file_path) or not is_model_file(file_path):
-                        continue
-
                     # check if it is a symbolic file pointing to nowhere
                     if os.path.islink(full_file_path) and not os.path.exists(full_file_path):
-                        serialization_format = "undetermined (symbolic link)"
+                        serialization_format = "UNDETERMINED (symbolic link)"
                     else:
                         serialization_format = detect_serialization_format(full_file_path)
                     # add to df_output
