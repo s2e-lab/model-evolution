@@ -87,7 +87,7 @@ if __name__ == '__main__':
     # sys.argv = ["analyze_snapshots.py", "3000", "4999"]
     # sys.argv = ["analyze_snapshots.py", "5000", "5014"]
     # sys.argv = ["analyze_snapshots.py", "0", "5014"]
-    # sys.argv = ["", "0", "5014"]
+    sys.argv = ["", "0", "4888"]
 
 
     # Check if the SSH connection is working
@@ -110,7 +110,7 @@ if __name__ == '__main__':
         cache[key] = row['serialization_format']
 
     # Load the repositories and set nan columns to empty string
-    input_file = Path("../data/NEW_huggingface_sort_by_createdAt_top996939_commits_0_1035.csv")
+    input_file = Path("../data/NEW2_FILTERED_huggingface_sort_by_createdAt_top996939_commits_0_1035.csv")
     df_commits = pd.read_csv(input_file).fillna("")
     print("Total number of commits:", len(df_commits))
 
