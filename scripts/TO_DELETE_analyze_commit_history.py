@@ -2,10 +2,13 @@ import atexit
 import os
 import sys
 from pathlib import Path
+from typing import Dict, Any
 
 import pandas as pd
 from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
 from analyticaml.model_parser import detect_serialization_format
+from numpy import ndarray, dtype
+from pandas import Series
 from tqdm import tqdm
 
 import utils
@@ -41,7 +44,7 @@ def parse_args(max_commits: int):
         start_idx = int(sys.argv[1])
         end_idx = int(sys.argv[2])
         if end_idx >= max_commits:
-            print(f"The maximum number of commits is {max_commits}. End index must be smaller than that.")
+            print(f"The maximum number of commits is {max_commits - 1}. End index must be smaller than that.")
             sys.exit(1)
         if start_idx > end_idx:
             print("The start index must be smaller than the end index")
@@ -83,7 +86,7 @@ def is_all_in_cache(cache: dict, row: pd.Series, all_model_files) -> bool:
     return True
 
 
-def get_from_cache(cache: dict, row: pd.Series, file_path: str) -> pd.DataFrame:
+def get_from_cache(cache: dict, row: pd.Series, file_path: str, changed_files) -> dict:
     key = (row['repo_url'], row['commit_hash'], file_path)
     return {
         "repo_url": row["repo_url"],
@@ -93,6 +96,7 @@ def get_from_cache(cache: dict, row: pd.Series, file_path: str) -> pd.DataFrame:
         "message": row["message"],
         "author": row["author"],
         "date": row["date"],
+        "is_in_commit": file_path in changed_files,
     }
 
 
@@ -105,7 +109,7 @@ if __name__ == '__main__':
 
     # JUST TO RERUN MISSING COMMITS
     # sys.argv = ["", "0", "4888"]
-    sys.argv = ["", "0", "4"]
+    # sys.argv = ["", "0", "4"]
 
     # Check if the SSH connection is working
     if not check_ssh_connection():
@@ -137,26 +141,26 @@ if __name__ == '__main__':
     last_repo_url, last_repo_obj, last_clone_path = None, None, None
 
     # create the output dataframes
-    df_output = pd.DataFrame(
-        columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date"])
+    df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format",
+                                      "message", "author", "date", "is_in_commit"])
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
     # get batch from repos starting at start_idx and ending at end_idx (inclusive)
     batch = df_commits[start_idx:end_idx + 1]
-    # Analysis configuation
+
     print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
-    save_at = 100
-    n = 0
-    out_suffix = "repository_evolution_commits"
+    # Analysis configuration
+    save_at, n, out_suffix = 100, 0, "repository_evolution_commits"
+
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
         # check whether all files are in cache
         all_model_files = [f for f in row["all_files_in_tree"].split(";") if is_model_file(f)]
+        changed_files = [x.split()[1] for x in row["changed_files"].split(";")]
         all_in_cache = is_all_in_cache(cache, row, all_model_files)
-
-        # if in cache, pull metadata from catche
+        # if in cache, pull metadata from cache
         if all_in_cache:
             n += 1
-            rows = [get_from_cache(cache, row, f) for f in all_model_files]
+            rows = [get_from_cache(cache, row, f, changed_files) for f in all_model_files]
             df_output = pd.concat([df_output, pd.DataFrame(rows)], ignore_index=True)
         else:
             try:
@@ -194,7 +198,8 @@ if __name__ == '__main__':
                         "serialization_format": serialization_format,
                         "message": row["message"],
                         "author": row["author"],
-                        "date": row["date"]
+                        "date": row["date"],
+                        "is_in_commit": file_path in changed_files,
                     }
                     # print(f"File: {file_path}, Format: {serialization_format}")
             except Exception as e:
