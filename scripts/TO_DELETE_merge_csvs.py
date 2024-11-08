@@ -10,9 +10,6 @@ from pathlib import Path
 
 import pandas as pd
 
-
-
-
 if __name__ == "__main__":
 
     prior_results = [
@@ -21,22 +18,22 @@ if __name__ == "__main__":
         Path("../data/fixed3_repository_evolution_commits_2507_5014.csv")
     ]
     # create a dataframe to hold the merged results
-    df_commits = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date"])
+    df_commits = pd.DataFrame(
+        columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date"])
+    df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
 
-    cache = dict()  # key = repo_url, commit_hash value = row of data
     for file in prior_results:
-        df = pd.read_csv(file)
+        df1 = pd.read_csv(file)
         # add to df_commits
-        df_commits = pd.concat([df_commits, df], ignore_index=True)
+        df_commits = pd.concat([df_commits, df1], ignore_index=True)
+        df2 = pd.read_csv(file.with_name(file.name.replace("commits", "errors")))
+        # add to df_errors
+        df_errors = pd.concat([df_errors, df2], ignore_index=True)
 
     # save the merged results
     out_file = Path("../data/fixed3_repository_evolution_commits_0_5014.csv")
     df_commits.to_csv(out_file, index=False)
+    df_errors.to_csv(out_file.with_name(out_file.name.replace("commits", "errors")), index=False)
     print(len(df_commits))
     # how many unique [repo_url, commit_hash] are there?
     print(len(df_commits[["repo_url", "commit_hash"]].drop_duplicates()))
-
-
-
-
-

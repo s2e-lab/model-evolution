@@ -100,7 +100,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     # load prior results to create a local cache
-    cache_file = Path("../data/repository_evolution_commits_0_5014.csv")
+    cache_file = Path("../data/fixed3_repository_evolution_commits_0_5014.csv")
     df_commits = pd.read_csv(cache_file).fillna("")
     cache = dict()  # key = repo_url + commit_hash + model_file_path -> serialization_format
     # iterate over dataframe to create cache
@@ -110,7 +110,7 @@ if __name__ == '__main__':
         cache[key] = row['serialization_format']
 
     # Load the repositories and set nan columns to empty string
-    input_file = Path("../data/huggingface_sort_by_createdAt_top996939_commits_0_1035.csv")
+    input_file = Path("../data/NEW_huggingface_sort_by_createdAt_top996939_commits_0_1035.csv")
     df_commits = pd.read_csv(input_file).fillna("")
     print("Total number of commits:", len(df_commits))
 
@@ -133,7 +133,7 @@ if __name__ == '__main__':
 
     print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
     save_at = 100
-
+    n = 0
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
         # check whether all files are in cache
@@ -143,7 +143,7 @@ if __name__ == '__main__':
             # check file extension is in MODEL_FILE_EXTENSIONS
             if is_model_file(file_path) and key not in cache:
                 all_in_cache = False
-                print(f"Not in cache: {key}")
+                # print(f"Not in cache: {key}")
                 break
 
         # if in cache, pull metadata from catche
@@ -161,7 +161,9 @@ if __name__ == '__main__':
                     "author": row["author"],
                     "date": row["date"],
                 }
+            n += 1
         else:
+            continue
             try:
                 # checkout repository at that commit hash
                 commit_hash = row["commit_hash"]
@@ -216,14 +218,16 @@ if __name__ == '__main__':
 
         # SAVES THE DATAFRAME EVERY save_at ITERATIONS
         if index != 0 and index % save_at == 0:
-            output_file = f"fixed3_repository_evolution_commits_{start_idx}_{end_idx}.csv"
+            output_file = f"NEW_repository_evolution_commits_{start_idx}_{end_idx}.csv"
             df_output.to_csv(Path("../data") / output_file, index=False)
             df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors"), index=False)
 
 
 
+    print(f"How many in cache? {n} commits.")
+
     # save the output dataframes
-    output_file = f"fixed3_repository_evolution_commits_{start_idx}_{end_idx}.csv"
+    output_file = f"NEW_repository_evolution_commits_{start_idx}_{end_idx}.csv"
     df_output.to_csv(Path("../data") / output_file, index=False)
     df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors"), index=False)
 
