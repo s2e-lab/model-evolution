@@ -40,7 +40,7 @@ def get_commits(clone_path: str):
         if commit.parents:
             file_diffs = commit.parents[0].diff(commit)  # Compare with the parent+
             # changed files
-            change_type = {'A': '+', 'D': '-', 'M': '*', 'R': '='}
+            change_type = {'A': '+', 'D': '-', 'M': '*', 'R': '=', 'T': '>', 'C': '<'}
             changed_files = []
             for diff in file_diffs:
                 file_path = diff.b_path if diff.b_path else diff.a_path  # Handle path based on change
