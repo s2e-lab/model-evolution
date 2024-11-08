@@ -87,7 +87,7 @@ if __name__ == '__main__':
     # sys.argv = ["analyze_snapshots.py", "3000", "4999"]
     # sys.argv = ["analyze_snapshots.py", "5000", "5014"]
     # sys.argv = ["analyze_snapshots.py", "0", "5014"]
-    sys.argv = ["", "0", "5014"]
+    # sys.argv = ["", "0", "5014"]
 
 
     # Check if the SSH connection is working
@@ -133,7 +133,7 @@ if __name__ == '__main__':
 
     print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
     save_at = 100
-    n=0
+
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
         # check whether all files are in cache
@@ -148,7 +148,6 @@ if __name__ == '__main__':
 
         # if in cache, pull metadata from catche
         if all_in_cache:
-            n+=1
             for file_path in row["all_files_in_tree"].split(";"):
                 if not is_model_file(file_path):
                     continue
@@ -163,7 +162,6 @@ if __name__ == '__main__':
                     "date": row["date"],
                 }
         else:
-            continue
             try:
                 # checkout repository at that commit hash
                 commit_hash = row["commit_hash"]
@@ -220,7 +218,7 @@ if __name__ == '__main__':
         if index != 0 and index % save_at == 0:
             output_file = f"fixed3_repository_evolution_commits_{start_idx}_{end_idx}.csv"
             df_output.to_csv(Path("../data") / output_file, index=False)
-            df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors.csv"), index=False)
+            df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors"), index=False)
 
 
 
