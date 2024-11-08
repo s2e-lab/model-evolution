@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
 from analyticaml.model_parser import detect_serialization_format
+from huggingface_hub import snapshot_download
 from tqdm import tqdm
 
 import utils
@@ -82,11 +83,12 @@ if __name__ == '__main__':
     atexit.register(cleanup)
 
     # JUST TO RERUN MISSING COMMITS
-    sys.argv = [os.path.basename(__file__), "0",  "1"]
+    sys.argv = ["", "1",  "9"]
     # sys.argv = ["analyze_snapshots.py", "0",  "2999"]
     # sys.argv = ["analyze_snapshots.py", "3000", "4999"]
     # sys.argv = ["analyze_snapshots.py", "5000", "5014"]
     # sys.argv = ["analyze_snapshots.py", "0", "5014"]
+
 
     # Check if the SSH connection is working
     if not check_ssh_connection():
@@ -110,50 +112,26 @@ if __name__ == '__main__':
     # Parse the command line arguments
     start_idx, end_idx = parse_args(len(df_commits))
 
-    # this is the last repository URL and object, used to avoid cloning the same repository multiple times
-    last_repo_url, last_repo_obj, last_clone_path = None, None, None
-
     # create the output dataframes
-    df_output = pd.DataFrame(
-        columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date"])
+    df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date"])
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
     # get batch from repos starting at start_idx and ending at end_idx (inclusive)
     batch = df_commits[start_idx:end_idx + 1]
-    # output / error files
-    out_folder = Path("../data")
-    output_file = f"repository_evolution_commits_{start_idx}_{end_idx}.csv"
-    error_file = output_file.replace("commits", "errors")
 
     print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
-    save_at = 100  # indicate how many iterations to save the dataframes
-    # adds an extra layer of protection in case of crashes
+    save_at = 100
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
-        # checkout repository at that commit hash
-        commit_hash = row["commit_hash"]
+        repo_files = row["all_files_in_tree"].split(";")
+        model_files = [f for f in repo_files if is_model_file(f)]
         repo_url = row["repo_url"]
         clone_path = temp_folder / repo_url.replace("/", "+")
-        try:
-            if last_repo_url != repo_url:
-                # close the last repository and delete the folder
-                if last_repo_obj:
-                    last_repo_obj.close()
-                    utils.delete_folder(last_clone_path)
-                # clone the repository
-                repo = utils.clone(repo_url, clone_path)
-                # update the last repository URL and object
-                last_repo_url, last_repo_obj, last_clone_path = repo_url, repo, clone_path
-
-            # checkout the commit hash
-            last_repo_obj.git.checkout(commit_hash, force=True)
-            # commit object
-            commit = last_repo_obj.commit(commit_hash)
-            # iterate over the files touched in the commit (modified, added, or deleted)
-            for file_path, commit_file_obj in commit.stats.files.items():
+        commit_hash = row["commit_hash"]
+        snapshot_download(repo_id=repo_url,allow_patterns=[f"*.{x}" for x in MODEL_FILE_EXTENSIONS],
+                          local_dir=clone_path, revision=commit_hash)
+        for file_path in model_files:
+            try:
                 full_file_path = os.path.join(clone_path, file_path)
-                # check if it is a model file and has not been deleted in commit
-                if is_deleted_file(commit_file_obj, full_file_path) or not is_model_file(file_path):
-                    continue
                 # check if it is a symbolic file pointing to nowhere
                 if os.path.islink(full_file_path) and not os.path.exists(full_file_path):
                     serialization_format = "undetermined (symbolic link)"
@@ -169,18 +147,23 @@ if __name__ == '__main__':
                     "author": row["author"],
                     "date": row["date"]
                 }
-        except Exception as e:
-            print(f"Error processing {commit_hash}: {e}")
-            df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": e}
+            except Exception as e:
+                print(f"Error processing {hash}: {e}")
+                df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": hash, "error": e}
+            finally:
+                if os.path.exists(clone_path):
+                    utils.delete(clone_path)
 
-        # saves data every `save_at` iterations
+        # SAVES THE DATAFRAME EVERY save_at ITERATIONS
         if index != 0 and index % save_at == 0:
-            df_output.to_csv(out_folder / output_file, index=False)
-            df_errors.to_csv(out_folder / error_file, index=False)
+            output_file = f"fixed2_repository_evolution_commits_{start_idx}_{end_idx}.csv"
+            df_output.to_csv(Path("../data") / output_file, index=False)
+            df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors.csv"), index=False)
+
 
     # save the output dataframes
-    output_file = f"repository_evolution_commits_{start_idx}_{end_idx}.csv"
-    df_output.to_csv(out_folder / output_file, index=False)
-    df_errors.to_csv(out_folder / error_file, index=False)
+    output_file = f"fixed2_repository_evolution_commits_{start_idx}_{end_idx}.csv"
+    df_output.to_csv(Path("../data") / output_file, index=False)
+    df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors"), index=False)
 
     print(f"Output saved to ../data/{output_file}")

@@ -86,7 +86,8 @@ if __name__ == '__main__':
     # sys.argv = ["analyze_snapshots.py", "0",  "2999"]
     # sys.argv = ["analyze_snapshots.py", "3000", "4999"]
     # sys.argv = ["analyze_snapshots.py", "5000", "5014"]
-    sys.argv = ["analyze_snapshots.py", "0", "5014"]
+    # sys.argv = ["analyze_snapshots.py", "0", "5014"]
+    sys.argv = ["", "1", "9"]
 
 
     # Check if the SSH connection is working
@@ -98,15 +99,15 @@ if __name__ == '__main__':
         print("If it is anonymous, you need to add your SSH key to your HuggingFace account.")
         sys.exit(1)
 
-    # load prior results to create a local cache
-    cache_file = Path("../data/fixed_repository_evolution_commits_0_5014.csv")
-    df_commits = pd.read_csv(cache_file).fillna("")
-    cache = dict()  # key = repo_url + commit_hash + model_file_path -> serialization_format
-    # iterate over dataframe to create cache
-    for index, row in df_commits.iterrows():
-        model_file_path = row['model_file_path'].replace(row['repo_url'] + "/", "")
-        key = (row['repo_url'], row['commit_hash'], model_file_path)
-        cache[key] = row['serialization_format']
+    # # load prior results to create a local cache
+    # cache_file = Path("../data/fixed_repository_evolution_commits_0_5014.csv")
+    # df_commits = pd.read_csv(cache_file).fillna("")
+    # cache = dict()  # key = repo_url + commit_hash + model_file_path -> serialization_format
+    # # iterate over dataframe to create cache
+    # for index, row in df_commits.iterrows():
+    #     model_file_path = row['model_file_path'].replace(row['repo_url'] + "/", "")
+    #     key = (row['repo_url'], row['commit_hash'], model_file_path)
+    #     cache[key] = row['serialization_format']
 
     # Load the repositories and set nan columns to empty string
     input_file = Path("../data/huggingface_sort_by_createdAt_top996939_commits_0_1035.csv")
@@ -134,15 +135,16 @@ if __name__ == '__main__':
     save_at = 100
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
-        # check whether all files are in cache
-        all_in_cache = True
-        for file_path in row["changed_files"].split(";"):
-            key = (row['repo_url'], row['commit_hash'], file_path)
-            # check file extension is in MODEL_FILE_EXTENSIONS
-            if is_model_file(file_path) and key not in cache:
-                all_in_cache = False
-                print(f"Not in cache: {key}")
-                break
+        # # check whether all files are in cache
+        # all_in_cache = True
+        # for file_path in row["changed_files"].split(";"):
+        #     key = (row['repo_url'], row['commit_hash'], file_path)
+        #     # check file extension is in MODEL_FILE_EXTENSIONS
+        #     if is_model_file(file_path) and key not in cache:
+        #         all_in_cache = False
+        #         print(f"Not in cache: {key}")
+        #         break
+        all_in_cache = False
         # if in cache, pull metadata from catche
         if all_in_cache:
             for file_path in row["changed_files"].split(";"):
@@ -213,13 +215,13 @@ if __name__ == '__main__':
 
         # SAVES THE DATAFRAME EVERY save_at ITERATIONS
         if index != 0 and index % save_at == 0:
-            output_file = f"fixed2_repository_evolution_commits_{start_idx}_{end_idx}.csv"
+            output_file = f"fixed3_repository_evolution_commits_{start_idx}_{end_idx}.csv"
             df_output.to_csv(Path("../data") / output_file, index=False)
             df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors.csv"), index=False)
 
 
     # save the output dataframes
-    output_file = f"fixed2_repository_evolution_commits_{start_idx}_{end_idx}.csv"
+    output_file = f"fixed3_repository_evolution_commits_{start_idx}_{end_idx}.csv"
     df_output.to_csv(Path("../data") / output_file, index=False)
     df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors"), index=False)
 
