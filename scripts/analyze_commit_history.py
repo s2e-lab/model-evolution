@@ -8,7 +8,7 @@ from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
 from analyticaml.model_parser import detect_serialization_format
 from huggingface_hub import snapshot_download
 from tqdm import tqdm
-
+from utils import delete_folder
 import utils
 
 
@@ -83,7 +83,7 @@ if __name__ == '__main__':
     atexit.register(cleanup)
 
     # JUST TO RERUN MISSING COMMITS
-    sys.argv = ["", "1",  "9"]
+    sys.argv = ["", "1",  "2"]
     # sys.argv = ["analyze_snapshots.py", "0",  "2999"]
     # sys.argv = ["analyze_snapshots.py", "3000", "4999"]
     # sys.argv = ["analyze_snapshots.py", "5000", "5014"]
@@ -128,7 +128,7 @@ if __name__ == '__main__':
         clone_path = temp_folder / repo_url.replace("/", "+")
         commit_hash = row["commit_hash"]
         snapshot_download(repo_id=repo_url,allow_patterns=[f"*.{x}" for x in MODEL_FILE_EXTENSIONS],
-                          local_dir=clone_path, revision=commit_hash)
+                          local_dir=clone_path, revision=commit_hash, force_download=True)
         for file_path in model_files:
             try:
                 full_file_path = os.path.join(clone_path, file_path)
@@ -148,11 +148,11 @@ if __name__ == '__main__':
                     "date": row["date"]
                 }
             except Exception as e:
-                print(f"Error processing {hash}: {e}")
-                df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": hash, "error": e}
+                print(f"Error processing {commit_hash}: {e}")
+                df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": e}
             finally:
                 if os.path.exists(clone_path):
-                    utils.delete(clone_path)
+                    delete_folder(clone_path)
 
         # SAVES THE DATAFRAME EVERY save_at ITERATIONS
         if index != 0 and index % save_at == 0:
