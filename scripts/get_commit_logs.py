@@ -124,8 +124,8 @@ if __name__ == "__main__":
     save_at = 50
     commits_columns = ["repo_url", "commit_hash", "author", "date", "message", "changed_files", "all_files_in_tree"]
     error_columns = ["repo_url", "error"]
-    output_file = input_file.stem.replace("_selected", "_commits_TO_DELETE") + f"{start_idx}_{end_idx}.csv"
-    error_file = output_file.replace("commits", "errors") + f"{start_idx}_{end_idx}.csv"
+    output_file = input_file.stem.replace("_selected", "_commits") + f"_{start_idx}_{end_idx}.csv"
+    error_file = output_file.replace("commits", "errors") + f"_{start_idx}_{end_idx}.csv"
     output_file = Path("../data") / output_file
     error_file = Path("../data") / error_file
 
