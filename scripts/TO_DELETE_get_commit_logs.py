@@ -14,10 +14,10 @@ from pathlib import Path
 import git
 import pandas as pd
 from analyticaml import check_ssh_connection
-from git import Repo
 from tqdm import tqdm
 
 import utils
+from utils import clone
 
 NULL_TREE = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
 
@@ -29,34 +29,26 @@ def get_commits(clone_path: str):
     :return: a list of tuples with the commit information.
     """
     repo = git.Repo(clone_path)
-    # Add the remote if it doesn't exist
-    # if 'origin' not in repo.remotes:
-    #     origin = repo.create_remote('origin', remote_url)
-    # else:
-    #     origin = repo.remote(name='origin')
 
-    # Set a refspec for fetching all branches (if necessary)
-    # fetch_refspec = '+refs/heads/*:refs/heads/*'
-    # origin.fetch(refspec=fetch_refspec)
     commits = []
 
     # Iterate through the commits
     for commit in repo.iter_commits():
-        print(commit)
         commit_date = datetime.fromtimestamp(commit.committed_date)
         # changed_files = [x for x in commit.stats.files]
         all_files_in_tree = [item.path for item in commit.tree.traverse()]
-        diffs = commit.diff(commit.parents[0]) if commit.parents \
-            else commit.diff(NULL_TREE)  # Compare with the parent or empty tree
-        # changed files
-        change_type = {'A': '+', 'D': '-', 'M': '*', 'R': 'R'}
-        changed_files = []
-        for diff in diffs:
-            file_path = diff.b_path if diff.b_path else diff.a_path  # Handle path based on change
-            file_path = change_type[diff.change_type] + " "+ file_path
-            changed_files.append(file_path)
-            # print(
-            #     f"{change_type[diff.change_type]} {file_path} ({diff.a_blob.hexsha if diff.a_blob else 'None'} -> {diff.b_blob.hexsha if diff.b_blob else 'None'})")
+        if commit.parents:
+            file_diffs = commit.parents[0].diff(commit)  # Compare with the parent+
+            # changed files
+            change_type = {'A': '+', 'D': '-', 'M': '*', 'R': '=', 'T': '>', 'C': '<'}
+            changed_files = []
+            for diff in file_diffs:
+                file_path = diff.b_path if diff.b_path else diff.a_path  # Handle path based on change
+                file_path = change_type[diff.change_type] + " " + file_path
+                changed_files.append(file_path)
+        else:
+            file_diffs = commit.diff(NULL_TREE)  # Compare with the parent or empty tree
+            changed_files = [f"+ {diff.a_path}" for diff in file_diffs]
 
         commits.append(
             (commit.hexsha, commit.author.name, commit_date.strftime('%Y-%m-%d %H:%M:%S'),
@@ -74,24 +66,27 @@ def parse_args():
     if len(sys.argv) > 1:
         start_idx = int(sys.argv[1])
         end_idx = int(sys.argv[2])
+        if start_idx >= end_idx:
+            print("The start index must be smaller than the end index.")
+            sys.exit(1)
+        if start_idx < 0:
+            print("The start index must be a positive number.")
+            sys.exit(1)
     else:
         print("Usage: python get_commit_logs.py <start_index> <end_index>")
         sys.exit(1)
     return start_idx, end_idx
 
 
-def bare_clone(repo_url: str, clone_path: str) -> Repo:
+def save(data: list, columns: list, out_file: str | Path) -> None:
     """
-    Clone a repository from Hugging Face
-    :param repo_url: the repository URL (e.g., "huggingface/transformers")
-    :param clone_path: where to clone the repository locally.
-    :return: the git repository object.
+    Save the commits to a CSV file
+    :param data: the data to be saved.
+    :param columns: header of the CSV file
+    :param out_file: where to save the CSV file.
     """
-    clone_url = f"git@hf.co:{repo_url}"
-    # Check if the repository directory already exists
-    if os.path.exists(clone_path):
-        utils.delete_folder(clone_path)
-    return git.Repo.clone_from(clone_url, clone_path, bare=True)
+    df_commits = pd.DataFrame(data, columns=columns)
+    df_commits.to_csv(out_file, index=False)
 
 
 if __name__ == "__main__":
@@ -105,52 +100,59 @@ if __name__ == "__main__":
         print("If it is anonymous, you need to add your SSH key to your HuggingFace account.")
         sys.exit(1)
 
-    #  set this to True if you want to retry the repositories that failed
-    should_retry = False
-    if should_retry:
-        print("Retrying the repositories that failed.")
-        input_file = Path("../data/huggingface_sort_by_createdAt_top996939_errors_0_1035.csv")
-        df = pd.read_csv(input_file)
-        repo_urls = df["repo_url"].tolist()
-        start_idx, end_idx = "RETRIED", len(repo_urls)
-    else:
-        # read start index and end index from the command line
-        sys.argv.append(0)
-        sys.argv.append(10)
-        start_idx, end_idx = parse_args()
-        input_file = Path("../data/huggingface_sort_by_createdAt_top996939_selected.json")
-        df = pd.read_json(input_file)
-        repo_urls = df["id"].tolist()
-        repo_urls = repo_urls[start_idx:end_idx]
-        print("Parsing repositories from", start_idx, "to", end_idx)
+    # read start index and end index from the command line
+    input_file = Path("../data/huggingface_sort_by_createdAt_top996939_selected.json")
+    df = pd.read_json(input_file)
+    repo_urls = df["id"].tolist()
+
+    prior_results = [
+        Path("../data/huggingface_sort_by_createdAt_top996939_commits_TO_DELETE0_1035.csv"),
+        Path("../data/huggingface_sort_by_createdAt_top996939_commits_0_1035_RETRIED_6.csv")
+    ]
+    cache = dict()  # key = repo_url, commit_hash value = row of data
+    for file in prior_results:
+        df = pd.read_csv(file)
+        for _, row in df.iterrows():
+            repo_url = row['repo_url']
+            if repo_url not in cache:
+                cache[repo_url] = []
+            cache[repo_url].append({
+                "commit_hash": row['commit_hash'],
+                "author": row['author'],
+                "date": row['date'],
+                "message": row['message'],
+                "changed_files": row['changed_files'],
+                "all_files_in_tree": row['all_files_in_tree']
+            })
+
 
     # iterates over the repositories
     commits, errors = [], []
-
-    for repo_url in tqdm(repo_urls, unit="repo"):
-        try:
-            clone_path = os.path.join("./tmp", repo_url.replace("/", "+"))
-            bare_clone(repo_url, clone_path)
-            repo_commits = get_commits(clone_path)
-            repo_commits = [(repo_url,) + c for c in repo_commits]
-            commits.extend(repo_commits)
-        except Exception as e:
-            print(f"Error processing {repo_url}: {e}")
-            errors.append((repo_url, e))
-        finally:
-            utils.delete_folder(clone_path)
-
-    # save the commits to CSV
-    columns = ["repo_url", "commit_hash", "author", "date", "message", "changed_files", "all_files_in_tree"]
-    df_commits = pd.DataFrame(commits, columns=columns)
-    output_file = input_file.stem.replace("_selected", "_commits_TO_DELETE") + f"{start_idx}_{end_idx}.csv"
+    save_at = 50
+    commits_columns = ["repo_url", "commit_hash", "author", "date", "message", "changed_files", "all_files_in_tree"]
+    error_columns = ["repo_url", "error"]
+    output_file = "NEW"+ input_file.stem.replace("_selected", "_commits") + f".csv"
+    error_file = output_file.replace("commits", "errors") + f".csv"
     output_file = Path("../data") / output_file
-    df_commits.to_csv(output_file, index=False)
-
-    # save errors to CSV
-    error_file = input_file.stem.replace("_selected", "_errors_TO_DELETE") + f"{start_idx}_{end_idx}.csv"
     error_file = Path("../data") / error_file
-    df_errors = pd.DataFrame(errors, columns=["repo_url", "error"])
-    df_errors.to_csv(error_file, index=False)
+
+    for i, repo_url in tqdm(enumerate(repo_urls), unit="repo", total=len(repo_urls)):
+        repo_commits = cache.get(repo_url, [])
+        for commit in repo_commits:
+            commits.append((repo_url, commit['commit_hash'], commit['author'], commit['date'],
+                            commit['message'], commit['changed_files'], commit['all_files_in_tree']))
+
+
+    # save the rest of the commits to CSV
+    save(commits, commits_columns, output_file)
+    save(errors, error_columns, error_file)
 
     print(f"Commits saved to {output_file}")
+    print(f"Errors saved to {error_file}")
+
+
+    # read output_file
+    df = pd.read_csv(output_file)
+    print("Number of commits: ", len(df))
+    print("Number of repositories: ", len(df["repo_url"].unique()))
+
