@@ -86,7 +86,7 @@ def is_all_in_cache(cache: dict, row: pd.Series, all_model_files) -> bool:
     return True
 
 
-def get_from_cache(cache: dict, row: pd.Series, file_path: str, changed_files) -> dict:
+def get_from_cache(cache: dict, row: pd.Series, file_path: str, changed_files: list) -> dict:
     key = (row['repo_url'], row['commit_hash'], file_path)
     return {
         "repo_url": row["repo_url"],
@@ -121,7 +121,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     # load prior results to create a local cache
-    cache_file = Path("../data/cache/repository_evolution_commits_0_4888.csv")
+    cache_file = Path("../data/repository_evolution_commits_0_4888.csv")
     cache = load_cache(cache_file)
 
     # Load the repositories and set nan columns to empty string
@@ -133,10 +133,6 @@ if __name__ == '__main__':
     df_commits = df_commits[df_commits["changed_files"].apply(lambda x: filter_by_extension(x))]
     df_commits.reset_index(drop=True, inplace=True)
     print("Number of commits touching at least one model file:", len(df_commits))
-
-    # find duplicates in df_commits
-    duplicates = df_commits[df_commits.duplicated(subset=["repo_url", "commit_hash"], keep=False)]
-    print("Number of duplicates:", len(duplicates))
 
     # Parse the command line arguments
     start_idx, end_idx = parse_args(len(df_commits))
@@ -166,6 +162,8 @@ if __name__ == '__main__':
             n += 1
             rows = [get_from_cache(cache, row, f, changed_files) for f in all_model_files]
             df_output = pd.concat([df_output, pd.DataFrame(rows)], ignore_index=True)
+            if not rows:
+                print("No files in cache " + row["repo_url"] + " " + row["commit_hash"])
         else:
             print("Not in cache " + row["repo_url"] + " " + row["commit_hash"])
             continue
@@ -220,6 +218,10 @@ if __name__ == '__main__':
             df_errors.to_csv(Path("../data") / output_file.replace("commits", "errors"), index=False)
 
     print(f"How many in cache? {n} commits.")
+
+    # after all is said and done, how many unique [repo_url,commit_hash] we have in total?
+    print(f"Unique commits: {len(df_output[['repo_url', 'commit_hash']].drop_duplicates())}")
+
 
     # save the output dataframes
     output_file = f"{out_suffix}_{start_idx}_{end_idx}.csv"
