@@ -1,0 +1,65 @@
+repo_url,commit_hash,error
+teiso/tenyidie-bert-base-uncased,11e86087e36623d434b8f390103457142be7889f,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v --no-tags --single-branch -- git@hf.co:teiso/tenyidie-bert-base-uncased tmp/teiso+tenyidie-bert-base-uncased
+  stderr: 'Cloning into 'tmp/teiso+tenyidie-bert-base-uncased'...
+remote: 
+remote: ========================================================================
+remote: 
+remote: ERROR: Access denied: repository is gated and you are not in the authorized list.
+
+remote: 
+remote: ========================================================================
+remote: 
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+'"
+arpanghoshal/EmoRoBERTa,5bce071ec45f8f02334b373867fc20bb12bbc8a2,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v --no-tags --single-branch -- git@hf.co:arpanghoshal/EmoRoBERTa tmp/arpanghoshal+EmoRoBERTa
+  stderr: 'Cloning into 'tmp/arpanghoshal+EmoRoBERTa'...
+remote: 
+remote: ========================================================================
+remote: 
+remote: ERROR: Access denied: repository is gated and you are not in the authorized list.
+
+remote: 
+remote: ========================================================================
+remote: 
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+'"
+arpanghoshal/EmoRoBERTa,4611f6c3b02d3b4ca172a57fa6f89781acf138db,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v --no-tags --single-branch -- git@hf.co:arpanghoshal/EmoRoBERTa tmp/arpanghoshal+EmoRoBERTa
+  stderr: 'Cloning into 'tmp/arpanghoshal+EmoRoBERTa'...
+remote: 
+remote: ========================================================================
+remote: 
+remote: ERROR: Access denied: repository is gated and you are not in the authorized list.
+
+remote: 
+remote: ========================================================================
+remote: 
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+'"
+arpanghoshal/EmoRoBERTa,3fed061aaa82b9b8ca1a50de0872efda63cbe5ef,"Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v --no-tags --single-branch -- git@hf.co:arpanghoshal/EmoRoBERTa tmp/arpanghoshal+EmoRoBERTa
+  stderr: 'Cloning into 'tmp/arpanghoshal+EmoRoBERTa'...
+remote: 
+remote: ========================================================================
+remote: 
+remote: ERROR: Access denied: repository is gated and you are not in the authorized list.
+
+remote: 
+remote: ========================================================================
+remote: 
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+'"

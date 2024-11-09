@@ -121,7 +121,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     # load prior results to create a local cache
-    cache_file = Path("../data/cache/fixed3_repository_evolution_commits_0_5014.csv")
+    cache_file = Path("../data/cache/repository_evolution_commits_0_4888.csv")
     cache = load_cache(cache_file)
 
     # Load the repositories and set nan columns to empty string
@@ -149,7 +149,7 @@ if __name__ == '__main__':
 
     print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
     # Analysis configuration
-    save_at, n, out_suffix = 100, 0, "repository_evolution_commits"
+    save_at, n, out_suffix = 100, 0, "NEW_repository_evolution_commits"
 
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
@@ -163,6 +163,9 @@ if __name__ == '__main__':
             rows = [get_from_cache(cache, row, f, changed_files) for f in all_model_files]
             df_output = pd.concat([df_output, pd.DataFrame(rows)], ignore_index=True)
         else:
+            print("Not in cache " + row["repo_url"] + " " + row["commit_hash"])
+            # continue
+
             try:
                 # checkout repository at that commit hash
                 commit_hash = row["commit_hash"]
