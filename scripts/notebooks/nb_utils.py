@@ -14,7 +14,7 @@ def read_commits():
     Read the commits from the repository evolution dataset.
     :return:
     """
-    df = pd.read_csv(DATA_DIR / 'repository_evolution_commits_0_5014.csv')
+    df = pd.read_csv(DATA_DIR / 'repository_evolution_commits_0_4888.csv')
     # ensure date is in datetime format
     df['date'] = pd.to_datetime(df['date'])
     # Calculate elapsed days since reference date (safetensors first release)

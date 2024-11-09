@@ -134,6 +134,10 @@ if __name__ == '__main__':
     df_commits.reset_index(drop=True, inplace=True)
     print("Number of commits touching at least one model file:", len(df_commits))
 
+    # find duplicates in df_commits
+    duplicates = df_commits[df_commits.duplicated(subset=["repo_url", "commit_hash"], keep=False)]
+    print("Number of duplicates:", len(duplicates))
+
     # Parse the command line arguments
     start_idx, end_idx = parse_args(len(df_commits))
 
@@ -164,7 +168,7 @@ if __name__ == '__main__':
             df_output = pd.concat([df_output, pd.DataFrame(rows)], ignore_index=True)
         else:
             print("Not in cache " + row["repo_url"] + " " + row["commit_hash"])
-            # continue
+            continue
 
             try:
                 # checkout repository at that commit hash
