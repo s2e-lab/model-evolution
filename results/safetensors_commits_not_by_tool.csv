@@ -1,0 +1,318 @@
+repo_url,commit_hash,model_file_path,serialization_format,message,author,date,is_in_commit,elapsed_days
+MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7,08e97d4626c80790e50f75da74ed1fecfda644af,model.safetensors,safetensors,"Upload folder using huggingface_hub (#5)
+
+
+- Upload folder using huggingface_hub (258fc17bc52fba21b29dc4408581bbd0f7d2fca1)
+
+
+Co-authored-by: Joshua <Xenova@users.noreply.huggingface.co>",Moritz Laurer,2024-01-08 07:37:12,False,472
+Jateendra/nlp_bert_emo_classifier,ec265430e43f2ec05fb4e6a5082833b0d0862e3a,model.safetensors,safetensors,"Training in progress, step 500",Pradhan,2024-03-02 13:42:37,True,526
+haesun/distilbert-base-uncased-finetuned-emotion,9b30d41afdc9416ea4f5f597ace7f6bd8377f250,model.safetensors,safetensors,"Training in progress, epoch 2",Haesun Park,2024-01-20 23:51:21,True,484
+haesun/distilbert-base-uncased-finetuned-emotion,800f478a4d354804ec7d0d7995ad616591758d08,model.safetensors,safetensors,"Training in progress, epoch 1",Haesun Park,2024-01-20 23:49:25,True,484
+vijayrag/distilbert-base-uncased-finetuned-emotion,bf4cc157acbef72f797e853d07c73e97ca781f12,model.safetensors,safetensors,"Training in progress, step 500",Vijay Raghavan,2024-02-13 15:46:55,True,508
+sdadas/st-polish-paraphrase-from-distilroberta,f467877cc2a7c35dddff6a42bf2a7cca4d7e1fa7,model.safetensors,safetensors,"Add TF weights (#3)
+
+
+- Add TF weights (66bb4861ea968b2fe8a1eb7bcc7ff41dddbb683b)
+
+
+Co-authored-by: Adriana Michalik <adrianam@users.noreply.huggingface.co>",Sławomir Dadas,2024-05-13 12:56:12,False,598
+kontur-ai/sbert_punc_case_ru,eab0c50e5b52ac6a4529d113266121df697ab876,model.safetensors,safetensors,"safetensors update (#3)
+
+
+- safetensors update (50282f3d0697ea21779c53c244314517c6f80f78)
+- safetensors model added (04ff336e3e47280791bd8e300468537e6179b03e)
+- readme update (044cecb68768b5b450f58c726f4c2403838bd688)
+- some formatting (a614a1af09ec9700164d5b56a9dd9f187360e2a4)
+- inference false (bb4e784327033e0e11d5d61184d258a46bf93c0c)",Alex Grazder,2024-01-22 01:00:07,True,486
+Gunulhona/tbnlimodel_v2,24c7ab03f8c04306f98c5ae2e04e63480b6e6f8e,model.safetensors,safetensors,Upload BartForSequenceClassification,JungKwonHwan,2024-04-17 01:03:15,True,572
+jonathandinu/face-parsing,1f7e152e1efbfe03ce6c2637944a1f6a41bfcd0a,model.safetensors,safetensors,add onnx weights for transformers.js,Jonathan Dinu,2024-01-18 02:56:05,False,482
+z-dickson/US_politicians_covid_skepticism,9b4ad48b228c04ba7b047a4b1271b80e028cdc87,model.safetensors,safetensors,Upload BertForSequenceClassification,zachary dickson,2024-01-05 13:23:59,True,469
+z-dickson/US_politicians_covid_skepticism,1d9789161b3e11bc6d82cdd551fe09c23376a9a1,model.safetensors,safetensors,Upload BertForSequenceClassification,zachary dickson,2024-01-05 10:05:33,True,469
+z-dickson/US_politicians_covid_skepticism,19b0450ef4b66b90efed79e8426d3d0ff5cf84ac,model.safetensors,safetensors,Upload BertForSequenceClassification,zachary dickson,2024-01-05 08:10:47,True,469
+z-dickson/US_politicians_covid_skepticism,bc85f961e3a2b6f8c4d32fcfde536ab0b826d7ed,model.safetensors,safetensors,Upload BertForSequenceClassification,zachary dickson,2023-12-16 08:20:29,True,449
+KES/TEC-English,ff9049067a4a860bf4b79a811bf997c67110d3e0,model.safetensors,safetensors,Updated Model,Keston Smith,2024-07-25 22:37:53,True,671
+KES/TEC-English,3aa226c2fc18588f892d48dc3f96e2d34919409d,model.safetensors,safetensors,"Upload model.safetensors
+
+Updated Model",Keston Smith,2024-07-25 04:49:44,True,671
+Yehor/w2v-xls-r-uk,716024a34d40549142928218d0f3cd9c83d63684,model.safetensors,safetensors,Delete pytorch_model.bin,Smoliakov,2024-08-16 12:01:23,False,693
+MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli,0de4830e69aa5710af98b05f2c4d001d0edc0e52,model.safetensors,safetensors,"Upload folder using huggingface_hub (#3)
+
+
+- Upload folder using huggingface_hub (5fa018392ad2768743405724e4f5813ee4b4b961)
+
+
+Co-authored-by: Joshua <Xenova@users.noreply.huggingface.co>",Moritz Laurer,2024-01-08 07:37:10,False,472
+winegarj/distilbert-base-uncased-finetuned-sst2,273146485c5b48f723ded2f76532ce29c2e0cd06,model.safetensors,safetensors,End of training,James Winegar,2024-08-03 14:39:39,True,680
+winegarj/distilbert-base-uncased-finetuned-sst2,f9d205f893552f8a515db1efee23e04764a8ca25,model.safetensors,safetensors,"Training in progress, epoch 5",James Winegar,2024-08-03 14:39:36,True,680
+winegarj/distilbert-base-uncased-finetuned-sst2,8e9790e71b5187000fb46e598c7a0063008c9224,model.safetensors,safetensors,"Training in progress, epoch 4",James Winegar,2024-08-03 14:29:03,True,680
+winegarj/distilbert-base-uncased-finetuned-sst2,c36d4aa33eaed41cf5e2d0f67783b524e559f0f5,model.safetensors,safetensors,"Training in progress, epoch 3",James Winegar,2024-08-03 14:18:48,True,680
+winegarj/distilbert-base-uncased-finetuned-sst2,033566ba2682879e2af52d4cc5c5bf534603fac2,model.safetensors,safetensors,"Training in progress, epoch 2",James Winegar,2024-08-03 14:10:48,True,680
+winegarj/distilbert-base-uncased-finetuned-sst2,91ca47495828606f8c7298811ba8c3dcf0e97455,model.safetensors,safetensors,"Training in progress, epoch 1",James Winegar,2024-08-03 13:59:42,True,680
+winegarj/distilbert-base-uncased-finetuned-sst2,1ff172f327be632183b980507f5702ad37e71c5e,model.safetensors,safetensors,End of training,James Winegar,2024-07-26 17:27:02,True,672
+winegarj/distilbert-base-uncased-finetuned-sst2,2e12667e853c320f0c74c961f0689b8471dbb6f5,model.safetensors,safetensors,"Training in progress, epoch 5",James Winegar,2024-07-26 17:26:59,True,672
+winegarj/distilbert-base-uncased-finetuned-sst2,947a29caa9374b66f6b5956f3c4a18517dbe8c61,model.safetensors,safetensors,"Training in progress, epoch 4",James Winegar,2024-07-26 17:25:46,True,672
+winegarj/distilbert-base-uncased-finetuned-sst2,a00fd43c07055fe9543fd8c28f3494e2d032791d,model.safetensors,safetensors,"Training in progress, epoch 3",James Winegar,2024-07-26 17:24:33,True,672
+winegarj/distilbert-base-uncased-finetuned-sst2,397019d4fe1588aa3d63d7cb0a9f817c4cba3b7b,model.safetensors,safetensors,"Training in progress, epoch 2",James Winegar,2024-07-26 17:23:21,True,672
+winegarj/distilbert-base-uncased-finetuned-sst2,8767340e3992c0641d3201e12afb6d3740376f06,model.safetensors,safetensors,"Training in progress, epoch 1",James Winegar,2024-07-26 17:22:11,True,672
+winegarj/distilbert-base-uncased-finetuned-sst2,7247ce56956b3f75d4091d072964805d8ba69854,model.safetensors,safetensors,End of training,James Winegar,2024-03-25 13:44:34,True,549
+winegarj/distilbert-base-uncased-finetuned-sst2,b755f06792a78eb82d1bef7a82b79d75650178e8,model.safetensors,safetensors,"Training in progress, epoch 5",James Winegar,2024-03-25 13:44:31,True,549
+winegarj/distilbert-base-uncased-finetuned-sst2,d265abd7abf97afedaa4451d8fff033e80260a34,model.safetensors,safetensors,"Training in progress, epoch 4",James Winegar,2024-03-25 13:43:19,True,549
+winegarj/distilbert-base-uncased-finetuned-sst2,02f9685d138fe68d5debb98e95d4a49568489718,model.safetensors,safetensors,"Training in progress, epoch 3",James Winegar,2024-03-25 13:42:05,True,549
+winegarj/distilbert-base-uncased-finetuned-sst2,e51eb2a10e8d837f12e17c66cecd4ec968b39747,model.safetensors,safetensors,"Training in progress, epoch 2",James Winegar,2024-03-25 13:40:53,True,549
+winegarj/distilbert-base-uncased-finetuned-sst2,ff8b408cb8078fb9d09a58a5c0ae73ac2a3a0e28,model.safetensors,safetensors,"Training in progress, epoch 1",James Winegar,2024-03-25 13:39:42,True,549
+winegarj/distilbert-base-uncased-finetuned-sst2,3fdcc0ba0ead14b270fcd5dc06c3f337753559d6,model.safetensors,safetensors,End of training,James Winegar,2023-11-25 15:02:33,True,428
+winegarj/distilbert-base-uncased-finetuned-sst2,60e139f8ffaaff4ec564af38600a7ee91a76e45d,model.safetensors,safetensors,"Training in progress, epoch 5",James Winegar,2023-11-25 15:02:31,True,428
+winegarj/distilbert-base-uncased-finetuned-sst2,ff8058839511be69572ddfbe9f7b1a806e76c1aa,model.safetensors,safetensors,"Training in progress, epoch 4",James Winegar,2023-11-25 15:01:16,True,428
+winegarj/distilbert-base-uncased-finetuned-sst2,3b5ecbfe5f95461b3e25c95392fc7c3aabddd687,model.safetensors,safetensors,"Training in progress, epoch 3",James Winegar,2023-11-25 15:00:03,True,428
+winegarj/distilbert-base-uncased-finetuned-sst2,dbc64f0186de3e7aeb642db4324a23858e521cd4,model.safetensors,safetensors,"Training in progress, epoch 2",James Winegar,2023-11-25 14:58:48,True,428
+winegarj/distilbert-base-uncased-finetuned-sst2,cd37b616a03350daa1adf18dbbee8a3db1742ec5,model.safetensors,safetensors,"Training in progress, epoch 1",James Winegar,2023-11-25 14:57:36,True,428
+winegarj/distilbert-base-uncased-finetuned-sst2,2b8b3ac5a3c635ab40590c65fb69894654d1c439,model.safetensors,safetensors,"Training in progress, epoch 5",James Winegar,2023-11-25 13:53:04,True,428
+winegarj/distilbert-base-uncased-finetuned-sst2,9bf87007114592a02224a6d4447dcbfcb44089c8,model.safetensors,safetensors,"Training in progress, epoch 4",James Winegar,2023-11-25 13:51:48,True,428
+winegarj/distilbert-base-uncased-finetuned-sst2,1fc1393e9e57201b78a4e31ad25556b0ca47e3ae,model.safetensors,safetensors,"Training in progress, epoch 3",James Winegar,2023-11-25 13:50:33,True,428
+winegarj/distilbert-base-uncased-finetuned-sst2,dbd9d6d2d679ec75ffce7dcc0f54074dfbf25cac,model.safetensors,safetensors,"Training in progress, epoch 2",James Winegar,2023-11-25 13:49:18,True,428
+winegarj/distilbert-base-uncased-finetuned-sst2,ec5494dd98299d40c472fa9abc757e57a9c139b7,model.safetensors,safetensors,"Training in progress, epoch 1",James Winegar,2023-11-25 13:48:06,True,428
+mdroth/bert-finetuned-ner-accelerate,7029b6e7094996be04a3a34c9da1267f0fb855aa,model.safetensors,safetensors,Training in progress epoch 2,Matthias Droth,2024-02-19 22:30:12,True,514
+mdroth/bert-finetuned-ner-accelerate,2640d97bd0de5084262c82b6ea549d5e4604ab7d,model.safetensors,safetensors,Training in progress epoch 1,Matthias Droth,2024-02-19 22:06:56,True,514
+mdroth/bert-finetuned-ner-accelerate,64ca5f734aee13dfa0f282b302c586269a3f7e90,model.safetensors,safetensors,Training in progress epoch 0,Matthias Droth,2024-02-19 21:43:39,True,514
+mdroth/bert-finetuned-ner-accelerate,d5fdcc9d865113f1ec99c61a6d72d359b9c6a186,model.safetensors,safetensors,Training in progress epoch 1,Matthias Droth,2024-02-19 19:49:44,True,514
+mdroth/bert-finetuned-ner-accelerate,40a4e7d0fdda8ab9d1dfd41f9d4350c0ed4c53cd,model.safetensors,safetensors,Training in progress epoch 0,Matthias Droth,2024-02-19 19:47:22,True,514
+mdroth/bert-finetuned-ner-accelerate,a096ae1be0a9aa9bb88fe820b7a5a8c2848ca2de,model.safetensors,safetensors,Training in progress epoch 2,Matthias Droth,2024-02-19 18:51:52,True,514
+mdroth/bert-finetuned-ner-accelerate,347e58f63a41d7824b296401b562476e0a28d648,model.safetensors,safetensors,Training in progress epoch 1,Matthias Droth,2024-02-19 18:49:31,True,514
+mdroth/bert-finetuned-ner-accelerate,800ed7039fc98ccfccdf8c03ad1d33f41d5f3f0c,model.safetensors,safetensors,Training in progress epoch 0,Matthias Droth,2024-02-19 18:47:09,True,514
+Helsinki-NLP/opus-mt-tc-big-fi-en,956e13710061738d21f677e4ed16a56546511c0f,model.safetensors,safetensors,"Update checkpoint for transformers>=4.29 (#6)
+
+
+- Update checkpoint for transformers>=4.29 (ae29348668f08c2cdf91d2e1473feccb7783199e)
+
+
+Co-authored-by: Arthur Zucker <ArthurZ@users.noreply.huggingface.co>",Matthew Carrigan,2024-04-16 14:13:57,True,571
+ctheodoris/Geneformer,933ca80e39d421c47a12168699766bb7e4e2c197,model.safetensors,safetensors,"update with 12L and 20L i4096 gc95M models, multitask and quantiz code",Christina Theodoris,2024-08-15 04:09:57,True,692
+ctheodoris/Geneformer,933ca80e39d421c47a12168699766bb7e4e2c197,gf-12L-95M-i4096/model.safetensors,safetensors,"update with 12L and 20L i4096 gc95M models, multitask and quantiz code",Christina Theodoris,2024-08-15 04:09:57,True,692
+ctheodoris/Geneformer,933ca80e39d421c47a12168699766bb7e4e2c197,gf-12L-95M-i4096_CLcancer/model.safetensors,safetensors,"update with 12L and 20L i4096 gc95M models, multitask and quantiz code",Christina Theodoris,2024-08-15 04:09:57,True,692
+ctheodoris/Geneformer,933ca80e39d421c47a12168699766bb7e4e2c197,gf-20L-95M-i4096/model.safetensors,safetensors,"update with 12L and 20L i4096 gc95M models, multitask and quantiz code",Christina Theodoris,2024-08-15 04:09:57,True,692
+ctheodoris/Geneformer,933ca80e39d421c47a12168699766bb7e4e2c197,gf-6L-30M-i2048/model.safetensors,safetensors,"update with 12L and 20L i4096 gc95M models, multitask and quantiz code",Christina Theodoris,2024-08-15 04:09:57,True,692
+ctheodoris/Geneformer,ec19834345a43617abfd51669c7c3cc7e0aecaba,model.safetensors,safetensors,rename for consistency,Christina Theodoris,2024-08-11 05:35:49,False,688
+ctheodoris/Geneformer,817eca29d34eab359d8614ae14dfa3033a609419,model.safetensors,safetensors,delete old gene name dict,Christina Theodoris,2024-08-11 05:34:29,False,688
+ctheodoris/Geneformer,e61485ee0359f483a0b3c4b0e88db9987eac2fc7,model.safetensors,safetensors,update to only have gene names as keys in gene_name_id_dict,Christina Theodoris,2024-08-11 04:40:16,False,688
+ctheodoris/Geneformer,1e18102f350bef1487e38952ebf553b576a278aa,model.safetensors,safetensors,"Add function for summing of Ensembl IDs (#377)
+
+
+- Add function for summing of Ensembl IDs (fb901a02a4aea5582603c2c3bf21d992b8a4f3b5)
+- Add init for ensembl mapping dict (43b42906ba1e5b16d2a71deb6881c4779007a24d)
+- Upload ensembl_mapping_dict_gc95M.pickle (47341ab1ee7a6d195a1a2527af51a0dc3abd0090)
+- Update geneformer/tokenizer.py (5197a60707457a72cf3c6f663e3eae65fc276831)
+- Filter gene mapping dict for items that exist in gene_token_dict (1e8d481b099f532afa8b9edf1f544d838edfea2f)
+- Update geneformer/tokenizer.py (b8b87fd14eec11e8e21105d30098c50496ae2ba5)
+- Upload ensembl_mapping_dict.pkl (e86dc76200df4aa1b02149d4d64254b92a0816d1)
+- Update geneformer/__init__.py (ad4b8e0c046cf6f51cb71573b04efa851923e4b6)
+- Upload 2 files (c9ba1f736b47384d602d714d49c1bdee21ae8bac)
+- Delete ensembl_mapping_dict.pkl (c5cea51562669bba7b068a12ca13510b865e7aff)
+- Upload 4 files (05bffd62fd51f24efcbb7d8db5eacabb976d7c95)
+- Delete geneformer/ensembl_mapping_dict_gc95M.pickle (004f5b40c72722df27d77991b6078510b15a0bd1)
+- Update .gitattributes (e91adac093c1667d6f3454aca1aa52ac5013f3a4)
+- lfs for *.pkl (3ec9cba9aa9d5c12e24e99cc75899e6f8f6735fa)
+
+
+Co-authored-by: Han Chen <hchen725@users.noreply.huggingface.co>",Christina Theodoris,2024-08-11 02:44:33,False,688
+w11wo/indonesian-roberta-base-posp-tagger,42e5235f04b99141e86d2f5dfcba3cf36261e7eb,model.safetensors,safetensors,End of training,Wilson Wongso,2024-02-19 06:03:00,True,514
+ufal/robeczech-base,354716a4cd118807d49da747780f9aa8b96fdfad,model.safetensors,safetensors,"Release version 1.1 of RobeCzech.
+
+In version 1.1, the tokenizer was modified by (a) removing the hole, (b)
+mapping all tokens to a unique ID. That also required increasing the
+vocabulary sizes and embeddings weights (by replicating the embedding of the
+`[UNK]` token). Without finetuning, version 1.1 and version 1.0 gives exactly
+the same results on any input, and the tokens in version 1.0 that mapped to
+a different ID than the `[UNK]` token map to the same ID in version 1.1.
+
+However, the sizes of the embeddings (and LM head weights and biases) are
+different, so the weights of the version 1.1 are not compatible with the
+configuration of version 1.0 and vice versa.",Milan Straka,2024-01-05 10:53:56,True,469
+shibing624/macbert4csc-base-chinese,fb92948ae90997cc6aa9d5ab958b14e633809d12,model.safetensors,safetensors,"Adding ONNX file of this model (#6)
+
+
+- Adding ONNX file of this model (205dc2ebd415af323fef9a85033dbd19742f2d3d)
+
+
+Co-authored-by: chenyaoshun <chenyaoshun@users.noreply.huggingface.co>",Ming Xu (徐明),2023-10-08 23:23:54,False,380
+sentence-transformers/all-MiniLM-L6-v2,8b3219a92973c328a8e22fadcfa821b5dc75636a,model.safetensors,safetensors,"Upload ONNX weights exported via optimum with `library='sentence-transformers'` (#64)
+
+
+- Upload ONNX weights exported via optimum with `library='sentence-transformers'` (ca2c6b84644f6c2f4b7c879851ad9d364ae375f6)
+- Keep diff small (f7db80e231ab089dda227e0ed3850ce7b3b10116)
+
+
+Co-authored-by: Joshua <Xenova@users.noreply.huggingface.co>",Tom Aarsen,2024-05-29 10:43:28,False,614
+ai-forever/sbert_large_nlu_ru,d3aabf318bd76818b967ec2d9f4221d7891b5cdf,model.safetensors,safetensors,add .bin version,ai-forever,2024-07-31 12:32:52,False,677
+ai-forever/sbert_large_nlu_ru,af977d5dfa46a3635e29bf0ef383f2df2a08d47a,model.safetensors,safetensors,"Upload 10 files (#6)
+
+
+- Upload 10 files (b66493f776c2fd19309d00c032d9dbce71b48ee4)
+- Delete vocab.txt (1538e47df808b7acdb7280fbe31ca6ff5852fa87)
+- Delete pytorch_model.bin (5b9aa504c5c38e83e47221acb0b5ce4920c16fd0)
+- Delete flax_model.msgpack (95b86a32b821a0f6710dbb8d1da05d4c2358f21c)",ai-forever,2024-06-13 03:37:03,True,629
+ai-forever/sbert_large_mt_nlu_ru,05300876c2b83f46d3ddd422a7f17e45cf633bb0,model.safetensors,safetensors,"Upload 11 files (#4)
+
+
+- Upload 11 files (ff6c2d5a3b8544d75b01c8bcf66eec100be7cedf)
+- Delete pytorch_model.bin (f8554054741b1f28af4dc1531832f7e645eeb2db)
+- Delete tf_model.h5 (81002e3cbb80a9259679d393af7c2f5b38271561)
+- Delete vocab.txt (7650bdeace965517efc5c7573f3760bd6695ec99)
+- Delete flax_model.msgpack (c987fcdb31796f6e9d5621d1cea1439683dd0851)
+- Upload 10 files (37400f31238f6fd1946020143b62e4a0069d80f1)
+- Update tokenizer_config.json (347ec68f3b1bdd2a2d99ee0989d8a6507e93d5f9)",ai-forever,2024-06-13 03:29:25,True,629
+pritamdeka/S-PubMedBert-MS-MARCO,dc7d9a7b2e7af3c13757db15df62accffed4fab9,topic_embeddings.safetensors,safetensors,"Add BERTopic model (#4)
+
+
+- Add BERTopic model (3cc8c686cf9b8a536b5cfd4ebaba5a72872dd240)
+
+
+Co-authored-by: Terri Tuson <TerriTuson@users.noreply.huggingface.co>",Pritam Deka,2024-02-05 08:52:13,True,500
+microsoft/layoutlm-base-uncased,30e3cdd39c11f09757b0fcf7598533d05052acef,model.safetensors,safetensors,"Updating `safetensors` variant of this model (#8)
+
+
+- Updating `safetensors` variant of this model (eed6dc69eafa39d65493fe383a003596f565e2e8)
+
+
+Co-authored-by: Rahul Vishwakarma <rvv-karma@users.noreply.huggingface.co>",Amy Roberts,2024-04-16 08:16:49,True,571
+madhurjindal/autonlp-Gibberish-Detector-492513457,9611f8031c5bbd971e285d2ab504f5c6168fafa5,model.safetensors,safetensors,"ONNX-converted version of the model (#12)
+
+
+- ONNX-converted version of the model (917196dbb08ff335ac9aced9991311eb4eab8523)
+
+
+Co-authored-by: Oleksandr Yaremchuk <asofter@users.noreply.huggingface.co>",Madhur Jindal,2024-02-21 10:21:35,False,516
+dslim/bert-large-NER,fd49b06214fdf3428f08c77ab66da3a23dbba4c7,model.safetensors,safetensors,"Adding ONNX file of this model (#7)
+
+
+- Adding ONNX file of this model (804cc19f45cbbe3e8ce01c20ae8b4b9bc7e21da6)
+
+
+Co-authored-by: Cle <Bencle@users.noreply.huggingface.co>",David S. Lim,2024-01-25 22:34:45,False,489
+dslim/bert-base-NER,0f1d866da2b04bbf6c2428ca81c538c637a6fbdc,model.safetensors,safetensors,"Adding ONNX file of this model (#15)
+
+
+- Adding ONNX file of this model (bac61329f48f0ce44597c14b9ff867cd92bed1bf)
+
+
+Co-authored-by: Cle <Bencle@users.noreply.huggingface.co>",David S. Lim,2024-01-25 14:34:47,False,489
+cointegrated/rubert-tiny,5441c5ea8026d4f6d7505ec004845409f1259fb1,model.safetensors,safetensors,add all extra modules used for training,david,2024-02-09 13:44:51,False,504
+cointegrated/rubert-base-cased-nli-threeway,920cbb52ef830e94461bf141ec2119979b6049e2,model.safetensors,safetensors,"Adding ONNX file of this model (#2)
+
+
+- Adding ONNX file of this model (23488c782c9d167915963366381553f67cecc57d)
+
+
+Co-authored-by: Борисенко Андрей Витальевич <optowo@users.noreply.huggingface.co>",David Dale,2024-04-05 05:31:57,False,560
+cointegrated/LaBSE-en-ru,4fa3ac91ff481f4d035262b812682c0dfbfd8e11,model.safetensors,safetensors,add mininmal sentence_transfomers components,david,2023-11-04 07:46:07,False,407
+chandc/distilbert-base-uncased-finetuned-ner,60a9f43af68a60c1331ed2a5aaed9c2048854f3d,model.safetensors,safetensors,End of training,Daniel Chan,2024-02-23 16:20:49,True,518
+chandc/distilbert-base-uncased-finetuned-ner,e0a1b9ee1a826927fd3e02b7809146c70810379c,model.safetensors,safetensors,End of training,Daniel Chan,2024-02-18 15:09:44,True,513
+chandc/distilbert-base-uncased-finetuned-ner,de6655480905d46c2ff09b75f6b7f6fe7bf4cc2e,model.safetensors,safetensors,"Training in progress, step 500",Daniel Chan,2024-02-18 14:59:27,True,513
+almanach/camembert-large,ca4958806381fbad174ad2cdfc1eeeb693d14b56,model.safetensors,safetensors,Upload new model.safetensors with correct word embeddings,Wissam Antoun,2024-07-21 12:51:38,True,667
+ayameRushia/indobert-base-uncased-finetuned-indonlu-smsa,1d7cecfc07f0fbb7f9912ae194d55aaca06637eb,model.safetensors,safetensors,"Training in progress, epoch 4",ayameRushia,2024-02-02 08:41:05,True,497
+ayameRushia/indobert-base-uncased-finetuned-indonlu-smsa,3df3f7d98a3cee28cbfd9d7fc49b92646cf5a85e,model.safetensors,safetensors,"Training in progress, epoch 3",ayameRushia,2024-02-02 08:37:45,True,497
+ayameRushia/indobert-base-uncased-finetuned-indonlu-smsa,195fffd0122001b446d593ae091274416d6bbd83,model.safetensors,safetensors,"Training in progress, epoch 2",ayameRushia,2024-02-02 08:34:38,True,497
+ayameRushia/indobert-base-uncased-finetuned-indonlu-smsa,6a538837b12b14838a580a626d5fdf003147d03e,model.safetensors,safetensors,"Training in progress, epoch 1",ayameRushia,2024-02-02 08:31:43,True,497
+ayameRushia/indobert-base-uncased-finetuned-indonlu-smsa,71b2deed3e3558f4bbf05bdade73ca109cc5af32,model.safetensors,safetensors,"Training in progress, epoch 5",ayameRushia,2024-02-02 05:21:20,True,497
+ayameRushia/indobert-base-uncased-finetuned-indonlu-smsa,43c125d7f7e09725e8919959ece59b75d9dc6dd0,model.safetensors,safetensors,"Training in progress, epoch 4",ayameRushia,2024-02-02 05:18:12,True,497
+ayameRushia/indobert-base-uncased-finetuned-indonlu-smsa,7d7088cf85cb1e1db6b6865f273a9846ff657428,model.safetensors,safetensors,"Training in progress, epoch 3",ayameRushia,2024-02-02 05:14:57,True,497
+ayameRushia/indobert-base-uncased-finetuned-indonlu-smsa,6856f7596aa27fd0c5dbdc43d6a7a98a775e56db,model.safetensors,safetensors,"Training in progress, epoch 2",ayameRushia,2024-02-02 05:11:31,True,497
+ayameRushia/indobert-base-uncased-finetuned-indonlu-smsa,3e2b636a2ca52f22c3b26ef7034c5216f034743b,model.safetensors,safetensors,"Training in progress, epoch 1",ayameRushia,2024-02-02 05:08:29,True,497
+MoritzLaurer/mDeBERTa-v3-base-mnli-xnli,8adb042d524ecd5c26d3e3ba0e3fbcf7e2d0864c,model.safetensors,safetensors,"Upload folder using huggingface_hub (#5)
+
+
+- Upload folder using huggingface_hub (704310ca0bb8eb15bca150fc1e11083cd423dd02)
+
+
+Co-authored-by: Joshua <Xenova@users.noreply.huggingface.co>",Moritz Laurer,2024-01-08 07:37:16,False,472
+MoritzLaurer/DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary,a58af174048eef544605c377c47cbbef3d66973c,model.safetensors,safetensors,"Upload folder using huggingface_hub (#2)
+
+
+- Upload folder using huggingface_hub (17e4de0945ee04adadba4565ff0738514e738872)
+
+
+Co-authored-by: Joshua <Xenova@users.noreply.huggingface.co>",Moritz Laurer,2024-01-08 07:37:20,False,472
+FacebookAI/xlm-roberta-large,19638cbb324df1eabdbe808eaaef59da837a5152,model.safetensors,safetensors,"Adding ONNX file of this model (#15)
+
+
+- Adding ONNX file of this model (ffaefd54b2c2a7c25305a113f32ffe70e1375dcd)
+
+
+Co-authored-by: Chawakorn Phiantham <MhondGhod@users.noreply.huggingface.co>",Félix Marty,2023-09-29 09:04:24,False,371
+FacebookAI/xlm-roberta-base,77de1f7a7e5e737aead1cd880979d4f1b3af6668,model.safetensors,safetensors,"Adding ONNX file of this model (#15)
+
+
+- Adding ONNX file of this model (e9c793ac25de997022baf24ba4b022a602c0c050)
+
+
+Co-authored-by: Mushfiqur Rahman <mushfiqurrobin@users.noreply.huggingface.co>",Félix Marty,2023-04-07 08:46:17,False,196
+FacebookAI/roberta-large,716877d372b884cad6d419d828bac6c85b3b18d9,model.safetensors,safetensors,"Adding ONNX file of this model (#3)
+
+
+- Adding ONNX file of this model (ae4a20221bb77f66ff11bded5513996e1728b865)
+
+
+Co-authored-by: Fahad Ali <fa2345@users.noreply.huggingface.co>",Julien Chaumond,2023-03-22 05:25:01,False,180
+FacebookAI/roberta-large,5069d8a2a32a7df4c69ef9b56348be04152a2341,model.safetensors,safetensors,"Convert weights to .safetensors (#1)
+
+
+- Convert weights to .safetensors (e7ebe1d62fc22d24af997fa880b5a38e4d17af45)",Julien Chaumond,2022-09-29 11:22:07,True,6
+FacebookAI/roberta-base,ff46155979338ff8063cdad90908b498ab91b181,model.safetensors,safetensors,"Convert weights to .safetensors (#3)
+
+
+- Convert weights to .safetensors (a97a0fa19af3b9cf51ccbd4529dd661b7d619fe8)",Julien Chaumond,2022-09-29 11:21:48,True,6
+openai-community/gpt2,11c5a3d5811f50298f278a704980280950aedb10,model.safetensors,safetensors,"Adding ONNX file of this model (#60)
+
+
+- Adding ONNX file of this model (9411f419c589519e1a46c94ac7789ea20fd7c322)",Félix Marty,2023-06-29 22:19:43,False,279
+openai-community/gpt2,75e09b43581151bd1d9ef6700faa605df408979f,model.safetensors,safetensors,"Upload model.safetensors with huggingface_hub (#12)
+
+
+- Upload model.safetensors with huggingface_hub (ba2f794b2e4ea09ef932a6628fa0815dfaf09661)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Julien Chaumond,2022-10-20 05:34:54,True,27
+openai-community/gpt2,909a290700bd99135e67c64eefc166960b67cfd2,model.safetensors,safetensors,"Convert weights to .safetensors (#6)
+
+
+- Convert weights to .safetensors (f0946a6b3259a3bb628d54f1045cb64ee6dc4176)",Julien Chaumond,2022-09-29 11:22:02,True,6
+openai-community/gpt2-medium,f65d4965d1221eff2bcf34f53a2ba12120e18f24,model.safetensors,safetensors,"Adding ONNX file of this model (#9)
+
+
+- Adding ONNX file of this model (27b27873f195001365fb7b45c770f6e987540a56)",Félix Marty,2023-06-29 22:23:32,False,279
+openai-community/gpt2-large,97935fc1a406f447320c3db70fe9e9875dca2595,model.safetensors,safetensors,"Adding ONNX file of this model (#6)
+
+
+- Adding ONNX file of this model (01d723fe173e12e94b98aedefdf8c8eeb195dd2e)",Félix Marty,2023-06-29 22:33:40,False,279
+distilbert/distilgpt2,38cc92ec43315abd5136313225e95acc5986876c,model.safetensors,safetensors,"Add Core ML conversion (#10)
+
+
+- Add Core ML conversion (da7a025bb8bec96ea621071459891f8510e087ee)",Pedro Cuenca,2023-04-29 08:24:21,False,218
+distilbert/distilbert-base-cased-distilled-squad,50ba811384f02cb99cdabe5cdc02f7ddc4f69e10,model.safetensors,safetensors,"Adding OpenVINO file of this model (#8)
+
+
+- Adding OpenVINO file of this model (9d43c42a81adc298b398df1040010843cc132705)
+
+
+Co-authored-by: Helena <helenai@users.noreply.huggingface.co>",Ella Charlaix,2023-04-12 08:06:44,False,201
+google-bert/bert-base-uncased,1dbc166cf8765166998eff31ade2eb64c8a40076,model.safetensors,safetensors,"Adding ONNX file of this model (#40)
+
+
+- Adding ONNX file of this model (0c8f1e29fcde62e318d506aef98a1d620e0270cd)
+
+
+Co-authored-by: Asif  Mahmud <asifanchor@users.noreply.huggingface.co>",Félix Marty,2023-06-29 21:42:19,False,279
+google-bert/bert-base-uncased,a265f773a47193eed794233aa2a0f0bb6d3eaa63,model.safetensors,safetensors,"Add Core ML conversion (#42)
+
+
+- Add Core ML conversion (26c976dcb042f61e05f27fe2d9836a2c5237bfb3)
+
+
+Co-authored-by: Steve Zhang <stevezhanggeek@users.noreply.huggingface.co>",Pedro Cuenca,2023-05-28 12:30:47,False,247
+google-bert/bert-base-german-cased,55717ce5b34282a966d7a6e6fc26a67ae4312dcd,model.safetensors,safetensors,"Adding ONNX file of this model (#4)
+
+
+- Adding ONNX file of this model (2a4d81dd003b55f942acae4a4263410da9e80058)
+
+
+Co-authored-by: Fred Robbins  <Mesc70@users.noreply.huggingface.co>",Félix Marty,2023-12-08 13:34:00,False,441

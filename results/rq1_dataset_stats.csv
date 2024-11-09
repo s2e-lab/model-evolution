@@ -1,13 +1,12 @@
+# commits in all logs (total),17773.0
+# commits touching at least one serialized model,4889.0
+# commits containing at least one model file in its tree,4872.0
+# commits not containing at least one model file,17.0
 # repos,1032.0
-# commits,4872.0
 # commits touching safetensor files,505.0
 # commits made by the converter,400.0
 % commits made by the converter,79.20792079207921
 # commits made by developers,105.0
 % commits made by developers,20.792079207920793
-min elapsed days,6.0
-quartile2 elapsed days,204.0
-median elapsed days,497.0
-quartile4 elapsed days,551.0
-max elapsed days,703.0
+how many days until first safetensors is adopted,6.0
 date with max number of adoptions,2024-03-27

@@ -149,7 +149,7 @@ if __name__ == '__main__':
 
     print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
     # Analysis configuration
-    save_at, n, out_suffix = 100, 0, "NEW_repository_evolution_commits"
+    save_at, n, out_suffix = 100, 0, "repositories_evolution_commits"
 
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
@@ -162,12 +162,7 @@ if __name__ == '__main__':
             n += 1
             rows = [get_from_cache(cache, row, f, changed_files) for f in all_model_files]
             df_output = pd.concat([df_output, pd.DataFrame(rows)], ignore_index=True)
-            if not rows:
-                print("No files in cache " + row["repo_url"] + " " + row["commit_hash"])
         else:
-            print("Not in cache " + row["repo_url"] + " " + row["commit_hash"])
-            continue
-
             try:
                 # checkout repository at that commit hash
                 commit_hash = row["commit_hash"]
