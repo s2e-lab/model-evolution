@@ -1,7 +1,6 @@
-Number of collected PRs,46327.0
-Number of PRs after removing missing values,45737.0
-Number of PRs after removing invalid JSONs,45737.0
-Number of PRs after filtering by date,43598.0
+Number of collected PRs,43650.0
+Number of PRs after removing missing values,43598.0
+Number of PRs after removing invalid JSONs,43598.0
 Number of PRs after filtering by URL,43596.0
 Number of repositories,35094.0
 Average number of PRs per repository,1.2422636348093692
