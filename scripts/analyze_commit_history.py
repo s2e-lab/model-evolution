@@ -106,7 +106,7 @@ if __name__ == '__main__':
 
     print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
     # Analysis configuration
-    save_at, out_suffix = 100, "NEW_repositories_evolution_commits"
+    save_at, out_suffix = 100, "repositories_evolution_commits"
 
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):

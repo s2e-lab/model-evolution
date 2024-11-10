@@ -65,8 +65,8 @@ def get_commit_log_stats() -> pd.Series:
     stats.loc["# commits touching at least one serialized model"] = len(df)
     stats.loc["# commits containing at least one model file in its tree"] = len(df) - num_empty
     stats.loc["# commits not containing at least one model file"] = num_empty
+    stats.loc["last commit date"] = df["date"].max()
     stats.loc["# repos"] = df["repo_url"].nunique()
-
 
     return stats
 

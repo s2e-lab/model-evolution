@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/notebooks/TO_DELETE_rq2_analysis.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/repository_evolution_commits_0_4888.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/repositories_evolution_commits_0_4888.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/repository_evolution_errors_0_4888.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/repositories_evolution_errors_0_4888.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1CommitsDistribution.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1CommitsDistribution.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1Heatmap.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1Heatmap.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1HeatmapHorizontal.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1HeatmapHorizontal.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/rq1_dataset_stats.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/rq1_dataset_stats.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/TO_DELETE_analyze_commit_history.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/TO_DELETE_analyze_commit_history.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/notebooks/nb_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/nb_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/safetensors_commits_by_tool.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/safetensors_commits_by_tool.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/safetensors_commits_not_by_tool.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/safetensors_commits_not_by_tool.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq2_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq2_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +51,7 @@
     "database.data.extractors.current.export.id": "Tab-separated (TSV)_id",
     "database.data.extractors.current.id": "Tab-separated (TSV)_id",
     "git-widget-placeholder": "feature/commits",
-    "last_opened_file_path": "D:/Portfolio/GitHub/wip-model-evolution/data/cache",
+    "last_opened_file_path": "D:/Portfolio/GitHub/wip-model-evolution/scripts/notebooks",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -59,9 +62,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Portfolio\GitHub\wip-model-evolution\scripts\notebooks" />
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\data\cache" />
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\assets" />
-      <recent name="D:\Portfolio\GitHub\wip-model-evolution\scripts\notebooks" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\data\cache" />

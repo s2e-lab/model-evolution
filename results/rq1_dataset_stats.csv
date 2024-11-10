@@ -3,10 +3,24 @@
 # commits containing at least one model file in its tree,4872.0
 # commits not containing at least one model file,17.0
 # repos,1032.0
-# commits touching safetensor files,505.0
-# commits made by the converter,400.0
-% commits made by the converter,79.20792079207921
-# commits made by developers,105.0
-% commits made by developers,20.792079207920793
-how many days until first safetensors is adopted,6.0
+# commits adding safetensor files,418.0
+# commits adding safetensor files made by the converter,400.0
+% commits adding safetensor files made by the converter,95.69377990430623
+# commits adding safetensor files made by developers,18.0
+% commits adding safetensor files made by developers,4.30622009569378
+how many days until safetensors is first added,6.0
 date with max number of adoptions,2024-03-27
+# commits in all logs (total),17773.0
+# commits touching at least one serialized model,4889.0
+# commits containing at least one model file in its tree,4872.0
+# commits not containing at least one model file,17.0
+# repos,1032.0
+# commits adding safetensor files,418.0
+# commits adding safetensor files made by the converter,400.0
+% commits adding safetensor files made by the converter,95.69377990430623
+# commits adding safetensor files made by developers,18.0
+% commits adding safetensor files made by developers,4.30622009569378
+how many days until safetensors is first added,6.0
+date with max number of adoptions,2024-03-27
+# repos with old `pytorch_model.bin` file after conversion,394
+% repos with old files,98.74686716791979

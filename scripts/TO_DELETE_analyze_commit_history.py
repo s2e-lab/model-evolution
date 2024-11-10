@@ -86,7 +86,7 @@ def is_all_in_cache(cache: dict, row: pd.Series, all_model_files) -> bool:
     return True
 
 
-def get_from_cache(cache: dict, row: pd.Series, file_path: str, changed_files: list) -> dict:
+def get_from_cache(cache: dict, row: pd.Series, file_path: str, changed_files: dict) -> dict:
     key = (row['repo_url'], row['commit_hash'], file_path)
     return {
         "repo_url": row["repo_url"],
@@ -97,6 +97,7 @@ def get_from_cache(cache: dict, row: pd.Series, file_path: str, changed_files: l
         "author": row["author"],
         "date": row["date"],
         "is_in_commit": file_path in changed_files,
+        "change_status": changed_files.get(file_path, "")
     }
 
 
@@ -121,7 +122,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     # load prior results to create a local cache
-    cache_file = Path("../data/repository_evolution_commits_0_4888.csv")
+    cache_file = Path("../data/cache/repository_evolution_commits_0_4888.csv")
     cache = load_cache(cache_file)
 
     # Load the repositories and set nan columns to empty string
@@ -142,20 +143,23 @@ if __name__ == '__main__':
 
     # create the output dataframes
     df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format",
-                                      "message", "author", "date", "is_in_commit"])
+                                      "message", "author", "date", "is_in_commit", "change_status"])
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
     # get batch from repos starting at start_idx and ending at end_idx (inclusive)
     batch = df_commits[start_idx:end_idx + 1]
 
     print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
     # Analysis configuration
-    save_at, n, out_suffix = 100, 0, "repositories_evolution_commits"
+    save_at, n, out_suffix = 100, 0, "NEW_repositories_evolution_commits"
 
     # iterate over the range of commits
     for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
         # check whether all files are in cache
         all_model_files = [f for f in row["all_files_in_tree"].split(";") if is_model_file(f)]
-        changed_files = [x.split()[1] for x in row["changed_files"].split(";")]
+        changed_files = dict() # key = file_path, value = status (added, modified, deleted)
+        for x in row["changed_files"].split(";"):
+            status, file_path = x.split(maxsplit=1)
+            changed_files[file_path] = status
         all_in_cache = is_all_in_cache(cache, row, all_model_files)
         # if in cache, pull metadata from cache
         if all_in_cache:
@@ -200,6 +204,7 @@ if __name__ == '__main__':
                         "author": row["author"],
                         "date": row["date"],
                         "is_in_commit": file_path in changed_files,
+                        "change_status": changed_files.get(file_path, "")
                     }
                     # print(f"File: {file_path}, Format: {serialization_format}")
             except Exception as e:
