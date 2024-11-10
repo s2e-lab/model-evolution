@@ -78,7 +78,43 @@ and `../data/huggingface_sort_by_createdAt_top996939_errors_<first_index>_<last_
   It requires the start and end index of the commits to be processed.
   The script will generate a CSV file with the commit history analysis on the `../results/` folder. 
 
-### RQ3: Scraping StackOverflow posts and GitHub PRs
+ 
+### RQ3: Getting SFConvertBot Data
+
+#### Step 1: Extract Safetensors' versions 
+- `get_sfconvertbot_tags.sh`: Script to get all the safetensors versions.
+  ```bash
+  ./get_sfconvertbot_tags.sh
+  ```
+  It will save the list of versions in `../data/safetensors_tags.csv`.
+  Notice that safetensors has versions released on the same date (one named `v0.N.M` and the other `python-v0.N.M`). 
+  We manually removed the `python-` suffixes and removed duplicates prior to generating our charts. 
+
+#### Step 2: Crawling the PRs from the SFConvertBot's community activity
+- `./bot/crawl_bot_activity.py`: Script to get a list of PRs from the SFConvertBot's community [activity](https://huggingface.co/SFconvertbot/activity/community).
+  ```bash
+  cd bot
+  python crawl_bot_activity.py
+  ```
+  It will save the data in `../data/sfconvertbot_pr_urls.csv`.
+
+#### Step 3: Get Conversion Dataset from HuggingFace
+- `get_conversions_dataset.py`: Script to get the Hugging Face's conversion [dataset](https://huggingface.co/datasets/safetensors/conversions).
+  ```bash
+  python get_sfconvert_dataset.py
+  ```
+  It will save the data in `../data/hf_conversions.csv`.
+
+#### Step 4: Extract SFConvertBot activities' metadata and merge with convert dataset 
+- `get_sfconvert_prs.py`: Script to get the metadata from the SFConvertBot's PR URLs obtained in step 2 and merge with the dataset obtained in step 3.
+  ```bash
+  python get_sfconvert_prs.py
+  ```
+  It will save the data in `../data/sfconvertbot_pr_metadata.csv.zip`.
+  File is zipped because it is too large to be stored in the repository.
+
+
+### RQ4: Scraping StackOverflow posts and GitHub PRs
 
 #### Step 1: Create a `.env` file
 Create a `.env` file in the root directory with the following content:
@@ -106,41 +142,7 @@ The data will be saved in the `data` folder.
     cd bot
     python crawl_safetensors_discussions.py
     ```
-  
-### RQ4: Getting SFConvertBot Data
-
-#### Step 1: Extract Safetensors' versions 
-- `get_sfconvertbot_tags.sh`: Script to get all the safetensors versions.
-  ```bash
-  ./get_sfconvertbot_tags.sh
-  ```
-  It will save the list of versions in `../data/safetensors_tags.csv`.
-  Notice that safetensors has versions released on the same date (one named `v0.N.M` and the other `python-v0.N.M`). 
-  We manually removed the `python-` suffixes and removed duplicates prior to generating our charts. 
-
-#### Step 2: Crawling the PRs from the SFConvertBot's community activity
-- `./bot/crawl_bot_activity.py`: Script to get a list of PRs from the SFConvertBot's community [activity](https://huggingface.co/SFconvertbot/activity/community).
-  ```bash
-  cd bot
-  python crawl_bot_activity.py
-  ```
-  It will save the data in `../data/sfconvertbot_pr_urls.csv`.
-
-#### Step 3: Get Conversion Dataset from HuggingFace
-- `get_conversions_dataset.py`: Script to get the SFConvertBot's conversion [dataset](https://huggingface.co/datasets/safetensors/conversions).
-  ```bash
-  python get_sfconvert_dataset.py
-  ```
-  It will save the data in `../data/hf_conversions.csv`.
-
-#### Step 4: Extract SFConvertBot activities' metadata and merge with convert dataset 
-- `get_sfconvert_prs.py`: Script to get the metadata from the SFConvertBot's PR URLs obtained in step 2 and merge with the dataset obtained in step 3.
-  ```bash
-  python get_sfconvert_prs.py
-  ```
-  It will save the data in `../data/sfconvertbot_pr_metadata.csv.zip`.
-  File is zipped because it is too large to be stored in the repository.
-
+ 
   
 
 ## Data Analysis
