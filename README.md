@@ -27,9 +27,6 @@ This project contains five main folders
 
 The following figure shows the methodology and linked artifacts of this project:
 
-![rq1_rq2](https://github.com/user-attachments/assets/88bd1319-8e19-4de5-b101-286de78913fc)
-
-![rq3_rq4](https://github.com/user-attachments/assets/a814b630-395f-48fa-892c-202a16634106)
-
+![alt text](./assets/MethodArtifacts.png)
 
 For further information regarding how to run the scripts, please see the README.md under the scripts directory.
