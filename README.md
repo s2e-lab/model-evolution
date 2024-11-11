@@ -28,8 +28,9 @@ This project contains five main folders
 
 The following figure shows the methodology and linked artifacts of this project:
 
-[RQ1_RQ2.pdf](https://github.com/user-attachments/files/17693655/RQ1_RQ2.pdf)
-[RQ3_RQ4.pdf](https://github.com/user-attachments/files/17693661/RQ3_RQ4.pdf)
+![rq1_rq2](https://github.com/user-attachments/assets/88bd1319-8e19-4de5-b101-286de78913fc)
+
+![rq3_rq4](https://github.com/user-attachments/assets/a814b630-395f-48fa-892c-202a16634106)
 
 
 For further information regarding how to run the scripts, please see the README.md under the scripts directory.
