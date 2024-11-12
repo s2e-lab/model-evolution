@@ -18,7 +18,6 @@ This project contains five main folders
 - **results**: Folder for storing the paper's results.
 - **scripts**: Folder for storing scripts used to generate/analyze the results. 
 This folder contains the following sub-folders:
-
       - **bot**: scripts relating to getting data about the safetensors convert bot
       - **crc**: scripts to deploy runs to the center for computing resource
       - **github**: scripts relating to getting data from GitHub.
