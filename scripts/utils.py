@@ -31,7 +31,7 @@ def delete_folder(folder_location: str) -> bool:
     return not os.path.exists(folder_location)
 
 
-def clone(repo_url: str, clone_path: str) -> Repo:
+def clone(repo_url: str, clone_path: str, is_bare: bool = False, no_tags:bool = False, single_branch:bool = False) -> Repo:
     """
     Clone a repository from Hugging Face
     :param repo_url: the repository URL (e.g., "huggingface/transformers")
@@ -42,7 +42,7 @@ def clone(repo_url: str, clone_path: str) -> Repo:
     # Check if the repository directory already exists
     if os.path.exists(clone_path):
         delete_folder(clone_path)
-    return git.Repo.clone_from(clone_url, clone_path)
+    return git.Repo.clone_from(clone_url, clone_path, bare=is_bare, no_tags=no_tags, single_branch=single_branch)
 
 
 def calculate_sample_size(population_size: int,

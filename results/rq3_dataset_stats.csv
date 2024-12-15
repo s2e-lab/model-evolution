@@ -1,0 +1,10 @@
+Number of collected PRs,43650.0
+Number of PRs after removing missing values,43598.0
+Number of PRs after removing invalid JSONs,43598.0
+Number of PRs after filtering by URL,43596.0
+Number of repositories,35094.0
+Average number of PRs per repository,1.2422636348093692
+First commit time,2022-11-07T13:00:55.000Z
+Last commit time,2024-08-31T23:41:59.000Z
+Number of PRs made by HF staff,401
+Number of PRs made by non-HF staff,43195
