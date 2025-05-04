@@ -97,7 +97,8 @@ and `selected_<group_type>_errors_retried.csv`.
   ```
   It requires the `group_type` argument, which can be either `legacy` or `recent`.
   The script will generate a CSV file with the commit history analysis on the `../data/` folder.
-    The file will be named `repositories_evolution_commits_hf_sort_by_createdAt_top996939_analysis_<group_type>.csv`.
+  The file will be named `repositories_evolution_<group_type>_commits.csv` (as well its error
+  logs `repositories_evolution_<group_type>_errors.csv`).
 
 ### RQ3: Getting SFConvertBot Data
 

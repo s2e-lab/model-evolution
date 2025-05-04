@@ -76,7 +76,7 @@ if __name__ == '__main__':
     group_type = args.group_type
 
     # Load the repositories and set nan columns to empty string
-    input_file = DATA_DIR / f"hf_sort_by_createdAt_top996939_{group_type}_commits.csv"
+    input_file = DATA_DIR / f"selected_{group_type}_commits.csv"
     df_commits = pd.read_csv(input_file).fillna("")
     print("Total number of commits:", len(df_commits))
 
@@ -94,10 +94,11 @@ if __name__ == '__main__':
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
 
     # Analysis configuration
-    print(f"Starting batch processing (range = {0}-{len(df_commits)})...")
-    save_at, out_filename = 100, f"repositories_evolution_commits_{group_type}.csv"
+    print(f"Start processing (range = {0}-{len(df_commits)}) for group {group_type}...")
+    save_at, out_filename = 100, f"repositories_evolution_{group_type}_commits.csv"
 
     # iterate over the range of commits
+    df_commits = df_commits[:5]
     for index, row in tqdm(df_commits.iterrows(), total=len(df_commits), unit="commit"):
         all_model_files = [f for f in row["all_files_in_tree"].split(";") if is_model_file(f)]
         changed_files = [x.split()[1] for x in row["changed_files"].split(";")]
