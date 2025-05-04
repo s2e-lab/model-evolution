@@ -61,7 +61,7 @@ pip install .
 
 - `get_commit_logs.py`: Script to get metadata of all models from HuggingFace.
   It will produce commit history for each model repository and save it on the data folder.
-  This script will take a long time to run (~1 day).
+  This script will take a long time to run (~1 hour each group type).
 
 ```bash
 python get_commit_logs.py group_type [--retry]
@@ -83,33 +83,21 @@ python get_commit_logs.py legacy --retry
 It will save the commit history for each model in the `../data/` folder.
 File names will be `hf_sort_by_createdAt_topN_commits_<group_type>.csv`
 and `hf_sort_by_createdAt_topN_errors_<group_type>.csv`.
-Notice that if you run the script with `--retry` it will create a new file with the errors and not overwrite the previous.
-These files would be named as:
-`hf_sort_by_createdAt_top996939_{group_type}_commits_retried.csv`
-and 
-`hf_sort_by_createdAt_top996939_{group_type}_errors_retried.csv`
-.
+Notice that if you run the script with `--retry` it will create a new file with the errors and not overwrite the
+previous.
+These files would be named as: `hf_sort_by_createdAt_top996939_{group_type}_commits_retried.csv`
+and `hf_sort_by_createdAt_top996939_{group_type}_errors_retried.csv`.
 
-
-#### Step 4: Merging the commit history into a single CSV file
-
-- `./merge_csvs.sh`: Merge the CSV files for the commit history into a single file.
-  ```bash
-  ./merge_csvs.sh ../data hf_sort_by_createdAt_top996939_
-  ```
-  The script will merge all the CSV files in the `../data/` folder into tw single files:
-  `../data/hf_sort_by_createdAt_top996939_commits_<first_index>_<last_index>.csv`
-  and `../data/hf_sort_by_createdAt_top996939_errors_<first_index>_<last_index>.csv`.
-
-#### Step 5: Analyzing the commit history to identify the serialization format
+#### Step 4: Analyzing the commit history to identify the serialization format
 
 - `analyze_commit_history.py`: Script to analyze the commit history of the models to identify the serialization format
   using at a given time.
   ```bash
-  python analyze_commit_history.py <start_index> <end_index>
+  python analyze_commit_history.py <group_type>
   ```
-  It requires the start and end index of the commits to be processed.
-  The script will generate a CSV file with the commit history analysis on the `../results/` folder.
+  It requires the `group_type` argument, which can be either `legacy` or `recent`.
+  The script will generate a CSV file with the commit history analysis on the `../data/` folder.
+    The file will be named `repositories_evolution_commits_hf_sort_by_createdAt_top996939_analysis_<group_type>.csv`.
 
 ### RQ3: Getting SFConvertBot Data
 

@@ -121,7 +121,7 @@ if __name__ == "__main__":
         # read start index and end index from the command line
         input_file = DATA_DIR / f"hf_sort_by_createdAt_top996939_{group_type}_selected.json"
         df = pd.read_json(input_file)
-        repo_urls = df["id"].tolist()[:1000]  # limit to 1000 repositories
+        repo_urls = df["id"].tolist()
         print(f"Extracting commits from {input_file}")
         output_file = input_file.stem.replace("_selected", "_commits") + ".csv"
         error_file = output_file.replace("commits", "errors")
