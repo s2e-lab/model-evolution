@@ -80,20 +80,17 @@ def filter_recent(df: pd.DataFrame) -> pd.DataFrame:
     # exclude gated repositories
     df_filtered = df_filtered[~df_filtered["gated"]]
 
-    print(df_filtered["created_at"].min(), df_filtered["created_at"].max())
     return df_filtered
 
 
 def sample(df: pd.DataFrame, total: int):
     """
-    Return a DataFrame with `n_total` rows, allocating (as evenly as possible)
+    Return a DataFrame with `total` rows, allocating (as evenly as possible)
     the same number of samples to each calendar month between min(date_col)
     and max(date_col).
-
-    * No explicit NumPy import.
-    * Uses Python's built‑in `random` module for reproducible shuffling.
-    * If a month has fewer rows than its allocation, all of its rows are kept
-      and the deficit is redistributed in a second pass.
+    :param df: DataFrame to sample from
+    :param total: total number of samples to return
+    :return: DataFrame with `total` rows, sampled from the input DataFrame
     """
     random.seed(42)  # make sampling procedure reproducible
     date_col = "created_at"  # column to sample on
@@ -139,9 +136,9 @@ def sample(df: pd.DataFrame, total: int):
 
 
 if __name__ == "__main__":
-    input_file = DATA_DIR / "huggingface_sort_by_createdAt_top996939.json.zip"
-    out_legacy_models_file = DATA_DIR / "huggingface_sort_by_createdAt_top996939_legacy_selected.json"
-    out_recent_models_file = DATA_DIR / "huggingface_sort_by_createdAt_top996939_recent_selected.json"
+    input_file = DATA_DIR / "hf_sort_by_createdAt_top996939.json.zip"
+    out_legacy_models_file = DATA_DIR / "hf_sort_by_createdAt_top996939_legacy_selected.json"
+    out_recent_models_file = DATA_DIR / "hf_sort_by_createdAt_top996939_recent_selected.json"
 
     # Step 1: Load the repositories' metadata
     print(f"Loading data from {input_file}...")

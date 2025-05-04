@@ -41,7 +41,7 @@ if __name__ == '__main__':
     # Save the results as a zip file
     print("Saving results")
 
-    output_file = Path(f"../data/huggingface_sort_by_{sorting_criteria}_top{total}.json")
+    output_file = Path(f"../data/hf_sort_by_{sorting_criteria}_top{total}.json")
     with open(output_file, "w") as outfile:
         outfile.write(json.dumps(results, indent=2, default=str))
 

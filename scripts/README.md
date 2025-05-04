@@ -42,7 +42,7 @@ pip install .
   python get_models.py
   ```
   It will save the metadata of all models in the `../data/` folder.
-  File name will be `huggingface_sort_by_createdAt_topN.json.zip`, where `N` is the number of model repositories.
+  File name will be `hf_sort_by_createdAt_topN.json.zip`, where `N` is the number of model repositories.
 
 #### Step 2: Filtering the models using the criteria described in our methodology
 
@@ -52,9 +52,9 @@ pip install .
     python select_models.py
   ```
   It will select model repositories and save the filtered list in two files:
-    - `../data/huggingface_sort_by_createdAt_topN_legacy_selected.json`: Group 1. Repositories created **before** safetensors'
+    - `../data/hf_sort_by_createdAt_topN_legacy_selected.json`: Group 1. Repositories created **before** safetensors'
       release.
-    - `../data/huggingface_sort_by_createdAt_topN_recent_selected.json`. Group 2. Repositories created **after** safetensors'
+    - `../data/hf_sort_by_createdAt_topN_recent_selected.json`. Group 2. Repositories created **after** safetensors'
       release. Notice that we downsample it to match the number of samples in the first group.
 
 #### Step 3: Getting the commit history of the models
@@ -75,18 +75,18 @@ python get_commit_logs.py 517 1035
 ```
 
 It will save the commit history for each model in the `../data/` folder.
-File names will be `huggingface_sort_by_createdAt_topN_commits_<first_index>_<last_index>.csv`
-and `huggingface_sort_by_createdAt_topN_commits_<first_index>_<last_index>.csv`.
+File names will be `hf_sort_by_createdAt_topN_commits_<first_index>_<last_index>.csv`
+and `hf_sort_by_createdAt_topN_commits_<first_index>_<last_index>.csv`.
 
 #### Step 4: Merging the commit history into a single CSV file
 
 - `./merge_csvs.sh`: Merge the CSV files for the commit history into a single file.
   ```bash
-  ./merge_csvs.sh ../data huggingface_sort_by_createdAt_top996939_
+  ./merge_csvs.sh ../data hf_sort_by_createdAt_top996939_
   ```
   The script will merge all the CSV files in the `../data/` folder into tw single files:
-  `../data/huggingface_sort_by_createdAt_top996939_commits_<first_index>_<last_index>.csv`
-  and `../data/huggingface_sort_by_createdAt_top996939_errors_<first_index>_<last_index>.csv`.
+  `../data/hf_sort_by_createdAt_top996939_commits_<first_index>_<last_index>.csv`
+  and `../data/hf_sort_by_createdAt_top996939_errors_<first_index>_<last_index>.csv`.
 
 #### Step 5: Analyzing the commit history to identify the serialization format
 
