@@ -16,7 +16,8 @@ import pandas as pd
 from analyticaml import check_ssh_connection
 from tqdm import tqdm
 
-from utils import clone, DATA_DIR, delete_folder
+import utils
+from utils import clone
 
 NULL_TREE = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
 
@@ -34,8 +35,6 @@ def get_commits(repo_path: str) -> tuple:
     # Iterate through the commits
     for commit in repository.iter_commits():
         commit_date = datetime.fromtimestamp(commit.committed_date)
-        
-        
         all_files_in_tree = [item.path for item in commit.tree.traverse()]
         if commit.parents:
             file_diffs = commit.parents[0].diff(commit)  # Compare with the parent+
@@ -58,25 +57,24 @@ def get_commits(repo_path: str) -> tuple:
     return commits
 
 
-import argparse
-
-
 def parse_args():
-    parser = argparse.ArgumentParser(description="Process repository group.")
-    # Positional arguments with strict choices
-    parser.add_argument(
-        "group_type",
-        choices=["legacy", "recent"],
-        help="Type of repository group to process: 'legacy' or 'recent'."
-    )
-    # Optional boolean flag
-    parser.add_argument(
-        "--should-retry",
-        action="store_true",
-        help="If set, the script will  retry the repositories that failed."
-    )
-
-    return parser.parse_args()
+    """
+    Parse the command line arguments
+    :return: the start index and end index
+    """
+    if len(sys.argv) > 1:
+        start_idx = int(sys.argv[1])
+        end_idx = int(sys.argv[2])
+        if start_idx >= end_idx:
+            print("The start index must be smaller than the end index.")
+            sys.exit(1)
+        if start_idx < 0:
+            print("The start index must be a positive number.")
+            sys.exit(1)
+    else:
+        print("Usage: python get_commit_logs.py <start_index> <end_index>")
+        sys.exit(1)
+    return start_idx, end_idx
 
 
 def save(data: list, columns: list, out_file: str | Path) -> None:
@@ -101,51 +99,50 @@ if __name__ == "__main__":
         print("If it is anonymous, you need to add your SSH key to your HuggingFace account.")
         sys.exit(1)
 
-    # Parse command line arguments
-    args = parse_args()
-    group_type = args.group_type
-    should_retry = args.should_retry
-
-    # Process the repositories
+    #  set this to True if you want to retry the repositories that failed
+    should_retry = False
     if should_retry:
-        input_file = DATA_DIR / f"huggingface_sort_by_createdAt_top996939_{group_type}_errors.csv"
+        print("Retrying the repositories that failed.")
+        input_file = Path("../data/huggingface_sort_by_createdAt_top996939_errors_0_1035.csv")
         df = pd.read_csv(input_file)
         repo_urls = df["repo_url"].tolist()
-        print(f"Retrying the repositories that failed from {input_file}")
+        start_idx, end_idx = "RETRIED", len(repo_urls)
     else:
         # read start index and end index from the command line
-        input_file = DATA_DIR / f"hf_sort_by_createdAt_top996939_{group_type}_selected.json"
+        start_idx, end_idx = parse_args()
+        input_file = Path("../data/huggingface_sort_by_createdAt_top996939_selected.json")
         df = pd.read_json(input_file)
-        repo_urls = df["id"].tolist()[:5]
-        print(f"Extracting commits from {input_file}")
+        repo_urls = df["id"].tolist()
+        repo_urls = repo_urls[start_idx:end_idx]
+        print("Parsing repositories from", start_idx, "to", end_idx)
 
     # iterates over the repositories
     commits, errors = [], []
     save_at = 50
     commits_columns = ["repo_url", "commit_hash", "author", "date", "message", "changed_files", "all_files_in_tree"]
     error_columns = ["repo_url", "error"]
-    output_file = input_file.stem.replace("_selected", "_commits") + f".csv"
+    output_file = input_file.stem.replace("_selected", "_commits") + f"_{start_idx}_{end_idx}.csv"
     error_file = output_file.replace("commits", "errors")
-    output_file = DATA_DIR / output_file
-    error_file = DATA_DIR / error_file
+    output_file = Path("../data") / output_file
+    error_file = Path("../data") / error_file
 
     for i, repo_url in tqdm(enumerate(repo_urls), unit="repo", total=len(repo_urls)):
         clone_path = os.path.join("./tmp", repo_url.replace("/", "+"))
-    try:
-        repo = clone(repo_url, clone_path, True)
-        repo_commits = get_commits(clone_path)
-        repo_commits = [(repo_url,) + c for c in repo_commits]
-        commits.extend(repo_commits)
-        if i > 0 and i % save_at == 0:
-            save(commits, commits_columns, output_file)
-            save(errors, error_columns, error_file)
-        repo.close()
-    except Exception as e:
-        print(f"Error processing {repo_url}: {e}")
-        errors.append((repo_url, e))
-    finally:
-        if os.path.exists(clone_path):
-            delete_folder(clone_path)
+        try:
+            repo = clone(repo_url, clone_path, True)
+            repo_commits = get_commits(clone_path)
+            repo_commits = [(repo_url,) + c for c in repo_commits]
+            commits.extend(repo_commits)
+            if i > 0 and i % save_at == 0:
+                save(commits, commits_columns, output_file)
+                save(errors, error_columns, error_file)
+            repo.close()
+        except Exception as e:
+            print(f"Error processing {repo_url}: {e}")
+            errors.append((repo_url, e))
+        finally:
+            if os.path.exists(clone_path):
+                utils.delete_folder(clone_path)
 
     # save the rest of the commits to CSV
     save(commits, commits_columns, output_file)

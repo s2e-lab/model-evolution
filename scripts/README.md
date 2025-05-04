@@ -64,7 +64,12 @@ pip install .
   It requires the start and end index of the models to be processed. This script will take a long time to run (~1 day).
 
 ```bash
-python get_commit_logs.py <start_index> <end_index>
+python get_commit_logs.py group_type [--should_retry]
+```
+
+Where `group_type` is either `legacy` or `recent`, and `--should_retry` is an optional argument that will retry
+extracting the commits for the repositories that previously failed. It parses the CSV file with errors to retry those.
+
 ```
 
 Example: below it will process the first 517 models and then the next 517 models.

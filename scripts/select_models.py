@@ -166,4 +166,4 @@ if __name__ == "__main__":
     print(len(df_legacy), "legacy repositories selected for the study")
     print(f"\tLegacy Period: {df_legacy['created_at'].min()} - {df_legacy['created_at'].max()}")
     print(len(df_recent), "recent repositories selected for the study")
-    print(f"\t\tRecent Period: {df_recent['created_at'].min()} - {df_recent['created_at'].max()}")
+    print(f"\tRecent Period: {df_recent['created_at'].min()} - {df_recent['created_at'].max()}")
