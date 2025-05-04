@@ -81,12 +81,12 @@ python get_commit_logs.py legacy --retry
 ```
 
 It will save the commit history for each model in the `../data/` folder.
-File names will be `hf_sort_by_createdAt_topN_commits_<group_type>.csv`
-and `hf_sort_by_createdAt_topN_errors_<group_type>.csv`.
+File names will be `selected_<group_type>_commits.csv`
+and `selected_<group_type>_errors.csv`
 Notice that if you run the script with `--retry` it will create a new file with the errors and not overwrite the
 previous.
-These files would be named as: `hf_sort_by_createdAt_top996939_{group_type}_commits_retried.csv`
-and `hf_sort_by_createdAt_top996939_{group_type}_errors_retried.csv`.
+These files would be named as: `selected_<group_type>_commits_retried.csv`
+and `selected_<group_type>_errors_retried.csv`.
 
 #### Step 4: Analyzing the commit history to identify the serialization format
 
