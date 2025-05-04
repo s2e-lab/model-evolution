@@ -98,7 +98,6 @@ if __name__ == '__main__':
     save_at, out_filename = 100, f"repositories_evolution_{group_type}_commits.csv"
 
     # iterate over the range of commits
-    df_commits = df_commits[:5]
     for index, row in tqdm(df_commits.iterrows(), total=len(df_commits), unit="commit"):
         all_model_files = [f for f in row["all_files_in_tree"].split(";") if is_model_file(f)]
         changed_files = [x.split()[1] for x in row["changed_files"].split(";")]
