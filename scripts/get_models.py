@@ -26,6 +26,8 @@ if __name__ == '__main__':
     results = []
 
     for model in models:
+        # skips models created after 2024
+        if model.created_at.year > 2024: continue
         results.append(vars(model))
         repo_files = []
         if model.siblings:
