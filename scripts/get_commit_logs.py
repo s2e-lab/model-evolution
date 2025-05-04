@@ -3,7 +3,7 @@ This script clones the repositories from Hugging Face and extracts the commit hi
 It reads the repositories from a JSON file (subset of model repositories) and saves the commits to a CSV file.
 It also saves the errors to a separate CSV file.
 
-Notice that if you want to retry the repositories that failed, you should set the variable should_retry to True.
+Notice that if you want to retry the repositories that failed, you should run with the argument `--retry`.
 @Author: Joanna C. S. Santos
 """
 import os
@@ -16,26 +16,27 @@ import pandas as pd
 from analyticaml import check_ssh_connection
 from tqdm import tqdm
 
-import utils
-from utils import clone
+from utils import clone, DATA_DIR, delete_folder
 
 NULL_TREE = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
 
 
-def get_commits(clone_path: str):
+def get_commits(repo_path: str) -> tuple:
     """
     Get the commits from a repository
-    :param clone_path: where the repository is cloned.
+    :param repo_path: where the repository is cloned.
     :return: a list of tuples with the commit information.
     """
-    repo = git.Repo(clone_path)
+    repository = git.Repo(repo_path)
 
     commits = []
 
     # Iterate through the commits
-    for commit in repo.iter_commits():
+    for commit in repository.iter_commits():
         commit_date = datetime.fromtimestamp(commit.committed_date)
-        # changed_files = [x for x in commit.stats.files]
+        # skip commits made after 2024
+        if commit_date.year > 2024: continue
+
         all_files_in_tree = [item.path for item in commit.tree.traverse()]
         if commit.parents:
             file_diffs = commit.parents[0].diff(commit)  # Compare with the parent+
@@ -47,7 +48,7 @@ def get_commits(clone_path: str):
                 file_path = change_type[diff.change_type] + " " + file_path
                 changed_files.append(file_path)
         else:
-            file_diffs = commit.diff(NULL_TREE)  # Compare with the parent or empty tree
+            file_diffs = commit.diff(NULL_TREE)  # Compare with an empty tree (initial commit)
             changed_files = [f"+ {diff.a_path}" for diff in file_diffs]
 
         commits.append(
@@ -58,24 +59,25 @@ def get_commits(clone_path: str):
     return commits
 
 
+import argparse
+
+
 def parse_args():
-    """
-    Parse the command line arguments
-    :return: the start index and end index
-    """
-    if len(sys.argv) > 1:
-        start_idx = int(sys.argv[1])
-        end_idx = int(sys.argv[2])
-        if start_idx >= end_idx:
-            print("The start index must be smaller than the end index.")
-            sys.exit(1)
-        if start_idx < 0:
-            print("The start index must be a positive number.")
-            sys.exit(1)
-    else:
-        print("Usage: python get_commit_logs.py <start_index> <end_index>")
-        sys.exit(1)
-    return start_idx, end_idx
+    parser = argparse.ArgumentParser(description="Process repository group.")
+    # Positional arguments with strict choices
+    parser.add_argument(
+        "group_type",
+        choices=["legacy", "recent"],
+        help="Type of repository group to process: 'legacy' or 'recent'."
+    )
+    # Optional boolean flag
+    parser.add_argument(
+        "--retry",
+        action="store_true",
+        help="If set, the script will  retry the repositories that failed."
+    )
+
+    return parser.parse_args()
 
 
 def save(data: list, columns: list, out_file: str | Path) -> None:
@@ -100,32 +102,38 @@ if __name__ == "__main__":
         print("If it is anonymous, you need to add your SSH key to your HuggingFace account.")
         sys.exit(1)
 
-    #  set this to True if you want to retry the repositories that failed
-    should_retry = False
+    # Parse command line arguments
+    args = parse_args()
+    group_type = args.group_type
+    should_retry = args.retry
+    print(f"Group type: {group_type}")
+    print(f"Retry: {should_retry}")
+
+    # Process the repositories
     if should_retry:
-        print("Retrying the repositories that failed.")
-        input_file = Path("../data/huggingface_sort_by_createdAt_top996939_errors_0_1035.csv")
+        input_file = DATA_DIR / f"selected_{group_type}_errors.csv"
         df = pd.read_csv(input_file)
         repo_urls = df["repo_url"].tolist()
-        start_idx, end_idx = "RETRIED", len(repo_urls)
+        print(f"Retrying the repositories that failed from {input_file}")
+        output_file = input_file.stem.replace("_errors", "_commits_retried") + ".csv"
+        error_file = output_file.replace("commits", "errors")
     else:
         # read start index and end index from the command line
-        start_idx, end_idx = parse_args()
-        input_file = Path("../data/huggingface_sort_by_createdAt_top996939_selected.json")
+        input_file = DATA_DIR / f"selected_{group_type}_repos.json"
         df = pd.read_json(input_file)
         repo_urls = df["id"].tolist()
-        repo_urls = repo_urls[start_idx:end_idx]
-        print("Parsing repositories from", start_idx, "to", end_idx)
+        print(f"Extracting commits from {input_file}")
+        output_file = input_file.stem.replace("_repos", "_commits") + ".csv"
+        error_file = output_file.replace("commits", "errors")
 
     # iterates over the repositories
     commits, errors = [], []
     save_at = 50
     commits_columns = ["repo_url", "commit_hash", "author", "date", "message", "changed_files", "all_files_in_tree"]
     error_columns = ["repo_url", "error"]
-    output_file = input_file.stem.replace("_selected", "_commits") + f"_{start_idx}_{end_idx}.csv"
-    error_file = output_file.replace("commits", "errors")
-    output_file = Path("../data") / output_file
-    error_file = Path("../data") / error_file
+
+    output_file = DATA_DIR / output_file
+    error_file = DATA_DIR / error_file
 
     for i, repo_url in tqdm(enumerate(repo_urls), unit="repo", total=len(repo_urls)):
         clone_path = os.path.join("./tmp", repo_url.replace("/", "+"))
@@ -143,7 +151,7 @@ if __name__ == "__main__":
             errors.append((repo_url, e))
         finally:
             if os.path.exists(clone_path):
-                utils.delete_folder(clone_path)
+                delete_folder(clone_path)
 
     # save the rest of the commits to CSV
     save(commits, commits_columns, output_file)

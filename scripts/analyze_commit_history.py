@@ -1,3 +1,4 @@
+import argparse
 import atexit
 import os
 import sys
@@ -7,8 +8,24 @@ import pandas as pd
 from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
 from analyticaml.model_parser import detect_serialization_format
 from tqdm import tqdm
+
+from utils import DATA_DIR, RESULTS_DIR
 from utils import delete_folder, clone
-from utils import DATA_DIR
+
+
+def parse_args():
+    """
+    Parse the command line arguments
+    :return: the parsed arguments
+    """
+    parser = argparse.ArgumentParser(description="Process repository group.")
+    # Positional arguments with strict choices
+    parser.add_argument(
+        "group_type",
+        choices=["legacy", "recent"],
+        help="Type of repository group to process: 'legacy' or 'recent'."
+    )
+    return parser.parse_args()
 
 
 def filter_by_extension(changed_files: str):
@@ -30,33 +47,6 @@ def is_model_file(file_path: str):
     :return: True if the file is a model file, False otherwise.
     """
     return Path(file_path).suffix[1:] in MODEL_FILE_EXTENSIONS
-
-
-def parse_args(max_commits: int):
-    """
-    Parse the command line arguments
-    :return: the start index and end index
-    """
-    if len(sys.argv) > 1:
-        start_idx = int(sys.argv[1])
-        end_idx = int(sys.argv[2])
-        if end_idx >= max_commits:
-            print(f"The maximum number of commits is {max_commits - 1}. End index must be smaller than that.")
-            sys.exit(1)
-        if start_idx > end_idx:
-            print("The start index must be smaller than the end index")
-            sys.exit(1)
-        if start_idx < 0:
-            print("The start index must be greater than or equal to 0")
-            sys.exit(1)
-
-    else:
-        print(f"Usage: python {os.path.basename(__file__)} <start_index> <end_index>")
-        print("Example: python analyze_snapshots.py 0 100")
-        print("This will analyze the commits from index 0 to 100 (inclusive in both ends)")
-        print(f"Note: The maximum end index  is {max_commits - 1}")
-        sys.exit(1)
-    return start_idx, end_idx
 
 
 def cleanup():
@@ -81,8 +71,12 @@ if __name__ == '__main__':
         print("If it is anonymous, you need to add your SSH key to your HuggingFace account.")
         sys.exit(1)
 
+    # Parse the command line arguments
+    args = parse_args()
+    group_type = args.group_type
+
     # Load the repositories and set nan columns to empty string
-    input_file = Path("../data/huggingface_sort_by_createdAt_top996939_commits_0_1035.csv")
+    input_file = DATA_DIR / f"selected_{group_type}_commits.csv"
     df_commits = pd.read_csv(input_file).fillna("")
     print("Total number of commits:", len(df_commits))
 
@@ -91,9 +85,6 @@ if __name__ == '__main__':
     df_commits.reset_index(drop=True, inplace=True)
     print("Number of commits touching at least one model file:", len(df_commits))
 
-    # Parse the command line arguments
-    start_idx, end_idx = parse_args(len(df_commits))
-
     # this is the last repository URL and object, used to avoid cloning the same repository multiple times
     last_repo_url, last_repo_obj, last_clone_path = None, None, None
 
@@ -101,15 +92,14 @@ if __name__ == '__main__':
     df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format",
                                       "message", "author", "date", "is_in_commit"])
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
-    # get batch from repos starting at start_idx and ending at end_idx (inclusive)
-    batch = df_commits[start_idx:end_idx + 1]
 
-    print(f"Starting batch processing (range = {start_idx}-{end_idx})...")
     # Analysis configuration
-    save_at, out_suffix = 100, "repositories_evolution_commits"
+    print(f"Start processing (range = {0}-{len(df_commits)}) for group {group_type}...")
+    save_at, out_filename = 100, f"repositories_evolution_{group_type}_commits.csv"
 
     # iterate over the range of commits
-    for index, row in tqdm(batch.iterrows(), total=len(batch), unit="commit"):
+    df_commits = df_commits[:5]
+    for index, row in tqdm(df_commits.iterrows(), total=len(df_commits), unit="commit"):
         all_model_files = [f for f in row["all_files_in_tree"].split(";") if is_model_file(f)]
         changed_files = [x.split()[1] for x in row["changed_files"].split(";")]
         try:
@@ -157,16 +147,14 @@ if __name__ == '__main__':
 
         # SAVES THE DATAFRAME EVERY save_at ITERATIONS
         if index != 0 and index % save_at == 0:
-            output_file = f"{out_suffix}_{start_idx}_{end_idx}.csv"
-            df_output.to_csv(DATA_DIR / output_file, index=False)
-            df_errors.to_csv(DATA_DIR / output_file.replace("commits", "errors"), index=False)
+            df_output.to_csv(DATA_DIR / out_filename, index=False)
+            df_errors.to_csv(DATA_DIR / out_filename.replace("commits", "errors"), index=False)
 
     # after all is said and done, how many unique [repo_url,commit_hash] we have in total?
     print(f"Unique commits: {len(df_output[['repo_url', 'commit_hash']].drop_duplicates())}")
 
     # save the output dataframes
-    output_file = f"{out_suffix}_{start_idx}_{end_idx}.csv"
-    df_output.to_csv(DATA_DIR / output_file, index=False)
-    df_errors.to_csv(DATA_DIR / output_file.replace("commits", "errors"), index=False)
+    df_output.to_csv(DATA_DIR / out_filename, index=False)
+    df_errors.to_csv(DATA_DIR / out_filename.replace("commits", "errors"), index=False)
 
-    print(f"Output saved to ../data/{output_file}")
+    print(f"Output saved to {DATA_DIR}/{out_filename}")
