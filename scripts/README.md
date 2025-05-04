@@ -61,27 +61,35 @@ pip install .
 
 - `get_commit_logs.py`: Script to get metadata of all models from HuggingFace.
   It will produce commit history for each model repository and save it on the data folder.
-  It requires the start and end index of the models to be processed. This script will take a long time to run (~1 day).
+  This script will take a long time to run (~1 day).
 
 ```bash
-python get_commit_logs.py group_type [--should_retry]
+python get_commit_logs.py group_type [--retry]
 ```
 
-Where `group_type` is either `legacy` or `recent`, and `--should_retry` is an optional argument that will retry
+Where `group_type` is either `legacy` or `recent`, and `--retry` is an optional argument that will retry
 extracting the commits for the repositories that previously failed. It parses the CSV file with errors to retry those.
 
 ```
 
-Example: below it will process the first 517 models and then the next 517 models.
+Example: below it will extract the commit logs for legacy models.
+The second command then retries the repos that failed. 
 
 ```bash
-python get_commit_logs.py 0 517
-python get_commit_logs.py 517 1035 
+python get_commit_logs.py legacy
+python get_commit_logs.py legacy --retry 
 ```
 
 It will save the commit history for each model in the `../data/` folder.
-File names will be `hf_sort_by_createdAt_topN_commits_<first_index>_<last_index>.csv`
-and `hf_sort_by_createdAt_topN_commits_<first_index>_<last_index>.csv`.
+File names will be `hf_sort_by_createdAt_topN_commits_<group_type>.csv`
+and `hf_sort_by_createdAt_topN_errors_<group_type>.csv`.
+Notice that if you run the script with `--retry` it will create a new file with the errors and not overwrite the previous.
+These files would be named as:
+`hf_sort_by_createdAt_top996939_{group_type}_commits_retried.csv`
+and 
+`hf_sort_by_createdAt_top996939_{group_type}_errors_retried.csv`
+.
+
 
 #### Step 4: Merging the commit history into a single CSV file
 

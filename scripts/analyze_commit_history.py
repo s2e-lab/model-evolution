@@ -82,7 +82,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     # Load the repositories and set nan columns to empty string
-    input_file = Path("../data/huggingface_sort_by_createdAt_top996939_commits_0_1035.csv")
+    input_file = DATA_DIR / "hf_sort_by_createdAt_top996939_commits.csv"
     df_commits = pd.read_csv(input_file).fillna("")
     print("Total number of commits:", len(df_commits))
 
