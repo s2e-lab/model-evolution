@@ -3,7 +3,7 @@ This script clones the repositories from Hugging Face and extracts the commit hi
 It reads the repositories from a JSON file (subset of model repositories) and saves the commits to a CSV file.
 It also saves the errors to a separate CSV file.
 
-Notice that if you want to retry the repositories that failed, you should set the variable should_retry to True.
+Notice that if you want to retry the repositories that failed, you should set the variable `should_retry` to `True`.
 @Author: Joanna C. S. Santos
 """
 import os
@@ -22,20 +22,19 @@ from utils import clone
 NULL_TREE = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
 
 
-def get_commits(clone_path: str):
+def get_commits(repo_path: str) -> tuple:
     """
     Get the commits from a repository
-    :param clone_path: where the repository is cloned.
+    :param repo_path: where the repository is cloned.
     :return: a list of tuples with the commit information.
     """
-    repo = git.Repo(clone_path)
+    repository = git.Repo(repo_path)
 
     commits = []
 
     # Iterate through the commits
-    for commit in repo.iter_commits():
+    for commit in repository.iter_commits():
         commit_date = datetime.fromtimestamp(commit.committed_date)
-        # changed_files = [x for x in commit.stats.files]
         all_files_in_tree = [item.path for item in commit.tree.traverse()]
         if commit.parents:
             file_diffs = commit.parents[0].diff(commit)  # Compare with the parent+
@@ -47,7 +46,7 @@ def get_commits(clone_path: str):
                 file_path = change_type[diff.change_type] + " " + file_path
                 changed_files.append(file_path)
         else:
-            file_diffs = commit.diff(NULL_TREE)  # Compare with the parent or empty tree
+            file_diffs = commit.diff(NULL_TREE)  # Compare with an empty tree (initial commit)
             changed_files = [f"+ {diff.a_path}" for diff in file_diffs]
 
         commits.append(
