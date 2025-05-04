@@ -136,9 +136,9 @@ def sample(df: pd.DataFrame, total: int):
 
 
 if __name__ == "__main__":
-    input_file = DATA_DIR / "hf_sort_by_createdAt_top996939.json.zip"
-    out_legacy_models_file = DATA_DIR / "hf_sort_by_createdAt_top996939_legacy_selected.json"
-    out_recent_models_file = DATA_DIR / "hf_sort_by_createdAt_top996939_recent_selected.json"
+    input_file = DATA_DIR / "hf_sort_by_createdAt_top1211357.json.zip"
+    out_legacy_models_file = DATA_DIR / "selected_legacy_repos.json"
+    out_recent_models_file = DATA_DIR / "selected_recent_repos.json"
 
     # Step 1: Load the repositories' metadata
     print(f"Loading data from {input_file}...")

@@ -111,7 +111,7 @@ if __name__ == "__main__":
 
     # Process the repositories
     if should_retry:
-        input_file = DATA_DIR / f"hf_sort_by_createdAt_top996939_{group_type}_errors.csv"
+        input_file = DATA_DIR / f"selected_{group_type}_errors.csv"
         df = pd.read_csv(input_file)
         repo_urls = df["repo_url"].tolist()
         print(f"Retrying the repositories that failed from {input_file}")
@@ -119,11 +119,11 @@ if __name__ == "__main__":
         error_file = output_file.replace("commits", "errors")
     else:
         # read start index and end index from the command line
-        input_file = DATA_DIR / f"hf_sort_by_createdAt_top996939_{group_type}_selected.json"
+        input_file = DATA_DIR / f"selected_{group_type}_repos.json"
         df = pd.read_json(input_file)
         repo_urls = df["id"].tolist()
         print(f"Extracting commits from {input_file}")
-        output_file = input_file.stem.replace("_selected", "_commits") + ".csv"
+        output_file = input_file.stem.replace("_repos", "_commits") + ".csv"
         error_file = output_file.replace("commits", "errors")
 
     # iterates over the repositories

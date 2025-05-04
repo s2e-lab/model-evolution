@@ -52,9 +52,9 @@ pip install .
     python select_models.py
   ```
   It will select model repositories and save the filtered list in two files:
-    - `../data/hf_sort_by_createdAt_topN_legacy_selected.json`: Group 1. Repositories created **before** safetensors'
+    - `../data/selected_legacy_repos.json`: Group 1. Repositories created **before** safetensors'
       release.
-    - `../data/hf_sort_by_createdAt_topN_recent_selected.json`. Group 2. Repositories created **after** safetensors'
+    - `../data/selected_recent_repos.json`. Group 2. Repositories created **after** safetensors'
       release. Notice that we downsample it to match the number of samples in the first group.
 
 #### Step 3: Getting the commit history of the models
