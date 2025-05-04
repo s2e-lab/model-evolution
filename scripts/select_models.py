@@ -92,6 +92,7 @@ def sample(df: pd.DataFrame, total: int):
     :param total: total number of samples to return
     :return: DataFrame with `total` rows, sampled from the input DataFrame
     """
+    print(len(df), "repositories to sample from")
     random.seed(42)  # make sampling procedure reproducible
     date_col = "created_at"  # column to sample on
     # 1) Normalise the date column and attach a Year‑Month bucket (Period[M])
