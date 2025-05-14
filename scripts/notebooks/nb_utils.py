@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 import os
 from analyticaml import MODEL_FILE_EXTENSIONS
-
+from typing import Literal
 # Reference date when safetensors was released
 SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-23")
 # Data and results directories
@@ -12,16 +12,30 @@ DATA_DIR = Path('../../data')
 RESULTS_DIR = Path('../../results')
 
 
-def read_repositories_evolution() -> pd.DataFrame:
+def read_repositories_evolution(group: Literal['recent', 'legacy']) -> pd.DataFrame:
     """
     Read the commits from the repository evolution dataset.
-    :return:
+    :return: a data frame
     """
-    df = pd.read_csv(DATA_DIR / 'repositories_evolution_commits_0_4888.csv')
+    if group not in ('recent', 'legacy'):
+        raise ValueError(f"Invalid mode: {group}")
+
+    df = pd.read_csv(DATA_DIR / f"repositories_evolution_{group}_commits.csv")
     # ensure date is in datetime format
     df['date'] = pd.to_datetime(df['date'])
     # Calculate elapsed days since reference date (safetensors first release)
     df['elapsed_days'] = (df['date'] - SAFETENSORS_RELEASE_DATE).dt.days
+
+    # check whether all files are in cache
+    all_model_files = [f for f in row["all_files_in_tree"].split(";") if is_model_file(f)]
+    changed_files = dict()  # key = file_path, value = status (added, modified, deleted)
+    for x in row["changed_files"].split(";"):
+        status, file_path = x.split(maxsplit=1)
+        changed_files[file_path] = status
+
+
+
+
     return df
 
 
