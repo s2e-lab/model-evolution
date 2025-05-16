@@ -1,10 +1,11 @@
 import zipfile
 from pathlib import Path
+from typing import Literal
 
 import pandas as pd
-import os
 from analyticaml import MODEL_FILE_EXTENSIONS
-from typing import Literal
+from tqdm import tqdm
+
 # Reference date when safetensors was released
 SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-23")
 # Data and results directories
@@ -25,16 +26,26 @@ def read_repositories_evolution(group: Literal['recent', 'legacy']) -> pd.DataFr
     df['date'] = pd.to_datetime(df['date'])
     # Calculate elapsed days since reference date (safetensors first release)
     df['elapsed_days'] = (df['date'] - SAFETENSORS_RELEASE_DATE).dt.days
-
-    # check whether all files are in cache
-    all_model_files = [f for f in row["all_files_in_tree"].split(";") if is_model_file(f)]
+    # Add a change_status to data frame
+    df_commits = pd.read_csv(DATA_DIR / f"selected_{group}_commits.csv")
+    # set "changed_files" column to empty string if it is NaN
+    df_commits["changed_files"] = df_commits["changed_files"].fillna("")
     changed_files = dict()  # key = file_path, value = status (added, modified, deleted)
-    for x in row["changed_files"].split(";"):
-        status, file_path = x.split(maxsplit=1)
-        changed_files[file_path] = status
+    for index, row in tqdm(df_commits.iterrows(), total=len(df_commits), unit="commit"):
+        commit_hash = row["commit_hash"]
+        repo_url = row["repo_url"]
+        if row["changed_files"]:
+            for x in row["changed_files"].split(";"):
+                status, file_path = x.split(maxsplit=1)
+                changed_files[f"{repo_url}/{file_path}&&{commit_hash}"] = status
 
-
-
+    # Add the change_status to the data frame for the files that are in the commit
+    df["change_status"] = ""
+    for index, row in tqdm(df.iterrows(), total=len(df), unit="commit"):
+        commit_hash = row["commit_hash"]
+        model_file_path = row["model_file_path"]
+        if df.at[index, "is_in_commit"]:
+            df.at[index, "change_status"] = changed_files[f"{model_file_path}&&{commit_hash}"]
 
     return df
 
@@ -51,7 +62,7 @@ def filter_by_extension(changed_files: str) -> bool:
     return any([ext in MODEL_FILE_EXTENSIONS for ext in file_extensions])
 
 
-def get_commit_log_stats() -> pd.Series:
+def get_commit_log_stats(group: Literal['recent', 'legacy']) -> pd.Series:
     """
     Read the commits logs extracted for the selected repositories and compute some basic stats.
     :return:
@@ -59,7 +70,7 @@ def get_commit_log_stats() -> pd.Series:
     stats = pd.Series()
 
     # Load the repositories and set nan columns to empty string
-    input_file = DATA_DIR / "huggingface_sort_by_createdAt_top996939_commits_0_1035.csv"
+    input_file = DATA_DIR / f"selected_{group}_commits.csv"
     df = pd.read_csv(input_file).fillna("")
     stats.loc["# commits in all logs (total)"] = len(df)
 
@@ -111,3 +122,5 @@ def unzip(zip_path, extract_to='.'):
     # Unzip the file
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(extract_to)
+
+

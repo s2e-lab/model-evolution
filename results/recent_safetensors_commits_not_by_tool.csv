@@ -1,0 +1,281 @@
+repo_url,commit_hash,model_file_path,serialization_format,message,author,date,is_in_commit,elapsed_days,change_status
+oxfldr/tst2,6f28344f14b0104bab53efa5eb49860439c50e6e,oxfldr/tst2/tst.safetensors,safetensors,Upload tst.safetensors,oxfldr,2024-12-30 13:36:41,True,829,+
+VERSIL91/00488658-88ae-4408-83d8-d20bb8329c91,6fcc13d0950576a5e32201cef94826ef39203ee9,VERSIL91/00488658-88ae-4408-83d8-d20bb8329c91/last-checkpoint/adapter_model.safetensors,safetensors,"Training in progress, step 2, checkpoint",LYLLA,2024-12-29 00:17:27,True,828,+
+VERSIL91/00488658-88ae-4408-83d8-d20bb8329c91,813feba3df3ff8841d9f1dc95daa73335a2ba392,VERSIL91/00488658-88ae-4408-83d8-d20bb8329c91/adapter_model.safetensors,safetensors,"Training in progress, step 2",LYLLA,2024-12-29 00:17:24,True,828,+
+isspek/xlnet-base-cased_monkeypox_4_2e-5_16_undersampling_0.5,40958dd59731c9c698e8755c8d8b3d5b7b8a4103,isspek/xlnet-base-cased_monkeypox_4_2e-5_16_undersampling_0.5/model.safetensors,safetensors,Upload XLNetForSequenceClassification,Ipek Baris Schlicht,2024-12-28 12:00:37,True,827,+
+VERSIL91/5b77b573-4804-4f96-9c37-44901b930be7,8e9afac4229a5a58f295ec222abfc6e8e878ce5d,VERSIL91/5b77b573-4804-4f96-9c37-44901b930be7/last-checkpoint/adapter_model.safetensors,safetensors,"Training in progress, step 2, checkpoint",LYLLA,2024-12-28 03:01:01,True,827,+
+VERSIL91/5b77b573-4804-4f96-9c37-44901b930be7,2108baf41d2f8141f2c7710431605ea6ed084a65,VERSIL91/5b77b573-4804-4f96-9c37-44901b930be7/adapter_model.safetensors,safetensors,"Training in progress, step 2",LYLLA,2024-12-28 03:00:55,True,827,+
+memevis/bimbim5,81b35da15a493c67d7cea578fc29a26b8bf85327,memevis/bimbim5/model-00001-of-00003.safetensors,safetensors,Upload LlamaForCausalLM,memevis,2024-12-27 14:21:28,True,826,+
+memevis/bimbim5,81b35da15a493c67d7cea578fc29a26b8bf85327,memevis/bimbim5/model-00002-of-00003.safetensors,safetensors,Upload LlamaForCausalLM,memevis,2024-12-27 14:21:28,True,826,+
+memevis/bimbim5,81b35da15a493c67d7cea578fc29a26b8bf85327,memevis/bimbim5/model-00003-of-00003.safetensors,safetensors,Upload LlamaForCausalLM,memevis,2024-12-27 14:21:28,True,826,+
+akhooli/whisper-small-ar2,85547d0460659dbc2e9866d5f7e5460ec277c211,akhooli/whisper-small-ar2/model.safetensors,safetensors,"Training in progress, step 500",Abed Khooli,2024-12-26 07:21:59,True,825,+
+dzanbek/9c0ba83d-7ad1-4ee2-9ce3-e505d153c9e6,ca593dbd98f89c0dd359dc4ace31de2516fb628b,dzanbek/9c0ba83d-7ad1-4ee2-9ce3-e505d153c9e6/last-checkpoint/adapter_model.safetensors,safetensors,"Training in progress, step 25, checkpoint",Dim DO,2024-12-25 11:26:07,True,824,+
+dzanbek/9c0ba83d-7ad1-4ee2-9ce3-e505d153c9e6,09bddb4b45ed0a9775899b64ccb7bd954a4c1615,dzanbek/9c0ba83d-7ad1-4ee2-9ce3-e505d153c9e6/adapter_model.safetensors,safetensors,"Training in progress, step 25",Dim DO,2024-12-25 11:25:55,True,824,+
+PrunaAI/ebrukilic-model-bnb-8bit-smashed,5020e8c5def11f5461804f060c8717c75996bf46,PrunaAI/ebrukilic-model-bnb-8bit-smashed/model-00001-of-00002.safetensors,safetensors,"Upload folder using huggingface_hub (#1)
+
+
+- 119e0e7da35b49a27a6fa1a644ac48a7d2fad1d7690dff440cceecf1ed453dc7 (8fdabf59bad143ec99bdf636a6bfbd962635d195)
+- 24aa45f1dbfacd320d4b333a499e49b9d44734626681f826055f77e1d5f502ea (c60095a1d512d045891b03ae9963d5e9c97eb452)
+- 83185bac00cc212c0f6789ebdbb70ea4891b313857a1ca17ef413eb5ae961a65 (84f9d9735f3a7c6733d2b0c73c9a68db61e38e31)",Bertrand Charpentier,2024-12-24 10:30:37,True,823,+
+PrunaAI/ebrukilic-model-bnb-8bit-smashed,5020e8c5def11f5461804f060c8717c75996bf46,PrunaAI/ebrukilic-model-bnb-8bit-smashed/model-00002-of-00002.safetensors,safetensors,"Upload folder using huggingface_hub (#1)
+
+
+- 119e0e7da35b49a27a6fa1a644ac48a7d2fad1d7690dff440cceecf1ed453dc7 (8fdabf59bad143ec99bdf636a6bfbd962635d195)
+- 24aa45f1dbfacd320d4b333a499e49b9d44734626681f826055f77e1d5f502ea (c60095a1d512d045891b03ae9963d5e9c97eb452)
+- 83185bac00cc212c0f6789ebdbb70ea4891b313857a1ca17ef413eb5ae961a65 (84f9d9735f3a7c6733d2b0c73c9a68db61e38e31)",Bertrand Charpentier,2024-12-24 10:30:37,True,823,+
+thangla01/3ba446b0-b898-42b5-8097-9d252351ea1e,57569875b39a5a57d672b9c5a6480d2e6ed4f203,thangla01/3ba446b0-b898-42b5-8097-9d252351ea1e/adapter_model.safetensors,safetensors,End of training,La,2024-12-21 18:34:03,True,820,+
+diaenra/75cadedd-0e07-4403-aba5-811500315943,8a4c0605a587ac29b048d4cb658bbea9aeb24469,diaenra/75cadedd-0e07-4403-aba5-811500315943/last-checkpoint/adapter_model.safetensors,safetensors,"Training in progress, step 25, checkpoint",diaenra,2024-12-20 15:04:21,True,819,+
+diaenra/75cadedd-0e07-4403-aba5-811500315943,b8ebafca0617c1e1162defb5f8df33d42a7868a0,diaenra/75cadedd-0e07-4403-aba5-811500315943/adapter_model.safetensors,safetensors,"Training in progress, step 25",diaenra,2024-12-20 15:04:14,True,819,+
+dgambettavuw/M_gen5_run1_llama2-7b_wiki_doc1000_real64_synt64_vuw,60925261c8b1b1732de31302d550444d7e1dec09,dgambettavuw/M_gen5_run1_llama2-7b_wiki_doc1000_real64_synt64_vuw/adapter_model.safetensors,safetensors,"Upload model trained with Unsloth
+
+Upload model trained with Unsloth 2x faster",Daniele Gambetta,2024-12-19 21:18:39,True,818,+
+minggi777/Llama-3-8B-Instruct-bfloat16,c9a903820acb06c58c8e03d794e6efdd92933729,minggi777/Llama-3-8B-Instruct-bfloat16/model-00001-of-00004.safetensors,safetensors,Upload LlamaForCausalLM,MinGiKim,2024-12-19 06:10:24,True,818,+
+minggi777/Llama-3-8B-Instruct-bfloat16,c9a903820acb06c58c8e03d794e6efdd92933729,minggi777/Llama-3-8B-Instruct-bfloat16/model-00002-of-00004.safetensors,safetensors,Upload LlamaForCausalLM,MinGiKim,2024-12-19 06:10:24,True,818,+
+minggi777/Llama-3-8B-Instruct-bfloat16,c9a903820acb06c58c8e03d794e6efdd92933729,minggi777/Llama-3-8B-Instruct-bfloat16/model-00003-of-00004.safetensors,safetensors,Upload LlamaForCausalLM,MinGiKim,2024-12-19 06:10:24,True,818,+
+minggi777/Llama-3-8B-Instruct-bfloat16,c9a903820acb06c58c8e03d794e6efdd92933729,minggi777/Llama-3-8B-Instruct-bfloat16/model-00004-of-00004.safetensors,safetensors,Upload LlamaForCausalLM,MinGiKim,2024-12-19 06:10:24,True,818,+
+istominvi/rk2__150_4_16,75271098f2439302cef80e6dd1cc15d681d33da9,istominvi/rk2__150_4_16/lora.safetensors,safetensors,Upload folder using huggingface_hub,Vladimir,2024-12-18 15:13:24,True,817,+
+dgambettavuw/M_gen5_run0_llama2-7b_wiki_doc1000_real64_synt64_vuw,7b96f1bb85d87d818bd813f22f3dc6f448580710,dgambettavuw/M_gen5_run0_llama2-7b_wiki_doc1000_real64_synt64_vuw/adapter_model.safetensors,safetensors,"Upload model trained with Unsloth
+
+Upload model trained with Unsloth 2x faster",Daniele Gambetta,2024-12-18 08:02:34,True,817,+
+bmehrba/Llama-2-13b-chat-hf_MedMCQA_v2_frequncy10_Seed2024-fine-tuned,9ff3a93c8f51ac60a312cf70dc7a6eabf65df73e,bmehrba/Llama-2-13b-chat-hf_MedMCQA_v2_frequncy10_Seed2024-fine-tuned/adapter_model.safetensors,safetensors,Upload model,Behzad Mehrbakhsh,2024-12-17 16:03:45,True,816,+
+fahd200581/AIROBYAI,c49593f9e274ae2064a0db3c22774183c41bdefa,fahd200581/AIROBYAI/lora.safetensors,safetensors,Upload folder using huggingface_hub,fahd abdo,2024-12-15 08:53:56,True,814,+
+ruchirsahni/tiny-nagpur-split,510cf5e81c3c9058df3cb67ff77f4bf9e4e0895e,ruchirsahni/tiny-nagpur-split/model.safetensors,safetensors,"Training in progress, step 500",Ruchir Sahni,2024-12-14 03:03:47,True,813,+
+enesuio/ennurv6,73fde823a64d8fa867f34eba138e9711c6853d9a,enesuio/ennurv6/ennurv6-000004.safetensors,safetensors,Upload folder using huggingface_hub,Enes,2024-12-13 18:27:41,True,812,+
+enesuio/ennurv6,73fde823a64d8fa867f34eba138e9711c6853d9a,enesuio/ennurv6/ennurv6-000008.safetensors,safetensors,Upload folder using huggingface_hub,Enes,2024-12-13 18:27:41,True,812,+
+enesuio/ennurv6,73fde823a64d8fa867f34eba138e9711c6853d9a,enesuio/ennurv6/ennurv6-000012.safetensors,safetensors,Upload folder using huggingface_hub,Enes,2024-12-13 18:27:41,True,812,+
+enesuio/ennurv6,73fde823a64d8fa867f34eba138e9711c6853d9a,enesuio/ennurv6/ennurv6.safetensors,safetensors,Upload folder using huggingface_hub,Enes,2024-12-13 18:27:41,True,812,+
+furrutiav/bert_w_sen_mixtral_nllfg_rubric_cola_sentence_embd_perplexity,6af91398a0dd34caefc610d5b5aaa7698d7b92bc,furrutiav/bert_w_sen_mixtral_nllfg_rubric_cola_sentence_embd_perplexity/model.safetensors,safetensors,Upload model,Felipe Urrutia,2024-12-12 14:17:28,True,811,+
+tsuzukia/llm-jp-3-13b-it_lora,6b0e31d636a509ed9ae8d6a9457ddc32b41410f3,tsuzukia/llm-jp-3-13b-it_lora/adapter_model.safetensors,safetensors,"Trained with Unsloth
+
+Upload model trained with Unsloth 2x faster",Toshitake Suzuki,2024-12-11 21:41:24,True,810,+
+julia-se/mistral_finetuning_se2,922188fa47e15e459e25046b44b3d6ddaf0ab392,julia-se/mistral_finetuning_se2/adapter_model.safetensors,safetensors,Upload model,Julia Dollis,2024-12-11 14:50:37,True,810,+
+shray98/peft-cumulative-testing-WAXS-21-openai-whisper-large-v3,1ff919354a70f19a1592458535440ddaff844995,shray98/peft-cumulative-testing-WAXS-21-openai-whisper-large-v3/adapter_model.safetensors,safetensors,Upload model,Shray Mathur,2024-12-10 11:50:16,True,809,+
+MayBashendy/ArabicNewSplits4_FineTuningAraBERT_run3_AugV5_k7_task5_organization,72293c1cf865d44887af12998b2c66f593d834e8,MayBashendy/ArabicNewSplits4_FineTuningAraBERT_run3_AugV5_k7_task5_organization/model.safetensors,safetensors,"Training in progress, step 240",May Bashendy,2024-12-09 17:58:58,True,808,+
+dylanewbie/whisper-large-v2-ft-cv16-1__car50-realworld-e3n4-and-n4r2_owner12-copy2x-241209-v1,a379872a4d368e79150cb2d2905a611ed6bba61e,dylanewbie/whisper-large-v2-ft-cv16-1__car50-realworld-e3n4-and-n4r2_owner12-copy2x-241209-v1/adapter_model.safetensors,safetensors,End of training,Di-Ying Li,2024-12-09 13:53:15,True,808,+
+ProbeX/Model-J__ResNet__model_idx_0816,df6f1ba2349257f28957683809084e8407f66a8a,ProbeX/Model-J__ResNet__model_idx_0816/model.safetensors,safetensors,Upload folder using huggingface_hub,Eliahu Horwitz,2024-12-09 07:28:18,True,808,+
+divstar/kirah-lora,f06511d2adf28978cafd53c992022449f967be9a,divstar/kirah-lora/lora.safetensors,safetensors,Upload folder using huggingface_hub,Nick,2024-12-09 01:49:18,True,808,+
+auslawbench/Cite-Llama-3.1-8B,55c93c8b4aa160d03ca01f6a9d115bc789c841d2,auslawbench/Cite-Llama-3.1-8B/adapter_model.safetensors,safetensors,Upload model,auslawbench,2024-12-08 22:58:04,True,807,+
+nblinh/3dc68e57-4d68-45da-90d6-b18b56865877,8cd6bd56932eb4f451c75892612c08f2d2a54708,nblinh/3dc68e57-4d68-45da-90d6-b18b56865877/adapter_model.safetensors,safetensors,End of training,Nguyen Ba Linh,2024-12-05 13:25:13,True,804,+
+tmmazen/mistral_7b_finetuned_medicinal_plants_qa,2605fd2da15cac89a154bc7c1386c6c3430f319f,tmmazen/mistral_7b_finetuned_medicinal_plants_qa/adapter_model.safetensors,safetensors,Upload model,tmani,2024-12-05 06:08:14,True,804,+
+legalvn/paraphrase-multilingual-MiniLM-L12-v2-vn-170000,5bad408efe64acb699b004f170a940e85068b62e,legalvn/paraphrase-multilingual-MiniLM-L12-v2-vn-170000/model.safetensors,safetensors,Upload finetuned model,Deep,2024-12-04 05:03:38,True,803,+
+MayBashendy/ArabicNewSplits2_FineTuningAraBERT_run4_AugV5_k20_task1_organization,b563fa094b04b67646839bd2a47034a6829c006f,MayBashendy/ArabicNewSplits2_FineTuningAraBERT_run4_AugV5_k20_task1_organization/model.safetensors,safetensors,"Training in progress, step 500",May Bashendy,2024-12-03 01:19:15,True,802,+
+QMMMS/my_awesome_model,bbaa4294c387d492a7f275f752d2cc06aa1f13d9,QMMMS/my_awesome_model/model.safetensors,safetensors,"Training in progress, epoch 1",Qin,2024-12-01 23:59:17,True,800,+
+Zhuoang/fine-tuned-roberta-nli,ddf9f9da68d150b8adb57b8c00caa2957638a7fd,Zhuoang/fine-tuned-roberta-nli/final_model/model.safetensors,safetensors,Final fine-tuned RoBERTa NLI model,Zhuoang Cai,2024-11-30 18:02:50,True,799,+
+Zhuoang/fine-tuned-roberta-nli,23b0893f54451e1cb37c28ff382497f304b13e78,Zhuoang/fine-tuned-roberta-nli/checkpoints/model.safetensors,safetensors,Checkpoint for epoch 1,Zhuoang Cai,2024-11-30 16:12:54,True,799,+
+Haesteining/PhiLargev3,892155e0a2397547207b3be236459d2994b3d02e,Haesteining/PhiLargev3/model-00001-of-00004.safetensors,safetensors,Upload Phi3ForCausalLM,Erik Hedström,2024-11-27 13:38:48,True,796,+
+Haesteining/PhiLargev3,892155e0a2397547207b3be236459d2994b3d02e,Haesteining/PhiLargev3/model-00002-of-00004.safetensors,safetensors,Upload Phi3ForCausalLM,Erik Hedström,2024-11-27 13:38:48,True,796,+
+Haesteining/PhiLargev3,892155e0a2397547207b3be236459d2994b3d02e,Haesteining/PhiLargev3/model-00003-of-00004.safetensors,safetensors,Upload Phi3ForCausalLM,Erik Hedström,2024-11-27 13:38:48,True,796,+
+Haesteining/PhiLargev3,892155e0a2397547207b3be236459d2994b3d02e,Haesteining/PhiLargev3/model-00004-of-00004.safetensors,safetensors,Upload Phi3ForCausalLM,Erik Hedström,2024-11-27 13:38:48,True,796,+
+sebacasas/zabaleta2024,0f563f469bc9cdc44ea314c2122be5bb44f263fc,sebacasas/zabaleta2024/flux_train_replicate.safetensors,safetensors,Upload folder using huggingface_hub,Sebastian,2024-11-27 10:28:12,True,796,+
+PopularPenguin/CodeT5L-1,825fdfaebabb7bb1b51f59f1ad021ba84e824a5e,PopularPenguin/CodeT5L-1/adapter_model.safetensors,safetensors,"Training in progress, step 500",Gaurav Padole,2024-11-27 04:15:44,True,796,+
+furrutiav/roberta_mixtral_nllfg_rubric_cola_none_item,68bd9940a2d639ef32b69ff13fdbbe13af3fef9d,furrutiav/roberta_mixtral_nllfg_rubric_cola_none_item/model.safetensors,safetensors,Upload model,Felipe Urrutia,2024-11-26 11:09:36,True,795,+
+kikonessssss/copafifalora,fd7023125f9dda432e1134c1fb9d7dc2a01537fd,kikonessssss/copafifalora/lora.safetensors,safetensors,Upload folder using huggingface_hub,kiko lunardon,2024-11-25 22:50:41,True,794,+
+isspek/xlnet-base-cased_zika_ebola_2_2e-5_16,8bdca188d2d5ca1659c40327705bec09f445a5f2,isspek/xlnet-base-cased_zika_ebola_2_2e-5_16/model.safetensors,safetensors,Upload XLNetForSequenceClassification,Ipek Baris Schlicht,2024-11-24 06:30:42,True,793,+
+isspek/xlnet-base-cased_zika_llama_ebola_llama_4_2e-5_16,ae12f9fb8d7dd329e5d72bcbc925019571378493,isspek/xlnet-base-cased_zika_llama_ebola_llama_4_2e-5_16/model.safetensors,safetensors,Upload XLNetForSequenceClassification,Ipek Baris Schlicht,2024-11-24 06:19:13,True,793,+
+PrunaAI/nroggendorff-smallama-it-bnb-8bit-smashed,ba33fa8458447229f7f3e2442799e2954ae3071a,PrunaAI/nroggendorff-smallama-it-bnb-8bit-smashed/model.safetensors,safetensors,"Upload folder using huggingface_hub (#1)
+
+
+- bb19ba5350524d587a0f407925d346524098d529ffc3daa4bfecc94bb6d798e5 (53139b57da5e3c05b0f6b63f48c28c5053a6770a)",Bertrand Charpentier,2024-11-22 08:07:28,True,791,+
+arinzeo/at-ru-en-finetuned-cyrillic-to-eng,ee05bd4d0f75f46f9910d5cdf30bb19090e14c71,arinzeo/at-ru-en-finetuned-cyrillic-to-eng/model.safetensors,safetensors,arinzeo/custom-ru-en,Arinzechukwu Ofodile,2024-11-21 20:41:51,True,790,+
+braindao/iq-code-evmind-0.5b-instruct-v0.2411.5,407f130d5f0604db2fba0cb948cda44445477492,braindao/iq-code-evmind-0.5b-instruct-v0.2411.5/model.safetensors,safetensors,(Trained with Unsloth),IQ,2024-11-21 06:33:17,True,790,+
+autoprogrammer/Llama-3.2-1B-Instruct-medmcqa-zh-linear,285f728efe202fa0414fec27de8682eb3f58cae3,autoprogrammer/Llama-3.2-1B-Instruct-medmcqa-zh-linear/model.safetensors,safetensors,Upload LlamaForCausalLM,Junxia Cui,2024-11-21 00:04:34,True,790,+
+hdonertasli/llama-big-unsloth,a116adf2affef121c89f32802cfb798bb99385ef,hdonertasli/llama-big-unsloth/adapter_model.safetensors,safetensors,"Upload model trained with Unsloth
+
+Upload model trained with Unsloth 2x faster",Hale Donertasli,2024-11-20 21:42:05,True,789,+
+Haiasi/waddle-pengu-v2,568536d3bf7768289e96c3b2edb9244c1070c03f,Haiasi/waddle-pengu-v2/lora.safetensors,safetensors,Upload folder using huggingface_hub,Haiasi,2024-11-20 14:20:46,True,789,+
+NabeelMirza/Mathstral_model_4_bit_Training_3_epoch_19NOV,54b1a1529ec74d0693613e9e440ee0083d1fa531,NabeelMirza/Mathstral_model_4_bit_Training_3_epoch_19NOV/adapter_model.safetensors,safetensors,NabeelMirza/Trained_Model/Mathtral_4bit_Training_3_Epochs_v_Nov19,Nabeel Mirza,2024-11-19 14:58:04,True,788,+
+rewicks/monolingual_de_16k-shared_ep3,422e61ca57e66b01f47ba6393e1d0974215eb268,rewicks/monolingual_de_16k-shared_ep3/model.safetensors,safetensors,Upload MarianForCausalLM,Rachel Wicks,2024-11-19 14:08:48,True,788,+
+ryannhally/t5-small-nah-qu-transfer2,44f3c869200f6e5e83a9a06e08252e19fd2d14ba,ryannhally/t5-small-nah-qu-transfer2/model.safetensors,safetensors,"Training in progress, step 500",Ryann Hally,2024-11-19 03:30:54,True,788,+
+rica40325/glm_lighten_v1,a7f4fa6afa5501662a240b4842e58832764e72ae,rica40325/glm_lighten_v1/model-00001-of-00004.safetensors,safetensors,Upload folder using huggingface_hub,cheat,2024-11-18 22:13:49,True,787,+
+rica40325/glm_lighten_v1,a7f4fa6afa5501662a240b4842e58832764e72ae,rica40325/glm_lighten_v1/model-00002-of-00004.safetensors,safetensors,Upload folder using huggingface_hub,cheat,2024-11-18 22:13:49,True,787,+
+rica40325/glm_lighten_v1,a7f4fa6afa5501662a240b4842e58832764e72ae,rica40325/glm_lighten_v1/model-00003-of-00004.safetensors,safetensors,Upload folder using huggingface_hub,cheat,2024-11-18 22:13:49,True,787,+
+rica40325/glm_lighten_v1,a7f4fa6afa5501662a240b4842e58832764e72ae,rica40325/glm_lighten_v1/model-00004-of-00004.safetensors,safetensors,Upload folder using huggingface_hub,cheat,2024-11-18 22:13:49,True,787,+
+AlexeyRyzhikov/donut-V1.4,2ce1229dd7036181516fa10e0216010b5887f4c9,AlexeyRyzhikov/donut-V1.4/model.safetensors,safetensors,Training done,Ryzhikov,2024-11-18 17:49:48,True,787,+
+serums2425/Ariel,2d379d0662660f290f5d5d73f2e5f12f07a20351,serums2425/Ariel/Ariel.safetensors,safetensors,Upload 9 files,Serums,2024-11-12 16:09:21,True,781,+
+serums2425/Ariel,2d379d0662660f290f5d5d73f2e5f12f07a20351,serums2425/Ariel/ArielPonyXL_character-10.safetensors,safetensors,Upload 9 files,Serums,2024-11-12 16:09:21,True,781,+
+serums2425/Ariel,2d379d0662660f290f5d5d73f2e5f12f07a20351,serums2425/Ariel/Ariel_-_The_Little_Mermaid_1989_PonyXL.safetensors,safetensors,Upload 9 files,Serums,2024-11-12 16:09:21,True,781,+
+serums2425/Ariel,2d379d0662660f290f5d5d73f2e5f12f07a20351,serums2425/Ariel/Ariel_2-000006.safetensors,safetensors,Upload 9 files,Serums,2024-11-12 16:09:21,True,781,+
+serums2425/Ariel,2d379d0662660f290f5d5d73f2e5f12f07a20351,serums2425/Ariel/DisneyAriel.safetensors,safetensors,Upload 9 files,Serums,2024-11-12 16:09:21,True,781,+
+serums2425/Ariel,2d379d0662660f290f5d5d73f2e5f12f07a20351,serums2425/Ariel/arielXL.safetensors,safetensors,Upload 9 files,Serums,2024-11-12 16:09:21,True,781,+
+serums2425/Ariel,2d379d0662660f290f5d5d73f2e5f12f07a20351,serums2425/Ariel/ariel_3d_merged_v1.safetensors,safetensors,Upload 9 files,Serums,2024-11-12 16:09:21,True,781,+
+serums2425/Ariel,2d379d0662660f290f5d5d73f2e5f12f07a20351,serums2425/Ariel/dalleariel-000006.safetensors,safetensors,Upload 9 files,Serums,2024-11-12 16:09:21,True,781,+
+serums2425/Ariel,2d379d0662660f290f5d5d73f2e5f12f07a20351,serums2425/Ariel/littlem_pony_v1.safetensors,safetensors,Upload 9 files,Serums,2024-11-12 16:09:21,True,781,+
+GiftMark/akan-whisper-model,8d74f173f8711306440265f7b65f833d8b54a824,GiftMark/akan-whisper-model/model.safetensors,safetensors,Upload WhisperForConditionalGeneration,Mark Atta Mensah,2024-11-11 15:35:05,True,780,+
+Srijith-rkr/deepseek_SFT_history,09052d7eacdae27dc2720165c566d3f4e42a6f58,Srijith-rkr/deepseek_SFT_history/model-00001-of-00003.safetensors,safetensors,Upload LlamaForCausalLM,Srijith Radhakrishnan,2024-11-10 21:53:52,True,779,+
+Srijith-rkr/deepseek_SFT_history,09052d7eacdae27dc2720165c566d3f4e42a6f58,Srijith-rkr/deepseek_SFT_history/model-00002-of-00003.safetensors,safetensors,Upload LlamaForCausalLM,Srijith Radhakrishnan,2024-11-10 21:53:52,True,779,+
+Srijith-rkr/deepseek_SFT_history,09052d7eacdae27dc2720165c566d3f4e42a6f58,Srijith-rkr/deepseek_SFT_history/model-00003-of-00003.safetensors,safetensors,Upload LlamaForCausalLM,Srijith Radhakrishnan,2024-11-10 21:53:52,True,779,+
+kik41/lora-formality-informal-llama-3-8b,61b0a3a71a6cb3b1f57bb013828ed88204ca9443,kik41/lora-formality-informal-llama-3-8b/adapter_model.safetensors,safetensors,Upload model,Sushant Karki,2024-11-06 19:10:17,True,775,+
+sayonarawildhearts/ESCM,0e33a6095591363391c7af05a980d3ed66aaa42a,sayonarawildhearts/ESCM/model.safetensors,safetensors,Upload model,Zhilin Gong,2024-11-05 09:23:31,True,774,+
+RichardErkhov/glenn2_-_gemma-2b-lora3-8bits,e6fd251f4abf3fe7c2e90c8815f3b0d3ca19fcfe,RichardErkhov/glenn2_-_gemma-2b-lora3-8bits/model.safetensors,safetensors,uploaded model,Richard Erkhov,2024-11-05 04:40:51,True,774,+
+Punter1504/topic_balanced_3750,78aa3e67ff8a466517dbbea7756eac745573017e,Punter1504/topic_balanced_3750/adapter_model.safetensors,safetensors,"Upload model trained with Unsloth
+
+Upload model trained with Unsloth 2x faster",Prudhvi Raju Gadiraju,2024-11-03 17:17:34,True,772,+
+tiendoan/finetune_CafeBERT_cleancap_sample2,d26d58ff3c8feca144251758b0f8ff4f0163e39b,tiendoan/finetune_CafeBERT_cleancap_sample2/model.safetensors,safetensors,"Training in progress, epoch 1",Doan Nhat Tien,2024-11-02 11:59:40,True,771,+
+raaedk/simpletuner-lora,ff6a4e51b8f0beac494f1fc3cb56d7d0ac224f91,raaedk/simpletuner-lora/pytorch_lora_weights.safetensors,safetensors,"Trained for 0 epochs and 500 steps.
+Trained with datasets ['text-embed-cache', 'my-dataset-512', 'my-dataset-1024', 'my-dataset-512-crop', 'my-dataset-1024-crop']
+Learning rate 0.0001, batch size 1, and 1 gradient accumulation steps.
+Used DDPM noise scheduler for training with epsilon prediction type and rescaled_betas_zero_snr=False
+Using 'trailing' timestep spacing.
+Base model: stabilityai/stable-diffusion-3.5-large
+VAE: None",Raaed,2024-11-01 19:36:08,True,770,+
+RobertML/dippy-cache-02,7aad5cae002a3cafb03867483728439a3cb5bf63,RobertML/dippy-cache-02/model-00001-of-00004.safetensors,safetensors,Upload model,Robert,2024-11-01 18:36:05,True,770,+
+RobertML/dippy-cache-02,7aad5cae002a3cafb03867483728439a3cb5bf63,RobertML/dippy-cache-02/model-00002-of-00004.safetensors,safetensors,Upload model,Robert,2024-11-01 18:36:05,True,770,+
+RobertML/dippy-cache-02,7aad5cae002a3cafb03867483728439a3cb5bf63,RobertML/dippy-cache-02/model-00003-of-00004.safetensors,safetensors,Upload model,Robert,2024-11-01 18:36:05,True,770,+
+RobertML/dippy-cache-02,7aad5cae002a3cafb03867483728439a3cb5bf63,RobertML/dippy-cache-02/model-00004-of-00004.safetensors,safetensors,Upload model,Robert,2024-11-01 18:36:05,True,770,+
+DTang161/Lego_lora_third_cos,94036956ca10e0ca9efeb4b2bde91b06dc689ec2,DTang161/Lego_lora_third_cos/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,Dennis Tang,2024-10-29 11:56:26,True,767,+
+manbeast3b/model_redo_tw_1_900,c60895399a14560ebe7b006126cb97b3e8530dca,manbeast3b/model_redo_tw_1_900/checkpoint.safetensors,safetensors,Upload checkpoint.safetensors with huggingface_hub,ManBeast,2024-10-28 18:48:43,True,766,+
+manbeast3b/ooslow_6500_winrate_0-9955,880529ac7d1bd6b25e8cd52e4b4afc9ba28ae28a,manbeast3b/ooslow_6500_winrate_0-9955/checkpoint.safetensors,safetensors,Upload checkpoint.safetensors with huggingface_hub,ManBeast,2024-10-28 09:08:48,True,766,+
+GitBag/rloo_6_lr_2e-7_555134_1730042202,af3dacbf99cba11df4c3cc51770cf5d43cdf8fe7,GitBag/rloo_6_lr_2e-7_555134_1730042202/model-00001-of-00004.safetensors,safetensors,Upload LlamaForCausalLM,Zhaolin Gao,2024-10-27 17:25:39,True,765,+
+GitBag/rloo_6_lr_2e-7_555134_1730042202,af3dacbf99cba11df4c3cc51770cf5d43cdf8fe7,GitBag/rloo_6_lr_2e-7_555134_1730042202/model-00002-of-00004.safetensors,safetensors,Upload LlamaForCausalLM,Zhaolin Gao,2024-10-27 17:25:39,True,765,+
+GitBag/rloo_6_lr_2e-7_555134_1730042202,af3dacbf99cba11df4c3cc51770cf5d43cdf8fe7,GitBag/rloo_6_lr_2e-7_555134_1730042202/model-00003-of-00004.safetensors,safetensors,Upload LlamaForCausalLM,Zhaolin Gao,2024-10-27 17:25:39,True,765,+
+GitBag/rloo_6_lr_2e-7_555134_1730042202,af3dacbf99cba11df4c3cc51770cf5d43cdf8fe7,GitBag/rloo_6_lr_2e-7_555134_1730042202/model-00004-of-00004.safetensors,safetensors,Upload LlamaForCausalLM,Zhaolin Gao,2024-10-27 17:25:39,True,765,+
+nazlisevdam/google-gemma-2b-1729936995,727c3e6804d50c47126e72c59d11f30dbe90a9a5,nazlisevdam/google-gemma-2b-1729936995/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,nazli sevdam,2024-10-26 06:03:20,True,764,+
+JacobLinCool/whisper-tiny-common_voice_16_1-zh-TW-lora-r32-alpha8-rslora-merged,4c54417e9135716ba1c7593aecd32e432646572b,JacobLinCool/whisper-tiny-common_voice_16_1-zh-TW-lora-r32-alpha8-rslora-merged/model.safetensors,safetensors,Upload WhisperForConditionalGeneration,Jacob Lin,2024-10-25 20:02:40,True,763,+
+yasamanne/Llama-3.1-8B_insurance_promptunning_finetuning,96ede2267c28080df0e515112ae777f85a0c0ec6,yasamanne/Llama-3.1-8B_insurance_promptunning_finetuning/adapter_model.safetensors,safetensors,Upload model,Yasaman Emami,2024-10-24 08:18:15,True,762,+
+nectec/OpenThaiLLM-Prebuilt-7B,36abbe39b130bf48186f25cd0f70f6d332ebca6a,nectec/OpenThaiLLM-Prebuilt-7B/model-00001-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,Jessada Pranee,2024-10-28 06:49:47,True,766,+
+nectec/OpenThaiLLM-Prebuilt-7B,36abbe39b130bf48186f25cd0f70f6d332ebca6a,nectec/OpenThaiLLM-Prebuilt-7B/model-00002-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,Jessada Pranee,2024-10-28 06:49:47,True,766,+
+nectec/OpenThaiLLM-Prebuilt-7B,36abbe39b130bf48186f25cd0f70f6d332ebca6a,nectec/OpenThaiLLM-Prebuilt-7B/model-00003-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,Jessada Pranee,2024-10-28 06:49:47,True,766,+
+nectec/OpenThaiLLM-Prebuilt-7B,36abbe39b130bf48186f25cd0f70f6d332ebca6a,nectec/OpenThaiLLM-Prebuilt-7B/model-00004-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,Jessada Pranee,2024-10-28 06:49:47,True,766,+
+nectec/OpenThaiLLM-Prebuilt-7B,36abbe39b130bf48186f25cd0f70f6d332ebca6a,nectec/OpenThaiLLM-Prebuilt-7B/model-00005-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,Jessada Pranee,2024-10-28 06:49:47,True,766,+
+nectec/OpenThaiLLM-Prebuilt-7B,36abbe39b130bf48186f25cd0f70f6d332ebca6a,nectec/OpenThaiLLM-Prebuilt-7B/model-00006-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,Jessada Pranee,2024-10-28 06:49:47,True,766,+
+nectec/OpenThaiLLM-Prebuilt-7B,36abbe39b130bf48186f25cd0f70f6d332ebca6a,nectec/OpenThaiLLM-Prebuilt-7B/model-00007-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,Jessada Pranee,2024-10-28 06:49:47,True,766,+
+steveontheweb/chthdp-lora,d92aecfdaa408727c68ce4f9eafd026c4f4dd72e,steveontheweb/chthdp-lora/lora.safetensors,safetensors,Upload folder using huggingface_hub,Steve Middleton,2024-10-20 16:22:48,True,758,+
+venukalam/venukalam-lora,53f3d18a09feaaa5dc9a68cdc75acc7e7537dcb2,venukalam/venukalam-lora/lora.safetensors,safetensors,lora weights,venu kalam,2024-10-19 10:36:08,True,757,+
+angybrim2024/gpt2-wikitext2,7f64c2e998b173120066d11bf527603b90140122,angybrim2024/gpt2-wikitext2/model.safetensors,safetensors,"Training in progress, step 500",Angela Ebirim,2024-10-16 17:04:39,True,754,+
+jaymie23/lora-llama3.1-8b-16,859768247252696d0ecbfd7021ea45d0a06b35ea,jaymie23/lora-llama3.1-8b-16/adapter_model.safetensors,safetensors,Upload model,jay,2024-10-12 22:33:24,True,750,+
+histin116/th-shirt1-flat,8bfa053f268a63199a50648513b3d0f16d54d0bb,histin116/th-shirt1-flat/th-shirt1-flat.safetensors,safetensors,Upload folder using huggingface_hub,Nitish Reddy,2024-10-11 03:28:50,True,749,+
+histin116/th-shirt1-flat,8bfa053f268a63199a50648513b3d0f16d54d0bb,histin116/th-shirt1-flat/th-shirt1-flat_000000300.safetensors,safetensors,Upload folder using huggingface_hub,Nitish Reddy,2024-10-11 03:28:50,True,749,+
+histin116/th-shirt1-flat,8bfa053f268a63199a50648513b3d0f16d54d0bb,histin116/th-shirt1-flat/th-shirt1-flat_000000400.safetensors,safetensors,Upload folder using huggingface_hub,Nitish Reddy,2024-10-11 03:28:50,True,749,+
+histin116/th-shirt1-flat,8bfa053f268a63199a50648513b3d0f16d54d0bb,histin116/th-shirt1-flat/th-shirt1-flat_000000500.safetensors,safetensors,Upload folder using huggingface_hub,Nitish Reddy,2024-10-11 03:28:50,True,749,+
+histin116/th-shirt1-flat,8bfa053f268a63199a50648513b3d0f16d54d0bb,histin116/th-shirt1-flat/th-shirt1-flat_000000600.safetensors,safetensors,Upload folder using huggingface_hub,Nitish Reddy,2024-10-11 03:28:50,True,749,+
+histin116/th-shirt1-flat,8bfa053f268a63199a50648513b3d0f16d54d0bb,histin116/th-shirt1-flat/th-shirt1-flat_000000700.safetensors,safetensors,Upload folder using huggingface_hub,Nitish Reddy,2024-10-11 03:28:50,True,749,+
+sag-uniroma2/llama3_adapter_ITA_pr1_add1__split0_ep1_lr0.0001_fever-it,bd2fdd459c01c8178e641d959dbead1cbc3d4183,sag-uniroma2/llama3_adapter_ITA_pr1_add1__split0_ep1_lr0.0001_fever-it/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,Antonio Scaiella,2024-10-11 05:15:44,True,749,+
+kmpartner/bk15tlcmdistill-test10,5accd5537350158f4e7e229abc84e9456d11da4a,kmpartner/bk15tlcmdistill-test10/unet/diffusion_pytorch_model.safetensors,safetensors,Upload folder using huggingface_hub,kmpartner,2024-10-09 19:00:53,True,747,+
+Vivian12300/wiki_sft_zh,e18e56d29fd1bd128de55d764a79d6978634e885,Vivian12300/wiki_sft_zh/model-00001-of-00004.safetensors,safetensors,End of training,Yan Meng,2024-10-09 10:08:23,True,747,+
+Vivian12300/wiki_sft_zh,e18e56d29fd1bd128de55d764a79d6978634e885,Vivian12300/wiki_sft_zh/model-00002-of-00004.safetensors,safetensors,End of training,Yan Meng,2024-10-09 10:08:23,True,747,+
+Vivian12300/wiki_sft_zh,e18e56d29fd1bd128de55d764a79d6978634e885,Vivian12300/wiki_sft_zh/model-00003-of-00004.safetensors,safetensors,End of training,Yan Meng,2024-10-09 10:08:23,True,747,+
+Vivian12300/wiki_sft_zh,e18e56d29fd1bd128de55d764a79d6978634e885,Vivian12300/wiki_sft_zh/model-00004-of-00004.safetensors,safetensors,End of training,Yan Meng,2024-10-09 10:08:23,True,747,+
+north/north_llama31base_edu_above_05_lr1e5_81922_200000_corrected,e803fcec59cb020409ccb86a381ea4d2a59f0b3c,north/north_llama31base_edu_above_05_lr1e5_81922_200000_corrected/model-00004-of-00004.safetensors,safetensors,Upload model-00004-of-00004.safetensors with huggingface_hub,Per,2024-10-08 05:23:43,True,746,+
+north/north_llama31base_edu_above_05_lr1e5_81922_200000_corrected,cf84054edad9c9bbc5283f2c36f71edbbe8fa05c,north/north_llama31base_edu_above_05_lr1e5_81922_200000_corrected/model-00003-of-00004.safetensors,safetensors,Upload model-00003-of-00004.safetensors with huggingface_hub,Per,2024-10-08 05:23:10,True,746,+
+north/north_llama31base_edu_above_05_lr1e5_81922_200000_corrected,5d3197c045cc92918e0976a2864b588d463a95fc,north/north_llama31base_edu_above_05_lr1e5_81922_200000_corrected/model-00002-of-00004.safetensors,safetensors,Upload model-00002-of-00004.safetensors with huggingface_hub,Per,2024-10-08 05:21:11,True,746,+
+north/north_llama31base_edu_above_05_lr1e5_81922_200000_corrected,03b9644b9bacc1131e6999363648be9ff70443ba,north/north_llama31base_edu_above_05_lr1e5_81922_200000_corrected/model-00001-of-00004.safetensors,safetensors,Upload model-00001-of-00004.safetensors with huggingface_hub,Per,2024-10-08 05:19:01,True,746,+
+yxs33220/Genre02_5epoch,1f3eb74996a8bd0d1c7da1a8bac4a9536d26ea57,yxs33220/Genre02_5epoch/model-00001-of-00003.safetensors,safetensors,Upload LlamaForCausalLM,Yaman Shrestha,2024-10-07 17:10:14,True,745,+
+yxs33220/Genre02_5epoch,1f3eb74996a8bd0d1c7da1a8bac4a9536d26ea57,yxs33220/Genre02_5epoch/model-00002-of-00003.safetensors,safetensors,Upload LlamaForCausalLM,Yaman Shrestha,2024-10-07 17:10:14,True,745,+
+yxs33220/Genre02_5epoch,1f3eb74996a8bd0d1c7da1a8bac4a9536d26ea57,yxs33220/Genre02_5epoch/model-00003-of-00003.safetensors,safetensors,Upload LlamaForCausalLM,Yaman Shrestha,2024-10-07 17:10:14,True,745,+
+AlekseyCalvin/Alexander_BLOK_Flux_LoRA_SilverAgePoets_v2_face_only,dacb3ab49a5b27ad9403a03a297c9fc8d2c1e50b,AlekseyCalvin/Alexander_BLOK_Flux_LoRA_SilverAgePoets_v2_face_only/lora.safetensors,safetensors,Upload folder using huggingface_hub,Aleksey Calvin Tsukanov (A.C.T. SOON®),2024-10-06 08:24:44,True,744,+
+authurleywin/model_outputs,326f801fb7d04fc3c8fcab4cd29f158c30cc7cb1,authurleywin/model_outputs/model.safetensors,safetensors,"Training in progress, step 500",Jithin Das,2024-10-04 12:05:19,True,742,+
+haorandai/New_Noise_Fruit_20Samples_epsilon_0.05_alpha_0.01_With20Constraints,47d95ea6e143eff7466a4a3862defb72ebe6d94b,haorandai/New_Noise_Fruit_20Samples_epsilon_0.05_alpha_0.01_With20Constraints/safety_checker/model.safetensors,safetensors,End of training,Haoran Dai,2024-10-04 08:49:38,True,742,+
+haorandai/New_Noise_Fruit_20Samples_epsilon_0.05_alpha_0.01_With20Constraints,47d95ea6e143eff7466a4a3862defb72ebe6d94b,haorandai/New_Noise_Fruit_20Samples_epsilon_0.05_alpha_0.01_With20Constraints/text_encoder/model.safetensors,safetensors,End of training,Haoran Dai,2024-10-04 08:49:38,True,742,+
+haorandai/New_Noise_Fruit_20Samples_epsilon_0.05_alpha_0.01_With20Constraints,47d95ea6e143eff7466a4a3862defb72ebe6d94b,haorandai/New_Noise_Fruit_20Samples_epsilon_0.05_alpha_0.01_With20Constraints/unet/diffusion_pytorch_model.safetensors,safetensors,End of training,Haoran Dai,2024-10-04 08:49:38,True,742,+
+haorandai/New_Noise_Fruit_20Samples_epsilon_0.05_alpha_0.01_With20Constraints,47d95ea6e143eff7466a4a3862defb72ebe6d94b,haorandai/New_Noise_Fruit_20Samples_epsilon_0.05_alpha_0.01_With20Constraints/vae/diffusion_pytorch_model.safetensors,safetensors,End of training,Haoran Dai,2024-10-04 08:49:38,True,742,+
+kaping/gemma_quan,db5f4bc41f0ce337e0db2ea90444c0fb2a689c37,kaping/gemma_quan/model-00001-of-00002.safetensors,safetensors,Upload folder using huggingface_hub,염수형,2024-10-04 01:49:26,True,742,+
+kaping/gemma_quan,db5f4bc41f0ce337e0db2ea90444c0fb2a689c37,kaping/gemma_quan/model-00002-of-00002.safetensors,safetensors,Upload folder using huggingface_hub,염수형,2024-10-04 01:49:26,True,742,+
+LarryAIDraw/Muelsyse_v1.4-000006,e82df52370d2395fbc1e7e85e83d23f51ae29fd1,LarryAIDraw/Muelsyse_v1.4-000006/Muelsyse_v1.4-000006.safetensors,safetensors,Upload 2 files,LarryChen,2024-10-03 15:44:17,True,741,+
+mlx-community/AMD-Llama-135m-code-4bit,23a090ea4d7dc8c99ad5a28ccc79bfc946646cb7,mlx-community/AMD-Llama-135m-code-4bit/model.safetensors,safetensors,"Upload folder using huggingface_hub (#1)
+
+
+- 8786369c1716b6caf2d5bb46db69ba460ad46e398fe2679cc27ec90971f6030d (b2fdffab3d8a60a0bc3ed27262d066f970db6b1a)",Gökdeniz Gülmez (Isaak Carter Augustus),2024-10-03 07:30:03,True,741,+
+Xu-Ouyang/pythia-1.4b-deduped-int4-step93000-AWQ,15abe23e45522dde8c4fc460f51ec41eab7b74be,Xu-Ouyang/pythia-1.4b-deduped-int4-step93000-AWQ/model.safetensors,safetensors,Upload GPTNeoXForCausalLM,Xu Ouyang,2024-10-02 23:36:32,True,740,+
+furrutiav/bert_z_score_wo_sf_aes_5,97e85646d9700f6295cb11b0a3add6b484fdfeb3,furrutiav/bert_z_score_wo_sf_aes_5/model.safetensors,safetensors,Upload model,Felipe Urrutia,2024-10-02 13:29:26,True,740,+
+ajrayman/AuthorityRespect_binary,9871aa359c585240ae5d21dc4f8374d50b660f04,ajrayman/AuthorityRespect_binary/model.safetensors,safetensors,"Training in progress, epoch 1",Adam,2024-10-02 11:19:05,True,740,+
+dllmchh/google-gemma-2b-1727869140,572acd6df7fd372d3fe28ddbe166a2ca1feec3e2,dllmchh/google-gemma-2b-1727869140/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,dllm,2024-10-02 07:39:25,True,740,+
+SALUTEASD/Qwen-Qwen1.5-1.8B-1727864940,a5effdd988d0372b1e492e5e81a9420ca3facfd0,SALUTEASD/Qwen-Qwen1.5-1.8B-1727864940/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,SAL,2024-10-02 06:29:06,True,740,+
+Krabat/Qwen-Qwen1.5-0.5B-1727851845,4842bf2a52f638709c511ba520c397f292225564,Krabat/Qwen-Qwen1.5-0.5B-1727851845/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,Lu Krabat,2024-10-02 02:50:48,True,740,+
+zhangtaolab/plant-dnamamba-singlebase-promoter_strength_leaf,a68231d8b29d7e8449c42cf514def605ad330c0a,zhangtaolab/plant-dnamamba-singlebase-promoter_strength_leaf/model.safetensors,safetensors,update model,lgq12697,2024-12-07 07:17:03,True,806,+
+rejjiex/Qwen-Qwen1.5-1.8B-1727698359,1c92e5dc5ba4f01f289dcd0c0842d9a44bc143c8,rejjiex/Qwen-Qwen1.5-1.8B-1727698359/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,CryptoRJJ,2024-09-30 08:12:43,True,738,+
+jerseyjerry/Qwen-Qwen1.5-1.8B-1727692658,9aee4c180fd72452fa2f36718f239332281133f5,jerseyjerry/Qwen-Qwen1.5-1.8B-1727692658/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,bolin,2024-09-30 06:37:43,True,738,+
+SALUTEASD/Qwen-Qwen1.5-1.8B-1727583126,732afc81edd0ae8fcddb5340c1da0389313ff0b2,SALUTEASD/Qwen-Qwen1.5-1.8B-1727583126/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,SAL,2024-09-29 00:12:12,True,737,+
+KBlueLeaf/TIPO-500M,edf23a3e6fa57d36e0a70f5cd86ff9308099a089,KBlueLeaf/TIPO-500M/model.safetensors,safetensors,Upload 8 files,Shih-Ying Yeh,2024-09-28 14:01:18,True,736,+
+SALUTEASD/Qwen-Qwen1.5-1.8B-1727387263,e4f6434a5beb26e6a561b011ff44602a9893d457,SALUTEASD/Qwen-Qwen1.5-1.8B-1727387263/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,SAL,2024-09-26 17:47:49,True,734,+
+Krabat/google-gemma-2b-1727380576,30924e767a2d6cc1c4cf8dfd58f214a2731706f3,Krabat/google-gemma-2b-1727380576/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,Lu Krabat,2024-09-26 15:56:19,True,734,+
+Klauss15/google-gemma-2b-1727319387,566f4e433ae4022735cb9e763ac895419c880e07,Klauss15/google-gemma-2b-1727319387/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,king,2024-09-25 22:56:29,True,733,+
+nazlisevdam/google-gemma-2b-1727318584,8c18d47cee52b9f7774657a4c1cf7009bee01d44,nazlisevdam/google-gemma-2b-1727318584/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,nazli sevdam,2024-09-25 22:43:06,True,733,+
+zhongwen8868/google-gemma-2b-1727162814,f42e26e85ac53bdb9368e395d7b25addb569f7fd,zhongwen8868/google-gemma-2b-1727162814/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,wen,2024-09-24 03:27:02,True,732,+
+dllmchh/Qwen-Qwen1.5-0.5B-1727117415,e63cf2cdb173e183c683512d0ab271399de2161d,dllmchh/Qwen-Qwen1.5-0.5B-1727117415/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,dllm,2024-09-23 14:50:21,True,731,+
+Xu-Ouyang/pythia-6.9b-deduped-int2-step2000-GPTQ-wikitext2-uva,7e47edb117bc0172fc0ba750c1c26e6c9922018c,Xu-Ouyang/pythia-6.9b-deduped-int2-step2000-GPTQ-wikitext2-uva/model.safetensors,safetensors,Upload GPTNeoXForCausalLM,Xu Ouyang,2024-09-22 12:40:10,True,730,+
+SALUTEASD/google-gemma-2b-1726845780,5df97b7c0764d854c640a761c0e3c7c5edd9e5e0,SALUTEASD/google-gemma-2b-1726845780/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,SAL,2024-09-20 11:23:20,True,728,+
+xueyj/google-gemma-2b-1726837153,144fd502e3e927f6c47af838837fcda699ab1274,xueyj/google-gemma-2b-1726837153/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,xueyj,2024-09-20 08:59:58,True,728,+
+manbeast3b/inal_tw_60,90e684263697dd1d3c2233364e58509d6ecf7aa9,manbeast3b/inal_tw_60/checkpoint.safetensors,safetensors,Upload checkpoint.safetensors with huggingface_hub,ManBeast,2024-09-20 02:27:11,True,728,+
+tronsdds/google-gemma-2b-1726809436,8145377f17f54033a5e2fb120d64cbe961f36602,tronsdds/google-gemma-2b-1726809436/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,sgdds,2024-09-20 01:17:51,True,728,+
+Krabat/google-gemma-2b-1726775089,426ce30498cf5e09ab58cc4e1d50973c5ee798dd,Krabat/google-gemma-2b-1726775089/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,Lu Krabat,2024-09-19 15:44:53,True,727,+
+GOMMM/t5-small-custom,f0050afef86816b4c1aa28276130eaee9199af50,GOMMM/t5-small-custom/model.safetensors,safetensors,Upload latest checkpoint with model card,GOMMM,2024-09-19 11:58:19,True,727,+
+MonsMayli/distilbert-base-uncased-finetuned-emotion,e1e3272311fd68bc0d35575fc6c4ae5b52247bb6,MonsMayli/distilbert-base-uncased-finetuned-emotion/model.safetensors,safetensors,"Training in progress, step 500",Luis Filipe Viegas Conceição,2024-09-19 06:44:33,True,727,+
+Technocoloredgeek/llama381binstruct_summarize_short,646ea31494c28d3bb387f4a14f2551e666883307,Technocoloredgeek/llama381binstruct_summarize_short/adapter_model.safetensors,safetensors,ai-maker-space/llama381binstruct_summarize_short,Anna Tucker,2024-09-17 16:15:41,True,725,+
+tronsdds/Qwen-Qwen1.5-1.8B-1726530480,77352298ce7650406d126727adef94de7bebea50,tronsdds/Qwen-Qwen1.5-1.8B-1726530480/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,sgdds,2024-09-16 19:48:12,True,724,+
+SALUTEASD/Qwen-Qwen1.5-1.8B-1726247619,b928e8c56f4442775edabaebae25a895fba0b834,SALUTEASD/Qwen-Qwen1.5-1.8B-1726247619/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,SAL,2024-09-13 13:15:02,True,721,+
+SALUTEASD/Qwen-Qwen1.5-0.5B-1726117833,a801a7972e770ac8644260850173242074a516a7,SALUTEASD/Qwen-Qwen1.5-0.5B-1726117833/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,SAL,2024-09-12 01:10:39,True,720,+
+oscaramr/emilia,987b62a5d9bd77f9ce535d8c57db5a65e1dcef93,oscaramr/emilia/daisy.safetensors,safetensors,Upload daisy.safetensors with huggingface_hub,Logan Cook,2024-09-11 19:24:26,True,719,+
+nm-testing/tinyllama-w4a16-compressed-hf-quantizer,90e33cf44f9df5f4ea7f0886fb21e3161cd6a104,nm-testing/tinyllama-w4a16-compressed-hf-quantizer/model.safetensors,safetensors,Upload folder using huggingface_hub,Sara Adkins,2024-09-11 11:45:35,True,719,+
+kromer9margarete337/Qwen-Qwen1.5-7B-1725965659,aef5cae665932055ab5ca4fdafcba28b85c14035,kromer9margarete337/Qwen-Qwen1.5-7B-1725965659/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,kromer9margarete337,2024-09-10 06:54:24,True,718,+
+SALUTEASD/Qwen-Qwen1.5-0.5B-1725938130,b8857349d32cea487fa70b5e6f19162a2720558b,SALUTEASD/Qwen-Qwen1.5-0.5B-1725938130/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,SAL,2024-09-09 23:15:36,True,717,+
+kromer9margarete337/Qwen-Qwen1.5-7B-1725884922,4cf5148d497b467fc5a44bc1c4fda657299aa53d,kromer9margarete337/Qwen-Qwen1.5-7B-1725884922/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,kromer9margarete337,2024-09-09 08:28:49,True,717,+
+Rodrigo1771/bsc-bio-ehr-es-symptemist-es-fasttext-0.9-el,56e681036bf31b57e71d5b7a15fe74cd65f90078,Rodrigo1771/bsc-bio-ehr-es-symptemist-es-fasttext-0.9-el/model.safetensors,safetensors,Upload model.safetensors with huggingface_hub,Rodrigo Gonçalves,2024-09-29 19:33:41,True,737,+
+Rodrigo1771/bsc-bio-ehr-es-symptemist-es-fasttext-0.9-el,3624ab12fff1715c07b1d04db8c0d75b10381df1,Rodrigo1771/bsc-bio-ehr-es-symptemist-es-fasttext-0.9-el/model.safetensors,safetensors,Upload model.safetensors with huggingface_hub,Rodrigo Gonçalves,2024-09-08 18:44:03,True,716,+
+kromer9margarete337/Qwen-Qwen1.5-0.5B-1725791404,81152a86281ed4a92e88ddcd95bfc4b8bc7bc68c,kromer9margarete337/Qwen-Qwen1.5-0.5B-1725791404/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,kromer9margarete337,2024-09-08 06:30:21,True,716,+
+jeeyoung/dpo348dpo_ours_2e-4_3e-6_3,85aebbe40b6e2944643cd62bddab282325623769,jeeyoung/dpo348dpo_ours_2e-4_3e-6_3/adapter_model.safetensors,safetensors,Upload LlamaForCausalLM,kim,2024-09-07 21:57:17,True,715,+
+DrChamyoung/PartnerAIPRO,a11a8bfb177c19d2476007741722e617d717eab8,DrChamyoung/PartnerAIPRO/model-00001-of-00002.safetensors,safetensors,Upload 2 files,Shu Okaya,2024-09-06 06:51:33,True,714,+
+DrChamyoung/PartnerAIPRO,a11a8bfb177c19d2476007741722e617d717eab8,DrChamyoung/PartnerAIPRO/model-00002-of-00002.safetensors,safetensors,Upload 2 files,Shu Okaya,2024-09-06 06:51:33,True,714,+
+jlbaker361/style_pose_probs_512_remove_background_ahri04,71b4cb7f0ccfa4d9a71bc4ad5879824fccc0c605,jlbaker361/style_pose_probs_512_remove_background_ahri04/pytorch_lora_weights.safetensors,safetensors,Upload folder using huggingface_hub,James Baker,2024-09-03 23:19:50,True,711,+
+alexandersoare/debug_act,2774e00db7ba7b74100aeb2dc57adcf36f4852f1,alexandersoare/debug_act/model.safetensors,safetensors,Push model using huggingface_hub.,Alexander  Soare,2024-09-03 11:04:17,True,711,+
+pauljohn92/robert-raptis-lora,b848d324e0e76a672785b21a46bd680d8cbea0f2,pauljohn92/robert-raptis-lora/flux_train_replicate.safetensors,safetensors,Upload folder using huggingface_hub,Paul,2024-09-02 18:36:54,True,710,+
+linger2334/google-gemma-7b-1725275674,123b36bcd1743ed8008bfe324769c4e28afba68d,linger2334/google-gemma-7b-1725275674/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,Lingang Wang,2024-09-02 07:14:44,True,710,+
+xhy941249849/Qwen-Qwen1.5-0.5B-1725208524,9e2249e530043dbfb32fbe428c21219c29930ee0,xhy941249849/Qwen-Qwen1.5-0.5B-1725208524/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,一期双色球,2024-09-01 12:35:30,True,709,+
+alirus12/Qwen-Qwen1.5-1.8B-1725189199,7cc8fb96fea68cf9fee41fb9026518431062199b,alirus12/Qwen-Qwen1.5-1.8B-1725189199/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,ali khalili,2024-09-01 07:13:20,True,709,+
+duan01/testmodel_F,83aea85c82d414271e951c77ff83b96e43f35dc0,duan01/testmodel_F/flux.safetensors,safetensors,Add 2 files,duan,2024-08-29 12:13:11,True,706,+
+davidkim205/kgrammar-gemma-2-9b,d9f354c2e2e661e680a48e1b4d215e2f8da966fd,davidkim205/kgrammar-gemma-2-9b/adapter_model.safetensors,safetensors,Upload model,davidkim205,2024-08-28 22:22:37,True,705,+
+EpicJhon/6-5,c63c8344019c3014182c5dd1e74a85e8d36a2021,EpicJhon/6-5/text_encoder/model.safetensors,safetensors,Upload folder using huggingface_hub,EJ,2024-08-28 21:47:04,True,705,+
+EpicJhon/6-5,c63c8344019c3014182c5dd1e74a85e8d36a2021,EpicJhon/6-5/text_encoder_2/model.safetensors,safetensors,Upload folder using huggingface_hub,EJ,2024-08-28 21:47:04,True,705,+
+EpicJhon/6-5,c63c8344019c3014182c5dd1e74a85e8d36a2021,EpicJhon/6-5/unet/diffusion_pytorch_model.safetensors,safetensors,Upload folder using huggingface_hub,EJ,2024-08-28 21:47:04,True,705,+
+EpicJhon/6-5,c63c8344019c3014182c5dd1e74a85e8d36a2021,EpicJhon/6-5/vae/diffusion_pytorch_model.safetensors,safetensors,Upload folder using huggingface_hub,EJ,2024-08-28 21:47:04,True,705,+
+richardkelly/google-gemma-7b-1724757915,cea2efd49b627b0369957d5d7811133fe338f4be,richardkelly/google-gemma-7b-1724757915/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,Richard Kelly,2024-08-27 07:25:23,True,704,+
+xueyj/google-gemma-2b-1724748419,49682024a807b6d4bfdc7fc55f767d355ad2cd3f,xueyj/google-gemma-2b-1724748419/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,xueyj,2024-08-27 04:47:25,True,704,+
+dioojj99/Qwen-Qwen1.5-1.8B-1724747025,8a8329d2a3934ca53a6f4cabaa07f028d23f9d8c,dioojj99/Qwen-Qwen1.5-1.8B-1724747025/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,dioojj99,2024-08-27 04:23:46,True,704,+
+adriansanz/sitges10242608-4ep-rerankv3,ad211bef9ca669b45f649945a476ac12cd2417ab,adriansanz/sitges10242608-4ep-rerankv3/model.safetensors,safetensors,Add new SentenceTransformer model.,ecityclic,2024-08-26 13:31:21,True,703,+
+XSCP/Qwen-Qwen1.5-7B-1724682644,238dcd8e97201cb50da8afe4762ae0158dde77a9,XSCP/Qwen-Qwen1.5-7B-1724682644/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,X,2024-08-26 10:31:32,True,703,+
+XSCP/Qwen-Qwen1.5-7B-1724682644,238dcd8e97201cb50da8afe4762ae0158dde77a9,XSCP/Qwen-Qwen1.5-7B-1724682644/checkpoint-124/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,X,2024-08-26 10:31:32,True,703,+
+XSCP/Qwen-Qwen1.5-7B-1724682644,238dcd8e97201cb50da8afe4762ae0158dde77a9,XSCP/Qwen-Qwen1.5-7B-1724682644/checkpoint-31/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,X,2024-08-26 10:31:32,True,703,+
+XSCP/Qwen-Qwen1.5-7B-1724682644,238dcd8e97201cb50da8afe4762ae0158dde77a9,XSCP/Qwen-Qwen1.5-7B-1724682644/checkpoint-63/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,X,2024-08-26 10:31:32,True,703,+
+XSCP/Qwen-Qwen1.5-7B-1724682644,238dcd8e97201cb50da8afe4762ae0158dde77a9,XSCP/Qwen-Qwen1.5-7B-1724682644/checkpoint-94/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,X,2024-08-26 10:31:32,True,703,+
+gotzmann/1JV36B,bf5fdbbd4a35404f5bda5ac4d61d768a20ea2f7d,gotzmann/1JV36B/adapter_model.safetensors,safetensors,..,Serge Gotsuliak,2024-08-25 15:22:59,True,702,+
+gotzmann/1JV36B,bf5fdbbd4a35404f5bda5ac4d61d768a20ea2f7d,gotzmann/1JV36B/checkpoint-12000/adapter_model.safetensors,safetensors,..,Serge Gotsuliak,2024-08-25 15:22:59,True,702,+
+gotzmann/1JV36B,bf5fdbbd4a35404f5bda5ac4d61d768a20ea2f7d,gotzmann/1JV36B/checkpoint-15000/adapter_model.safetensors,safetensors,..,Serge Gotsuliak,2024-08-25 15:22:59,True,702,+
+gotzmann/1JV36B,bf5fdbbd4a35404f5bda5ac4d61d768a20ea2f7d,gotzmann/1JV36B/checkpoint-17940/adapter_model.safetensors,safetensors,..,Serge Gotsuliak,2024-08-25 15:22:59,True,702,+
+gotzmann/1JV36B,bf5fdbbd4a35404f5bda5ac4d61d768a20ea2f7d,gotzmann/1JV36B/checkpoint-9000/adapter_model.safetensors,safetensors,..,Serge Gotsuliak,2024-08-25 15:22:59,True,702,+
+JamesKim/distil_bert-base-multilingual-cased,06b658d2b114f36190cc1ab4bfa8e2462f951efd,JamesKim/distil_bert-base-multilingual-cased/model.safetensors,safetensors,Upload model,Sungjin Kim,2024-08-25 02:56:48,True,702,+
+xueyj/Qwen-Qwen1.5-0.5B-1724515371,7f4f2bf252370092db2c76d5a95c327531eb819b,xueyj/Qwen-Qwen1.5-0.5B-1724515371/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,xueyj,2024-08-24 12:03:01,True,701,+
+xueyj/google-gemma-7b-1724486464,eedcb34085268035de412ea77b7797bdf98c245f,xueyj/google-gemma-7b-1724486464/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,xueyj,2024-08-24 04:01:24,True,701,+
+richardkelly/google-gemma-2b-1724485138,193e68922ccfe8251ecbac7ce666ddd8f39f2857,richardkelly/google-gemma-2b-1724485138/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,Richard Kelly,2024-08-24 03:39:07,True,701,+
+GaetanMichelet/Mistral-7B_task-3_180-samples_config-1,43009c93e8d1219494a5700a6f547d233ba45efa,GaetanMichelet/Mistral-7B_task-3_180-samples_config-1/adapter_model.safetensors,safetensors,"Training in progress, epoch 1",Gaetan Michelet,2024-08-23 19:24:59,True,700,+
+Krabat/Qwen-Qwen1.5-1.8B-1724416925,401b11d62ade9eba5d610797a892f22c21421367,Krabat/Qwen-Qwen1.5-1.8B-1724416925/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,Lu Krabat,2024-08-23 08:42:08,True,700,+
+koukoudzz/gpt2_sql-v0.3,877ca6c5727100070ccde00fda210e0282dfa2f9,koukoudzz/gpt2_sql-v0.3/adapter_model.safetensors,safetensors,Upload model,Oussama,2024-08-31 18:23:30,True,708,+
+koukoudzz/gpt2_sql-v0.3,0797ea715ab7c244abca3b71acf738b9d6dc6085,koukoudzz/gpt2_sql-v0.3/gpt-adapter/adapter_model.safetensors,safetensors,Upload model,Oussama,2024-08-23 03:12:48,True,700,+
+RafaM97/Compass_Model,885c0c499803c788e0b5c29ce2fa29a4e5581dce,RafaM97/Compass_Model/adapter_model.safetensors,safetensors,Upload 6 files,Rafael Montanez,2024-08-22 22:27:25,True,699,+
+ahsbdcpu/google-gemma-2b-1724333851,ddeed570a6940ec8aeba2b3f906994d492ecacc9,ahsbdcpu/google-gemma-2b-1724333851/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,wang,2024-08-22 09:37:36,True,699,+
+ThomasVirgo/tapper-lora,a4a77e1ac423187eb312d709a21a49a8abe713fb,ThomasVirgo/tapper-lora/flux_train_replicate.safetensors,safetensors,Upload folder using huggingface_hub,Tom Virgo,2024-08-21 15:41:41,True,698,+
+liccgg/chatglm2-6b-fea,06834432f7042151685b915af23b0051b30871c4,liccgg/chatglm2-6b-fea/model-00001-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,ccgg,2024-08-21 02:10:46,True,698,+
+liccgg/chatglm2-6b-fea,06834432f7042151685b915af23b0051b30871c4,liccgg/chatglm2-6b-fea/model-00002-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,ccgg,2024-08-21 02:10:46,True,698,+
+liccgg/chatglm2-6b-fea,06834432f7042151685b915af23b0051b30871c4,liccgg/chatglm2-6b-fea/model-00003-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,ccgg,2024-08-21 02:10:46,True,698,+
+liccgg/chatglm2-6b-fea,06834432f7042151685b915af23b0051b30871c4,liccgg/chatglm2-6b-fea/model-00004-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,ccgg,2024-08-21 02:10:46,True,698,+
+liccgg/chatglm2-6b-fea,06834432f7042151685b915af23b0051b30871c4,liccgg/chatglm2-6b-fea/model-00005-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,ccgg,2024-08-21 02:10:46,True,698,+
+liccgg/chatglm2-6b-fea,06834432f7042151685b915af23b0051b30871c4,liccgg/chatglm2-6b-fea/model-00006-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,ccgg,2024-08-21 02:10:46,True,698,+
+liccgg/chatglm2-6b-fea,06834432f7042151685b915af23b0051b30871c4,liccgg/chatglm2-6b-fea/model-00007-of-00007.safetensors,safetensors,Upload folder using huggingface_hub,ccgg,2024-08-21 02:10:46,True,698,+
+hector-a/flux-lora-hec-2,5ea3694fcb223c61eaca91fe1386d4873db50f6e,hector-a/flux-lora-hec-2/flux_train_replicate.safetensors,safetensors,Upload folder using huggingface_hub,Hector,2024-08-20 09:04:34,True,697,+
+xueyj/google-gemma-2b-1724122767,af3783f40304f83965c9ba308e25b359d8b0effd,xueyj/google-gemma-2b-1724122767/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,xueyj,2024-08-19 23:00:54,True,696,+
+XSCP/Qwen-Qwen1.5-0.5B-1723958816,41219be99c0fcc42bb8c61c84c873651f6e0c6eb,XSCP/Qwen-Qwen1.5-0.5B-1723958816/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,X,2024-08-18 01:26:56,True,695,+
+jackkma/Qwen-Qwen1.5-1.8B-1723942742,ecb5b2121e3e2ea075cd8d68fa66f0a3dcdabd5f,jackkma/Qwen-Qwen1.5-1.8B-1723942742/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,ma,2024-08-17 20:59:07,True,694,+
+PrunaAI/ilsp-Meltemi-7B-Instruct-v1-bnb-4bit-smashed,960b411998514a34abd7640efc2bbed323a01eeb,PrunaAI/ilsp-Meltemi-7B-Instruct-v1-bnb-4bit-smashed/model.safetensors,safetensors,"Upload folder using huggingface_hub (#1)
+
+
+- 3fd7ebc4fe526077fae5fcc3b0ff6ae55ec152b739d1b1d85d962a3a8c6ef718 (2c03f7556a60198770aff72bb2470178811b6f41)
+- d886604b8d32a3a069359a459afb572e8ffeeb184799525a1c92ab9c522a9ddf (d337a63b8c3d0498943d8ad7fbc03ad0ccd59bd7)",Bertrand Charpentier,2024-08-14 00:33:26,True,691,+
+Franky123/lora_model_training_data.json_iteration_2,64634fcee7d65d8f6007e27f2e569422a8e3205d,Franky123/lora_model_training_data.json_iteration_2/adapter_model.safetensors,safetensors,"Upload model trained with Unsloth
+
+Upload model trained with Unsloth 2x faster",Frank,2024-08-13 03:14:46,True,690,+
+BogdanTurbal/model_gemma_2b_d_political_bias_hate_bias_ep_2_3_a_sqn_a_b_p_100_5_v_12,f727961a38913bc509c5570395de650971efc0bb,BogdanTurbal/model_gemma_2b_d_political_bias_hate_bias_ep_2_3_a_sqn_a_b_p_100_5_v_12/adapter_model.safetensors,safetensors,End of training,Bogdan Turbal,2024-08-12 17:14:57,True,689,+
+latiao1999/Qwen-Qwen1.5-0.5B-1723434022,f15d69c4f01b8f4b5f1eb1640c6c34dfdf57a961,latiao1999/Qwen-Qwen1.5-0.5B-1723434022/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,latiao,2024-08-11 23:40:26,True,688,+
+NeWallent29764/google-gemma-2b-1723339413,bca515632b01162d879216839c0a846548563222,NeWallent29764/google-gemma-2b-1723339413/adapter_model.safetensors,safetensors,Upload folder using huggingface_hub,NeWallent29764,2024-08-10 21:23:37,True,687,+
+bucunzai2/HDFS,775baf57273844661934fbac918fdcc9271340af,bucunzai2/HDFS/adapter_model.safetensors,safetensors,"Upload model trained with Unsloth
+
+Upload model trained with Unsloth 2x faster",Frank lin,2024-08-10 01:18:40,True,687,+
+beeformer/Llama-movielens-mpnet,32e64d295174e3c43b99fc4225359f5c48e6fa5f,beeformer/Llama-movielens-mpnet/model.safetensors,safetensors,Upload 11 files,Anon nymous,2024-08-02 05:20:34,True,679,+
+wu981526092/bias_classifier_roberta,1ea6d8f7db7e3e1c78574f65c552b16e12d46877,wu981526092/bias_classifier_roberta/model.safetensors,safetensors,Upload 7 files,WU ZEKUN,2024-07-31 09:02:52,True,677,+

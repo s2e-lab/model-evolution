@@ -1,0 +1,43 @@
+repo_url,commit_hash,model_file_path,serialization_format,message,author,date,is_in_commit,elapsed_days,change_status
+Daemontatox/AetherSett,96d98b9113caba66e385a7b66b9a0bb77174a3b6,Daemontatox/AetherSett/model-00001-of-00004.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (1b37ce18935ab38186c4eefdae4fd3dfbd4e67ec)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Ammar,2024-12-30 08:38:50,True,829,+
+Daemontatox/AetherSett,96d98b9113caba66e385a7b66b9a0bb77174a3b6,Daemontatox/AetherSett/model-00002-of-00004.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (1b37ce18935ab38186c4eefdae4fd3dfbd4e67ec)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Ammar,2024-12-30 08:38:50,True,829,+
+Daemontatox/AetherSett,96d98b9113caba66e385a7b66b9a0bb77174a3b6,Daemontatox/AetherSett/model-00003-of-00004.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (1b37ce18935ab38186c4eefdae4fd3dfbd4e67ec)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Ammar,2024-12-30 08:38:50,True,829,+
+Daemontatox/AetherSett,96d98b9113caba66e385a7b66b9a0bb77174a3b6,Daemontatox/AetherSett/model-00004-of-00004.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (1b37ce18935ab38186c4eefdae4fd3dfbd4e67ec)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Ammar,2024-12-30 08:38:50,True,829,+
+Merdeka-LLM/merdeka-llm-lawyer-3b-128k-instruct,b2c235b811e786478f3de745bd4d42785f7a1759,Merdeka-LLM/merdeka-llm-lawyer-3b-128k-instruct/model-00001-of-00002.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (bfbad258fc17fa4c73a21503e115e603cb1e5403)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Wong Zhi Heng,2024-10-17 08:55:27,True,755,+
+Merdeka-LLM/merdeka-llm-lawyer-3b-128k-instruct,b2c235b811e786478f3de745bd4d42785f7a1759,Merdeka-LLM/merdeka-llm-lawyer-3b-128k-instruct/model-00002-of-00002.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (bfbad258fc17fa4c73a21503e115e603cb1e5403)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Wong Zhi Heng,2024-10-17 08:55:27,True,755,+
