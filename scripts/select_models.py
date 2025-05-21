@@ -134,7 +134,7 @@ def sample(df: pd.DataFrame, total: int):
 
 
 if __name__ == "__main__":
-    input_file = DATA_DIR / "hf_sort_by_createdAt_top1211357.json.zip"
+    input_file = DATA_DIR / "hf_sort_by_createdAt_top1210714.json.zip"
     out_legacy_models_file = DATA_DIR / "selected_legacy_repos.json"
     out_recent_models_file = DATA_DIR / "selected_recent_repos.json"
 
