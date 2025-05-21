@@ -14,6 +14,7 @@ from analyticaml import MODEL_FILE_EXTENSIONS
 
 from utils import DATA_DIR
 
+SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-22", utc=True)
 
 def load(file_path: Path) -> pd.DataFrame:
     """
@@ -43,17 +44,16 @@ def has_model_file(model_files: list) -> bool:
 def filter_legacy(df: pd.DataFrame) -> pd.DataFrame:
     """
     This function filters the repositories based on the following criteria:
-    - models created before September 2022; AND
+    - models created before 22 September 2022; AND
     - models last modified in 2024; AND
     - models with at least one model file; AND
     - models that are not gated.
     :param df: data frame with all models'  metadata
     :return: a data frame with the selected models that are 'legacy'.
     """
-    # find models created_at before 2022 and last_modified in 2024
-    df_filtered = df[(df["created_at"].dt.year <= 2022) & (df["last_modified"].dt.year == 2024)]
-    # if the year is 2022, check the month; we only want models created *before* September 2022 (not including)
-    df_filtered = df_filtered[((df_filtered["created_at"].dt.year < 2022) | (df_filtered["created_at"].dt.month < 9))]
+    # find models created_at before 22 September 2022 and last_modified in 2024
+
+    df_filtered = df[(df["created_at"] < SAFETENSORS_RELEASE_DATE) & (df["last_modified"].dt.year == 2024)]
     # find model repositories with at least one model file (extension in MODEL_FILE_EXTENSIONS)
     df_filtered = df_filtered[df_filtered["siblings"].apply(has_model_file)]
     # exclude gated repositories
@@ -64,17 +64,15 @@ def filter_legacy(df: pd.DataFrame) -> pd.DataFrame:
 def filter_recent(df: pd.DataFrame) -> pd.DataFrame:
     """
     This function filters the repositories based on the following criteria:
-    - models created after September 2022; AND
+    - models created on or after 22 September 2022; AND
     - models last modified in 2024; AND
     - models with at least one model file; AND
     - models that are not gated.
     :param df: data frame with all models'  metadata
     :return: a data frame with the selected models
     """
-    # find models created_at on after 2022 and last_modified in 2024
-    df_filtered = df[(df["created_at"].dt.year >= 2022) & (df["last_modified"].dt.year == 2024)]
-    # if the year is 2022, check the month; we only want models created *after* September 2022 (not including)
-    df_filtered = df_filtered[((df_filtered["created_at"].dt.year > 2022) | (df_filtered["created_at"].dt.month > 9))]
+    # find models created_at on or after RELE and last_modified in 2024
+    df_filtered = df[(df["created_at"] >= SAFETENSORS_RELEASE_DATE) & (df["last_modified"].dt.year == 2024)]
     # find model repositories with at least one model file (extension in MODEL_FILE_EXTENSIONS)
     df_filtered = df_filtered[df_filtered["siblings"].apply(has_model_file)]
     # exclude gated repositories
