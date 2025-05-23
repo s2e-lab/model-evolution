@@ -9,14 +9,15 @@ import zipfile
 from pathlib import Path
 
 from analyticaml.model_download import get_models_metadata
+from huggingface_hub import HfApi
 
 if __name__ == '__main__':
     print("Getting models from Hugging Face API...")
     # Configure what  models to get from the Hugging Face API
-    total = None  # if None, it will retrieve all models
+    total = None                    # if None, it will retrieve all models
     sorting_criteria = "createdAt"  # "downloads" "likes"
-    full = True  # whether to get the full model information (true) or not (false)
-    sort_direction = False  # True for ascending, False for descending
+    full = False                    # whether to get the full model information (true) or not (false)
+    sort_direction = True           # True for ascending, False for descending
 
     # Retrieve the models
     models = get_models_metadata(sorting_criteria, total, full, sort_direction)
@@ -25,25 +26,31 @@ if __name__ == '__main__':
     # Parse the retrieved metadata
     results = []
 
+    # Used to get the model information in more details (e.g. siblings' size and total repo size)
+    api = HfApi()
     for model in models:
         # skips models created after 2024
         if model.created_at.year > 2024: continue
-        results.append(vars(model))
         repo_files = []
-        if model.siblings:
-            for sibling in model.siblings:
-                repo_file = vars(sibling)
-                repo_file["extension"] = repo_file["rfilename"].rsplit(".", 2)[-1]
-                repo_files.append(repo_file)
 
-        results[-1]["siblings"] = repo_files
+        if model.gated:
+            results.append(vars(model))
+        else:
+            model_info = api.model_info(model.id, revision=model.sha, files_metadata=True)
+            results.append(vars(model_info))
+            # Get the model files
+            if model_info.siblings:
+                for sibling in model_info.siblings:
+                    repo_file = vars(sibling)
+                    repo_file["extension"] = repo_file["rfilename"].rsplit(".", 2)[-1]
+                    repo_files.append(repo_file)
 
-    total = len(results)
+            results[-1]["siblings"] = repo_files
 
     # Save the results as a zip file
     print("Saving  results")
 
-    output_file = Path(f"../data/hf_sort_by_{sorting_criteria}_top{total}.json")
+    output_file = Path(f"../data/hf_sort_by_{sorting_criteria}_top{len(results)}.json")
     with open(output_file, "w") as outfile:
         outfile.write(json.dumps(results, indent=2, default=str))
 
