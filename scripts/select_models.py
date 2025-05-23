@@ -15,6 +15,7 @@ from analyticaml import MODEL_FILE_EXTENSIONS
 from utils import DATA_DIR
 
 SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-22", utc=True)
+FIRST_DAY_OF_2024 = pd.to_datetime("2024-01-01", utc=True)
 
 def load(file_path: Path) -> pd.DataFrame:
     """
@@ -51,9 +52,9 @@ def filter_legacy(df: pd.DataFrame) -> pd.DataFrame:
     :param df: data frame with all models'  metadata
     :return: a data frame with the selected models that are 'legacy'.
     """
-    # find models created_at before 22 September 2022 and last_modified in 2024
+    # find models created_at before 22 September 2022 and last_modified in 2024 (or later)
 
-    df_filtered = df[(df["created_at"] < SAFETENSORS_RELEASE_DATE) & (df["last_modified"].dt.year == 2024)]
+    df_filtered = df[(df["created_at"] < SAFETENSORS_RELEASE_DATE) & (df["last_modified"] >= FIRST_DAY_OF_2024)]
     # find model repositories with at least one model file (extension in MODEL_FILE_EXTENSIONS)
     df_filtered = df_filtered[df_filtered["siblings"].apply(has_model_file)]
     # exclude gated repositories
@@ -72,7 +73,7 @@ def filter_recent(df: pd.DataFrame) -> pd.DataFrame:
     :return: a data frame with the selected models
     """
     # find models created_at on or after RELE and last_modified in 2024
-    df_filtered = df[(df["created_at"] >= SAFETENSORS_RELEASE_DATE) & (df["last_modified"].dt.year == 2024)]
+    df_filtered = df[(df["created_at"] >= SAFETENSORS_RELEASE_DATE) & (df["last_modified"] >= FIRST_DAY_OF_2024)]
     # find model repositories with at least one model file (extension in MODEL_FILE_EXTENSIONS)
     df_filtered = df_filtered[df_filtered["siblings"].apply(has_model_file)]
     # exclude gated repositories
