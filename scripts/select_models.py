@@ -152,23 +152,10 @@ def sample(df: pd.DataFrame, total: int):
     return sampled_df
 
 
-def create_size_cache():
-    """
-    This function creates a cache of the sizes of the repositories.
-    It saves the cache to a file in the DATA_DIR.
-    """
-    size_cache = {}
-    df_cache = load(DATA_DIR / "hf_sort_by_createdAt_top1210660.json.zip")
-    for _, row in df_cache.iterrows():
-        repo_id = row["id"]
-        repo_size = row["usedStorage"] if "usedStorage" in row else 0
-        sha = row["sha"]
-        size_cache[f"{repo_id}_{sha}"] = repo_size
-    return size_cache
 
 
 if __name__ == "__main__":
-    input_file = DATA_DIR / "hf_sort_by_createdAt_top1209409.json.zip"
+    input_file = DATA_DIR / "hf_sort_by_createdAt_top1209398.json.zip"
     out_legacy_models_file = DATA_DIR / "selected_legacy_repos.json"
     out_recent_models_file = DATA_DIR / "selected_recent_repos.json"
 
@@ -177,8 +164,8 @@ if __name__ == "__main__":
     df = load(input_file)
     df['last_modified'] = pd.to_datetime(df['last_modified'], utc=True)
     df['created_at'] = pd.to_datetime(df['created_at'], utc=True)
-    df["gated"] = df["gated"].astype(bool)
-    df["size"] = 0  # initialize size column
+    df['gated'] = df['gated'].astype(bool)
+    df['size'] = 0  # initialize size column
 
     # Notice that 2022-03-02T23:29:04.000Z assigned to all repositories created before HF began storing creation dates.
     print("Min creation date = ", df["created_at"].min())
@@ -196,16 +183,15 @@ if __name__ == "__main__":
     print("Selecting recent repositories...")
     df_copy = df.copy()
     df_recent = pd.DataFrame(columns=df_copy.columns)
-
-    while len(df_legacy) != len(df_recent):
+    num_extra = 10  # number of extra repositories to sample from the recent period
+    while len(df_legacy) + num_extra != len(df_recent):
+        num_samples = len(df_legacy) + num_extra - len(df_recent)
         # sample and add to df_recent
-        print(f"SAMPLING RECENT REPOSITORIES... {len(df_legacy) - len(df_recent)}")
-        selected = sample(select_recent(df_copy), len(df_legacy) - len(df_recent))
+        print(f"\tSampling recent repositories ({num_samples} samples)")
+        selected = sample(select_recent(df_copy), num_samples)
         selected = filter_by_size(selected)
         print(f"\tAfter filtering, {len(selected)} recent repositories left")
-
         df_recent = selected if df_recent.empty else pd.concat([df_recent, selected])
-        # df_recent =
         print(f"\tCurrent recent sample size {len(df_recent)} recent repositories...")
 
         # exclude from df_copy the repositories that were already sampled
@@ -214,13 +200,17 @@ if __name__ == "__main__":
 
     df_recent.reset_index(inplace=True)
     # Check if the number of legacy and recent repositories is the same
-    assert len(df_legacy) == len(df_recent), "Number of legacy and recent repositories should be the same"
+    assert len(df_legacy) + num_extra == len(df_recent), "Number of legacy and recent repositories should be the same"
     print(f"Selected repositories: {len(df_legacy)} legacy / {len(df_recent)} recent")
-    # Step 3 - Save the data
+
+    # Step 5 - Save the data
     df_legacy.to_json(out_legacy_models_file, orient="records", indent=2)
     df_recent.to_json(out_recent_models_file, orient="records", indent=2)
+
+    # Print summary information
     print(f"Saved the selected repositories to {out_legacy_models_file} / {out_recent_models_file}")
     print(len(df_legacy), "legacy repositories selected for the study")
     print(f"\tLegacy Period: {df_legacy['created_at'].min()} - {df_legacy['created_at'].max()}")
     print(len(df_recent), "recent repositories selected for the study")
     print(f"\tRecent Period: {df_recent['created_at'].min()} - {df_recent['created_at'].max()}")
+    print("Done!")
