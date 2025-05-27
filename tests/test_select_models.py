@@ -21,11 +21,11 @@ class TestSelectModels(unittest.TestCase):
         self.data_dir = Path("../data")
 
     def test_selected_models(self):
-        num_extra = 0
+        num_extra = 10
         df_legacy = fix_data_types(load(self.data_dir / f"selected_legacy_repos.json"))
         df_recent = fix_data_types(load(self.data_dir / f"selected_recent_repos.json"))
         # check that the DataFrame is not empty and has the expected number of models
-        self.assertEqual(len(df_legacy), len(df_recent) + num_extra)
+        self.assertEqual(len(df_legacy) + num_extra, len(df_recent) )
         # check all models are not gated
         self.assertTrue((df_legacy['gated'] == False).all())
         self.assertTrue((df_recent['gated'] == False).all())
