@@ -5,38 +5,20 @@ Selecting model repositories to include on our study.
 @Author: Joanna C. S. Santos
 """
 
-import os
 import random
-import zipfile
-from pathlib import Path
 
 import pandas as pd
 from analyticaml import MODEL_FILE_EXTENSIONS
 from huggingface_hub import HfApi
 from tqdm import tqdm
 
+from scripts.utils import load
 from utils import DATA_DIR
 
 SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-22", utc=True)
 FIRST_DAY_OF_2024 = pd.to_datetime("2024-01-01", utc=True)
 SIZE_LIMIT = 2 * 1024 * 1024 * 1024 * 1024  # 2 TB
 api = HfApi()
-
-
-def load(file_path: Path) -> pd.DataFrame:
-    """
-    This function loads the data from the Hugging Face API.
-    :param file_path: path to the zip file to be loaded.
-    :return: a pandas DataFrame with the metadata of the models.
-    """
-    # uncompress zip file to the DATA_DIR
-    with zipfile.ZipFile(file_path, 'r') as zip_ref:
-        zip_ref.extractall(DATA_DIR)
-    # load the data
-    df = pd.read_json(file_path.with_suffix(""))
-    # delete the unzipped file
-    os.remove(file_path.with_suffix(""))
-    return df
 
 
 def has_model_file(model_files: list) -> bool:
@@ -87,17 +69,26 @@ def exclude_models(df: pd.DataFrame) -> pd.DataFrame:
     return df_filtered
 
 
+def filter_by_size(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    This function filters the repositories that are larger than 2 TB.
+    :param df: data frame with all models' metadata
+    :return: a data frame with the selected models that are not larger than 2 TB.
+    """
+    # get the size of the repositories and add to the dataframe
+    for idx, repo in tqdm(df.iterrows(), total=len(df), unit="repo"):
+        df.at[idx, "size"], df.at[idx, "siblings"] = get_repo_size(repo["id"])
+    # exclude repositories that are larger than 2 TB and not empty
+    return df[(df["size"] < SIZE_LIMIT) & (df["size"] > 0)]
+
+
 def select_legacy(df: pd.DataFrame) -> pd.DataFrame:
     """
     This function returns the repositories created before safetensors' release date.
     :param df: data frame with all models'  metadata
     :return: a data frame with the selected models that are 'legacy'.
     """
-    df_filtered = df[df["created_at"] < SAFETENSORS_RELEASE_DATE]
-    # for idx, repo in tqdm(df_filtered.iterrows(), total=len(df_filtered), unit="repo"):
-    #     df_filtered.at[idx, "size"], df_filtered.at[idx, "siblings"] = get_repo_size(repo["id"])
-    # df_filtered = df_filtered[(df_filtered["size"] < SIZE_LIMIT) & (df_filtered["size"] > 0)]
-    return df_filtered[:10]
+    return df[df["created_at"] < SAFETENSORS_RELEASE_DATE]
 
 
 def select_recent(df: pd.DataFrame) -> pd.DataFrame:
@@ -177,7 +168,7 @@ def create_size_cache():
 
 
 if __name__ == "__main__":
-    input_file = DATA_DIR / "hf_sort_by_createdAt_top1209434.json.zip"
+    input_file = DATA_DIR / "hf_sort_by_createdAt_top1209409.json.zip"
     out_legacy_models_file = DATA_DIR / "selected_legacy_repos.json"
     out_recent_models_file = DATA_DIR / "selected_recent_repos.json"
 
@@ -199,6 +190,7 @@ if __name__ == "__main__":
     # Step 3 - Inspect the repositories and identify legacy repositories
     print("Selecting legacy repositories...")
     df_legacy = select_legacy(df)
+    df_legacy = filter_by_size(df_legacy)
 
     # Step 4 - Sample recent repositories
     print("Selecting recent repositories...")
@@ -209,12 +201,7 @@ if __name__ == "__main__":
         # sample and add to df_recent
         print(f"SAMPLING RECENT REPOSITORIES... {len(df_legacy) - len(df_recent)}")
         selected = sample(select_recent(df_copy), len(df_legacy) - len(df_recent))
-        # get the size of the repositories in df_recent
-        for idx, row in tqdm(selected.iterrows(), total=len(selected), unit="repo"):
-            # print(f"\tSize for {row['id']} is {repo_size} bytes")
-            selected.at[idx, "size"], selected.at[idx, "siblings"] = get_repo_size(row["id"])
-        # exclude repositories that are larger than 2 TB and not empty
-        selected = selected[(selected["size"] < SIZE_LIMIT) & (selected["size"] > 0)]
+        selected = filter_by_size(selected)
         print(f"\tAfter filtering, {len(selected)} recent repositories left")
 
         df_recent = selected if df_recent.empty else pd.concat([df_recent, selected])

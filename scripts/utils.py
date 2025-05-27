@@ -2,9 +2,11 @@ import math
 import os
 import shutil
 import sys
+import zipfile
 from pathlib import Path
 
 import git
+import pandas as pd
 from git import Repo
 
 DATA_DIR = Path("../data")
@@ -78,3 +80,24 @@ def calculate_sample_size(population_size: int,
 
     n = numerator / denominator
     return math.ceil(n)
+
+
+def load(file_path: Path) -> pd.DataFrame:
+    """
+    This function loads the data from the Hugging Face API.
+    :param file_path: path to the zip file to be loaded.
+    :return: a pandas DataFrame with the metadata of the models.
+    """
+    # check if it is a zip file
+    if file_path.suffix == ".zip":
+        # uncompress zip file to the DATA_DIR
+        with zipfile.ZipFile(file_path, 'r') as zip_ref:
+            zip_ref.extractall(DATA_DIR)
+        # load the data
+        df = pd.read_json(file_path.with_suffix(""))
+        # delete the unzipped file
+        os.remove(file_path.with_suffix(""))
+    else:
+        # load the data directly
+        df = pd.read_json(file_path)
+    return df

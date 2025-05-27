@@ -7,6 +7,7 @@ from pathlib import Path
 import pandas as pd
 from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
 from analyticaml.model_parser import detect_serialization_format
+from analyticaml.model_download import download_model_file
 from tqdm import tqdm
 
 from utils import DATA_DIR, RESULTS_DIR
@@ -100,29 +101,19 @@ if __name__ == '__main__':
     # iterate over the range of commits
     for index, row in tqdm(df_commits.iterrows(), total=len(df_commits), unit="commit"):
         all_model_files = [f for f in row["all_files_in_tree"].split(";") if is_model_file(f)]
-        changed_files = [x.split()[1] for x in row["changed_files"].split(";")]
+        changed_files = set([x.split()[1] for x in row["changed_files"].split(";")])
         try:
             # checkout repository at that commit hash
             commit_hash = row["commit_hash"]
             repo_url = row["repo_url"]
             clone_path = temp_folder / repo_url.replace("/", "+")
 
-            if last_repo_url != repo_url:
-                # close the last repository and delete the folder
-                if last_repo_obj:
-                    last_repo_obj.close()
-                    delete_folder(last_clone_path)
-                # clone the repository
-                repo = clone(repo_url, clone_path, single_branch=True, no_tags=True)
-                # update the last repository URL and object
-                last_repo_url, last_repo_obj, last_clone_path = repo_url, repo, clone_path
-
-            # checkout the commit hash
-            last_repo_obj.git.checkout(commit_hash, force=True)
-
             # iterate over the files touched in the commit (modified, added, or deleted)
             for file_path in all_model_files:
-                full_file_path = os.path.join(clone_path, file_path)
+                # download the file if it is not already downloaded
+                # print(f"Downloading {file_path} from {repo_url} at commit {commit_hash}")
+                full_file_path = download_model_file(repo_url, file_path, clone_path, commit_hash)
+                # print(full_file_path, clone_path, commit_hash)
                 # check if it is a symbolic file pointing to nowhere
                 if os.path.islink(full_file_path) and not os.path.exists(full_file_path):
                     serialization_format = "UNDETERMINED (symbolic link)"
@@ -140,9 +131,16 @@ if __name__ == '__main__':
                     "is_in_commit": file_path in changed_files,
                 }
                 # print(f"File: {file_path}, Format: {serialization_format}")
+                # remove the file after processing
+                os.remove(full_file_path)
         except Exception as e:
             print(f"Error processing {commit_hash}: {e}")
             df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": e}
+        finally:
+            # delete the clone folder if it exists
+            if os.path.exists(clone_path):
+                delete_folder(clone_path)
+
 
         # SAVES THE DATAFRAME EVERY save_at ITERATIONS
         if index != 0 and index % save_at == 0:
