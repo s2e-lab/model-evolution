@@ -11,10 +11,7 @@ from pathlib import Path
 
 from analyticaml.model_download import get_models_metadata
 from huggingface_hub import HfApi
-from huggingface_hub.hf_api import ModelInfo
 from tqdm import tqdm
-
-from select_models import FIRST_DAY_OF_2024, has_model_file
 
 
 def save(models_list: list, out_file: Path) -> None:
@@ -32,14 +29,6 @@ def save(models_list: list, out_file: Path) -> None:
 
     # Delete the uncompressed file
     out_file.unlink()
-
-def should_exclude(model: ModelInfo) -> bool:
-    """
-    Check if the model should be excluded based on certain criteria.
-    :param model: ModelInfo object containing model metadata.
-    :return: True if the model should be excluded, False otherwise.
-    """
-    return model.gated or model.last_modified < FIRST_DAY_OF_2024 or not has_model_file(model.siblings)
 
 
 if __name__ == '__main__':
@@ -60,18 +49,8 @@ if __name__ == '__main__':
     results = []
     api = HfApi()
     print("Parsing models metadata...")
-    save_at = 100000
     output_file = Path(f"../data/hf_sort_by_{sorting_criteria}_top{len(models)}.json")
-    for model in tqdm(models):
-        # if it is gated, or it does not have recent changes, then don't try to get the model info
-        if should_exclude(model):
-            model_metadata = model
-        else:  # otherwise, get the model metadata from the Hugging Face API
-            try:
-                model_metadata = api.model_info(model.id, revision=model.sha, files_metadata=False)
-            except Exception as e:
-                print(f"Error retrieving model metadata for {model.id}: {e}")
-                model_metadata = model
+    for model_metadata in tqdm(models):
         results.append(vars(model_metadata))
         # Get the model files
         repo_files = []
@@ -82,8 +61,6 @@ if __name__ == '__main__':
                 repo_files.append(repo_file)
 
         results[-1]["siblings"] = repo_files
-        if len(results) % save_at == 0:
-            save(results, output_file)
 
     # Save the results as a zip file
     save(results, output_file)
