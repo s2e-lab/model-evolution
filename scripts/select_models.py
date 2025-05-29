@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 """
-Selecting model repositories to include on our study.
+It applies inclusion / exclusion criteria to select model repositories to include on our study.
 @Author: Joanna C. S. Santos
 """
 
@@ -17,7 +17,7 @@ from utils import DATA_DIR
 
 SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-22", utc=True)
 FIRST_DAY_OF_2024 = pd.to_datetime("2024-01-01", utc=True)
-SIZE_LIMIT = 2 * 1024 * 1024 * 1024 * 1024  # 2 TB
+SIZE_LIMIT = 1 * 1024 * 1024 * 1024 * 1024  # 1 TB
 api = HfApi()
 
 
@@ -152,10 +152,8 @@ def sample(df: pd.DataFrame, total: int):
     return sampled_df
 
 
-
-
 if __name__ == "__main__":
-    input_file = DATA_DIR / "hf_sort_by_createdAt_top1209398.json.zip"
+    input_file = DATA_DIR / "hf_sort_by_createdAt_top1209240.json.zip"
     out_legacy_models_file = DATA_DIR / "selected_legacy_repos.json"
     out_recent_models_file = DATA_DIR / "selected_recent_repos.json"
 
@@ -214,3 +212,6 @@ if __name__ == "__main__":
     print(len(df_recent), "recent repositories selected for the study")
     print(f"\tRecent Period: {df_recent['created_at'].min()} - {df_recent['created_at'].max()}")
     print("Done!")
+    print("Recommended next steps:")
+    print("\t- Run the tests on tests/test_select_models.py to check the results.")
+    print("\t- Run the get_commit_logs.py to download the commits logs for the selected repositories.")

@@ -20,6 +20,7 @@ This project contains five main folders
   - **bot**: scripts relating to getting data about the safetensors convert bot
   - **crc**: scripts to deploy runs to the center for computing resource
   - **github**: scripts relating to getting data from GitHub.
+  - **hotfixes**: scripts to make some adjustments to data files (like merging CSV files, etc).
   - **notebooks**: Jupyter notebooks for analyzing the results and generating images
   - **stackoverflow**: scripts relating to getting data from StackOverflow.
 - **tests**: Folder for storing unit tests (test the scripts).

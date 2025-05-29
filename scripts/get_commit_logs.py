@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
     # iterates over the repositories
     commits, errors = [], []
-    save_at = 50
+    save_at = 100
     commits_columns = ["repo_url", "commit_hash", "author", "date", "message", "changed_files", "all_files_in_tree"]
     error_columns = ["repo_url", "error"]
 
@@ -159,3 +159,7 @@ if __name__ == "__main__":
 
     print(f"Commits saved to {output_file}")
     print(f"Errors saved to {error_file}")
+    print("Done!")
+    print("Recommended next steps:")
+    print("1. Run the tests on tests/test_get_commit_logs.py to check the results.")
+    print("2. Run the scripts/analyze_commit_history.py to identify the serialization format used in each saved model file.")

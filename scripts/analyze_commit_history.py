@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
     # Analysis configuration
     print(f"Start processing (range = {0}-{len(df_commits)}) for group {group_type}...")
-    save_at, out_filename = 100, f"repositories_evolution_{group_type}_commits.csv"
+    save_at, out_filename = 1000, f"repositories_evolution_{group_type}_commits.csv"
 
     # iterate over the range of commits
     for index, row in tqdm(df_commits.iterrows(), total=len(df_commits), unit="commit"):
@@ -157,3 +157,8 @@ if __name__ == '__main__':
     df_errors.to_csv(DATA_DIR / out_filename.replace("commits", "errors"), index=False)
 
     print(f"Output saved to {DATA_DIR}/{out_filename}")
+    print("Done!")
+    print("Recommended next steps:")
+    print("1. Run the tests on tests/test_analyze_commit_history.py to check the results.")
+    print("1. Run the hotfix to discard extra repos from the recent group, to balance out the sizes on each category.")
+    print("2. Run the notebooks for the corresponding RQs that use this data.")

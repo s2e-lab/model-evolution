@@ -32,11 +32,11 @@ class TestSelectModels(unittest.TestCase):
         # check that all recent / legacy models are created after / before SAFETENSORS release date
         self.assertTrue((df_recent['created_at'] > SAFETENSORS_RELEASE_DATE).all())
         self.assertTrue((df_legacy['created_at'] <= SAFETENSORS_RELEASE_DATE).all())
-        # check that all models have a size greater than 0 and less than 2GB
+        # check that all models have a size greater than 0 and less than 1TB
         self.assertTrue((df_legacy['size'] > 0).all())
-        self.assertTrue((df_legacy['size'] < 2 * 1024**4).all())
+        self.assertTrue((df_legacy['size'] < 1 * 1024**4).all())
         self.assertTrue((df_recent['size'] > 0).all())
-        self.assertTrue((df_recent['size'] < 2 * 1024**4).all())
+        self.assertTrue((df_recent['size'] < 1 * 1024**4).all())
         # check that all models have a valid last_modified date
         self.assertTrue((df_legacy['last_modified'] >= pd.to_datetime("2024-01-01", utc=True)).all())
         self.assertTrue((df_recent['last_modified'] >= pd.to_datetime("2024-01-01", utc=True)).all())

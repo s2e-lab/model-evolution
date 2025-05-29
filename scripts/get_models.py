@@ -66,3 +66,6 @@ if __name__ == '__main__':
     save(results, output_file)
 
     print("Done!")
+    print("You can find the results in the data folder.")
+    print("Recommended: run the tests on tests/test_get_models.py to check the results.")
+    print(f"Output file: {output_file.with_suffix('.json.zip')}")

@@ -12,7 +12,7 @@ class TestGetModels(unittest.TestCase):
         self.data_dir = Path("../data")
 
     def test_get_models(self):
-        num_models = 1209398
+        num_models = 1209240
         df = load(self.data_dir / f"hf_sort_by_createdAt_top{num_models}.json.zip")
         df['last_modified'] = pd.to_datetime(df['last_modified'], utc=True)
         df['created_at'] = pd.to_datetime(df['created_at'], utc=True)
