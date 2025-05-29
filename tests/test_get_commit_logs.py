@@ -19,12 +19,9 @@ class TestSelectModels(unittest.TestCase):
         # check that errors are empty
         self.assertTrue(df_errors.empty)
 
-
     def test_selected_models(self):
         for group in ["legacy", "recent"]:
             df_repos = fix_data_types(load(self.data_dir / f"selected_{group}_repos.json"))
             df_commits = pd.read_csv(self.data_dir / f"selected_{group}_commits.csv")
             df_errors = pd.read_csv(self.data_dir / f"selected_{group}_errors.csv")
-
             self.run_assertions(df_commits, df_errors, df_repos)
-
