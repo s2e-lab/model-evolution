@@ -25,6 +25,13 @@ def parse_args():
         choices=["legacy", "recent"],
         help="Type of repository group to process: 'legacy' or 'recent'."
     )
+    # Optional argument: retry
+    parser.add_argument(
+        "--retry",
+        action="store_true",
+        help="Retry failed commits from the previous run."
+    )
+
     return parser.parse_args()
 
 
@@ -74,9 +81,17 @@ if __name__ == '__main__':
     # Parse the command line arguments
     args = parse_args()
     group_type = args.group_type
+    suffix = "_retry" if args.retry else ""
 
     # Load the repositories and set nan columns to empty string
-    input_file = DATA_DIR / f"selected_{group_type}_commits.csv"
+    input_file = DATA_DIR / f"selected_{group_type}_commits{suffix}.csv"
+
+    if not input_file.exists():
+        print(f"Input file {input_file} does not exist. Please run the previous script to generate it.")
+        print("If you are running this script to retry, make sure to run hotfix/compute_failed_recent_history.py")
+        sys.exit(1)
+
+    print(f"Loading the commit history data from {input_file}...")
     df_commits = pd.read_csv(input_file).fillna("")
     print("Total number of commits:", len(df_commits))
 
@@ -95,7 +110,7 @@ if __name__ == '__main__':
 
     # Analysis configuration
     print(f"Start processing (range = {0}-{len(df_commits)}) for group {group_type}...")
-    save_at, out_filename = 1000, f"repositories_evolution_{group_type}_commits.csv"
+    save_at, out_filename = 1000, f"repositories_evolution_{group_type}_commits{suffix}.csv"
 
     # iterate over the range of commits
     for index, row in tqdm(df_commits.iterrows(), total=len(df_commits), unit="commit"):
