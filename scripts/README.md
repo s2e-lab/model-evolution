@@ -100,6 +100,16 @@ and `selected_<group_type>_errors_retried.csv`.
   The file will be named `repositories_evolution_<group_type>_commits.csv` (as well its error
   logs `repositories_evolution_<group_type>_errors.csv`).
 
+#### Step 5: Post process the commit evolution data
+- `process_commit_history.py`: Script to post-process the commit evolution data to generate the final dataset
+  for analysis.
+  ```bash
+  python process_commit_history.py
+  ```
+  The script will generate a CSV file with the post-processed commit evolution data on the `../data/` folder.
+  The file will be named `repositories_evolution_<group_type>_commits_processed.csv`. 
+  This is the file that will be used in the Jupyter notebooks for analysis.
+
 ### RQ3: Getting SFConvertBot Data
 
 #### Step 1: Extract Safetensors' versions
