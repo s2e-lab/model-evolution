@@ -1,0 +1,757 @@
+repo_url,commit_hash,model_file_path,serialization_format,message,author,date,is_in_commit,elapsed_days,change_status
+laurabernardy/LuxGPT2,c3be4fdd21aafd73ab50b6a2ee8a3d391ea01475,laurabernardy/LuxGPT2/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (7f21f79c5c12cd0b9b15d2f1deb97ac08e79124b)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Laura Bernardy,2023-09-01 16:23:04,True,343,+
+MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7,12dfea2a0b9ea8019b809105d4f62ffec7af622c,MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (f05319d93e3a4c88671083c13137726936be08a2)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Moritz Laurer,2023-03-20 04:26:54,True,178,+
+sociocom/MedNER-CR-JA,4c64fb004a42e1282868fbd4719839ac39d5652c,sociocom/MedNER-CR-JA/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (15d0069aa6e42695f395566368224994e14c628a)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Shuntaro Yada,2023-04-05 05:21:19,True,194,+
+albert/albert-base-v1,66b3f3c279cf3a1df6d8df1cffa60d4d026ea396,albert/albert-base-v1/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (dc0b1e91db500ef6c5ca487fe920df5acfee71ba)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:42:57,True,195,+
+albert/albert-base-v2,c3fcc1d2675a05929ea687d4ffbb537d1aa9c57a,albert/albert-base-v2/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (e5af66bcb01baf5eced82d51947bc71c95b4c434)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:39:39,True,195,+
+albert/albert-large-v2,1e2b86a91a3c63b5707d038747fb30838d9e7bac,albert/albert-large-v2/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (3fa5553702829f29f592ac7bad080e0ed4cd909a)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:41:50,True,195,+
+albert/albert-xlarge-v1,e9b59dbe40d22eb6ec042cf6af216207665f0320,albert/albert-xlarge-v1/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (d27456aedbb886136ced8326523680b3dd7d7e80)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-08-11 03:30:41,True,322,+
+albert/albert-xlarge-v2,4fd2c2aa9aeb305f87704a7e595be7bfffa3db88,albert/albert-xlarge-v2/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (baa3638980bbce449fe5e4f212d7574cbdbbbbc6)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Younes Belkada,2024-04-10 05:57:46,True,565,+
+albert/albert-xxlarge-v2,c5d4d781367af62398af2120d7db1750eabb898f,albert/albert-xxlarge-v2/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (ca4032e7991970cfc9a2ca9f77dee5ebbc180fb4)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:40:06,True,195,+
+google-bert/bert-base-cased-finetuned-mrpc,ce0fc2e278990e3be62a966e04e993688a6b3be9,google-bert/bert-base-cased-finetuned-mrpc/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (b090bcab59ec2fcc6954354563791866590d9330)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Lysandre,2023-09-19 03:50:43,True,361,+
+google-bert/bert-base-cased,5532cc56f74641d4bb33641f5c76a55d11f846e0,google-bert/bert-base-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (d0c211f62a2c12f60e1fafd3804171a969bdc700)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Lysandre,2022-11-16 10:18:28,True,54,+
+google-bert/bert-base-chinese,84b432f646e4047ce1b5db001d43a348cd3f6bd0,google-bert/bert-base-chinese/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#6)
+
+
+- Adding `safetensors` variant of this model (e366e0e323b45124438c2c9ede73fda251716318)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Lysandre,2022-11-16 18:23:25,True,54,+
+google-bert/bert-base-german-cased,cd19e0f862e48a86710872c6e0dc5adc1ca6c4ba,google-bert/bert-base-german-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (d088b7c145648543a5c8b54bcfd3455192612edf)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:41:34,True,195,+
+google-bert/bert-base-german-dbmdz-uncased,7626906a07d51d9cc69c6304df4d32346cc44f24,google-bert/bert-base-german-dbmdz-uncased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (df681a710f2277cd515d3cb69fce043ee0dc58ad)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:43:06,True,195,+
+google-bert/bert-base-multilingual-cased,fdfce55e83dbed325647a63e7e1f5de19f0382ba,google-bert/bert-base-multilingual-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (d633b9d001cbef4b5f7131a3998272a3beab6465)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Lysandre,2022-11-16 18:22:54,True,54,+
+google-bert/bert-base-multilingual-uncased,3da6b6aad5111664db74322f2158b7f93e09a717,google-bert/bert-base-multilingual-uncased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (d6bb52797da8a006f4c4a679eb0680a8df7f58af)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:39:29,True,195,+
+google-bert/bert-base-uncased,0a6aa9128b6194f4f3c4db429b6cb4891cdb421b,google-bert/bert-base-uncased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#15)
+
+
+- Adding `safetensors` variant of this model (18c87780b5e54825a2454d5855a354ad46c5b87e)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Lysandre,2022-11-16 10:15:39,True,54,+
+google-bert/bert-large-cased-whole-word-masking-finetuned-squad,91e2b532e33a797ce7f356093360c6b274b8976c,google-bert/bert-large-cased-whole-word-masking-finetuned-squad/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (d82169cbad46cd5cceaffa84b0337499943f2458)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:42:06,True,195,+
+google-bert/bert-large-cased-whole-word-masking,4110364c3591c4609a3401e86f6c03a0495536fa,google-bert/bert-large-cased-whole-word-masking/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (eb685f3381786a3c994619f38ec11da908dfa0db)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Younes Belkada,2024-04-10 05:56:46,True,565,+
+google-bert/bert-large-cased,0879dca57dc16fa0f759392a4dde1250698570aa,google-bert/bert-large-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (e2762dab13d1e03b9c0d36fc52c20c604dec23b8)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:41:58,True,195,+
+google-bert/bert-large-uncased-whole-word-masking-finetuned-squad,cca7eb4efca266eff710a8c7154ecbc382b78e77,google-bert/bert-large-uncased-whole-word-masking-finetuned-squad/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (353e76b256eb00b3c70ac272adc8473e063c654c)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:42:50,True,195,+
+google-bert/bert-large-uncased-whole-word-masking,8b35f05561d0d917087166b71d3c2c83a39104b1,google-bert/bert-large-uncased-whole-word-masking/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (9eaf940db0616f9e134a496d54d19bccf5207b2c)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:39:50,True,195,+
+google-bert/bert-large-uncased,80792f8e8216b29f3c846b653a0ff0a37c210431,google-bert/bert-large-uncased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (0336813fa3333c168229e8389d0d3bfe8cefa08f)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Lysandre,2022-11-14 16:36:14,True,52,+
+almanach/camembert-base,be8cbf7fcc01247489f4dff362aee0443b9a3d86,almanach/camembert-base/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (28d35c43c163733b290d468362c639f258a9d3f5)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:41:41,True,195,+
+distilbert/distilbert-base-cased-distilled-squad,2d81d2eeffc5be1dad0839e48c04dd02952f8606,distilbert/distilbert-base-cased-distilled-squad/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#7)
+
+
+- Adding `safetensors` variant of this model (20f43298b52210bdeea41ce95e8b8bef84ca709a)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Julien Chaumond,2023-03-21 10:55:59,True,179,+
+distilbert/distilbert-base-cased,0dacbb01d604f8adeeb5b87c9339e485ac40d5c0,distilbert/distilbert-base-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#7)
+
+
+- Adding `safetensors` variant of this model (b8c7b4d024d865db7d183f4cec50c189b49bb3bb)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Lysandre,2023-09-11 16:34:52,True,353,+
+distilbert/distilbert-base-german-cased,a070f5a65373f44a961682692d7748f4a65c3895,distilbert/distilbert-base-german-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (17a0ade7c1bad348bb362c4dc9562ca87c1c2744)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:40:31,True,195,+
+distilbert/distilbert-base-multilingual-cased,9e90d6dd84b6a2e4d65e4d751baed6cd56578fd3,distilbert/distilbert-base-multilingual-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (dd1a1f492011b5166b40838a60f9480673fc69dd)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:40:24,True,195,+
+distilbert/distilbert-base-uncased-distilled-squad,bb133e834d7dab8aa8eb3f04e0435db7a3a1ddc8,distilbert/distilbert-base-uncased-distilled-squad/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#4)
+
+
+- Adding `safetensors` variant of this model (666b6d18103e59adc641490a8d230378deaa6fb9)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:40:56,True,195,+
+distilbert/distilbert-base-uncased,1c4513b2eedbda136f57676a34eea67aba266e5c,distilbert/distilbert-base-uncased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#6)
+
+
+- Adding `safetensors` variant of this model (15e2238f2cd797b3a86485eddbc884f204cfedf0)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Lysandre,2022-11-16 10:16:54,True,54,+
+distilbert/distilgpt2,ee0b29d316a6a55fd15c50c4a97aca80ab4dd66a,distilbert/distilgpt2/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#7)
+
+
+- Adding `safetensors` variant of this model (4244ff61fb228ec942af0d72c89fedc9bc5faa31)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Lysandre,2022-11-14 16:36:02,True,52,+
+distilbert/distilroberta-base,d5411c3ee9e1793fd9ef58390b40a80a4c10df32,distilbert/distilroberta-base/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (5cbd7d214707beb941608d50e734179140c5f93f)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Lysandre,2022-11-16 18:22:40,True,54,+
+openai-community/gpt2-large,212095d5832abbf9926672e1c1e8d14312a3be20,openai-community/gpt2-large/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (e3395fc8f57604b82ce8444014e409c08e033f31)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Sylvain Gugger,2023-02-22 03:46:24,True,152,+
+openai-community/gpt2-medium,425b0cc90498ac177aa51ba07be26fc2fea6af9d,openai-community/gpt2-medium/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#5)
+
+
+- Adding `safetensors` variant of this model (324159f8fc4af768042b85cb32f0117fdf90482f)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Sylvain Gugger,2023-02-22 03:46:35,True,152,+
+openai-community/gpt2-xl,b81cf803a4e4e809062586ac620a06e65d9e20b6,openai-community/gpt2-xl/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#5)
+
+
+- Adding `safetensors` variant of this model (fcf4dcd648429c5e528b7c684bf0ccf74d0110c4)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Lysandre,2023-10-23 09:09:53,True,395,+
+openai-community/openai-gpt,adacbec1426c790163037629ab537b20464a8f71,openai-community/openai-gpt/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (ec256d13d0fb1306e1190e9d45e7bd5c37cb4f7a)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:42:43,True,195,+
+openai-community/roberta-base-openai-detector,e83ca3cbbdd48ffb3a5f0468e487f84e4a81a796,openai-community/roberta-base-openai-detector/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#11)
+
+
+- Adding `safetensors` variant of this model (82e0e0fa07e714847a9ba369c5753877d617ad33)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:39:59,True,195,+
+FacebookAI/roberta-large-mnli,df0f743a40fd2c7a260dfae33c1991f72ca9d472,FacebookAI/roberta-large-mnli/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (531c60848c9322d657baecb18886f954a624cb6d)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:40:16,True,195,+
+openai-community/roberta-large-openai-detector,38f3e0ccf205e9c4e0b38ae9d75ec948141bf832,openai-community/roberta-large-openai-detector/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#6)
+
+
+- Adding `safetensors` variant of this model (8f0a2e84eda6bfe80ecff0442a3832ab7f2895da)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Younes Belkada,2024-04-10 05:56:29,True,565,+
+google-t5/t5-3b,bed96aab9ee46012a5046386105ee5fd0ac572f0,google-t5/t5-3b/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#6)
+
+
+- Adding `safetensors` variant of this model (438d15719487b1dd9f9762aa45ed1fc0edbfc7d0)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Lysandre,2024-01-29 10:44:49,True,493,+
+google-t5/t5-base,fe6d9bf207cd3337512ca838a8b453f87a9178ef,google-t5/t5-base/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#11)
+
+
+- Adding `safetensors` variant of this model (e2cdbf1187d349dfc8f0543cb96982c95005c3b7)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 09:42:36,True,195,+
+FacebookAI/xlm-roberta-base,42f548f32366559214515ec137cdd16002968bf6,FacebookAI/xlm-roberta-base/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#9)
+
+
+- Adding `safetensors` variant of this model (42d8930d2fa6e51784fc924d37943d1cb89ec0de)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Lysandre,2022-11-16 10:16:18,True,54,+
+FacebookAI/xlm-roberta-large-finetuned-conll02-spanish,20c988ed3590c0fa2de016700fc375b0266c7513,FacebookAI/xlm-roberta-large-finetuned-conll02-spanish/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (4fbcd7daf1ae5746589b5c1fbce696b45c3f292b)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Lysandre,2023-09-12 16:39:08,True,354,+
+FacebookAI/xlm-roberta-large-finetuned-conll03-english,df3cc13673c5de461b24e1c75ff17c20f41d3a34,FacebookAI/xlm-roberta-large-finetuned-conll03-english/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#10)
+
+
+- Adding `safetensors` variant of this model (d42471300e02526d8ca959081abe63cff0e9e071)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Lysandre,2023-11-28 04:51:38,True,431,+
+FacebookAI/xlm-roberta-large,5bc772e3200d64d987707aa9e9dfcca44b1f8da2,FacebookAI/xlm-roberta-large/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#13)
+
+
+- Adding `safetensors` variant of this model (2a489c01713afb599e293739f28b7d36941f13dc)
+
+
+Co-authored-by: Nicolas Patry <Narsil@users.noreply.huggingface.co>",Sylvain Gugger,2023-04-06 16:19:19,True,195,+
+AdharshJolly/HarryPotterBot-Model,031d1a134a272da755691e946503293d57eaeb47,AdharshJolly/HarryPotterBot-Model/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (b86bc942233e23dec3d3e0bd50a6b8288670b1ce)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Adharsh Jolly,2024-07-17 05:35:04,True,663,+
+Aleksandar/bert-srb-ner-setimes,2ff910f4edf34c096469d6c559a571a452ea1767,Aleksandar/bert-srb-ner-setimes/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (e2cf4b6658f1208e8b1d6077d47017dc8788a103)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Aleksandar Cvejic,2024-12-18 05:00:41,True,817,+
+CAUKiel/JavaBERT,bac399e0d903099524999d3f9162421b0eafdd48,CAUKiel/JavaBERT/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (b7e7cc77e97f81014a3ff87b93e9f43aa2b38ba0)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Nelson Tavares de Sousa,2023-03-20 05:43:34,True,178,+
+Davlan/bert-base-multilingual-cased-ner-hrl,e756de7f7b8f64fea0c3d7c3872f1322fab747b1,Davlan/bert-base-multilingual-cased-ner-hrl/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#7)
+
+
+- Adding `safetensors` variant of this model (4563e15811fa553ba3797aec75c0775baeca891a)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",David Adelani,2024-11-11 07:32:14,True,780,+
+jesseD/homer-bot,32d40acd06333ede9a689150c26b34953df853c9,jesseD/homer-bot/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (d17b1d0cde5dcbe676848c169728a193c7e3bd7d)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Jesse Dingley,2024-04-05 17:53:03,True,560,+
+EleutherAI/gpt-neo-1.3B,8282180b53cba30a1575e49de1530019e5931739,EleutherAI/gpt-neo-1.3B/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#6)
+
+
+- Adding `safetensors` variant of this model (9e34e15c872605436c2e94601fd67a2446b30047)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Stella Biderman,2023-07-09 11:52:34,True,289,+
+EleutherAI/gpt-neo-125m,6cb0d322a3a484e99667e7cb240e22f1ac036b99,EleutherAI/gpt-neo-125m/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#9)
+
+
+- Adding `safetensors` variant of this model (7af65195821fe1bdf752c96fd00c7cff78ade490)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Stella Biderman,2023-07-09 11:54:09,True,289,+
+Geotrend/bert-base-10lang-cased,bc88cf208fbc206b857dcc6b326e0cb2d702eda9,Geotrend/bert-base-10lang-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (7c84fc19dc48dc8fcba01e2a0f3f518555b416d4)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Amine Abdaoui,2024-12-22 04:36:02,True,821,+
+Geotrend/bert-base-lt-cased,ee5596019e4f0304788ab0f0fb3bfcda726b7a51,Geotrend/bert-base-lt-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (546d94ceed3b0dad69ae92685b0914aa81d37025)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Amine Abdaoui,2024-11-14 09:33:22,True,783,+
+Geotrend/bert-base-nl-cased,09d32540ba885454d1f99793a15b004880b473e7,Geotrend/bert-base-nl-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (bbdc1c1e728820e2ce2af72c03ae970c9b5c180d)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Amine Abdaoui,2024-11-30 04:08:54,True,799,+
+Geotrend/bert-base-pl-cased,5c87e45fdc3ce85e1dc718daddc39c9e3d3dbf40,Geotrend/bert-base-pl-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (f6ba9c56b48cf64b9eef85589e912a5198b788f9)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Amine Abdaoui,2024-11-09 15:58:45,True,778,+
+Geotrend/bert-base-pt-cased,b0605a35193569e635f38cdde46d26e974d3c643,Geotrend/bert-base-pt-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (cbad0479da4193441a05e1d7c93850e4833d5410)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Amine Abdaoui,2024-11-30 04:08:40,True,799,+
+Geotrend/distilbert-base-en-fr-ar-cased,578a01b06da2387ab5b3e09aa338777c2824d502,Geotrend/distilbert-base-en-fr-ar-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (bd4d06fa4ae340f7cd1226b2dd1fda41a2fdf700)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Amine Abdaoui,2024-11-08 15:40:26,True,777,+
+Geotrend/distilbert-base-en-fr-de-cased,1385cd307074352a35b74691fb9e1214be290853,Geotrend/distilbert-base-en-fr-de-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (7efac92d904edb292d0d009119589cb65bbb4b69)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Grégoire Sigel,2024-12-24 04:04:47,True,823,+
+Geotrend/distilbert-base-pl-cased,9002d311e35aac14575bf53ad4fa3d8f8b853c2b,Geotrend/distilbert-base-pl-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (1ced9ed415eaa3d12c8e5a1d59bc92e3ba6c55ed)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Amine Abdaoui,2024-12-27 17:01:39,True,826,+
+Geotrend/distilbert-base-ur-cased,8031251bddd9f114fb7f67a6cfcef21079e1fae2,Geotrend/distilbert-base-ur-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (a9b5171c5ccddfaadfc1495222d332577cab75e1)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Amine Abdaoui,2024-12-22 04:35:30,True,821,+
+Ilyes/wav2vec2-large-xlsr-53-french_punctuation,2209882c5e5b021d3b65cb44bdb4ed4cd33867b7,Ilyes/wav2vec2-large-xlsr-53-french_punctuation/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (efd1c4dfe747d13e70b70e9c77286ed449ae5d2c)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Ilyes Rebai,2024-05-09 11:42:56,True,594,+
+KBLab/sentence-bert-swedish-cased,6275b30fa319832bd5e99eecc4f5eb43974f0b85,KBLab/sentence-bert-swedish-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#5)
+
+
+- Adding `safetensors` variant of this model (50f1be05d0785ac9cd194db6366a9598e07a19f0)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Faton Rekathati,2024-10-25 08:36:45,True,763,+
+KBLab/wav2vec2-large-voxrex-swedish,ab3aa1ba28e671a1ac8a54df8c031fcd587f5603,KBLab/wav2vec2-large-voxrex-swedish/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (87b4a2658c1f68b7375641f2a78ac9dc7632cc68)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Robin Qrtz,2023-04-19 03:18:16,True,208,+
+SI2M-Lab/DarijaBERT-arabizi,6d83e853f2b77c4666399506ad601e828766e0d1,SI2M-Lab/DarijaBERT-arabizi/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (08fbdc095075c68b7e8e6a27ab47761b7db51d9f)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Kamel Gaanoun,2023-03-23 05:56:11,True,181,+
+SI2M-Lab/DarijaBERT,4025e5465fc6b3c9aa516839dd0bd039fa2e6d99,SI2M-Lab/DarijaBERT/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (d6f534fad287e001adfb1094239441ba662d3cd8)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Kamel Gaanoun,2024-09-25 06:23:30,True,733,+
+Kamel/t5-darija-summarization,f0e4f74b452eae17a1e9a21fc696edc1ceaafecd,Kamel/t5-darija-summarization/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (1c4aa6237d4a4c36756bf57f064d563ee4c7585e)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Kamel Gaanoun,2024-09-25 06:28:05,True,733,+
+LeBenchmark/wav2vec2-FR-1K-large,4cfa3f3a2bf29c0e6368024a4db55747dec95667,LeBenchmark/wav2vec2-FR-1K-large/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (bddb486dbaa6a4ebf24fba5256246d9759c3876e)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Marcely Zanon Boito,2024-11-18 03:33:10,True,787,+
+LeBenchmark/wav2vec2-FR-3K-base,264b4fc69814a844aa74c921bebc4258703f483c,LeBenchmark/wav2vec2-FR-3K-base/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (23d8efe6bfed9a54afd714eef2e6c2ed2e113460)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Marcely Zanon Boito,2024-12-17 04:53:59,True,816,+
+LeBenchmark/wav2vec2-FR-3K-large,87ef8cd6803e3916db5e7c1fc5f95be150fbd386,LeBenchmark/wav2vec2-FR-3K-large/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (3b21352258564f06fb149efd84f8205929f90d3c)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Marcely Zanon Boito,2024-10-31 05:26:52,True,769,+
+LennartKeller/longformer-gottbert-base-8192-aw512,230ecb809ed842587e16bbac0286a165b39309f0,LennartKeller/longformer-gottbert-base-8192-aw512/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (633e5c558e95564b5891e7f03505d1b94c1a48b0)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Lennart Keller,2023-04-28 05:15:37,True,217,+
+laiking/bert-base-german-cased-gnad10,37d8d40544a94b7474a6dc1fae4fb09c04756c05,laiking/bert-base-german-cased-gnad10/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (279be2c9b556dab54294e448673d0c2eec6423e5)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",mathieu,2023-03-21 16:48:52,True,179,+
+MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli,eb8b17b1983bca679126ea69b12b5d28c5fe9b9a,MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#9)
+
+
+- Adding `safetensors` variant of this model (e06f5b2281d3ef9494175095eafb1c910781951a)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Moritz Laurer,2023-03-20 04:28:44,True,178,+
+MoritzLaurer/DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary,1013d1a53cc6f7357172e9be30ce83b3c2e2e97c,MoritzLaurer/DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (491a1ca2a6e357c8bc9dfc9a453c099c9429b8e7)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Moritz Laurer,2023-03-20 04:28:49,True,178,+
+MoritzLaurer/mDeBERTa-v3-base-mnli-xnli,e81df37a43831f49262ce562447d2dc4ca6cd54a,MoritzLaurer/mDeBERTa-v3-base-mnli-xnli/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (60b7789df913c4c92a3595dd298670ff7c7edb9e)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Moritz Laurer,2023-03-20 04:26:01,True,178,+
+MrGentle/DeltaModel-genius1,3e9dd1992d42fb95d1a875c3533d07d12237a2b4,MrGentle/DeltaModel-genius1/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (be0757a389509d5d2eeb6776268aa0114731e7e6)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",David Staros,2023-04-19 15:56:13,True,208,+
+NbAiLab/nb-wav2vec2-300m-bokmaal,4783f50808c12aa3d8f31b5da3c1b74a18e1a386,NbAiLab/nb-wav2vec2-300m-bokmaal/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (e1ffac192b7042a9f51662d86d78a4993cffa9a5)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Javier de la Rosa,2024-12-09 07:15:29,True,808,+
+NbAiLab/nb-wav2vec2-300m-nynorsk,6dc09e6169fc24660aeb2de6e72f6a2f8ed288b2,NbAiLab/nb-wav2vec2-300m-nynorsk/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (8498c36f0a6ca3140938251187444d96a8bb090e)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Javier de la Rosa,2024-11-01 05:54:59,True,770,+
+NlpHUST/electra-base-vn,00c3b52769d7003f92313ba4fac5422a5bc573b9,NlpHUST/electra-base-vn/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (47681b17e02b92387c0fb80ef6cb9c408521db96)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Nguyen Van Nha,2024-11-06 02:08:06,True,775,+
+Rifky/Indobert-QA,edce5d9b9ee4c67f18141c6e9ed2243ab80fb02d,Rifky/Indobert-QA/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (84c54a968487ad825a19192f605af806c3d63fbe)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Rifky Bujana Bisri,2023-03-16 23:17:54,True,174,+
+RifsxD/DialoGPT-medium-raifu,7aa379d70cca9be708c53615282221cdbf23b5dd,RifsxD/DialoGPT-medium-raifu/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (b6e3b14487f72c0b648d7e3d0a243699f95917af)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Rifat Azad,2024-01-26 15:05:37,True,490,+
+SZTAKI-HLT/hubert-base-cc,028baac7feb87a7b2f042bbdaa5deec6513c6060,SZTAKI-HLT/hubert-base-cc/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (919d7970edb7c6dd322991d197925a93239a9afd)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Dávid Márk Nemeskey,2024-10-24 15:59:18,True,762,+
+s-nlp/bart-base-detox,eb48f6ed5392621070d80c1d6a3e2c7c2c147d87,s-nlp/bart-base-detox/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (f2c49afab5d9e97c562f56edfab7248da09401f0)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Daryna Dementieva,2023-03-24 06:53:24,True,182,+
+s-nlp/ruT5-base-detox,1e5de89ec9a90fb473d8aa5c9234e386180244df,s-nlp/ruT5-base-detox/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (9def1ee82875275e64a5b74bb7a874ae2680ddcf)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Daryna Dementieva,2023-03-24 06:54:53,True,182,+
+s-nlp/russian_toxicity_classifier,92d6598d6c9d2beab7cd7f27013f3fe1bb0c9b39,s-nlp/russian_toxicity_classifier/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (0222010dd43b41821fcc933fe186da78a5e90372)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Daryna Dementieva,2023-03-24 06:55:28,True,182,+
+s-nlp/xlmr_formality_classifier,1f78e46df2dba06b3fb6cf7805c61d7b3c310dfb,s-nlp/xlmr_formality_classifier/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (77b8c6f2cf9a70c69908b6c5b03bb8d48204bfa3)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Daryna Dementieva,2023-03-24 06:56:08,True,182,+
+T-Systems-onsite/cross-de-es-roberta-sentence-transformer,a218f375527ac9abb56fb21310cc99b01b9d193c,T-Systems-onsite/cross-de-es-roberta-sentence-transformer/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (193936f39831df16320296a3182bc957cf738045)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Philip May,2024-04-08 04:24:39,True,563,+
+T-Systems-onsite/cross-en-de-roberta-sentence-transformer,fb7dea62734262b9155eeaf0881ae177eaa7ceaf,T-Systems-onsite/cross-en-de-roberta-sentence-transformer/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#4)
+
+
+- Adding `safetensors` variant of this model (ecae1e53dd9b64f1c9b1779b28c045bd8e898ff2)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Philip May,2023-04-27 15:29:30,True,216,+
+T-Systems-onsite/mt5-small-sum-de-en-v2,c1058c82e9108cf84f4e5a42df150d2ba22d270a,T-Systems-onsite/mt5-small-sum-de-en-v2/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (26e6cc6eb310639aa573aa31e808b087a33f467e)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Philip May,2023-04-27 15:26:23,True,216,+
+TurkuNLP/bert-base-finnish-cased-v1,87b4eaac147499b3e54d2af200244b502501712c,TurkuNLP/bert-base-finnish-cased-v1/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (348509f3769194e5a9758e1cda68267b411ba41a)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Antti Virtanen,2024-02-20 06:56:47,True,515,+
+TurkuNLP/bert-base-finnish-uncased-v1,69e3fe8c84be855b1b33fc7df8ca179f499d9d4d,TurkuNLP/bert-base-finnish-uncased-v1/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (2ab7f5c630e030eff9840636cb2419d2b40cf96c)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Antti Virtanen,2024-02-20 06:56:25,True,515,+
+TurkuNLP/sbert-cased-finnish-paraphrase,57b69e98e2049d087c527685e690def8a9265605,TurkuNLP/sbert-cased-finnish-paraphrase/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (fe6a598a8ec842f42721bb8ca33a5d01d6164ee0)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Li-Hsin Chang,2024-11-18 08:30:05,True,787,+
+TurkuNLP/sbert-uncased-finnish-paraphrase,23b75cb3c8919f28aa32e98c934d98890b844951,TurkuNLP/sbert-uncased-finnish-paraphrase/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (10ccd4b9e04108f35a04021f5cbfeb1d54f24c58)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Li-Hsin Chang,2024-11-18 08:29:51,True,787,+
+VoVanPhuc/sup-SimCSE-VietNamese-phobert-base,608779b86741a8acd8c8d38132974ff04086b138,VoVanPhuc/sup-SimCSE-VietNamese-phobert-base/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (9a4a271fa5b678bdb25137147b58e81fd1b9ed53)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Vo Van Phuc,2024-04-10 05:01:08,True,565,+
+WinKawaks/vit-small-patch16-224,7a286809c0234e23910f683d984f366019947193,WinKawaks/vit-small-patch16-224/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (32a64aed11bf89963ac09c442658da4722ec6672)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Zhiyu,2023-03-18 17:22:14,True,176,+
+adalbertojunior/distilbert-portuguese-cased,df1fa7aaabd0255a57286339fd706cdaa08244bb,adalbertojunior/distilbert-portuguese-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (f8411160018b11a5cab78304950eb42ce9190a91)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Adalberto Ferreira Barbosa Junior,2023-03-22 17:55:11,True,180,+
+akdeniz27/bert-base-hungarian-cased-ner,15e7659a98c256c100c279975af3318e18a21eb8,akdeniz27/bert-base-hungarian-cased-ner/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (3eca92c523b4602ffe26433d753c1065af32251e)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Taner Akdeniz,2023-03-17 07:54:17,True,175,+
+akdeniz27/bert-base-turkish-cased-ner,b247a7fa2cbb6faea1d15011e2d22d13caa2286e,akdeniz27/bert-base-turkish-cased-ner/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (ecfc91986d34daa1b5418a02bdf3ac32fb70c9f1)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Taner Akdeniz,2023-03-18 19:08:33,True,176,+
+akdeniz27/mDeBERTa-v3-base-turkish-ner,e9d25b5a6bff1118ffaca6553046a65b021baba1,akdeniz27/mDeBERTa-v3-base-turkish-ner/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (6587393be4584f7c3cfdd96c3176600f9db24c81)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Taner Akdeniz,2023-06-05 11:35:25,True,255,+
+akdeniz27/mbert-base-albanian-cased-ner,8d4bb589ce8457c20a5a6945917f6ebc9a3a2205,akdeniz27/mbert-base-albanian-cased-ner/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (776e609e16c2d6b1d6af94fe3bca0fde33bbcf11)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Taner Akdeniz,2023-03-22 04:23:24,True,180,+
+akdeniz27/xlm-roberta-base-turkish-ner,0f71b7c93ff799a7ec4a677113c9cc4f2a6a81cd,akdeniz27/xlm-roberta-base-turkish-ner/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (81bace63704002d0f86526a424eb9c526547b509)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Taner Akdeniz,2023-03-19 08:49:57,True,177,+
+amine/bert-base-5lang-cased,f001ddea40a71dabfd2e6c84b347940d771c2502,amine/bert-base-5lang-cased/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#2)
+
+
+- Adding `safetensors` variant of this model (86d1df249b1c672b2bedfe4c5e49638cd479a49a)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Amine Abdaoui,2024-11-08 15:44:09,True,777,+
+antoinelouis/belgpt2,0bb8295d7ccb13ebe4920b4b8cfeb87f01e371e7,antoinelouis/belgpt2/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (90ba6bc79b8a1641c38df1d185be3f352a088aa4)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Antoine Louis,2023-04-15 08:09:49,True,204,+
+antoinelouis/netbert,74352a6482f6ebf9117953e66a99c2ee88222db4,antoinelouis/netbert/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (0c9760d54629cce4c58a835feaecac8ddc562b6c)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Antoine Louis,2024-03-25 12:50:20,True,549,+
+aubmindlab/araelectra-base-discriminator,aaa9fba5575bd531d45cec3eccf24b755e0dccca,aubmindlab/araelectra-base-discriminator/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (44cd4f4a87ca8db263d76d06f1e82b2493559d6d)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Wissam Antoun,2024-10-29 09:27:11,True,767,+
+aubmindlab/aragpt2-large,c6ee4555d6ad5644a28d71f2ff8d99746ef500f7,aubmindlab/aragpt2-large/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (1f3b778498852dba9abd0bd4c2aa35f72b0b52a0)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Wissam Antoun,2023-04-26 11:35:56,True,215,+
+aubmindlab/aragpt2-mega,0c129c98931a9d888080c83c410ec67960ea4dff,aubmindlab/aragpt2-mega/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#3)
+
+
+- Adding `safetensors` variant of this model (b495fbe01793c61934878ddf61d588dab26d89f7)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Wissam Antoun,2024-10-24 07:27:14,True,762,+
+aubmindlab/bert-base-arabertv02,5042f1b57f23409ab5919509b0307f46a2c84f07,aubmindlab/bert-base-arabertv02/model.safetensors,safetensors,"Adding `safetensors` variant of this model (#1)
+
+
+- Adding `safetensors` variant of this model (d62a86d419e1b6c2b2a4a85beedf8ad2806f9470)
+
+
+Co-authored-by: Safetensors convertbot <SFconvertbot@users.noreply.huggingface.co>",Wissam Antoun,2023-03-17 11:49:17,True,175,+

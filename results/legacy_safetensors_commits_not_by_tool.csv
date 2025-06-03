@@ -1,0 +1,22 @@
+repo_url,commit_hash,model_file_path,serialization_format,message,author,date,is_in_commit,elapsed_days,change_status
+skytnt/anime-seg,976cbb9ba61600e0993d1ee2a8a247ae05d183ee,skytnt/anime-seg/model.safetensors,safetensors,"upload mixin weights (#3)
+
+
+- upload mixin weights (43f900433e97e87503906dbdad018ba7467b66d8)
+- update readme (f559c9bd5eef0bf8de7f6a8cbab333738639e8b9)
+
+
+Co-authored-by: Lain <not-lain@users.noreply.huggingface.co>",skytnt,2024-10-18 04:01:38,True,756,+
+openai-community/gpt2,909a290700bd99135e67c64eefc166960b67cfd2,openai-community/gpt2/model.safetensors,safetensors,"Convert weights to .safetensors (#6)
+
+
+- Convert weights to .safetensors (f0946a6b3259a3bb628d54f1045cb64ee6dc4176)",Julien Chaumond,2022-09-29 11:22:02,True,6,+
+FacebookAI/roberta-base,ff46155979338ff8063cdad90908b498ab91b181,FacebookAI/roberta-base/model.safetensors,safetensors,"Convert weights to .safetensors (#3)
+
+
+- Convert weights to .safetensors (a97a0fa19af3b9cf51ccbd4529dd661b7d619fe8)",Julien Chaumond,2022-09-29 11:21:48,True,6,+
+FacebookAI/roberta-large,5069d8a2a32a7df4c69ef9b56348be04152a2341,FacebookAI/roberta-large/model.safetensors,safetensors,"Convert weights to .safetensors (#1)
+
+
+- Convert weights to .safetensors (e7ebe1d62fc22d24af997fa880b5a38e4d17af45)",Julien Chaumond,2022-09-29 11:22:07,True,6,+
+EldritchLavender/Spookie,e3fe158e07eb53ac7aa445113ecd15ad8b4923d5,EldritchLavender/Spookie/model.safetensors,safetensors,Upload model,Drake Madden,2024-04-29 11:04:28,True,584,+

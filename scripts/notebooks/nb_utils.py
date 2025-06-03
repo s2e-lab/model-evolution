@@ -13,13 +13,20 @@ DATA_DIR = Path('../../data')
 RESULTS_DIR = Path('../../results')
 
 
-def read_repositories_evolution(group: Literal['recent', 'legacy']) -> pd.DataFrame:
+def read_repositories_evolution(group: Literal['recent', 'legacy', 'both']) -> pd.DataFrame:
     """
     Read the commits from the repository evolution dataset.
     :return: a data frame
     """
-    if group not in ('recent', 'legacy'):
+    if group not in ('recent', 'legacy', 'both'):
         raise ValueError(f"Invalid mode: {group}")
+
+    if group == 'both':
+        df_recent = read_repositories_evolution('recent')
+        df_legacy = read_repositories_evolution('legacy')
+        df = pd.concat([df_recent, df_legacy], ignore_index=True)
+        return df
+
 
     df = pd.read_csv(DATA_DIR / f"repositories_evolution_{group}_commits.csv")
     # ensure date is in datetime format
@@ -28,9 +35,10 @@ def read_repositories_evolution(group: Literal['recent', 'legacy']) -> pd.DataFr
     df['elapsed_days'] = (df['date'] - SAFETENSORS_RELEASE_DATE).dt.days
     # Add a change_status to data frame
     df_commits = pd.read_csv(DATA_DIR / f"selected_{group}_commits.csv")
-    # set "changed_files" column to empty string if it is NaN
+    # set "changed_files" and "all_files_in_tree" columns to empty string if it is NaN
     df_commits["changed_files"] = df_commits["changed_files"].fillna("")
-    changed_files = dict()  # key = file_path, value = status (added, modified, deleted)
+    df_commits["all_files_in_tree"] = df_commits["all_files_in_tree"].fillna("")
+    changed_files = dict()  # key = repo_url/file_path&&commit_hash; value = status (added, modified, deleted)
     for index, row in tqdm(df_commits.iterrows(), total=len(df_commits), unit="commit"):
         commit_hash = row["commit_hash"]
         repo_url = row["repo_url"]
