@@ -171,6 +171,8 @@ if __name__ == "__main__":
     # Step 2 - Exclude models
     print(f"Excluding models from {input_file} (initial size = {len(df)})...")
     df = exclude_models(df)
+    print(f"After applying global exclusion criteria, {len(df)} repositories left.")
+    exit(0)  # Uncomment this line to stop the script after loading and filtering the data
 
     # Step 3 - Inspect the repositories and identify legacy repositories
     print("Selecting legacy repositories...")
