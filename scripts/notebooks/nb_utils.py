@@ -133,50 +133,56 @@ def get_safetensors_releases():
     return df_releases
 
 
-def unzip(zip_path, extract_to='.'):
-    # Unzip the file
+def unzip(zip_path: str | Path, extract_to: str = '.') -> None:
+    """
+    Unzip a zip file to a specified directory.
+    :param zip_path:  location of the zip file to extract
+    :param extract_to: where to extract the files
+    :return: None
+    """
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(extract_to)
 
+
 def calendar_week(d: pd.Timestamp, year: int) -> int:
+    """
+    Compute the calendar week for a given date.
+    :param d: a pandas Timestamp object representing the date
+    :param year: the year to consider for the week calculation
+    :return:
+    """
     # check what is the ISO for January 1st
     if datetime.date(year, 1, 1).isocalendar().week != 1:
         # If the date is in the first week of January, return week 1
         if d.month == 1 and d.isocalendar().week > 50:
-            return 1
+            return 0
         else:
-            return d.isocalendar().week + 1
-    return d.isocalendar().week
-def compute_calendar_mask(year_matrix, year: int) -> np.ndarray:
+            return d.isocalendar().week
+    return d.isocalendar().week - 1
+
+
+def compute_calendar_mask(year_matrix: np.ndarray, year: int) -> np.ndarray:
     """
     Compute a mask for a year matrix to indicate which days are valid based on the calendar year.
-    :param year_matrix:
-    :param year:
-    :return:
+    :param year_matrix: a 2D numpy array representing the year matrix (7 rows for days, 53 columns for weeks)
+    :param year: the year for which to compute the mask
+    :return: a boolean mask indicating valid days in the year matrix
     """
     # 1. Determine Jan 1 and Dec 31
     jan1 = datetime.date(year, 1, 1)
     dec31 = datetime.date(year, 12, 31)
 
-    # 2. Compute weekday indexes
-    jan1_weekday = jan1.weekday()  # 0 = Monday
-    dec31_weekday = dec31.weekday()  # 0 = Monday
-    print("Jan 1 weekday:", jan1_weekday, "Dec 31 weekday:", dec31_weekday)
-    # print weekday name
-    print("Jan 1 weekday name:", jan1.strftime('%A'), "Dec 31 weekday name:", dec31.strftime('%A'))
+    # 2. Compute weekday indexes (0 = Monday, ..., 6 = Sunday)
+    jan1_weekday, dec31_weekday = jan1.weekday(), dec31.weekday()
 
-    # 3. Compute number of weeks in matrix
-    _, num_weeks = year_matrix.shape
-
-    # 4. Create full False mask
+    # 3. Create full False mask
     mask = np.full_like(year_matrix, False, dtype=bool)
 
-    # 5. Mask leading days before Jan 1 in the first week
+    # 4. Mask leading days before Jan 1 in the first week
     mask[:jan1_weekday, 0] = True
 
-    # 6. Mask trailing days after Dec 31 in the last week
-    if dec31_weekday < 6:
-        mask[dec31_weekday + 1:, -1] = True
+    # 5. Mask trailing days after Dec 31 in the last week
+    mask[dec31_weekday + 1:, -1] = True if dec31_weekday < 6 else False
 
     return mask
 
@@ -208,4 +214,5 @@ def get_commit_counts_by_date(df: pd.DataFrame) -> pd.Series:
 
 
 if __name__ == "__main__":
-    compute_calendar_mask(np.zeros((7, 53)), 2023)
+    mask = compute_calendar_mask(np.zeros((7, 53)), 2023)
+    print(mask)
