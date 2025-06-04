@@ -7,7 +7,7 @@ from scripts.notebooks.nb_utils import SAFETENSORS_RELEASE_DATE
 
 class TestSafetensorsReleaseDate(unittest.TestCase):
     def test_safetensors_release_date(self):
-        expected_date = pd.to_datetime("2022-09-23")
+        expected_date = pd.to_datetime("2022-09-22")
         self.assertEqual(str(SAFETENSORS_RELEASE_DATE), str(expected_date),
                          f"Expected Safetensors release date to be {expected_date}, but got {SAFETENSORS_RELEASE_DATE}")
 

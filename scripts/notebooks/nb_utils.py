@@ -15,7 +15,7 @@ COLOR_EMOJI_FONT = FontProperties(fname=Path('../../assets/NotoColorEmoji-Regula
 ROBOTO_CONDENSED_FONT = FontProperties(fname=Path('../../assets/RobotoCondensed-Regular.ttf'))
 
 # Reference date when safetensors was released
-SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-23")
+SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-22")
 # Data and results directories
 DATA_DIR = Path('../../data')
 RESULTS_DIR = Path('../../results')
