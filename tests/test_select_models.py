@@ -14,6 +14,12 @@ def fix_data_types(df: DataFrame):
     df["gated"] = df["gated"].astype(bool)
     return df
 
+class TestSafetensorsReleaseDate(unittest.TestCase):
+    def test_safetensors_release_date(self):
+        expected_date = pd.to_datetime("2022-09-23")
+        self.assertEqual(str(SAFETENSORS_RELEASE_DATE), str(expected_date),
+                         f"Expected Safetensors release date to be {expected_date}, but got {SAFETENSORS_RELEASE_DATE}")
+
 
 class TestSelectModels(unittest.TestCase):
     def setUp(self):

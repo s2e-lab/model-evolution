@@ -144,20 +144,26 @@ def unzip(zip_path: str | Path, extract_to: str = '.') -> None:
         zip_ref.extractall(extract_to)
 
 
-def calendar_week(d: pd.Timestamp, year: int) -> int:
+def compute_calendar_week(d: pd.Timestamp) -> int:
     """
     Compute the calendar week for a given date.
     :param d: a pandas Timestamp object representing the date
-    :param year: the year to consider for the week calculation
-    :return:
+    :return: the calendar week number (0-52)
     """
-    # check what is the ISO for January 1st
-    if datetime.date(year, 1, 1).isocalendar().week != 1:
-        # If the date is in the first week of January, return week 1
+    jan1st = datetime.date(d.year, 1, 1)
+    dec31st = datetime.date(d.year, 12, 31)
+    if jan1st.isocalendar().week > 50:
+        # If January 1st is in the last week of the previous year, return week 0
         if d.month == 1 and d.isocalendar().week > 50:
             return 0
         else:
             return d.isocalendar().week
+
+    if dec31st.isocalendar().week == 1:
+        # If December 31st is in the first week of the next year, return week 52
+        if d.month == 12 and d.isocalendar().week == 1:
+            return 52
+    # Return the week number, adjusted to start from 0
     return d.isocalendar().week - 1
 
 
@@ -187,6 +193,27 @@ def compute_calendar_mask(year_matrix: np.ndarray, year: int) -> np.ndarray:
     return mask
 
 
+def compute_year_range(year: int) -> pd.DatetimeIndex:
+    """
+    Compute a range of dates for the heatmap (what date it should start and when it ends)
+    :param year: the year for which to compute the range
+    :return: a tuple
+    """
+    # 1. Determine Jan 1 and Dec 31
+    jan1 = datetime.date(year, 1, 1)
+    dec31 = datetime.date(year, 12, 31)
+
+    # 2. Compute weekday indexes (0 = Monday, ..., 6 = Sunday)
+    jan1_weekday, dec31_weekday = jan1.weekday(), dec31.weekday()
+
+    # compute the subtraction between jan1  and the number of weekday in jan1_weekday
+    start_date = jan1 - datetime.timedelta(days=jan1_weekday)
+    # compute the addition between dec31 and the number of days until the end of the week
+    end_date = dec31 + datetime.timedelta(days=(6 - dec31_weekday))
+
+    return pd.date_range(start=start_date, end=end_date, freq='D')
+
+
 def get_commit_counts_by_date(df: pd.DataFrame) -> pd.Series:
     """
     Get the number of commits by date.
@@ -214,5 +241,13 @@ def get_commit_counts_by_date(df: pd.DataFrame) -> pd.Series:
 
 
 if __name__ == "__main__":
-    mask = compute_calendar_mask(np.zeros((7, 53)), 2023)
-    print(mask)
+    # mask = compute_calendar_mask(np.zeros((7, 53)), 2023)
+    # print(mask)
+    assert compute_calendar_week(pd.Timestamp("2023-01-01")) == 0
+    assert compute_calendar_week(pd.Timestamp("2023-01-01")) == 0
+    d = pd.Timestamp("2022-01-01")
+    print(d, "week=", compute_calendar_week(d))
+
+    for year in [2022, 2023, 2024]:
+        r = compute_year_range(year)
+        print(year, r[0], r[-1])
