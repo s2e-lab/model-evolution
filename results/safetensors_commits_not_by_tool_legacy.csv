@@ -1,0 +1,81 @@
+repo_url,commit_hash,model_file_path,serialization_format,message,author,date,is_in_commit,elapsed_days,change_status
+skytnt/anime-seg,976cbb9ba61600e0993d1ee2a8a247ae05d183ee,skytnt/anime-seg/model.safetensors,safetensors,"upload mixin weights (#3)
+
+
+- upload mixin weights (43f900433e97e87503906dbdad018ba7467b66d8)
+- update readme (f559c9bd5eef0bf8de7f6a8cbab333738639e8b9)
+
+
+Co-authored-by: Lain <not-lain@users.noreply.huggingface.co>",skytnt,2024-10-18 04:01:38,True,757,+
+openai-community/gpt2,909a290700bd99135e67c64eefc166960b67cfd2,openai-community/gpt2/model.safetensors,safetensors,"Convert weights to .safetensors (#6)
+
+
+- Convert weights to .safetensors (f0946a6b3259a3bb628d54f1045cb64ee6dc4176)",Julien Chaumond,2022-09-29 11:22:02,True,7,+
+FacebookAI/roberta-base,ff46155979338ff8063cdad90908b498ab91b181,FacebookAI/roberta-base/model.safetensors,safetensors,"Convert weights to .safetensors (#3)
+
+
+- Convert weights to .safetensors (a97a0fa19af3b9cf51ccbd4529dd661b7d619fe8)",Julien Chaumond,2022-09-29 11:21:48,True,7,+
+FacebookAI/roberta-large,5069d8a2a32a7df4c69ef9b56348be04152a2341,FacebookAI/roberta-large/model.safetensors,safetensors,"Convert weights to .safetensors (#1)
+
+
+- Convert weights to .safetensors (e7ebe1d62fc22d24af997fa880b5a38e4d17af45)",Julien Chaumond,2022-09-29 11:22:07,True,7,+
+EldritchLavender/Spookie,e3fe158e07eb53ac7aa445113ecd15ad8b4923d5,EldritchLavender/Spookie/model.safetensors,safetensors,Upload model,Drake Madden,2024-04-29 11:04:28,True,585,+
+ayameRushia/indobert-base-uncased-finetuned-indonlu-smsa,3e2b636a2ca52f22c3b26ef7034c5216f034743b,ayameRushia/indobert-base-uncased-finetuned-indonlu-smsa/model.safetensors,safetensors,"Training in progress, epoch 1",ayameRushia,2024-02-02 05:08:29,True,498,+
+chandc/distilbert-base-uncased-finetuned-ner,de6655480905d46c2ff09b75f6b7f6fe7bf4cc2e,chandc/distilbert-base-uncased-finetuned-ner/model.safetensors,safetensors,"Training in progress, step 500",Daniel Chan,2024-02-18 14:59:27,True,514,+
+pritamdeka/S-PubMedBert-MS-MARCO,dc7d9a7b2e7af3c13757db15df62accffed4fab9,pritamdeka/S-PubMedBert-MS-MARCO/topic_embeddings.safetensors,safetensors,"Add BERTopic model (#4)
+
+
+- Add BERTopic model (3cc8c686cf9b8a536b5cfd4ebaba5a72872dd240)
+
+
+Co-authored-by: Terri Tuson <TerriTuson@users.noreply.huggingface.co>",Pritam Deka,2024-02-05 08:52:13,True,501,+
+ai-forever/sbert_large_mt_nlu_ru,05300876c2b83f46d3ddd422a7f17e45cf633bb0,ai-forever/sbert_large_mt_nlu_ru/model.safetensors,safetensors,"Upload 11 files (#4)
+
+
+- Upload 11 files (ff6c2d5a3b8544d75b01c8bcf66eec100be7cedf)
+- Delete pytorch_model.bin (f8554054741b1f28af4dc1531832f7e645eeb2db)
+- Delete tf_model.h5 (81002e3cbb80a9259679d393af7c2f5b38271561)
+- Delete vocab.txt (7650bdeace965517efc5c7573f3760bd6695ec99)
+- Delete flax_model.msgpack (c987fcdb31796f6e9d5621d1cea1439683dd0851)
+- Upload 10 files (37400f31238f6fd1946020143b62e4a0069d80f1)
+- Update tokenizer_config.json (347ec68f3b1bdd2a2d99ee0989d8a6507e93d5f9)",ai-forever,2024-06-13 03:29:25,True,630,+
+ai-forever/sbert_large_nlu_ru,af977d5dfa46a3635e29bf0ef383f2df2a08d47a,ai-forever/sbert_large_nlu_ru/model.safetensors,safetensors,"Upload 10 files (#6)
+
+
+- Upload 10 files (b66493f776c2fd19309d00c032d9dbce71b48ee4)
+- Delete vocab.txt (1538e47df808b7acdb7280fbe31ca6ff5852fa87)
+- Delete pytorch_model.bin (5b9aa504c5c38e83e47221acb0b5ce4920c16fd0)
+- Delete flax_model.msgpack (95b86a32b821a0f6710dbb8d1da05d4c2358f21c)",ai-forever,2024-06-13 03:37:03,True,630,+
+sentence-transformers/LaBSE,ac91d6745aefb758c373ef4d37a13ff5e04ad876,sentence-transformers/LaBSE/2_Dense/model.safetensors,safetensors,"Add new SentenceTransformer model with an onnx backend
+
+Cherry-picked from #12",Tom Aarsen,2024-10-17 03:43:12,True,756,+
+ctheodoris/Geneformer,933ca80e39d421c47a12168699766bb7e4e2c197,ctheodoris/Geneformer/gf-12L-95M-i4096/model.safetensors,safetensors,"update with 12L and 20L i4096 gc95M models, multitask and quantiz code",Christina Theodoris,2024-08-15 04:09:57,True,693,+
+ctheodoris/Geneformer,933ca80e39d421c47a12168699766bb7e4e2c197,ctheodoris/Geneformer/gf-12L-95M-i4096_CLcancer/model.safetensors,safetensors,"update with 12L and 20L i4096 gc95M models, multitask and quantiz code",Christina Theodoris,2024-08-15 04:09:57,True,693,+
+ctheodoris/Geneformer,933ca80e39d421c47a12168699766bb7e4e2c197,ctheodoris/Geneformer/gf-20L-95M-i4096/model.safetensors,safetensors,"update with 12L and 20L i4096 gc95M models, multitask and quantiz code",Christina Theodoris,2024-08-15 04:09:57,True,693,+
+ctheodoris/Geneformer,933ca80e39d421c47a12168699766bb7e4e2c197,ctheodoris/Geneformer/gf-6L-30M-i2048/model.safetensors,safetensors,"update with 12L and 20L i4096 gc95M models, multitask and quantiz code",Christina Theodoris,2024-08-15 04:09:57,True,693,+
+Helsinki-NLP/opus-mt-tc-big-fi-en,956e13710061738d21f677e4ed16a56546511c0f,Helsinki-NLP/opus-mt-tc-big-fi-en/model.safetensors,safetensors,"Update checkpoint for transformers>=4.29 (#6)
+
+
+- Update checkpoint for transformers>=4.29 (ae29348668f08c2cdf91d2e1473feccb7783199e)
+
+
+Co-authored-by: Arthur Zucker <ArthurZ@users.noreply.huggingface.co>",Matthew Carrigan,2024-04-16 14:13:57,True,572,+
+mdroth/bert-finetuned-ner-accelerate,800ed7039fc98ccfccdf8c03ad1d33f41d5f3f0c,mdroth/bert-finetuned-ner-accelerate/model.safetensors,safetensors,Training in progress epoch 0,Matthias Droth,2024-02-19 18:47:09,True,515,+
+winegarj/distilbert-base-uncased-finetuned-sst2,ec5494dd98299d40c472fa9abc757e57a9c139b7,winegarj/distilbert-base-uncased-finetuned-sst2/model.safetensors,safetensors,"Training in progress, epoch 1",James Winegar,2023-11-25 13:48:06,True,429,+
+Yarn/finetuned,9b6f0efb69ecd57ce196e46419e4b47f0d7b87e1,Yarn/finetuned/model.safetensors,safetensors,"Training in progress, epoch 1",Rishikesh Mate,2024-11-10 08:57:36,True,780,+
+adsabs/astroBERT,551138edf291cfd6dd790a6b8e691c43b201f4cb,adsabs/astroBERT/model.safetensors,safetensors,Merge branch 'main' of https://huggingface.co/adsabs/astroBERT into main,Felix Grezes,2023-05-12 15:03:53,True,232,+
+z-dickson/US_politicians_covid_skepticism,bc85f961e3a2b6f8c4d32fcfde536ab0b826d7ed,z-dickson/US_politicians_covid_skepticism/model.safetensors,safetensors,Upload BertForSequenceClassification,zachary dickson,2023-12-16 08:20:29,True,450,+
+Khoa/t5-small-finetuned-xsum,3daa13fc2086a996465c78d7707ac2efab89935c,Khoa/t5-small-finetuned-xsum/model.safetensors,safetensors,"Training in progress, step 500",Dong,2024-11-27 23:24:22,True,797,+
+Gunulhona/tbnlimodel_v2,24c7ab03f8c04306f98c5ae2e04e63480b6e6f8e,Gunulhona/tbnlimodel_v2/model.safetensors,safetensors,Upload BartForSequenceClassification,JungKwonHwan,2024-04-17 01:03:15,True,573,+
+kontur-ai/sbert_punc_case_ru,eab0c50e5b52ac6a4529d113266121df697ab876,kontur-ai/sbert_punc_case_ru/model.safetensors,safetensors,"safetensors update (#3)
+
+
+- safetensors update (50282f3d0697ea21779c53c244314517c6f80f78)
+- safetensors model added (04ff336e3e47280791bd8e300468537e6179b03e)
+- readme update (044cecb68768b5b450f58c726f4c2403838bd688)
+- some formatting (a614a1af09ec9700164d5b56a9dd9f187360e2a4)
+- inference false (bb4e784327033e0e11d5d61184d258a46bf93c0c)",Alex Grazder,2024-01-22 01:00:07,True,487,+
+vijayrag/distilbert-base-uncased-finetuned-emotion,bf4cc157acbef72f797e853d07c73e97ca781f12,vijayrag/distilbert-base-uncased-finetuned-emotion/model.safetensors,safetensors,"Training in progress, step 500",Vijay Raghavan,2024-02-13 15:46:55,True,509,+
+haesun/distilbert-base-uncased-finetuned-emotion,800f478a4d354804ec7d0d7995ad616591758d08,haesun/distilbert-base-uncased-finetuned-emotion/model.safetensors,safetensors,"Training in progress, epoch 1",Haesun Park,2024-01-20 23:49:25,True,485,+
+Jateendra/nlp_bert_emo_classifier,ec265430e43f2ec05fb4e6a5082833b0d0862e3a,Jateendra/nlp_bert_emo_classifier/model.safetensors,safetensors,"Training in progress, step 500",Pradhan,2024-03-02 13:42:37,True,527,+
+pnr-svc/bert-finetuned-ner,f1c7a2f0ff69c81606e9fa31f87610cb0b7b69ca,pnr-svc/bert-finetuned-ner/model.safetensors,safetensors,"Training in progress, epoch 1",Pınar SAVCI,2024-09-26 13:32:04,True,735,+
