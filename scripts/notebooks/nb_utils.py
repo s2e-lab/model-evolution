@@ -1,10 +1,18 @@
+import datetime
 import zipfile
 from pathlib import Path
 from typing import Literal
 
+import numpy as np
 import pandas as pd
 from analyticaml import MODEL_FILE_EXTENSIONS
+from matplotlib.font_manager import FontProperties
 from tqdm import tqdm
+
+# Create a font property with Noto Emoji and Roboto Condensed fonts
+EMOJI_FONT = FontProperties(fname=Path('../../assets/NotoEmoji-Regular.ttf'))
+COLOR_EMOJI_FONT = FontProperties(fname=Path('../../assets/NotoColorEmoji-Regular.ttf'))
+ROBOTO_CONDENSED_FONT = FontProperties(fname=Path('../../assets/RobotoCondensed-Regular.ttf'))
 
 # Reference date when safetensors was released
 SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-23")
@@ -26,7 +34,6 @@ def read_repositories_evolution(group: Literal['recent', 'legacy', 'both']) -> p
         df_legacy = read_repositories_evolution('legacy')
         df = pd.concat([df_recent, df_legacy], ignore_index=True)
         return df
-
 
     df = pd.read_csv(DATA_DIR / f"repositories_evolution_{group}_commits.csv")
     # ensure date is in datetime format
@@ -131,4 +138,74 @@ def unzip(zip_path, extract_to='.'):
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(extract_to)
 
+def calendar_week(d: pd.Timestamp, year: int) -> int:
+    # check what is the ISO for January 1st
+    if datetime.date(year, 1, 1).isocalendar().week != 1:
+        # If the date is in the first week of January, return week 1
+        if d.month == 1 and d.isocalendar().week > 50:
+            return 1
+        else:
+            return d.isocalendar().week + 1
+    return d.isocalendar().week
+def compute_calendar_mask(year_matrix, year: int) -> np.ndarray:
+    """
+    Compute a mask for a year matrix to indicate which days are valid based on the calendar year.
+    :param year_matrix:
+    :param year:
+    :return:
+    """
+    # 1. Determine Jan 1 and Dec 31
+    jan1 = datetime.date(year, 1, 1)
+    dec31 = datetime.date(year, 12, 31)
 
+    # 2. Compute weekday indexes
+    jan1_weekday = jan1.weekday()  # 0 = Monday
+    dec31_weekday = dec31.weekday()  # 0 = Monday
+    print("Jan 1 weekday:", jan1_weekday, "Dec 31 weekday:", dec31_weekday)
+    # print weekday name
+    print("Jan 1 weekday name:", jan1.strftime('%A'), "Dec 31 weekday name:", dec31.strftime('%A'))
+
+    # 3. Compute number of weeks in matrix
+    _, num_weeks = year_matrix.shape
+
+    # 4. Create full False mask
+    mask = np.full_like(year_matrix, False, dtype=bool)
+
+    # 5. Mask leading days before Jan 1 in the first week
+    mask[:jan1_weekday, 0] = True
+
+    # 6. Mask trailing days after Dec 31 in the last week
+    if dec31_weekday < 6:
+        mask[dec31_weekday + 1:, -1] = True
+
+    return mask
+
+
+def get_commit_counts_by_date(df: pd.DataFrame) -> pd.Series:
+    """
+    Get the number of commits by date.
+    :param df: a data frame with a 'date' column that contains commit dates.
+    :return: a series with the number of commits by date
+    """
+    # group by timestamp, and ignore the times, just group based on the date
+    commits_by_date = df.groupby(df['date'].dt.floor('D')).size().sort_index()
+    # add all dates from SAFE TENSORS RELEASE DATE to today
+    for i in range(0, (pd.Timestamp.today() - SAFETENSORS_RELEASE_DATE).days):
+        date = SAFETENSORS_RELEASE_DATE + pd.Timedelta(days=i)
+        if date not in commits_by_date.index:
+            commits_by_date.loc[date] = 0
+    commits_by_date = commits_by_date.sort_index()
+    commits_by_date.name = 'count'  # name the totals as 'count'
+    # Ensure 'files_modified_by_date' has datetime as the index if not already
+    commits_by_date.index = pd.to_datetime(commits_by_date.index)
+    # Determine the maximum value across the entire dataset to set a common color range
+    vmax = commits_by_date.max()
+    # Apply a log transformation to the commits, offsetting by 1 to handle zero values
+    log_commits_by_date = np.log1p(commits_by_date)  # log(1 + count)
+    # Determine the max log-transformed value for setting the consistent color range
+    vmax_log = log_commits_by_date.max()
+    return commits_by_date, log_commits_by_date, vmax, vmax_log
+
+
+if __name__ == "__main__":
+    compute_calendar_mask(np.zeros((7, 53)), 2023)

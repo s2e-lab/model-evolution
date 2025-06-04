@@ -33,6 +33,7 @@ jupyter = "*"
 plotly = "==5.24.1"
 seaborn = "*"
 selenium = "*"
+sns = "*"
 
 [dev-packages]
 
