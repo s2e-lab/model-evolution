@@ -1,10 +1,12 @@
-# commits in all logs (total),30353
-# commits touching at least one serialized model,13542
-# commits containing at least one model file in its tree,13484
-# commits not containing at least one model file,58
+# commits in all logs (total),28904.0
+# commits touching at least one serialized model,13338.0
+% commits touching at least one serialized model,46.14586216440631
+# commits containing at least one model file in its tree,13280.0
+# commits not containing at least one model file,58.0
+# repos,1703.0
 last commit date,2024-12-31 12:30:54
-# repos,1710
 # commits adding safetensor files,3369
+% commits adding safetensor files,25.258659469185783
 # commits adding safetensor files made by the converter,112
 % commits adding safetensor files made by the converter,3.324428613831998
 # commits adding safetensor files made by developers,3257

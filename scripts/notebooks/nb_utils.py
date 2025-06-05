@@ -77,21 +77,27 @@ def filter_by_extension(changed_files: str) -> bool:
     return any([ext in MODEL_FILE_EXTENSIONS for ext in file_extensions])
 
 
-def get_commit_log_stats(group: Literal['recent', 'legacy']) -> pd.Series:
+def get_commit_log_stats(df_repository_evolution:pd.DataFrame, group: Literal['recent', 'legacy']) -> pd.Series:
     """
     Read the commits logs extracted for the selected repositories and compute some basic stats.
     :return:
     """
     stats = pd.Series()
-
+    repo_urls = df_repository_evolution["repo_url"].nunique()
     # Load the repositories and set nan columns to empty string
     input_file = DATA_DIR / f"selected_{group}_commits.csv"
     df = pd.read_csv(input_file).fillna("")
-    stats.loc["# commits in all logs (total)"] = len(df)
+    # exclude repos that are not in the evolution data frame
+    df = df[df["repo_url"].isin(df_repository_evolution["repo_url"].unique())]
+    total_commits = len(df)
+
+
+
 
     # identify the commits that have at least one model file
     df = df[df["changed_files"].apply(lambda x: filter_by_extension(x))]
     df.reset_index(drop=True, inplace=True)
+    total_touching_model_files = len(df)
     # compute commits that do not contain at least one model file in its tree
     num_empty = 0
     for _, row in df.iterrows():
@@ -102,13 +108,15 @@ def get_commit_log_stats(group: Literal['recent', 'legacy']) -> pd.Series:
         if len(all_model_files) == 0:
             num_empty += 1
 
-    stats.loc["# commits touching at least one serialized model"] = len(df)
+    stats.loc["# commits in all logs (total)"] = total_commits
+    stats.loc["# commits touching at least one serialized model"] = total_touching_model_files
+    stats.loc["% commits touching at least one serialized model"] = total_touching_model_files /  total_commits * 100
     stats.loc["# commits containing at least one model file in its tree"] = len(df) - num_empty
     stats.loc["# commits not containing at least one model file"] = num_empty
-    stats.loc["last commit date"] = df["date"].max()
     stats.loc["# repos"] = df["repo_url"].nunique()
+    stats.loc["last commit date"] = df["date"].max()
 
-    return stats
+    return stats, total_touching_model_files
 
 
 def get_safetensors_releases():
