@@ -1,12 +1,17 @@
 # commits in all logs (total),28904
 # commits modifying/adding/deleting at least one serialized model,13338
-# commits only adding at least one serialized model,4950
+# repos associated with commits modifying/adding/deleting at least one serialized model,1703
+# commits adding at least one serialized model,4950
+# repos associated with commits adding at least one serialized model,1700
 # commits containing at least one model file in its tree,13280
 # commits not containing at least one model file,58
 # repos,1703
 last commit date,2024-12-31 12:30:54
 # commits adding safetensor files,3369
+# repos with commits adding safetensor files,1084
 # commits adding safetensor files made by the converter,112
+# repos with commits adding safetensor files made by the converter,111
 # commits adding safetensor files made by developers,3257
+# repos with commits adding safetensor files made by developers,975
 how many days until safetensors is first added,84
 date with max number of adoptions,2024-02-01

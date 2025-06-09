@@ -92,12 +92,15 @@ def get_commit_log_stats(df_repository_evolution:pd.DataFrame, group: Literal['r
     df = df[df["repo_url"].isin(repo_urls)]
     total_commits = len(df)
 
-    # identify the commits that have at least one model file
+    # identify the commits that added/modified/deleted at least one model file
     df = df[df["changed_files"].apply(lambda x: filter_by_extension(x))]
     df.reset_index(drop=True, inplace=True)
     total_touching_model_files = len(df)
+    total_repos_touching_model_files = df["repo_url"].nunique()
+    # compute commits that modify or add model files
     df_added_model_files = df_repository_evolution[df_repository_evolution['change_status'] == '+']
     total_adding_model_files = len(df_added_model_files[['repo_url', 'commit_hash']].drop_duplicates())
+    total_repos_adding_model_files = df_added_model_files['repo_url'].nunique()
     # compute commits that do not contain at least one model file in its tree
     num_empty = 0
     for _, row in df.iterrows():
@@ -110,9 +113,9 @@ def get_commit_log_stats(df_repository_evolution:pd.DataFrame, group: Literal['r
 
     stats.loc["# commits in all logs (total)"] = total_commits
     stats.loc["# commits modifying/adding/deleting at least one serialized model"] = total_touching_model_files
-    # stats.loc["% commits modifying/adding/deleting at least one serialized model"] = total_touching_model_files /  total_commits * 100
-    stats.loc["# commits only adding at least one serialized model"] = total_adding_model_files
-    # stats.loc["% commits only adding at least one serialized model"] = total_adding_model_files / total_touching_model_files * 100
+    stats.loc["# repos associated with commits modifying/adding/deleting at least one serialized model"] = total_repos_touching_model_files
+    stats.loc["# commits adding at least one serialized model"] = total_adding_model_files
+    stats.loc["# repos associated with commits adding at least one serialized model"] = total_repos_adding_model_files
     stats.loc["# commits containing at least one model file in its tree"] = len(df) - num_empty
     stats.loc["# commits not containing at least one model file"] = num_empty
     stats.loc["# repos"] = df["repo_url"].nunique()
