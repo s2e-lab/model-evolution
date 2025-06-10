@@ -21,7 +21,7 @@ DATA_DIR = Path('../../data')
 RESULTS_DIR = Path('../../results')
 
 
-def read_repositories_evolution(group: Literal['recent', 'legacy', 'both']) -> pd.DataFrame:
+def read_repositories_evolution(group: Literal['recent', 'legacy', 'both'] | str) -> pd.DataFrame:
     """
     Read the commits from the repository evolution dataset.
     :return: a data frame
@@ -77,7 +77,8 @@ def filter_by_extension(changed_files: str) -> bool:
     return any([ext in MODEL_FILE_EXTENSIONS for ext in file_extensions])
 
 
-def get_commit_log_stats(df_repository_evolution: pd.DataFrame, group: Literal['recent', 'legacy', 'both']) -> pd.Series:
+def get_commit_log_stats(df_repository_evolution: pd.DataFrame,
+                         group: Literal['recent', 'legacy', 'both']) -> pd.Series:
     """
     Read the commits logs extracted for the selected repositories and compute some basic stats.
     :return:
@@ -85,12 +86,15 @@ def get_commit_log_stats(df_repository_evolution: pd.DataFrame, group: Literal['
     stats = pd.Series()
     stats.name = f"Commit log stats for {group} repositories"
     if group == 'both':
-        stats_recent, total_touching_models_recent, total_adding_models_recent = get_commit_log_stats(df_repository_evolution, 'recent')
-        stats_legacy, total_touching_models_legacy, total_adding_models_legacy = get_commit_log_stats(df_repository_evolution, 'legacy')
+        stats_recent, total_touching_models_recent, total_adding_models_recent = get_commit_log_stats(
+            df_repository_evolution, 'recent')
+        stats_legacy, total_touching_models_legacy, total_adding_models_legacy = get_commit_log_stats(
+            df_repository_evolution, 'legacy')
         total_touching_model_files = total_touching_models_recent + total_touching_models_legacy
         total_adding_model_files = total_adding_models_recent + total_adding_models_legacy
         # assertion that ensures both stats_recent and stats_legacy have the same keys
-        assert set(stats_recent.index) == set(stats_legacy.index), "Stats for recent and legacy groups should have the same keys."
+        assert set(stats_recent.index) == set(
+            stats_legacy.index), "Stats for recent and legacy groups should have the same keys."
         # merge the stats for recent and legacy groups
         for key in set(stats_recent.index):
             stats[key] = stats_recent.get(key, 0) + stats_legacy.get(key, 0)
@@ -126,7 +130,8 @@ def get_commit_log_stats(df_repository_evolution: pd.DataFrame, group: Literal['
 
     stats.loc["# commits in all logs (total)"] = total_commits
     stats.loc["# commits modifying/adding/deleting at least one serialized model"] = total_touching_model_files
-    stats.loc["# repos associated with commits modifying/adding/deleting at least one serialized model"] = total_repos_touching_model_files
+    stats.loc[
+        "# repos associated with commits modifying/adding/deleting at least one serialized model"] = total_repos_touching_model_files
     stats.loc["# commits adding at least one serialized model"] = total_adding_model_files
     stats.loc["# repos associated with commits adding at least one serialized model"] = total_repos_adding_model_files
     stats.loc["# commits containing at least one model file in its tree"] = len(df) - num_empty
