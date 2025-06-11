@@ -271,14 +271,38 @@ def get_commit_counts_by_date(df: pd.DataFrame) -> pd.Series:
     return commits_by_date, log_commits_by_date, vmax, vmax_log
 
 
+def extract_metadata(group: str) -> dict:
+    """
+    Extract metadata from the repository URLs.
+    :param repo_urls: a list of repository URLs
+    :return: a DataFrame with the extracted metadata
+    """
+    # Extracted results, load to frame and delete the large CSV
+    df_metadata = pd.read_json(DATA_DIR / f"selected_{group}_repos.json")
+    # Convert the 'created_at' column to datetime
+    df_metadata['created_at'] = pd.to_datetime(df_metadata['created_at'], utc=True)
+    df_metadata['last_modified'] = pd.to_datetime(df_metadata['last_modified']/ 1000, unit='s', utc=True)
+    df_metadata['lastModified'] = pd.to_datetime(df_metadata['created_at'], utc=True)
+    # rename id to 'repo_url' for consistency
+    df_metadata.rename(columns={'id': 'repo_url'}, inplace=True)
+    # Create a dictionary to map the 'repo_url' to the metadata
+    return df_metadata.set_index('repo_url').to_dict(orient='index')
+
+
 if __name__ == "__main__":
     # mask = compute_calendar_mask(np.zeros((7, 53)), 2023)
     # print(mask)
-    assert compute_calendar_week(pd.Timestamp("2023-01-01")) == 0
-    assert compute_calendar_week(pd.Timestamp("2023-01-01")) == 0
-    d = pd.Timestamp("2022-01-01")
-    print(d, "week=", compute_calendar_week(d))
+    # assert compute_calendar_week(pd.Timestamp("2023-01-01")) == 0
+    # assert compute_calendar_week(pd.Timestamp("2023-01-01")) == 0
+    # d = pd.Timestamp("2022-01-01")
+    # print(d, "week=", compute_calendar_week(d))
+    #
+    # for year in [2022, 2023, 2024]:
+    #     r = compute_year_range(year)
+    #     print(year, r[0], r[-1])
 
-    for year in [2022, 2023, 2024]:
-        r = compute_year_range(year)
-        print(year, r[0], r[-1])
+    all = extract_metadata('recent')
+
+    print(all['speechbrain/ssl-wav2vec2-base-librispeech']['last_modified'])
+    print(all['speechbrain/ssl-wav2vec2-base-librispeech']['created_at'])
+    print(all['speechbrain/ssl-wav2vec2-base-librispeech']['lastModified'])
