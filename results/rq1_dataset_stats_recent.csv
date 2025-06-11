@@ -15,6 +15,6 @@ last commit date,2024-12-31 12:30:54
 # repos with commits adding safetensor files made by developers,975
 how many days until safetensors is first added,84
 date with max number of adoptions,2024-02-01
+# repos that used the conversion tool,111
 # repos with old pytorch_model.bin files after conversion,95
 % repos with old pytorch_model.bin files after conversion,85.58558558558559
-# repos that used the conversion tool,111

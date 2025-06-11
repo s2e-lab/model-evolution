@@ -6,16 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/wip-model-evolution.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wip-model-evolution.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsDistribution_legacy.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsDistribution_legacy.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsDistribution_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsDistribution_recent.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsStacked_legacy.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsStacked_legacy.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsStacked_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsStacked_recent.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/notebooks/nb_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/nb_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1CommitsDistribution_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1CommitsDistribution_both.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1CommitsDistribution_legacy.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1CommitsDistribution_legacy.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1CommitsDistribution_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1CommitsDistribution_recent.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1Heatmap_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1Heatmap_both.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1Heatmap_legacy.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1Heatmap_legacy.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1Heatmap_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1Heatmap_recent.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/rq1_dataset_stats_both.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/rq1_dataset_stats_both.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/rq1_dataset_stats_recent.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/rq1_dataset_stats_recent.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq2_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq2_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -304,6 +304,9 @@
       <workItem from="1749510963835" duration="1496000" />
       <workItem from="1749567235964" duration="4567000" />
       <workItem from="1749578058452" duration="136000" />
+      <workItem from="1749578197302" duration="863000" />
+      <workItem from="1749605585660" duration="603000" />
+      <workItem from="1749646589768" duration="2683000" />
     </task>
     <servers />
   </component>
