@@ -277,6 +277,13 @@ def extract_metadata(group: str) -> dict:
     :param repo_urls: a list of repository URLs
     :return: a DataFrame with the extracted metadata
     """
+    if group == 'both':
+        dict_recent = extract_metadata('recent')
+        dict_legacy = extract_metadata('legacy')
+        # merge the two dictionaries
+        return {**dict_recent, **dict_legacy}
+    if group not in ('recent', 'legacy'):
+        raise ValueError(f"Invalid group: {group}")
     # Extracted results, load to frame and delete the large CSV
     df_metadata = pd.read_json(DATA_DIR / f"selected_{group}_repos.json")
     # Convert the 'created_at' column to datetime

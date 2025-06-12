@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/notebooks/TO_DELETE_rq2_analysis.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsDistribution_legacy.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsDistribution_legacy.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsStacked_legacy.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsStacked_legacy.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsDistribution_both.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsDistribution_legacy.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsDistribution_recent.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_legacy.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_recent.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsStacked_both.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsStacked_legacy.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsStacked_recent.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/notebooks/nb_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/nb_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq2_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq2_analysis.ipynb" afterDir="false" />
     </list>
@@ -304,7 +309,7 @@
       <workItem from="1749578197302" duration="863000" />
       <workItem from="1749605585660" duration="603000" />
       <workItem from="1749646589768" duration="8114000" />
-      <workItem from="1749673662301" duration="7068000" />
+      <workItem from="1749673662301" duration="14681000" />
     </task>
     <servers />
   </component>
