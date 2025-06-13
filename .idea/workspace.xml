@@ -6,15 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_both.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsYearly_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsYearly_both.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ3StatusDistribution-Hugging Face Staff.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ3StatusDistribution-Hugging Face Staff.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ3StatusDistribution-Non-Hugging Face Staff.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ3StatusDistribution-Non-Hugging Face Staff.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ3StatusDistribution.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ3StatusDistribution.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/sfconvertbot_pr_metadata_filtered.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/sfconvertbot_pr_metadata_filtered.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq2_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq2_analysis.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq3_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq3_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,7 +300,7 @@
       <workItem from="1749578197302" duration="863000" />
       <workItem from="1749605585660" duration="603000" />
       <workItem from="1749646589768" duration="8114000" />
-      <workItem from="1749673662301" duration="28318000" />
+      <workItem from="1749673662301" duration="28681000" />
     </task>
     <servers />
   </component>
