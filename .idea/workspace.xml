@@ -7,15 +7,13 @@
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsDistribution_both.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsDistribution_legacy.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsDistribution_recent.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_legacy.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_recent.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsStacked_both.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsStacked_legacy.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsStacked_recent.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/notebooks/nb_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/nb_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_both.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_legacy.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_legacy.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_recent.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsYearly_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsYearly_both.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsYearly_legacy.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsYearly_legacy.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsYearly_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsYearly_recent.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq2_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq2_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +51,7 @@
     "Python.analyze_commit_history.executor": "Run",
     "Python.get_models.executor": "Run",
     "Python.nb_utils.executor": "Run",
+    "Python.process_commit_history.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -85,7 +84,7 @@
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.nb_utils">
+  <component name="RunManager" selected="Python.process_commit_history">
     <configuration name="TO_DELETE_analyze_commit_history" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="wip-model-evolution" />
       <option name="ENV_FILES" value="" />
@@ -124,29 +123,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/TO_DELETE_analyze_commit_history.py" />
       <option name="PARAMETERS" value="0 4888" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TO_DELETE_merge_csvs (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="wip-model-evolution" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/TO_DELETE_merge_csvs.py" />
-      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -267,20 +243,43 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="process_commit_history" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="wip-model-evolution" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/process_commit_history.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.nb_utils" />
+      <item itemvalue="Python.process_commit_history" />
       <item itemvalue="Python.analyze_commit_history" />
       <item itemvalue="Python.get_models" />
-      <item itemvalue="Python.TO_DELETE_merge_csvs (1)" />
       <item itemvalue="Python.TO_DELETE_analyze_commit_history" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.process_commit_history" />
         <item itemvalue="Python.nb_utils" />
         <item itemvalue="Python.analyze_commit_history" />
         <item itemvalue="Python.get_models" />
         <item itemvalue="Python.TO_DELETE_analyze_commit_history" />
-        <item itemvalue="Python.TO_DELETE_merge_csvs (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -309,7 +308,7 @@
       <workItem from="1749578197302" duration="863000" />
       <workItem from="1749605585660" duration="603000" />
       <workItem from="1749646589768" duration="8114000" />
-      <workItem from="1749673662301" duration="14681000" />
+      <workItem from="1749673662301" duration="23465000" />
     </task>
     <servers />
   </component>
@@ -381,6 +380,7 @@
     <SUITE FILE_PATH="coverage/wip_model_evolution$crawl_safetensors_discussions__1_.coverage" NAME="crawl_safetensors_discussions (1) Coverage Results" MODIFIED="1730824909063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$crawl_bot_activity.coverage" NAME="crawl_bot_activity Coverage Results" MODIFIED="1730577333927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$get_sfconvert_prs__1_.coverage" NAME="get_sfconvert_prs (1) Coverage Results" MODIFIED="1730766022374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
+    <SUITE FILE_PATH="coverage/wip_model_evolution$process_commit_history.coverage" NAME="process_commit_history Coverage Results" MODIFIED="1749778949635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$get_models.coverage" NAME="get_models Coverage Results" MODIFIED="1748611577573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
   </component>
 </project>
