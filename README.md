@@ -29,4 +29,5 @@ The following figure shows the methodology and linked artifacts of this project:
 
 ![alt text](./assets/MethodArtifacts.png)
 
+## Replicating Experiments
 For further information regarding how to run the scripts, please see the README.md under the scripts directory.
