@@ -9,10 +9,10 @@ import git
 import pandas as pd
 from git import Repo
 
-# DATA_DIR = Path("../data")
-DATA_DIR = Path(__file__).parent / "../data"
-# RESULTS_DIR = Path("../results")
-RESULTS_DIR = Path(__file__).parent / "../results"
+ROOT_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT_DIR / "data"
+RESULTS_DIR = ROOT_DIR / "results"
+SCRIPTS_DIR = ROOT_DIR / "scripts"
 
 def delete_folder(folder_location: str) -> bool:
     """

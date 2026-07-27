@@ -32,7 +32,7 @@ def has_model_file(model_files: list) -> bool:
 
 def get_repo_size(repo_id: str) -> int:
     """
-    This function gets the size of a repository.
+    This function gets the size of a repository using Hugging Face's API.
     :param repo_id: id of the repository
     :return: size of the repository in bytes
     """
@@ -58,7 +58,7 @@ def exclude_models(df: pd.DataFrame) -> pd.DataFrame:
     (E2) - Does not have at least one model file
     (E3) - Gated (i.e. private)
     :param df: data frame with all models' metadata
-    :return: a data frame with the selected models that are not larger than 2 TB.
+    :return: a data frame with models that do not match any of the exclusion criteria.
     """
     # find repositories that are modified on or after 2024
     df_filtered = df[df["last_modified"] >= FIRST_DAY_OF_2024]
@@ -169,7 +169,7 @@ if __name__ == "__main__":
     print("Min creation date = ", df["created_at"].min())
 
     # Step 2 - Exclude models
-    print(f"Excluding models from {input_file} (initial size = {len(df)})...")
+    print(f"Excluding models from {input_file.name} (initial size = {len(df)})...")
     df = exclude_models(df)
     print(f"After applying global exclusion criteria, {len(df)} repositories left.")
     # exit(0)  # Uncomment this line to stop the script after loading and filtering the data
@@ -178,6 +178,7 @@ if __name__ == "__main__":
     print("Selecting legacy repositories...")
     df_legacy = select_legacy(df)
     df_legacy = filter_by_size(df_legacy)
+    print(f"There are {len(df_legacy)} legacy repositories within size limit.")
 
     # Step 4 - Sample recent repositories
     print("Selecting recent repositories...")
