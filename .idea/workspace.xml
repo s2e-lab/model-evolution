@@ -7,8 +7,6 @@
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/crc/select_models-v2.job" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/crc/select_models-v3.job" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/hotfixes/convert_json_cache_to_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/hotfixes/convert_json_cache_to_db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/select_models-v3.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/select_models-v3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -296,7 +294,7 @@
       <workItem from="1784935288261" duration="11000" />
       <workItem from="1784935320391" duration="7000" />
       <workItem from="1784935391396" duration="1751000" />
-      <workItem from="1785093017236" duration="42557000" />
+      <workItem from="1785093017236" duration="43203000" />
     </task>
     <task id="LOCAL-00001" summary="added a print statement to better indicate the filtering steps' statuses">
       <option name="closed" value="true" />

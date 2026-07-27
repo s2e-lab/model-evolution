@@ -353,7 +353,7 @@ if __name__ == "__main__":
     # 3.1 check all recent sample
     print("Finding and filtering recent repositories...")
     df_recent_all = select_recent(df.copy())
-    df_recent_all = df_recent_all.iloc[ceil(.75 * len(df)):]  # bottom 3/4
+    # df_recent_all = df_recent_all.iloc[ceil(.75 * len(df)):]  # FIXME bottom 3/4
     df_recent_all = filter_by_size(df_recent_all)
     df_recent_all.to_json(out_all_recent_models_file, orient="records", indent=2)
     # Compress the file
