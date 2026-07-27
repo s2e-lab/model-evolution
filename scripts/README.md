@@ -28,6 +28,12 @@ pip install .
 - Download the [web driver](https://github.com/mozilla/geckodriver/releases) for the Firefox browser and extract it to
   your PATH (e.g., `/usr/local/bin`).
 - If it is not in `PATH` you need to set its path in the `crawl_bot_activity.py` script.
+- Create a `.env` file in the root directory with the following content. Replace `<your_github_token>` with your GitHub token.  You can create a token by following the  instructions [here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token). Likewise, replace `<your_huggingface_token>` with your HuggingFace token. You can create a token by following the instructions [here](https://huggingface.co/docs/hub/security-tokens). A `read-only` token is sufficient for our scripts.
+```bash
+GITHUB_TOKEN=<your_github_token>
+HF_TOKEN=<your_huggingface_token>
+```
+
 
 ## Data Collection
 
@@ -46,16 +52,16 @@ pip install .
 
 #### Step 2: Filtering the models using the criteria described in our methodology
 
-- `./select_models.py`: Script to filter the repositories from HuggingFace using our filtering criteria based on
+- `./filter_models.py`: Script to filter the repositories from HuggingFace using our filtering criteria based on
   creation / last update dates.
   ```bash
-    python select_models.py
+    python filter_models.py
   ```
   It will select model repositories and save the filtered list in two files:
-    - `../data/selected_legacy_repos.json`: Group 1. Repositories created **before** safetensors'
-      release.
-    - `../data/selected_recent_repos.json`. Group 2. Repositories created **after** safetensors'
-      release. Notice that we downsample it to match the number of samples in the first group.
+    - `../data/selected_legacy_repos.json`: Group 1. Repositories created **before** safetensors' release.
+    - `../data/all_recent_repos.json`. Group 2. Repositories created **after** safetensors' release. 
+- `./sample_recent_models.py`: Script to downsample the _recent_ repositories from using our sampling strategy described in the paper.
+    - `../data/selected_recent_repos.json`. Group 2 sample. **_Sampled_** repositories created **after** safetensors' release.
 
 #### Step 3: Getting the commit history of the models
 
@@ -101,13 +107,14 @@ and `selected_<group_type>_errors_retried.csv`.
   logs `repositories_evolution_<group_type>_errors.csv`).
 
 #### Step 5: Post process the commit evolution data
+
 - `process_commit_history.py`: Script to post-process the commit evolution data to generate the final dataset
   for analysis.
   ```bash
   python process_commit_history.py
   ```
   The script will generate a CSV file with the post-processed commit evolution data on the `../data/` folder.
-  The file will be named `repositories_evolution_<group_type>_commits_processed.csv`. 
+  The file will be named `repositories_evolution_<group_type>_commits_processed.csv`.
   This is the file that will be used in the Jupyter notebooks for analysis.
 
 ### RQ3: Getting SFConvertBot Data
@@ -153,21 +160,10 @@ and `selected_<group_type>_errors_retried.csv`.
 
 ### RQ4: Scraping StackOverflow posts and GitHub PRs
 
-#### Step 1: Create a `.env` file
 
-Create a `.env` file in the root directory with the following content:
+#### Run our crawlers
 
-```bash
-GITHUB_TOKEN=<your_github_token>
-```
-
-Replace `<your_github_token>` with your GitHub token.
-You can create a token by following the
-instructions [here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-
-#### Step 2: Run our crawlers
-
-Now, you can run the following shell scripts to collect data from GitHub and StackOverflow.
+Assuming you have a `.env` file with your GitHub token, you can run the following shell scripts to collect data from GitHub and StackOverflow.
 
 - **Collecting PRs from GitHub:** Run the shell script below to trigger the data collection process.
     ```bash

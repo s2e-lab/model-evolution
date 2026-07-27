@@ -10,12 +10,12 @@ Exclusion criteria:
 @Author: Joanna C. S. Santos
 """
 
-import random
 import os
-import zipfile
-import time
+import random
 import re
-from math import ceil
+import sqlite3
+import time
+import zipfile
 
 import pandas as pd
 import requests
@@ -30,8 +30,6 @@ from huggingface_hub.utils import HfHubHTTPError, RepositoryNotFoundError
 from tqdm import tqdm
 from dotenv import load_dotenv
 from utils import load, DATA_DIR, SCRIPTS_DIR
-from datetime import datetime, timezone
-from email.utils import parsedate_to_datetime
 from pathlib import Path
 import json
 
@@ -71,7 +69,7 @@ def get_wait_time(response: Response, fallback=30.0) -> float:
 
 
 def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initial_backoff: float = 5.0, max_backoff: float = 300.0, ) -> tuple[
-    int, list[dict]]:
+    int, list[dict], str]:
     """
     Gets repository size and file metadata from the Hugging Face API.
     Retries:
@@ -96,11 +94,11 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
                 filename = repo_file.get("rfilename", "")
                 repo_file["extension"] = (filename.rsplit(".", 1)[-1] if "." in filename else "")
                 repo_files.append(repo_file)
-            return model_info.usedStorage, repo_files
+            return model_info.usedStorage, repo_files, ""
         except RepositoryNotFoundError:
             # This may mean nonexistent, private, gated, or inaccessible.
             print(f"[NOT ACCESSIBLE] {repo_id}")
-            return 0, []
+            return 0, [], f"[RepositoryNotFoundError] {repo_id}"
 
         except HfHubHTTPError as error:
             response = error.response
@@ -109,14 +107,14 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
             # Do not repeatedly retry ordinary client-side failures.
             if status_code in {400, 401, 403, 404}:
                 print(f"[HTTP {status_code}] Skipping {repo_id}")
-                return 0, []
+                return 0, [], f"[HfHubHTTPError {status_code}] {repo_id}"
 
             # Retry rate limits and temporary server errors.
             if status_code == 429 or (status_code is not None and 500 <= status_code < 600):
                 attempt += 1
                 if max_retries is not None and attempt > max_retries:
                     print(f"[GAVE UP] {repo_id} after {max_retries} retries")
-                    return 0, []
+                    return 0, [], f"[MAX_RETRIES EXCEEDED (retried {max_retries} times)] {repo_id}"
                 exponential_wait = min(initial_backoff * (2 ** (attempt - 1)), max_backoff, )
                 wait_seconds = get_wait_time(response, fallback=exponential_wait, )
                 print(f"[HTTP {status_code}] {repo_id}: waiting {wait_seconds:.1f}s before retry #{attempt}")
@@ -125,7 +123,7 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
 
             # Unexpected HTTP error: report rather than hiding it.
             print(f"[HTTP ERROR] {repo_id}:  {status_code} — {error}")
-            return 0, []
+            return 0, [], f"[HTTP ERROR] {repo_id}:  {status_code} — {error}"
 
         except (
                 requests.exceptions.ConnectTimeout,
@@ -149,8 +147,8 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
         except Exception as error:
             # Preserve unexpected errors instead of silently treating them as zero-byte repositories.
             print(f"[UNEXPECTED ERROR] {repo_id}:  {type(error).__name__}: {error}")
-            return 0, []
-    return 0, []
+            return 0, [], f"[UNEXPECTED ERROR] {repo_id}:  {type(error).__name__}: {error}"
+    return 0, [], f"[UNKNOWN ERROR] {repo_id}"
 
 
 def exclude_models(df: pd.DataFrame) -> pd.DataFrame:
@@ -171,44 +169,63 @@ def exclude_models(df: pd.DataFrame) -> pd.DataFrame:
     return df_filtered
 
 
-def load_cache(cache_path: Path) -> dict[str, dict]:
-    """Load the JSON cache, or return an empty cache."""
+def load_cache(cache_path: Path) -> None:
+    """
+    Create the repository-size cache if it does not already exist.
+    :param cache_path: path to the cache database file.
+    """
     if not cache_path.exists():
-        return {}
-    try:
-        with cache_path.open("r", encoding="utf-8") as file:
-            return json.load(file)
-    except (json.JSONDecodeError, OSError) as error:
-        print(f"Could not load cache: {error}")
-        return {}
+        with sqlite3.connect(cache_path) as connection:
+            fields = [
+                "repo_id TEXT NOT NULL",
+                "sha TEXT NOT NULL",
+                "size INTEGER NOT NULL",
+                "siblings TEXT",
+                "error TEXT",
+                "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+            ]
+            pk = "repo_id,sha"
+            connection.execute(f"CREATE TABLE IF NOT EXISTS repo_sizes ({fields.join(', ')}, PRIMARY KEY({pk}))")
+            connection.commit()
 
 
-def save_cache(cache: dict[str, dict], cache_path: Path, ) -> None:
+def get_cached_repo_size(cache_path: Path, repo_id: str, sha: str) -> tuple[int, list | None]:
     """
-    Atomically save the cache.
-
-    Writing to a temporary file first prevents a partially written cache
-    if the process is interrupted during json.dump().
+    Return a previously successful result from the cache.
+    Returns None when no successful cached result exists.
+    :param cache_path: path to the cache database file.
+    :param repo_id: id of the repository
+    :param sha: sha of the repository
     """
-    temporary_path = cache_path.with_suffix(".tmp")
+    with sqlite3.connect(cache_path) as connection:
+        query = "SELECT size, siblings  FROM repo_sizes WHERE repo_id = ? AND sha = ?"
+        row = connection.execute(query, (repo_id, sha)).fetchone()
+        if row is None: return -1, None
+        size, siblings_json = row
+        siblings = json.loads(siblings_json) if siblings_json else []
+        return size, siblings
 
-    with temporary_path.open("w", encoding="utf-8") as file:
-        json.dump(cache, file, ensure_ascii=False)
 
-    os.replace(temporary_path, cache_path)
-
-
-def url_exists(repo_id: str) -> bool:
+def save_to_cache(cache_path: Path, repo_id: str, sha: str, size: int, siblings: list, error: str = None, ) -> None:
     """
-    Do a   quick HTTP HEAD request to see if the URL exists.
-    :param repo_id: the repository ID on Hugging FAce
-    :return: true if the URL exists (not 404), false otherwise.
+    Insert or update one repository result in the cache.
     """
-    try:
-        response = requests.head(f"https://huggingface.co/{repo_id}", allow_redirects=False, timeout=2, )
-        return response.ok
-    except requests.RequestException:
-        return False
+    siblings_json = json.dumps(siblings, default=str)
+
+    with sqlite3.connect(cache_path) as connection:
+        connection.execute(
+            """
+            INSERT INTO repo_sizes (repo_id, sha, size, siblings, error, updated_at)
+            VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP) ON CONFLICT(repo_id, sha) DO
+            UPDATE SET
+                size = excluded.size,
+                siblings = excluded.siblings,
+                error = excluded.error,
+                updated_at = CURRENT_TIMESTAMP
+            """,
+            (repo_id, sha, size, siblings_json, error,),
+        )
+        connection.commit()
 
 
 def filter_by_size(df: pd.DataFrame) -> pd.DataFrame:
@@ -217,25 +234,17 @@ def filter_by_size(df: pd.DataFrame) -> pd.DataFrame:
     :param df: data frame with all models' metadata
     :return: a data frame with the selected models that are not larger than `SIZE_LIMIT` (E4).
     """
-    cache_file = DATA_DIR / "_repo_size_cache.json"
-    cache = load_cache(cache_file)
-    save_at_idx = 10000
+    cache_file = DATA_DIR / "_repo_size_cache.sqlite3"
+    load_cache(cache_file)
+
     # get the size of the repositories and add to the dataframe
     for idx, repo in tqdm(df.iterrows(), total=len(df), unit="repo"):
-        cache_key = f"{repo.id}@{repo.sha}"
-        if cache_key not in cache:
-            size, siblings = get_repo_size(repo["id"], repo["sha"])
-            df.at[idx, "size"], df.at[idx, "siblings"] = size, siblings
-            cache[cache_key] = {"size": size, "siblings": siblings, }
-        else:
-            df.at[idx, "size"], df.at[idx, "siblings"] = cache[cache_key]["size"], cache[cache_key]["siblings"]
-        # Save periodically in case the process is interrupted.
-        if idx % save_at_idx == 0:
-            print(f"SAVE CACHE {len(cache)} at {idx}")
-            save_cache(cache, cache_file)
-
-    # saves remaining results
-    save_cache(cache, cache_file)
+        size, siblings = get_cached_repo_size(cache_file, repo.id, repo.sha)
+        if size < 0 and siblings is None:
+            size, siblings, error = get_repo_size(repo["id"], repo["sha"])
+            save_to_cache(cache_file, repo["id"], repo["sha"], size, siblings, error)
+        # Update data frame with the retrieved size and siblings info
+        df.at[idx, "size"], df.at[idx, "siblings"] = size, siblings
 
     # exclude repositories that are larger than 2 TB and not empty or that we could not retrieve its value
     return df[(df["size"] < SIZE_LIMIT) & (df["size"] > 0)]
@@ -259,63 +268,18 @@ def select_recent(df: pd.DataFrame) -> pd.DataFrame:
     return df[df["created_at"] >= SAFETENSORS_RELEASE_DATE]
 
 
-def sample(df: pd.DataFrame, total: int):
-    """
-    Return a DataFrame with `total` rows, allocating (as evenly as possible)
-    the same number of samples to each calendar month between min(date_col)
-    and max(date_col).
-    :param df: DataFrame to sample from
-    :param total: total number of samples to return
-    :return: DataFrame with `total` rows, sampled from the input DataFrame
-    """
-    random.seed(42)  # make sampling procedure reproducible
-    date_col = "created_at"  # column to sample on
-    # 1) Normalise the date column and attach a Year‑Month bucket (Period[M])
-    df = df.copy()
-    df[date_col] = pd.to_datetime(df[date_col], utc=True, errors="coerce")
-    df["month"] = df[date_col].dt.tz_localize(None).dt.to_period("M")  # .dt.to_period("M")
-
-    # 2) Ordered list of months (oldest → newest)
-    months = sorted(df["month"].unique())
-    m = len(months)
-    # print(df["month"].min(), df["month"].max())
-
-    # 3) Base allocation per month + distribute the remainder deterministically
-    base = total // m
-    remainder = total % m
-    allocation = {month: base for month in months}
-    for month in months[:remainder]:  # bump the first `remainder` months
-        allocation[month] += 1
-
-    # 4) First pass: sample up to the allocation from each month
-    sampled_idx = []
-    deficits = 0
-
-    for month in months:
-        month_idx = df.index[df["month"] == month].tolist()
-        k = allocation[month]
-        # If we have enough samples for this month, sample k items
-        if len(month_idx) >= k:
-            sampled_idx.extend(random.sample(month_idx, k))
-        else:  # keep everything, and track how many we still need for sampling (shortfall)
-            sampled_idx.extend(month_idx)
-            deficits += k - len(month_idx)
-
-    # 5) Second pass: fill any shortfall from the still‑unsampled pool
-    if deficits > 0:
-        remaining_pool = list(set(df.index) - set(sampled_idx))
-        sampled_idx.extend(random.sample(remaining_pool, deficits))
-
-    sampled_df = df.loc[sorted(sampled_idx)].reset_index(drop=True)
-    sampled_df = sampled_df.drop(columns="month")
-    return sampled_df
+def save(df: pd.DataFrame, output_path: Path, compress: bool = False) -> None:
+    df.to_json(output_path, orient="records", indent=2)
+    if compress:
+        with zipfile.ZipFile(output_path.with_suffix(".json.zip"), 'w', compression=zipfile.ZIP_DEFLATED) as zip_ref:
+            zip_ref.write(output_path, arcname=output_path.name)
+        output_path.unlink()  # Delete the uncompressed file
 
 
 if __name__ == "__main__":
     input_file = DATA_DIR / "hf_sort_by_createdAt_top1209240.json"  # FIXME, place back .zip
-    # out_legacy_models_file = DATA_DIR / "selected_legacy_repos.json"
-    # out_recent_models_file = DATA_DIR / "selected_recent_repos.json"
-    out_all_recent_models_file = DATA_DIR / "all_recent_repos.json"
+    out_legacy_models_file = DATA_DIR / "v2_selected_legacy_repos.json"
+    out_recent_models_file = DATA_DIR / "v2_all_recent_repos.json"
 
     # Step 1: Load the repositories' metadata
     print(f"Loading data from {input_file.name}...")
@@ -333,56 +297,24 @@ if __name__ == "__main__":
     df = exclude_models(df)
     print(f"After applying global exclusion criteria (E1--E3), {len(df)} repositories left.")
 
-    # Step 3 - Inspect the repositories and identify legacy repositories
-    print("Selecting legacy repositories...")
-    # df_legacy = select_legacy(df)
-    # df_legacy = filter_by_size(df_legacy)
-    # print(f"There are {len(df_legacy)} legacy repositories within size limit.")
-    # 3.1 check all recent sample
-    df_recent_all = select_recent(df.copy())
-    df_recent_all = df_recent_all.ilocdf_recent_all.iloc[416055:432367]  # FIXME bottom 3/4
-    df_recent_all = filter_by_size(df_recent_all)
-    df_recent_all.to_json(out_all_recent_models_file, orient="records", indent=2)
-    # Compress the file
-    with zipfile.ZipFile(out_all_recent_models_file.with_suffix(".json.zip"), 'w', compression=zipfile.ZIP_DEFLATED) as zip_ref:
-        zip_ref.write(out_all_recent_models_file, arcname=out_all_recent_models_file.name)
+    # Step 3 - Inspect the repositories and identify legacy and recent repositories
+    print("Finding and filtering legacy repositories...")
+    # Step 3.1. Filter legacy repos
+    df_legacy = select_legacy(df)
+    df_legacy = filter_by_size(df_legacy)
+    print(f"There are {len(df_legacy)} legacy repositories that passes all exclusion criteria (E1--E4).")
+    # Step 3.2. Filter recent repos
+    print("Finding and filtering recent repositories...")
+    df_recent = select_recent(df.copy())
+    df_recent = filter_by_size(df_recent)
+    print(f"There are {len(df_recent)} repositories that passes all exclusion criteria (E1--E4).")
 
-    # Delete the uncompressed file
-    out_all_recent_models_file.unlink()
-
-    print(f"There are {len(df_recent_all)} recent repositories within size limit.")
-    exit(0)
-
-    # Step 4 - Sample recent repositories
-    print("Selecting recent repositories...")
-    df_copy = df.copy()
-    df_recent = pd.DataFrame(columns=df_copy.columns)
-    num_extra = 10  # number of extra repositories to sample from the recent period
-    while len(df_legacy) + num_extra != len(df_recent):
-        num_samples = len(df_legacy) + num_extra - len(df_recent)
-        # sample and add to df_recent
-        print(f"\tSampling recent repositories ({num_samples} samples)")
-        selected = sample(select_recent(df_copy), num_samples)
-        selected = filter_by_size(selected)
-        print(f"\tAfter filtering, {len(selected)} recent repositories left")
-        df_recent = selected if df_recent.empty else pd.concat([df_recent, selected])
-        print(f"\tCurrent recent sample size {len(df_recent)} recent repositories...")
-
-        # exclude from df_copy the repositories that were already sampled
-        df_copy = df_copy[~df_copy["id"].isin(df_recent["id"])]
-        print(f"\tCurrent copy sample size {len(df_copy)}...")
-
-    df_recent.reset_index(inplace=True)
-    # Check if the number of legacy and recent repositories is the same
-    assert len(df_legacy) + num_extra == len(df_recent), "Number of legacy and recent repositories should be the same"
-    print(f"Selected repositories: {len(df_legacy)} legacy / {len(df_recent)} recent")
-
-    # Step 5 - Save the data
-    # df_legacy.to_json(out_legacy_models_file, orient="records", indent=2)
-    # df_recent.to_json(out_recent_models_file, orient="records", indent=2)
+    # Step 4 - Save the data
+    save(df_legacy, out_legacy_models_file, compress=False)
+    save(df_recent, out_recent_models_file, compress=True)
 
     # Print summary information
-    print(f"Saved the selected repositories to {out_legacy_models_file} / {out_recent_models_file}")
+    print(f"Saved the selected repositories to {out_legacy_models_file.name} / {out_recent_models_file.name}")
     print(len(df_legacy), "legacy repositories selected for the study")
     print(f"\tLegacy Period: {df_legacy['created_at'].min()} - {df_legacy['created_at'].max()}")
     print(len(df_recent), "recent repositories selected for the study")
