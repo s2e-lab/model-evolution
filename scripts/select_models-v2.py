@@ -60,12 +60,10 @@ def get_wait_time(response: Response, fallback=30.0) -> float:
     :param fallback: a fallback value.
     :return: how long to wait.
     """
-    print("type(response)=", type(response))
     if response is None: return fallback
     header = response.headers.get("RateLimit", "")
     match = re.search(r'(?:^|;)\s*t=(\d+(?:\.\d+)?)', header)
     if match:
-        print("FOUND RETRY: ", match.group(1))
         return float(match.group(1))
     return fallback
 
