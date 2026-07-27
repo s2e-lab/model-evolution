@@ -17,10 +17,12 @@ import time
 import re
 import pandas as pd
 import requests
+from requests.models import Response
+
 # from analyticaml import MODEL_FILE_EXTENSIONS
 # FIXME, hardcoded for now LMAO
 MODEL_FILE_EXTENSIONS = {'bin', 'h5', 'hdf5', 'ckpt', 'pkl', 'pickle', 'dill', 'pth', 'pt', 'ts', 'model', 'pb', 'joblib', 'npy',
-           'npz', 'onnx', 'safetensors'}
+                         'npz', 'onnx', 'safetensors'}
 from huggingface_hub import HfApi
 from huggingface_hub.utils import HfHubHTTPError, RepositoryNotFoundError
 from tqdm import tqdm
@@ -50,7 +52,7 @@ def has_model_file(model_files: list) -> bool:
     return any([file["extension"] in MODEL_FILE_EXTENSIONS for file in model_files])
 
 
-def get_wait_time(response, fallback=30.0) -> float:
+def get_wait_time(response: Response, fallback=30.0) -> float:
     """
     Gets the rate limit from the response headers and try to compute how long to wait.
     If not found, returns the fallback value.
@@ -58,8 +60,7 @@ def get_wait_time(response, fallback=30.0) -> float:
     :param fallback: a fallback value.
     :return: how long to wait.
     """
-    print(type(response))
-    print(response)
+    print("type(response)=", type(response))
     if response is None: return fallback
     header = response.headers.get("RateLimit", "")
     match = re.search(r'(?:^|;)\s*t=(\d+(?:\.\d+)?)', header)
@@ -149,6 +150,7 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
             # Preserve unexpected errors instead of silently treating them as zero-byte repositories.
             print(f"[UNEXPECTED ERROR] {repo_id}:  {type(error).__name__}: {error}")
             return 0, []
+    return 0, []
 
 
 def exclude_models(df: pd.DataFrame) -> pd.DataFrame:
@@ -217,7 +219,7 @@ def filter_by_size(df: pd.DataFrame) -> pd.DataFrame:
     """
     cache_file = DATA_DIR / "_repo_size_cache.json"
     cache = load_cache(cache_file)
-    save_at_idx = 5000
+    save_at_idx = 10000
     # get the size of the repositories and add to the dataframe
     for idx, repo in tqdm(df.iterrows(), total=len(df), unit="repo"):
         cache_key = f"{repo.id}@{repo.sha}"
@@ -228,9 +230,10 @@ def filter_by_size(df: pd.DataFrame) -> pd.DataFrame:
         else:
             df.at[idx, "size"], df.at[idx, "siblings"] = cache[cache_key]["size"], cache[cache_key]["siblings"]
         # Save periodically in case the process is interrupted.
-        if idx > 0 and idx % save_at_idx == 0:
-            print(f"SAVE CACHE len{cache}")
+        if idx % save_at_idx == 0:
+            print(f"SAVE CACHE {len(cache)} at {idx}")
             save_cache(cache, cache_file)
+
     # saves remaining results
     save_cache(cache, cache_file)
 
@@ -337,7 +340,7 @@ if __name__ == "__main__":
     # print(f"There are {len(df_legacy)} legacy repositories within size limit.")
     # 3.1 check all recent sample
     df_recent_all = select_recent(df.copy())
-    # df_recent_all = df_recent_all.iloc[len(df) // 2:] #bottom half
+    # df_recent_all = df_recent_all.iloc[len(df) // 2:]  # bottom half
     df_recent_all = filter_by_size(df_recent_all)
     df_recent_all.to_json(out_all_recent_models_file, orient="records", indent=2)
     # Compress the file
