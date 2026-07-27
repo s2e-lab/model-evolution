@@ -21,10 +21,7 @@ import pandas as pd
 import requests
 from requests.models import Response
 
-# from analyticaml import MODEL_FILE_EXTENSIONS
-# FIXME, hardcoded for now LMAO
-MODEL_FILE_EXTENSIONS = {'bin', 'h5', 'hdf5', 'ckpt', 'pkl', 'pickle', 'dill', 'pth', 'pt', 'ts', 'model', 'pb', 'joblib', 'npy',
-                         'npz', 'onnx', 'safetensors'}
+from analyticaml import MODEL_FILE_EXTENSIONS
 from huggingface_hub import HfApi
 from huggingface_hub.utils import HfHubHTTPError, RepositoryNotFoundError
 from tqdm import tqdm
@@ -277,7 +274,7 @@ def save(df: pd.DataFrame, output_path: Path, compress: bool = False) -> None:
 
 
 if __name__ == "__main__":
-    input_file = DATA_DIR / "hf_sort_by_createdAt_top1209240.json"  # FIXME, place back .zip
+    input_file = DATA_DIR / "hf_sort_by_createdAt_top1209240.json.zip"
     out_legacy_models_file = DATA_DIR / "v2_selected_legacy_repos.json"
     out_recent_models_file = DATA_DIR / "v2_all_recent_repos.json"
 
@@ -307,7 +304,7 @@ if __name__ == "__main__":
     print("Finding and filtering recent repositories...")
     df_recent = select_recent(df.copy())
     df_recent = filter_by_size(df_recent)
-    print(f"There are {len(df_recent)} repositories that passes all exclusion criteria (E1--E4).")
+    print(f"There are {len(df_recent)} recent repositories that passes all exclusion criteria (E1--E4).")
 
     # Step 4 - Save the data
     save(df_legacy, out_legacy_models_file, compress=False)
