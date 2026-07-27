@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../AnalyticaML/.idea/AnalyticaML.iml" filepath="$PROJECT_DIR$/../AnalyticaML/.idea/AnalyticaML.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/model-evolution.iml" filepath="$PROJECT_DIR$/.idea/model-evolution.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/wip-model-evolution.iml" filepath="$PROJECT_DIR$/.idea/wip-model-evolution.iml" />
     </modules>
   </component>
