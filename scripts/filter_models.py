@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 """
-It applies inclusion / exclusion criteria to select model repositories to include on our study.
+It applies four exclusion criteria to select model repositories to include on our study.
 Exclusion criteria:
     (E1) - Not modified on or after 2024
     (E2) - Does not have at least one model file
@@ -275,8 +275,8 @@ def save(df: pd.DataFrame, output_path: Path, compress: bool = False) -> None:
 
 if __name__ == "__main__":
     input_file = DATA_DIR / "hf_sort_by_createdAt_top1209240.json.zip"
-    out_legacy_models_file = DATA_DIR / "v2_selected_legacy_repos.json"
-    out_recent_models_file = DATA_DIR / "v2_all_recent_repos.json"
+    out_legacy_models_file = DATA_DIR / "selected_legacy_repos.json"
+    out_recent_models_file = DATA_DIR / "all_recent_repos.json"
 
     # Step 1: Load the repositories' metadata
     print(f"Loading data from {input_file.name}...")
@@ -318,5 +318,6 @@ if __name__ == "__main__":
     print(f"\tRecent Period: {df_recent['created_at'].min()} - {df_recent['created_at'].max()}")
     print("Done!")
     print("Recommended next steps:")
-    print("\t- Run the tests on tests/test_select_models.py to check the results.")
+    print("\t- Run the tests on tests/test_filter_models.py to check the results.")
+    print("\t- Run the sample_recent_models.py to downsample recent repositories.")
     print("\t- Run the get_commit_logs.py to download the commits logs for the selected repositories.")

@@ -53,13 +53,14 @@ HF_TOKEN=<your_huggingface_token>
 #### Step 2: Filtering the models using the criteria described in our methodology
 
 - `./filter_models.py`: Script to filter the repositories from HuggingFace using our filtering criteria based on
-  creation / last update dates.
+  creation / last update dates. Heads up that, this script takes over a day to execute (being significantly slower if you have slow network connection and/or do not have a pro Hugging Face account, with more limited API limits).
   ```bash
     python filter_models.py
   ```
   It will select model repositories and save the filtered list in two files:
     - `../data/selected_legacy_repos.json`: Group 1. Repositories created **before** safetensors' release.
     - `../data/all_recent_repos.json`. Group 2. Repositories created **after** safetensors' release. 
+
 - `./sample_recent_models.py`: Script to downsample the _recent_ repositories from using our sampling strategy described in the paper.
     - `../data/selected_recent_repos.json`. Group 2 sample. **_Sampled_** repositories created **after** safetensors' release.
 

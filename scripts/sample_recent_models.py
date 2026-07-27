@@ -74,10 +74,6 @@ if __name__ == "__main__":
     # Step 1: Load the repositories' metadata
     print(f"Loading recent repository data from {input_file.name}...")
     df = load(input_file)
-    df['last_modified'] = pd.to_datetime(df['last_modified'], utc=True)
-    df['created_at'] = pd.to_datetime(df['created_at'], utc=True)
-    df['gated'] = df['gated'].astype(bool)
-    df['size'] = 0  # initialize size column
 
     # Step 2 - Sample recent repositories
     print(f"Sampling len{df} recent repositories...")
