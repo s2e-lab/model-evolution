@@ -66,8 +66,6 @@ def get_wait_time(response, fallback=30.0) -> float:
     if match:
         print("FOUND RETRY: ", match.group(1))
         return float(match.group(1))
-    print("FOUND RETRY: ", fallback)
-    # exit(0)
     return fallback
 
 
@@ -219,7 +217,7 @@ def filter_by_size(df: pd.DataFrame) -> pd.DataFrame:
     """
     cache_file = DATA_DIR / "_repo_size_cache.json"
     cache = load_cache(cache_file)
-    save_at_idx = 10000
+    save_at_idx = 5000
     # get the size of the repositories and add to the dataframe
     for idx, repo in tqdm(df.iterrows(), total=len(df), unit="repo"):
         cache_key = f"{repo.id}@{repo.sha}"
