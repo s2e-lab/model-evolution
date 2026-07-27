@@ -229,6 +229,7 @@ def filter_by_size(df: pd.DataFrame) -> pd.DataFrame:
             df.at[idx, "size"], df.at[idx, "siblings"] = cache[cache_key]["size"], cache[cache_key]["siblings"]
         # Save periodically in case the process is interrupted.
         if idx > 0 and idx % save_at_idx == 0:
+            print(f"SAVE CACHE len{cache}")
             save_cache(cache, cache_file)
     # saves remaining results
     save_cache(cache, cache_file)
