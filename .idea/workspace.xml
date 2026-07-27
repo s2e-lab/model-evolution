@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/select_models-v2.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/select_models-v2.py" afterDir="false" />
     </list>
@@ -64,21 +65,24 @@
   "keyToString": {
     "Python.TO_DELETE_get_models.executor": "Run",
     "Python.analyze_commit_history.executor": "Run",
+    "Python.convert_json_cache_to_db.executor": "Run",
     "Python.get_models.executor": "Run",
     "Python.nb_utils.executor": "Run",
     "Python.process_commit_history.executor": "Run",
     "Python.select_models-v2.executor": "Run",
+    "Python.select_models-v3.executor": "Run",
     "Python.select_models.executor": "Run",
     "Python.utils.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "copilot.chat.legacySessionMetadata.migrated": "true",
     "database.data.extractors.current.export.id": "Tab-separated (TSV)_id",
     "database.data.extractors.current.id": "Tab-separated (TSV)_id",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/joannacss/Documents/Portfolio/GitHub/s2e-lab/model-evolution/scripts/crc",
+    "last_opened_file_path": "/Users/joannacss/Documents/Portfolio/GitHub/s2e-lab/model-evolution/scripts/hotfixes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,11 +94,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scripts/hotfixes" />
       <recent name="$PROJECT_DIR$/scripts/crc" />
       <recent name="$PROJECT_DIR$/scripts/notebooks" />
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\scripts\notebooks" />
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\data\cache" />
-      <recent name="D:\Portfolio\GitHub\wip-model-evolution\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data" />
@@ -104,7 +108,7 @@
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\scripts\bot" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.select_models-v2">
+  <component name="RunManager" selected="Python.convert_json_cache_to_db">
     <configuration name="TO_DELETE_get_models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="model-evolution" />
       <option name="ENV_FILES" value="" />
@@ -151,8 +155,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="process_commit_history" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="wip-model-evolution" />
+    <configuration name="convert_json_cache_to_db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="model-evolution" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -160,12 +164,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts/hotfixes" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/process_commit_history.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/hotfixes/convert_json_cache_to_db.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -197,7 +201,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="select_models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="select_models-v3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="model-evolution" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -211,7 +215,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/select_models.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/select_models-v3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -245,18 +249,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.TO_DELETE_get_models" />
+      <item itemvalue="Python.convert_json_cache_to_db" />
       <item itemvalue="Python.select_models-v2" />
+      <item itemvalue="Python.select_models-v3" />
       <item itemvalue="Python.utils" />
-      <item itemvalue="Python.select_models" />
-      <item itemvalue="Python.process_commit_history" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.convert_json_cache_to_db" />
+        <item itemvalue="Python.select_models-v3" />
         <item itemvalue="Python.select_models-v2" />
         <item itemvalue="Python.utils" />
         <item itemvalue="Python.TO_DELETE_get_models" />
-        <item itemvalue="Python.select_models" />
-        <item itemvalue="Python.process_commit_history" />
       </list>
     </recent_temporary>
   </component>
@@ -291,7 +295,7 @@
       <workItem from="1784935288261" duration="11000" />
       <workItem from="1784935320391" duration="7000" />
       <workItem from="1784935391396" duration="1751000" />
-      <workItem from="1785093017236" duration="24356000" />
+      <workItem from="1785093017236" duration="38828000" />
     </task>
     <task id="LOCAL-00001" summary="added a print statement to better indicate the filtering steps' statuses">
       <option name="closed" value="true" />
@@ -314,6 +318,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".gitattributes" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added a print statement to better indicate the filtering steps' statuses" />
@@ -367,7 +374,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/model_evolution$select_models_v2.coverage" NAME="select_models-v2 Coverage Results" MODIFIED="1785120249531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/model_evolution$select_models_v2.coverage" NAME="select_models-v2 Coverage Results" MODIFIED="1785122815087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/model_evolution$select_models.coverage" NAME="select_models Coverage Results" MODIFIED="1785093787536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_get_commit_logs.coverage" NAME="TO_DELETE_get_commit_logs Coverage Results" MODIFIED="1731073465254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_craw_safetensors_discussion.coverage" NAME="TO_DELETE_craw_safetensors_discussion Coverage Results" MODIFIED="1730824189735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
@@ -377,11 +384,13 @@
     <SUITE FILE_PATH="coverage/wip_model_evolution$GH_json_to_csv.coverage" NAME="GH_json_to_csv Coverage Results" MODIFIED="1730054500639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/github" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$analyze_merged_prs__1_.coverage" NAME="analyze_merged_prs (1) Coverage Results" MODIFIED="1730866655045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_analyze_commit_history.coverage" NAME="TO_DELETE_analyze_commit_history Coverage Results" MODIFIED="1731179302599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/model_evolution$convert_json_cache_to_db.coverage" NAME="convert_json_cache_to_db Coverage Results" MODIFIED="1785169339108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/hotfixes" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$analyzed_merged_prs.coverage" NAME="analyzed_merged_prs Coverage Results" MODIFIED="1730852837038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/model_evolution$utils.coverage" NAME="utils Coverage Results" MODIFIED="1785096592941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$get_commit_logs.coverage" NAME="get_commit_logs Coverage Results" MODIFIED="1731068705305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$get_sfconvert_prs__1_.coverage" NAME="get_sfconvert_prs (1) Coverage Results" MODIFIED="1730766022374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$process_commit_history.coverage" NAME="process_commit_history Coverage Results" MODIFIED="1749778949635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/model_evolution$select_models_v3.coverage" NAME="select_models-v3 Coverage Results" MODIFIED="1785169231629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$GH_dupcheck.coverage" NAME="GH_dupcheck Coverage Results" MODIFIED="1730054334860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/github" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$get_sfconvert_prs.coverage" NAME="get_sfconvert_prs Coverage Results" MODIFIED="1730510966297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_crawl_caoe.coverage" NAME="TO_DELETE_crawl_caoe Coverage Results" MODIFIED="1730842507889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />

@@ -15,6 +15,7 @@ import os
 import zipfile
 import time
 import re
+import sqlite3
 from math import ceil
 
 import pandas as pd
@@ -71,7 +72,7 @@ def get_wait_time(response: Response, fallback=30.0) -> float:
 
 
 def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initial_backoff: float = 5.0, max_backoff: float = 300.0, ) -> tuple[
-    int, list[dict]]:
+    int, list[dict], str]:
     """
     Gets repository size and file metadata from the Hugging Face API.
     Retries:
@@ -96,11 +97,11 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
                 filename = repo_file.get("rfilename", "")
                 repo_file["extension"] = (filename.rsplit(".", 1)[-1] if "." in filename else "")
                 repo_files.append(repo_file)
-            return model_info.usedStorage, repo_files
+            return model_info.usedStorage, repo_files, ""
         except RepositoryNotFoundError:
             # This may mean nonexistent, private, gated, or inaccessible.
             print(f"[NOT ACCESSIBLE] {repo_id}")
-            return 0, []
+            return 0, [], f"[RepositoryNotFoundError] {repo_id}"
 
         except HfHubHTTPError as error:
             response = error.response
@@ -109,14 +110,14 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
             # Do not repeatedly retry ordinary client-side failures.
             if status_code in {400, 401, 403, 404}:
                 print(f"[HTTP {status_code}] Skipping {repo_id}")
-                return 0, []
+                return 0, [], f"[HfHubHTTPError {status_code}] {repo_id}"
 
             # Retry rate limits and temporary server errors.
             if status_code == 429 or (status_code is not None and 500 <= status_code < 600):
                 attempt += 1
                 if max_retries is not None and attempt > max_retries:
                     print(f"[GAVE UP] {repo_id} after {max_retries} retries")
-                    return 0, []
+                    return 0, [], f"[MAX_RETRIES EXCEEDED (retried {max_retries} times)] {repo_id}"
                 exponential_wait = min(initial_backoff * (2 ** (attempt - 1)), max_backoff, )
                 wait_seconds = get_wait_time(response, fallback=exponential_wait, )
                 print(f"[HTTP {status_code}] {repo_id}: waiting {wait_seconds:.1f}s before retry #{attempt}")
@@ -125,7 +126,7 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
 
             # Unexpected HTTP error: report rather than hiding it.
             print(f"[HTTP ERROR] {repo_id}:  {status_code} — {error}")
-            return 0, []
+            return 0, [], f"[HTTP ERROR] {repo_id}:  {status_code} — {error}"
 
         except (
                 requests.exceptions.ConnectTimeout,
@@ -149,8 +150,8 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
         except Exception as error:
             # Preserve unexpected errors instead of silently treating them as zero-byte repositories.
             print(f"[UNEXPECTED ERROR] {repo_id}:  {type(error).__name__}: {error}")
-            return 0, []
-    return 0, []
+            return 0, [], f"[UNEXPECTED ERROR] {repo_id}:  {type(error).__name__}: {error}"
+    return 0, [], f"[UNKNOWN ERROR] {repo_id}"
 
 
 def exclude_models(df: pd.DataFrame) -> pd.DataFrame:
@@ -171,44 +172,85 @@ def exclude_models(df: pd.DataFrame) -> pd.DataFrame:
     return df_filtered
 
 
-def load_cache(cache_path: Path) -> dict[str, dict]:
-    """Load the JSON cache, or return an empty cache."""
+def load_cache(cache_path: Path) -> None:
+    """
+    Create the repository-size cache if it does not already exist.
+    :param cache_path: path to the cache database file.
+    """
     if not cache_path.exists():
-        return {}
-    try:
-        with cache_path.open("r", encoding="utf-8") as file:
-            return json.load(file)
-    except (json.JSONDecodeError, OSError) as error:
-        print(f"Could not load cache: {error}")
-        return {}
+        with sqlite3.connect(cache_path) as connection:
+            connection.execute(
+                """CREATE TABLE IF NOT EXISTS repo_sizes
+                (
+                    repo_id
+                    TEXT
+                    NOT
+                    NULL,
+                    sha
+                    TEXT
+                    NOT
+                    NULL,
+                    size
+                    INTEGER
+                    NOT
+                    NULL,
+                    siblings
+                    TEXT,
+                    error
+                    TEXT,
+                    updated_at
+                    TIMESTAMP
+                    DEFAULT
+                    CURRENT_TIMESTAMP,
+                    PRIMARY
+                    KEY
+                   (
+                    repo_id,
+                    sha
+                   )
+                    )
+                """
+            )
+            connection.commit()
 
 
-def save_cache(cache: dict[str, dict], cache_path: Path, ) -> None:
+def get_cached_repo_size(cache_path: Path, repo_id: str, sha: str) -> tuple[int, list | None]:
     """
-    Atomically save the cache.
-
-    Writing to a temporary file first prevents a partially written cache
-    if the process is interrupted during json.dump().
+    Return a previously successful result from the cache.
+    Returns None when no successful cached result exists.
+    :param cache_path: path to the cache database file.
+    :param repo_id: id of the repository
+    :param sha: sha of the repository
     """
-    temporary_path = cache_path.with_suffix(".tmp")
+    with sqlite3.connect(cache_path) as connection:
+        query = "SELECT size, siblings  FROM repo_sizes WHERE repo_id = ? AND sha = ?"
+        row = connection.execute(query, (repo_id, sha)).fetchone()
+        if row is None: return -1, None
+        size, siblings_json = row
+        siblings = json.loads(siblings_json) if siblings_json else []
+        return size, siblings
 
-    with temporary_path.open("w", encoding="utf-8") as file:
-        json.dump(cache, file, ensure_ascii=False)
 
-    os.replace(temporary_path, cache_path)
-
-
-def url_exists(repo_id: str) -> bool:
+def save_to_cache(cache_path: Path, repo_id: str, sha: str, size: int, siblings: list, error: str = None, ) -> None:
     """
-    Do a   quick HTTP HEAD request to see if the URL exists.
-    :param repo_id: the repository ID on Hugging FAce
-    :return: true if the URL exists (not 404), false otherwise.
+    Insert or update one repository result in the cache.
     """
-    try:
-        response = requests.head(f"https://huggingface.co/{repo_id}", allow_redirects=False, timeout=2, )
-        return response.ok
-    except requests.RequestException:
-        return False
+    siblings_json = json.dumps(siblings, default=str)
+
+    with sqlite3.connect(cache_path) as connection:
+        connection.execute(
+            """
+            INSERT INTO repo_sizes (repo_id, sha, size, siblings, error, updated_at)
+            VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP) ON CONFLICT(repo_id, sha) DO
+            UPDATE SET
+                size = excluded.size,
+                siblings = excluded.siblings,
+                error = excluded.error,
+                updated_at = CURRENT_TIMESTAMP
+            """,
+            (repo_id, sha, size, siblings_json, error,),
+        )
+        connection.commit()
 
 
 def filter_by_size(df: pd.DataFrame) -> pd.DataFrame:
@@ -217,25 +259,17 @@ def filter_by_size(df: pd.DataFrame) -> pd.DataFrame:
     :param df: data frame with all models' metadata
     :return: a data frame with the selected models that are not larger than `SIZE_LIMIT` (E4).
     """
-    cache_file = DATA_DIR / "_repo_size_cache.json"
-    cache = load_cache(cache_file)
-    save_at_idx = 10000
+    cache_file = DATA_DIR / "_repo_size_cache.sqlite3"
+    load_cache(cache_file)
+
     # get the size of the repositories and add to the dataframe
     for idx, repo in tqdm(df.iterrows(), total=len(df), unit="repo"):
-        cache_key = f"{repo.id}@{repo.sha}"
-        if cache_key not in cache:
-            size, siblings = get_repo_size(repo["id"], repo["sha"])
-            df.at[idx, "size"], df.at[idx, "siblings"] = size, siblings
-            cache[cache_key] = {"size": size, "siblings": siblings, }
-        else:
-            df.at[idx, "size"], df.at[idx, "siblings"] = cache[cache_key]["size"], cache[cache_key]["siblings"]
-        # Save periodically in case the process is interrupted.
-        if idx % save_at_idx == 0:
-            print(f"SAVE CACHE {len(cache)} at {idx}")
-            save_cache(cache, cache_file)
-
-    # saves remaining results
-    save_cache(cache, cache_file)
+        size, siblings = get_cached_repo_size(cache_file, repo.id, repo.sha)
+        if size < 0 and siblings is None:
+            size, siblings, error = get_repo_size(repo["id"], repo["sha"])
+            save_to_cache(cache_file, repo["id"], repo["sha"], size, siblings, error)
+        # Update data frame with the retrieved size and siblings info
+        df.at[idx, "size"], df.at[idx, "siblings"] = size, siblings
 
     # exclude repositories that are larger than 2 TB and not empty or that we could not retrieve its value
     return df[(df["size"] < SIZE_LIMIT) & (df["size"] > 0)]
@@ -340,7 +374,7 @@ if __name__ == "__main__":
     # print(f"There are {len(df_legacy)} legacy repositories within size limit.")
     # 3.1 check all recent sample
     df_recent_all = select_recent(df.copy())
-    df_recent_all = df_recent_all.iloc[ceil(.75*len(df)):]  # bottom 3/4
+    df_recent_all = df_recent_all.iloc[ceil(.75 * len(df)):]  # bottom 3/4
     df_recent_all = filter_by_size(df_recent_all)
     df_recent_all.to_json(out_all_recent_models_file, orient="records", indent=2)
     # Compress the file

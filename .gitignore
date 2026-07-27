@@ -4,7 +4,7 @@ Icon?
 
 scripts/tmp/
 tmp/*
-data/*repo_size_cache.json
+data/*repo_size_cache.*
 data/hf_sort_by_createdAt_top1209240.json
 
 # Byte-compiled / optimized / DLL files
