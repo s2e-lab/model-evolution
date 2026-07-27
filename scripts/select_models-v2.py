@@ -17,7 +17,10 @@ import time
 import re
 import pandas as pd
 import requests
-from analyticaml import MODEL_FILE_EXTENSIONS
+# from analyticaml import MODEL_FILE_EXTENSIONS
+# FIXME, hardcoded for now LMAO
+MODEL_FILE_EXTENSIONS = {'bin', 'h5', 'hdf5', 'ckpt', 'pkl', 'pickle', 'dill', 'pth', 'pt', 'ts', 'model', 'pb', 'joblib', 'npy',
+           'npz', 'onnx', 'safetensors'}
 from huggingface_hub import HfApi
 from huggingface_hub.utils import HfHubHTTPError, RepositoryNotFoundError
 from tqdm import tqdm
