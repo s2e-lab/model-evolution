@@ -7,7 +7,7 @@ from utils import DATA_DIR
 
 def load_cache(cache_path: Path) -> dict[str, dict]:
     """Load the JSON cache, or return an empty cache."""
-    print(f"Loading cache: {cache_path}")
+    print(f"Loading cache: {cache_path.name}")
     if not cache_path.exists():
         return {}
     try:
@@ -18,48 +18,24 @@ def load_cache(cache_path: Path) -> dict[str, dict]:
         return {}
 
 
-def init_db(db_path: Path) -> None:
+def init_db(cache_path: Path) -> None:
     """
     Create the repository-size cache if it does not already exist.
-    :param db_path: path to the cache database file.
+    :param cache_path: path to the cache database file.
     """
-    print(f"Initializing database: {db_path}")
-    if not db_path.exists():
-        with sqlite3.connect(db_path) as connection:
-            connection.execute(
-                """
-                CREATE TABLE IF NOT EXISTS repo_sizes
-                (
-                    repo_id
-                    TEXT
-                    NOT
-                    NULL,
-                    sha
-                    TEXT
-                    NOT
-                    NULL,
-                    size
-                    INTEGER
-                    NOT
-                    NULL,
-                    siblings
-                    TEXT,
-                    error
-                    TEXT,
-                    updated_at
-                    TIMESTAMP
-                    DEFAULT
-                    CURRENT_TIMESTAMP,
-                    PRIMARY
-                    KEY
-                (
-                    repo_id,
-                    sha
-                )
-                    )
-                """
-            )
-            connection.commit()
+    print(f"Initializing database: {cache_path.name}")
+    with sqlite3.connect(cache_path) as connection:
+        fields = ", ".join([
+            "repo_id TEXT NOT NULL",
+            "sha TEXT NOT NULL",
+            "size INTEGER NOT NULL",
+            "siblings TEXT",
+            "error TEXT",
+            "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        ])
+        pk = "repo_id,sha"
+        connection.execute(f"CREATE TABLE IF NOT EXISTS repo_sizes ({fields}, PRIMARY KEY({pk}))")
+        connection.commit()
 
 
 def save_to_cache(cache_path: Path, repo_id: str, sha: str, size: int, siblings: list, error: str = None, ) -> None:
@@ -8539,7 +8515,7 @@ repos_not_accessible = {"DeZoomer/GiseleBundchen-FluxLora",
                         "PrunaAI/vlada22-Meta-Llama-3.1-8B-Instruct-finki-edu-4courses-bnb-8bit-smashed",
                         "PrunaAI/jaspionjader-test-10-bnb-8bit-smashed",
                         "C10X/2", }
-cache_path = DATA_DIR / Path("_repo_size_cache.json")
+cache_path = DATA_DIR / Path("_CRC_repo_size_cache.json")
 db_path = DATA_DIR / Path("_repo_size_cache.sqlite3")
 cached_rows = load_cache(cache_path)
 init_db(db_path)

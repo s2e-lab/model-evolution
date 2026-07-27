@@ -6,4 +6,4 @@
 #$ -q long             # Specify queue
 #$ -N model_analysis   # Specify job name
 conda activate HFStudy
-python select_models-v2.py   # Application to execute
+python select_models-v3.py   # Application to execute

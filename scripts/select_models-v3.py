@@ -179,38 +179,16 @@ def load_cache(cache_path: Path) -> None:
     """
     if not cache_path.exists():
         with sqlite3.connect(cache_path) as connection:
-            connection.execute(
-                """CREATE TABLE IF NOT EXISTS repo_sizes
-                (
-                    repo_id
-                    TEXT
-                    NOT
-                    NULL,
-                    sha
-                    TEXT
-                    NOT
-                    NULL,
-                    size
-                    INTEGER
-                    NOT
-                    NULL,
-                    siblings
-                    TEXT,
-                    error
-                    TEXT,
-                    updated_at
-                    TIMESTAMP
-                    DEFAULT
-                    CURRENT_TIMESTAMP,
-                    PRIMARY
-                    KEY
-                   (
-                    repo_id,
-                    sha
-                   )
-                    )
-                """
-            )
+            fields = [
+                "repo_id TEXT NOT NULL",
+                "sha TEXT NOT NULL",
+                "size INTEGER NOT NULL",
+                "siblings TEXT",
+                "error TEXT",
+                "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+            ]
+            pk = "repo_id,sha"
+            connection.execute(f"CREATE TABLE IF NOT EXISTS repo_sizes ({fields.join(', ')}, PRIMARY KEY({pk}))")
             connection.commit()
 
 
@@ -349,7 +327,7 @@ if __name__ == "__main__":
     input_file = DATA_DIR / "hf_sort_by_createdAt_top1209240.json"  # FIXME, place back .zip
     # out_legacy_models_file = DATA_DIR / "selected_legacy_repos.json"
     # out_recent_models_file = DATA_DIR / "selected_recent_repos.json"
-    out_all_recent_models_file = DATA_DIR / "all_recent_repos.json"
+    out_all_recent_models_file = DATA_DIR / "__all_recent_repos.json"
 
     # Step 1: Load the repositories' metadata
     print(f"Loading data from {input_file.name}...")
@@ -367,12 +345,13 @@ if __name__ == "__main__":
     df = exclude_models(df)
     print(f"After applying global exclusion criteria (E1--E3), {len(df)} repositories left.")
 
-    # Step 3 - Inspect the repositories and identify legacy repositories
-    print("Selecting legacy repositories...")
-    # df_legacy = select_legacy(df)
-    # df_legacy = filter_by_size(df_legacy)
-    # print(f"There are {len(df_legacy)} legacy repositories within size limit.")
+    # Step 3 - Inspect the repositories and identify legacy and recent repositories
+    print("Finding and filtering legacy repositories...")
+    df_legacy = select_legacy(df)
+    df_legacy = filter_by_size(df_legacy)
+    print(f"There are {len(df_legacy)} legacy repositories that passes all exclusion criteria (E1--E4).")
     # 3.1 check all recent sample
+    print("Finding and filtering recent repositories...")
     df_recent_all = select_recent(df.copy())
     df_recent_all = df_recent_all.iloc[ceil(.75 * len(df)):]  # bottom 3/4
     df_recent_all = filter_by_size(df_recent_all)
@@ -384,7 +363,7 @@ if __name__ == "__main__":
     # Delete the uncompressed file
     out_all_recent_models_file.unlink()
 
-    print(f"There are {len(df_recent_all)} recent repositories within size limit.")
+    print(f"There are {len(df_recent_all)} repositories that passes all exclusion criteria (E1--E4).")
     exit(0)
 
     # Step 4 - Sample recent repositories
