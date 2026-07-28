@@ -13,6 +13,8 @@ from analyticaml.model_download import get_models_metadata
 from huggingface_hub import HfApi
 from tqdm import tqdm
 
+from utils import get_file_extension
+
 
 def save(models_list: list, out_file: Path) -> None:
     """
@@ -57,7 +59,7 @@ if __name__ == '__main__':
         if model_metadata.siblings:
             for sibling in model_metadata.siblings:
                 repo_file = vars(sibling)
-                repo_file["extension"] = repo_file["rfilename"].rsplit(".", 2)[-1]
+                repo_file["extension"] = get_file_extension(repo_file["rfilename"])
                 repo_files.append(repo_file)
 
         results[-1]["siblings"] = repo_files

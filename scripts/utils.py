@@ -1,13 +1,24 @@
+"""
+Utility global variables and functions that are used across the project.
+@Author:  Joanna C. S. Santos
+"""
+import errno
 import math
 import os
 import shutil
+import stat
 import sys
+import time
 import zipfile
+from logging import Logger
 from pathlib import Path
 
 import git
 import pandas as pd
+from datasets import tqdm
 from git import Repo
+from huggingface_hub import hf_hub_download
+from tqdm import tqdm
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT_DIR / "data"
@@ -140,3 +151,61 @@ def load(file_path: Path) -> pd.DataFrame:
         # load the data directly
         df = pd.read_json(file_path)
     return df
+
+
+# https://stackoverflow.com/a/1214935 (modified to add os.unlink on the tuple)
+def handle_remove_readonly(func, path, exc):
+    """
+    Handle the removal of read-only files and directories.
+    :param func:
+    :param path:
+    :param exc:
+    :return:
+    """
+    exc_value = exc[1]
+    if func in (os.rmdir, os.unlink, os.remove) and exc_value.errno == errno.EACCES:
+        os.chmod(path, stat.S_IRWXU | stat.S_IRWXG | stat.S_IRWXO)  # 0777
+        func(path)
+    else:
+        raise
+
+
+def download_model_files(repo: str, sha: str, dir_name: str, model_files: list[str], logger: Logger) -> str:
+    """
+    Download individual files from a HuggingFace model repository.
+    :param repo: HuggingFace model repo ID (e.g., org/repo-name).
+    :param sha: Git commit hash or tag.
+    :param dir_name: Local directory to download files to.
+    :param model_files: List of filenames to download.
+    :param logger: Logger instance for logging messages.
+    :return: the SHA (passed through unchanged).
+    """
+    user_agent = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0")
+    max_retries, base_delay = 5, 5  # Maximum number of retries and base delay in seconds
+    for file in (pbar := tqdm(model_files, unit='file')):
+        pbar.set_postfix_str(file['rfilename'])
+        for attempt in range(1, max_retries + 1):
+            try:
+                hf_hub_download(repo_id=repo, filename=file['rfilename'], local_dir=dir_name, revision=sha,
+                                user_agent=user_agent)
+            except Exception as e:
+                logger.debug(f"⚠️ Failed to download {file} (attempt {attempt}): {e}")
+                if attempt < max_retries:
+                    wait = base_delay * (2 ** (attempt - 1))
+                    logger.debug(f"🔁 Retrying in {wait} seconds...")
+                    time.sleep(wait)
+                else:
+                    raise RuntimeError(f"❌ Download failed after {max_retries} attempts for {file}")
+
+    return sha
+
+
+def get_file_extension(file_path: str) -> str:
+    """
+    Return the file extension from the file path (full path or just filename).
+    :param file_path: the filename/filepath
+    :return: the file extension.
+    """
+    return Path(file_path).suffix
+
