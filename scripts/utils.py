@@ -14,6 +14,7 @@ DATA_DIR = ROOT_DIR / "data"
 RESULTS_DIR = ROOT_DIR / "results"
 SCRIPTS_DIR = ROOT_DIR / "scripts"
 
+
 def delete_folder(folder_location: str) -> bool:
     """
     Delete a folder and its contents.
@@ -34,7 +35,7 @@ def delete_folder(folder_location: str) -> bool:
     return not os.path.exists(folder_location)
 
 
-def clone(repo_url: str, clone_path: str, is_bare: bool = False, no_tags:bool = False, single_branch:bool = False) -> Repo:
+def clone(repo_url: str, clone_path: str, is_bare: bool = False, no_tags: bool = False, single_branch: bool = False) -> Repo:
     """
     Clone a repository from Hugging Face
     :param repo_url: the repository URL (e.g., "huggingface/transformers")
@@ -48,10 +49,47 @@ def clone(repo_url: str, clone_path: str, is_bare: bool = False, no_tags:bool = 
     return git.Repo.clone_from(clone_url, clone_path, bare=is_bare, no_tags=no_tags, single_branch=single_branch)
 
 
-def calculate_sample_size(population_size: int,
-                          confidence_level: float,
-                          margin_of_error: float,
-                          proportion: float = 0.5):
+def calculate_sample_size(population_size: int, confidence_level: float, margin_error: float, proportion: float = 0.5) -> int:
+    """
+    Calculate the required sample size for a finite population.
+    :param population_size: the size of the population.
+    :param confidence_level: confidence level (e.g., 0.95 for 95% confidence level).
+    :param margin_error: margin of error (e.g., 0.05 for 5% margin of error).
+    :param proportion: the proportion of the population that has a certain characteristic (default is 0.5).
+    :return: the sample size needed to estimate the population proportion with the desired margin of error and confidence level.
+    """
+    if population_size <= 0:
+        return 0
+
+    # Z-values for the given confidence levels
+    z_values = {
+        0.90: 1.645,
+        0.95: 1.96,
+        0.96: 2.05,
+        0.97: 2.17,
+        0.98: 2.33,
+        0.99: 2.576
+    }
+    confidence_z = z_values[confidence_level]
+    numerator = (
+            population_size
+            * confidence_z ** 2
+            * proportion
+            * (1 - proportion)
+    )
+
+    denominator = (
+            margin_error ** 2 * (population_size - 1)
+            + confidence_z ** 2 * proportion * (1 - proportion)
+    )
+
+    return min(population_size, math.ceil(numerator / denominator))
+
+
+def calculate_sample_size_OLD(population_size: int,
+                              confidence_level: float,
+                              margin_of_error: float,
+                              proportion: float = 0.5):
     """
     Calculate the sample size for a given population size, confidence level, margin of error, and proportion.
     :param population_size: the size of the population.

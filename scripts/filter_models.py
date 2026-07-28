@@ -308,7 +308,7 @@ if __name__ == "__main__":
 
     # Step 4 - Save the data
     print("Saving filtered models to disk...")
-    # save(df_legacy, out_legacy_models_file, compress=False)
+    save(df_legacy, out_legacy_models_file, compress=False)
     save(df_recent, out_recent_models_file, compress=True)
 
     # Print summary information
@@ -321,4 +321,4 @@ if __name__ == "__main__":
     print("Recommended next steps:")
     print("\t- Run the tests on tests/test_filter_models.py to check the results.")
     print("\t- Run the sample_recent_models.py to downsample recent repositories.")
-    print("\t- Run the get_commit_logs.py to download the commits logs for the selected repositories.")
+

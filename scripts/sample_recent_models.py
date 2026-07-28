@@ -11,46 +11,24 @@ is distributed proportionally to the number of repositories in each quarter.
 
 import random
 import pandas as pd
-
-# from analyticaml import MODEL_FILE_EXTENSIONS
-# FIXME, hardcoded for now LMAO
-MODEL_FILE_EXTENSIONS = {
-    'bin', 'h5', 'hdf5', 'ckpt', 'pkl', 'pickle', 'dill', 'pth', 'pt',
-    'ts', 'model', 'pb', 'joblib', 'npy', 'npz', 'onnx', 'safetensors'
-}
-
-from utils import load, DATA_DIR
+from utils import load, DATA_DIR, calculate_sample_size
 
 
-def sample(
-        df: pd.DataFrame,
-        total: int,
-        min_per_quarter: int = 100,
-        seed: int = 42
-):
+def sample_NEW(df: pd.DataFrame, seed: int = 42):
     """
-    Return a temporally stratified random sample of `total` repositories.
+    Return a temporally stratified random sample.
 
-    Each creation quarter receives up to `min_per_quarter` repositories.
-    The remaining sample is allocated proportionally to the population of
-    each quarter.
+    For each creation quarter, calculate the sample size (S) needed for 95% confidence and a 5% margin of error,
+    then randomly sample that number of repositories.
 
     :param df: DataFrame to sample from
-    :param total: total number of samples to return
-    :param min_per_quarter: minimum target allocation for each quarter
-    :param seed: random seed used for reproducibility
-    :return: DataFrame containing `total` sampled rows
+    :param seed: fixed random seed for reproducibility
+    :return: sampled DataFrame
     """
     random.seed(seed)
 
-    if total > len(df):
-        raise ValueError(
-            f"Cannot sample {total} repositories from a population of {len(df)}."
-        )
-
     date_col = "created_at"
 
-    # 1) Normalize dates and attach a year-quarter stratum.
     df = df.copy()
     df[date_col] = pd.to_datetime(
         df[date_col],
@@ -58,7 +36,6 @@ def sample(
         errors="coerce"
     )
 
-    # Repositories without a valid creation date cannot be temporally stratified.
     df = df.dropna(subset=[date_col])
 
     df["quarter"] = (
@@ -67,135 +44,129 @@ def sample(
         .dt.to_period("Q")
     )
 
-    # 2) Ordered list of quarters.
     quarters = sorted(df["quarter"].unique())
-    num_quarters = len(quarters)
-
-    if min_per_quarter * num_quarters > total:
-        raise ValueError(
-            f"min_per_quarter={min_per_quarter} requires at least "
-            f"{min_per_quarter * num_quarters} samples across "
-            f"{num_quarters} quarters, but total={total}."
-        )
-
-    quarter_sizes = df["quarter"].value_counts().to_dict()
-
-    # 3) Give each quarter a minimum allocation, capped by its population.
-    allocation = {
-        quarter: min(min_per_quarter, quarter_sizes[quarter])
-        for quarter in quarters
-    }
-
-    remaining = total - sum(allocation.values())
-
-    # 4) Distribute remaining slots proportionally to each quarter's
-    # remaining population capacity.
-    while remaining > 0:
-        capacity = {
-            quarter: quarter_sizes[quarter] - allocation[quarter]
-            for quarter in quarters
-            if allocation[quarter] < quarter_sizes[quarter]
-        }
-
-        if not capacity:
-            raise ValueError(
-                "Not enough eligible repositories to complete the sample."
-            )
-
-        total_capacity = sum(capacity.values())
-
-        # Largest-remainder proportional allocation.
-        raw_additions = {
-            quarter: remaining * capacity[quarter] / total_capacity
-            for quarter in capacity
-        }
-
-        additions = {
-            quarter: min(
-                capacity[quarter],
-                int(raw_additions[quarter])
-            )
-            for quarter in capacity
-        }
-
-        added = sum(additions.values())
-
-        for quarter, amount in additions.items():
-            allocation[quarter] += amount
-
-        remaining -= added
-
-        # Assign rounding remainder according to the largest fractional parts.
-        if remaining > 0:
-            ranked_quarters = sorted(
-                capacity,
-                key=lambda quarter: (
-                        raw_additions[quarter] - int(raw_additions[quarter])
-                ),
-                reverse=True
-            )
-
-            for quarter in ranked_quarters:
-                if remaining == 0:
-                    break
-
-                if allocation[quarter] < quarter_sizes[quarter]:
-                    allocation[quarter] += 1
-                    remaining -= 1
-
-    # 5) Randomly sample within each quarter.
     sampled_idx = []
+
+    print("Quarter sampling allocation:")
 
     for quarter in quarters:
         quarter_idx = df.index[df["quarter"] == quarter].tolist()
-        sampled_idx.extend(
-            random.sample(quarter_idx, allocation[quarter])
-        )
+
+        population_size = len(quarter_idx)
+        sample_size = calculate_sample_size(population_size, margin_error=0.05, confidence_level=0.95)
+
+        print(f"{quarter}: population={population_size:,}, sample={sample_size:,}")
+
+        sampled_idx.extend(random.sample(quarter_idx, sample_size))
 
     sampled_df = df.loc[sorted(sampled_idx)].reset_index(drop=True)
     sampled_df = sampled_df.drop(columns="quarter")
 
-    assert len(sampled_df) == total
     return sampled_df
+
+def sample(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = None) -> pd.DataFrame:
+    """
+    Return a temporally stratified sample.
+
+    For each creation quarter, calculate the required sample size, prioritize
+    repositories analyzed previously, and randomly fill any remaining slots.
+
+    :param df: DataFrame to sample from.
+    :param seed: Fixed random seed for reproducibility.
+    :param previous_repos: Repository identifiers analyzed previously.
+    :return: Sampled DataFrame.
+    """
+    random.seed(seed)
+    previous_repos = previous_repos or set()
+
+    date_col = "created_at"
+    repo_col = "id"  # Change to "id" if that is the identifier in df.
+
+    df = df.copy()
+    df[date_col] = pd.to_datetime(
+        df[date_col],
+        utc=True,
+        errors="coerce"
+    )
+    df = df.dropna(subset=[date_col])
+
+    df["quarter"] = (
+        df[date_col]
+        .dt.tz_localize(None)
+        .dt.to_period("Q")
+    )
+
+    quarters = sorted(df["quarter"].unique())
+    sampled_idx = []
+
+    print("Quarter sampling allocation:")
+
+    for quarter in quarters:
+        quarter_df = df[df["quarter"] == quarter]
+
+        population_size = len(quarter_df)
+        sample_size = calculate_sample_size(
+            population_size,
+            margin_error=0.05,
+            confidence_level=0.95
+        )
+
+        # Previously analyzed repositories in this quarter.
+        previous_idx = quarter_df.index[
+            quarter_df[repo_col].isin(previous_repos)
+        ].tolist()
+
+        # Repositories in this quarter that have not been analyzed.
+        remaining_idx = quarter_df.index[
+            ~quarter_df[repo_col].isin(previous_repos)
+        ].tolist()
+
+        # Randomize both pools reproducibly.
+        random.shuffle(previous_idx)
+        random.shuffle(remaining_idx)
+
+        # Reuse as many previously analyzed repositories as possible.
+        reused_idx = previous_idx[:sample_size]
+
+        # Fill the remaining sample slots with new repositories.
+        num_needed = sample_size - len(reused_idx)
+        new_idx = random.sample(remaining_idx, num_needed)
+
+        sampled_idx.extend(reused_idx)
+        sampled_idx.extend(new_idx)
+
+        print(
+            f"{quarter}: population={population_size:,}, "
+            f"sample={sample_size:,}, "
+            f"reused={len(reused_idx):,}, "
+            f"new={len(new_idx):,}"
+        )
+
+    sampled_df = df.loc[sorted(sampled_idx)].reset_index(drop=True)
+    return sampled_df.drop(columns="quarter")
 
 
 if __name__ == "__main__":
     input_file = DATA_DIR / "all_recent_repos.json.zip"
-    out_recent_models_file = DATA_DIR / "v2_select_recent_repos.json"
+    out_recent_models_file = DATA_DIR / "selected_recent_repos.json"
 
     # Step 1: Load the repositories' metadata.
     print(f"Loading recent repository data from {input_file.name}...")
     df = load(input_file)
+    df_previous = pd.read_csv(DATA_DIR / "v1_selected_recent/repositories_evolution_recent_commits_processed.csv")
+    previous_repos = set(df_previous["repo_url"].tolist())
+    print(f"Found {len(previous_repos)} previous repositories.")
 
     # Step 2: Sample recent repositories.
     print(f"Sampling from {len(df)} recent repositories...")
 
-    target_size = 3850
-    num_extra = 10
-    sample_size = target_size + num_extra
-
-    df_recent = sample(df, total=sample_size, min_per_quarter=100, seed=42)
-
+    df_recent = sample(df, seed=42, previous_repos=previous_repos)
     df_recent.reset_index(drop=True, inplace=True)
-
-    assert sample_size == len(df_recent), (
-        f"Expected {sample_size} recent repositories, "
-        f"but sampled {len(df_recent)}."
-    )
 
     print(f"Selected repositories: {len(df_recent)} recent repos")
 
-    # Optional: display the number selected from each quarter.
-    quarter_counts = (
-        pd.to_datetime(df_recent["created_at"], utc=True)
-        .dt.tz_localize(None)
-        .dt.to_period("Q")
-        .value_counts()
-        .sort_index()
-    )
-
-    print("Sample allocation by creation quarter:")
-    print(quarter_counts)
-
     # Step 3: Save the sampled repositories.
     df_recent.to_json(out_recent_models_file, orient="records", indent=2)
+    print("Done!")
+    print("Recommended next steps:")
+    print("\t- Run the get_commit_logs.py to download the commits logs for the selected repositories.")
