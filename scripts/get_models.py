@@ -68,6 +68,6 @@ if __name__ == '__main__':
     save(results, output_file)
 
     print("Done!")
-    print("You can find the results in the data folder.")
-    print("Recommended: run the tests on tests/test_get_models.py to check the results.")
-    print(f"Output file: {output_file.with_suffix('.json.zip')}")
+    print(f"You can find the results in the data folder: {output_file.with_suffix('.json.zip')}")
+    print("\t- Run the tests on tests/test_get_models.py to check the results.")
+    print("\t- Run the filter_models.py to apply our exclusion criteria upon the repositories.")
