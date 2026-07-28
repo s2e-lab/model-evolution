@@ -138,38 +138,38 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
             if len(parts := item.split(maxsplit=1)) == 2
         ]
 
-        # try:
-        commit_results = []
-        download_model_files(repo_url, commit_hash, repo_clone_path, [x for x in all_model_files if get_file_extension(x) != "safetensors"],
-                             logger)
-        for model_file in all_model_files:
-            extension = get_file_extension(model_file)
-            model_file_path = os.path.join(repo_clone_path, model_file)
-            # check if it is a symbolic file pointing to nowhere
-            if os.path.islink(model_file_path) and not os.path.exists(model_file_path):
-                serialization_format = "UNDETERMINED (symbolic link)"
-            else:
-                serialization_format = detect_serialization_format(
-                    model_file_path) if extension != "safetensors" else SerializationMethod.SAFETENSORS
-            result = {
-                "repo_url": repo_url,
-                "commit_hash": commit_hash,
-                "model_file_path": model_file,
-                "serialization_format": str(serialization_format),
-                "message": row["message"],
-                "author": row["author"],
-                "date": row["date"],
-                "is_in_commit": model_file in changed_files,
-            }
-            commit_results.append(result)
+        try:
+            commit_results = []
+            download_model_files(repo_url, commit_hash, repo_clone_path, [x for x in all_model_files if get_file_extension(x) != "safetensors"],
+                                 logger)
+            for model_file in all_model_files:
+                extension = get_file_extension(model_file)
+                model_file_path = os.path.join(repo_clone_path, model_file)
+                # check if it is a symbolic file pointing to nowhere
+                if os.path.islink(model_file_path) and not os.path.exists(model_file_path):
+                    serialization_format = "UNDETERMINED (symbolic link)"
+                else:
+                    serialization_format = detect_serialization_format(
+                        model_file_path) if extension != "safetensors" else SerializationMethod.SAFETENSORS
+                result = {
+                    "repo_url": repo_url,
+                    "commit_hash": commit_hash,
+                    "model_file_path": model_file,
+                    "serialization_format": str(serialization_format),
+                    "message": row["message"],
+                    "author": row["author"],
+                    "date": row["date"],
+                    "is_in_commit": model_file in changed_files,
+                }
+                commit_results.append(result)
 
-        save_to_cache(cache_path, repo_url, commit_hash, commit_results)
+            save_to_cache(cache_path, repo_url, commit_hash, commit_results)
 
-        for result in commit_results:
-            df_output.loc[len(df_output)] = result
-        # except Exception as e:
-        #     print(f"Error processing {commit_hash}: {e}")
-        #     df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": str(e)}
+            for result in commit_results:
+                df_output.loc[len(df_output)] = result
+        except Exception as e:
+            print(f"Error processing {commit_hash}: {e}")
+            df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": str(e)}
 
 
     # after all is said and done, how many unique [repo_url,commit_hash] we have in total?
