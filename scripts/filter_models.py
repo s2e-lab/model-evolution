@@ -308,7 +308,7 @@ if __name__ == "__main__":
 
     # Step 4 - Save the data
     print("Saving filtered models to disk...")
-    save(df_legacy, out_legacy_models_file, compress=False)
+    # save(df_legacy, out_legacy_models_file, compress=False)
     save(df_recent, out_recent_models_file, compress=True)
 
     # Print summary information

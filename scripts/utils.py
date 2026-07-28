@@ -207,5 +207,5 @@ def get_file_extension(file_path: str) -> str:
     :param file_path: the filename/filepath
     :return: the file extension.
     """
-    return Path(file_path).suffix
+    return Path(file_path).suffix.lstrip(".")
 
