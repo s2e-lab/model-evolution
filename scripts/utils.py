@@ -209,3 +209,23 @@ def get_file_extension(file_path: str) -> str:
     """
     return Path(file_path).suffix.lstrip(".")
 
+
+
+def enforce_ssh(logger: Logger | None = None):
+    """
+    Check if the SSH connection to Hugging Face is working.
+    :param logger: Logger instance for logging messages (if set to None, print to stdout).
+    """
+    from analyticaml import check_ssh_connection
+
+    if check_ssh_connection():
+        return
+
+    log = logger.error if logger else print
+
+    log("Please set up your SSH keys on Hugging Face.")
+    log("https://huggingface.co/docs/hub/en/security-git-ssh")
+    log("Run the following command to check if your SSH connection is working:")
+    log("ssh -T git@hf.co")
+    log("If it is anonymous, you need to add your SSH key to your Hugging Face account.")
+    sys.exit(1)

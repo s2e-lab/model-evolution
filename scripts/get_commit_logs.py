@@ -4,19 +4,51 @@ It reads the repositories from a JSON file (subset of model repositories) and sa
 It also saves the errors to a separate CSV file.
 @Author: Joanna C. S. Santos
 """
+import argparse
 import os
-import sys
 from datetime import datetime
 from pathlib import Path
-
+import json
+import sqlite3
 import git
 import pandas as pd
-from analyticaml import check_ssh_connection
 from tqdm import tqdm
 
-from utils import clone, DATA_DIR, delete_folder
+from utils import clone, DATA_DIR, delete_folder, enforce_ssh
 
 NULL_TREE = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
+
+
+def load_cache(cache_path: Path) -> None:
+    with sqlite3.connect(cache_path) as connection:
+        fields = ",".join([
+            "repo_url TEXT PRIMARY KEY",
+            "commits TEXT",
+            "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        ])
+        connection.execute(f"CREATE TABLE IF NOT EXISTS commit_cache ({fields})")
+
+
+def get_cached_commits(cache_path: Path, repo_url: str)  -> list | None:
+    with sqlite3.connect(cache_path) as connection:
+        query = "SELECT commits FROM commit_cache WHERE repo_url = ?"
+        row = connection.execute(query, (repo_url,), ).fetchone()
+
+    if row is None: return None
+
+    commits_json = row[0]
+    return json.loads(commits_json) if commits_json else []
+
+
+def save_to_cache(cache_path: Path, repo_url: str, commits: list ) -> None:
+    with sqlite3.connect(cache_path) as connection:
+        connection.execute("""
+                           INSERT INTO commit_cache (repo_url, commits, updated_at)
+                           VALUES (?, ?, CURRENT_TIMESTAMP) ON CONFLICT(repo_url) DO
+                           UPDATE SET
+                               commits = excluded.commits,
+                               updated_at = CURRENT_TIMESTAMP
+                           """, (repo_url, json.dumps(commits)))
 
 
 def get_commits(repo_path: str) -> tuple:
@@ -57,17 +89,9 @@ def get_commits(repo_path: str) -> tuple:
     return commits
 
 
-import argparse
-
-
 def parse_args():
     parser = argparse.ArgumentParser(description="Process repository group.")
-    # Positional arguments with strict choices
-    parser.add_argument(
-        "group_type",
-        choices=["legacy", "recent"],
-        help="Type of repository group to process: 'legacy' or 'recent'."
-    )
+    parser.add_argument("--group_type", required=True, choices=["legacy", "recent"], help="Choices: 'legacy' or 'recent'.")
     return parser.parse_args()
 
 
@@ -82,66 +106,68 @@ def save(data: list, columns: list, out_file: str | Path) -> None:
     df_commits.to_csv(out_file, index=False)
 
 
-if __name__ == "__main__":
-
-    # Check if the SSH connection is working
-    if not check_ssh_connection():
-        print("Please set up your SSH keys on HuggingFace.")
-        print("https://huggingface.co/docs/hub/en/security-git-ssh")
-        print("Run the following command to check if your SSH connection is working:")
-        print("ssh -T git@hf.co")
-        print("If it is anonymous, you need to add your SSH key to your HuggingFace account.")
-        sys.exit(1)
-
-    # Parse command line arguments
-    args = parse_args()
-    group_type = args.group_type
-    print(f"Group type: {group_type}")
-
-    # load previously used stuff
-    df_previous = pd.read_csv(DATA_DIR / "v1_selected_recent/repositories_evolution_recent_commits_processed.csv")
-    previous_repos = set(df_previous["repo_url"].tolist())
-    print(f"Found {len(previous_repos)} previous repositories.")
-
-    # read start index and end index from the command line
-    input_file = DATA_DIR / f"selected_{group_type}_repos.json"
-    df = pd.read_json(input_file)
-    repo_urls = df["id"].tolist()
-    print(f"Extracting commits from {input_file.name}")
-    output_file = input_file.stem.replace("_repos", "_commits") + ".csv"
-    error_file = output_file.replace("commits", "errors")
-
-    # iterates over the repositories
-    commits, errors = [], []
-    save_at = 100
+def extract_all_commits(repositories: list, output_path: Path, error_path: Path, exclude_repos: set = None) -> None:
+    """
+    Extract all commits from a list of repositories and save them to a CSV file.
+    :param output_path: where to save the CSV file containing the commits.
+    :param error_path: where to save the CSV file containing the errors.
+    :param repositories: list of repositories' URLs (eg: `organization/repoName`).
+    :param exclude_repos: a list of previously saved repositories that we don't need to get commit logs for.
+    """
+    commits, errors =  [], []
     commits_columns = ["repo_url", "commit_hash", "author", "date", "message", "changed_files", "all_files_in_tree"]
     error_columns = ["repo_url", "error"]
 
-    output_file = DATA_DIR / output_file
-    error_file = DATA_DIR / error_file
+    cache_path = DATA_DIR / "_commits_cache.sqlite3"
+    exclude_repos = exclude_repos or set()
+    load_cache(cache_path)
 
-    for i, repo_url in tqdm(enumerate(repo_urls), unit="repo", total=len(repo_urls)):
-        if repo_url in previous_repos: continue # Skip repositories that have already been processed
+    for repo_url in tqdm(repositories, unit="repo", total=len(repositories)):
+        if repo_url in exclude_repos: continue  # Skip repositories that have already been processed
+
+        cached_commits = get_cached_commits(cache_path, repo_url)
+
+        if cached_commits is not None:
+            commits.extend((repo_url, *commit) for commit in cached_commits)
+            continue
+
         clone_path = os.path.join("./tmp", repo_url.replace("/", "+"))
         try:
             repo = clone(repo_url, clone_path, True)
             repo_commits = get_commits(clone_path)
+            save_to_cache(cache_path, repo_url, repo_commits)
             repo_commits = [(repo_url,) + c for c in repo_commits]
             commits.extend(repo_commits)
-            if i > 0 and i % save_at == 0:
-                save(commits, commits_columns, output_file)
-                save(errors, error_columns, error_file)
             repo.close()
         except Exception as e:
             print(f"Error processing {repo_url}: {e}")
-            errors.append((repo_url, e))
+            errors.append((repo_url, str(e)))
         finally:
             if os.path.exists(clone_path):
                 delete_folder(clone_path)
 
     # save the rest of the commits to CSV
-    save(commits, commits_columns, output_file)
-    save(errors, error_columns, error_file)
+    save(commits, commits_columns, output_path)
+    save(errors, error_columns, error_path)
+
+
+if __name__ == "__main__":
+    # ensure we have SSH setup with Hugging Face
+    enforce_ssh()
+
+    # Parse command line arguments
+    args = parse_args()
+
+    # grab the list of selected repositories' IDs from JSON file
+    input_file = DATA_DIR / f"selected_{args.group_type}_repos.json"
+    repo_urls = pd.read_json(input_file)["id"].tolist()
+
+    # where to save data
+    output_file = DATA_DIR / f"{input_file.stem.replace('_repos', '_commits')}.csv"
+    error_file = output_file.with_name(output_file.name.replace("commits", "errors"))
+
+    print(f"Extracting commits for repos listed in {input_file.name}")
+    extract_all_commits(repo_urls, output_file, error_file)
 
     print(f"Commits saved to {output_file}")
     print(f"Errors saved to {error_file}")
