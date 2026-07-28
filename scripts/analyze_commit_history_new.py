@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
-from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
+from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection, SerializationMethod
 from analyticaml.model_parser import detect_serialization_format
 from tqdm import tqdm
 
@@ -73,12 +73,7 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
     error_output = csv_output.with_name(csv_output.name.replace("commits", "errors"))
     df_slice = df.iloc[begin:end]
-    save_at = 100
     for index, row in tqdm(df_slice.iterrows(), total=len(df_slice), unit="commit"):
-        if index != 0 and index % save_at == 0: # saves periodically
-            df_output.to_csv(csv_output, index=False)
-            df_errors.to_csv(error_output, index=False)
-
         repo_url = row["repo_url"]
         repo_clone_path = temp_folder / repo_url.replace("/", "+")
 
@@ -90,29 +85,29 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
         commit_hash = row["commit_hash"]
         all_model_files = [f for f in row["all_files_in_tree"].split(";") if is_model_file(f)]
         changed_files = [x.split()[1] for x in row["changed_files"].split(";")]
-        # try:
-        download_model_files(repo_url, commit_hash, repo_clone_path, [x for x in all_model_files if get_file_extension(x) != "safetensors"], logger)
-        for model_file in all_model_files:
-            model_file_path = os.path.join(repo_clone_path, model_file["file_path"])
-            # check if it is a symbolic file pointing to nowhere
-            if os.path.islink(model_file_path) and not os.path.exists(model_file_path):
-                serialization_format = "UNDETERMINED (symbolic link)"
-            else:
-                serialization_format = detect_serialization_format(model_file_path) if model_file[
-                                                                                           "extension"] != "safetensors" else SerializationMethod.SAFETENSORS
-            df_output.loc[len(df_output)] = {
-                "repo_url": repo_url,
-                "commit_hash": commit_hash,
-                "model_file_path": model_file_path,
-                "serialization_format": serialization_format,
-                "message": row["message"],
-                "author": row["author"],
-                "date": row["date"],
-                "is_in_commit": model_file["file_path"] in changed_files,
-            }
-        # except Exception as e:
-        #     print(f"Error processing {commit_hash}: {e}")
-        #     df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": e}
+        try:
+            download_model_files(repo_url, commit_hash, repo_clone_path, [x for x in all_model_files if get_file_extension(x) != "safetensors"], logger)
+            for model_file in all_model_files:
+                extension = get_file_extension(model_file)
+                model_file_path = os.path.join(repo_clone_path, model_file)
+                # check if it is a symbolic file pointing to nowhere
+                if os.path.islink(model_file_path) and not os.path.exists(model_file_path):
+                    serialization_format = "UNDETERMINED (symbolic link)"
+                else:
+                    serialization_format = detect_serialization_format(model_file_path) if extension != "safetensors" else SerializationMethod.SAFETENSORS
+                df_output.loc[len(df_output)] = {
+                    "repo_url": repo_url,
+                    "commit_hash": commit_hash,
+                    "model_file_path": model_file,
+                    "serialization_format": serialization_format,
+                    "message": row["message"],
+                    "author": row["author"],
+                    "date": row["date"],
+                    "is_in_commit": model_file in changed_files,
+                }
+        except Exception as e:
+            print(f"Error processing {commit_hash}: {e}")
+            df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": e}
 
 
         # after all is said and done, how many unique [repo_url,commit_hash] we have in total?

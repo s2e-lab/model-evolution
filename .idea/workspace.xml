@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/hotfixes/convert_commit_to_db_cache.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/repositories_evolution_recent_commits.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/repositories_evolution_recent_errors.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/selected_recent_commits.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/selected_recent_commits.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/selected_recent_errors.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/get_commit_logs.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/get_commit_logs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/analyze_commit_history_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/analyze_commit_history_new.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_get_commit_logs.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_get_commit_logs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +67,8 @@
     "Python tests.Python tests for test_filter_models.TestFilterModels.executor": "Run",
     "Python tests.Python tests for test_filter_models.TestFilterModels.test_filter_models.executor": "Run",
     "Python tests.Python tests for test_filter_models.TestSafetensorsReleaseDate.test_safetensors_release_date.executor": "Run",
+    "Python tests.Python tests for test_get_commit_logs.TestModelsCommits.test_get_commit_logs.executor": "Run",
+    "Python tests.Python tests for test_get_commit_logs.TestSelectModels.executor": "Run",
     "Python.TO_DELETE_get_models.executor": "Run",
     "Python.analyze_commit_history.executor": "Run",
     "Python.analyze_commit_history_new.executor": "Run",
@@ -125,7 +120,7 @@
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.get_commit_logs">
+  <component name="RunManager" selected="Python.analyze_commit_history_new">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="model-evolution" />
       <option name="ENV_FILES" value="" />
@@ -149,6 +144,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="analyze_commit_history_new" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="model-evolution" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="HF_HUB_ENABLE_HF_TRANSFER" value="1 " />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/analyze_commit_history_new.py" />
+      <option name="PARAMETERS" value="--group_type recent --begin 0 --end 2" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="convert_commit_to_db_cache" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="model-evolution" />
       <option name="ENV_FILES" value="" />
@@ -164,52 +183,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/hotfixes/convert_commit_to_db_cache.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="filter_models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="model-evolution" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/filter_models.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="fix_file_extension" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="model-evolution" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts/hotfixes" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/hotfixes/fix_file_extension.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -241,7 +214,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_filter_models.TestFilterModels.test_filter_models" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_get_commit_logs.TestModelsCommits.test_get_commit_logs" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="model-evolution" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -253,24 +226,40 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_filter_models.TestFilterModels.test_filter_models&quot;" />
+      <option name="_new_target" value="&quot;test_get_commit_logs.TestModelsCommits.test_get_commit_logs&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_get_commit_logs.TestSelectModels" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="model-evolution" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_get_commit_logs.TestSelectModels&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python.convert_commit_to_db_cache" />
-      <item itemvalue="Python.fix_file_extension" />
-      <item itemvalue="Python.filter_models" />
+      <item itemvalue="Python.analyze_commit_history_new" />
       <item itemvalue="Python.get_commit_logs" />
-      <item itemvalue="Python tests.Python tests for test_filter_models.TestFilterModels.test_filter_models" />
+      <item itemvalue="Python tests.Python tests for test_get_commit_logs.TestModelsCommits.test_get_commit_logs" />
+      <item itemvalue="Python tests.Python tests for test_get_commit_logs.TestSelectModels" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.analyze_commit_history_new" />
+        <item itemvalue="Python tests.Python tests for test_get_commit_logs.TestModelsCommits.test_get_commit_logs" />
+        <item itemvalue="Python tests.Python tests for test_get_commit_logs.TestSelectModels" />
         <item itemvalue="Python.get_commit_logs" />
         <item itemvalue="Python.convert_commit_to_db_cache" />
-        <item itemvalue="Python tests.Python tests for test_filter_models.TestFilterModels.test_filter_models" />
-        <item itemvalue="Python.filter_models" />
-        <item itemvalue="Python.fix_file_extension" />
       </list>
     </recent_temporary>
   </component>
@@ -305,7 +294,7 @@
       <workItem from="1784935288261" duration="11000" />
       <workItem from="1784935320391" duration="7000" />
       <workItem from="1784935391396" duration="1751000" />
-      <workItem from="1785093017236" duration="83880000" />
+      <workItem from="1785093017236" duration="86482000" />
     </task>
     <task id="LOCAL-00001" summary="added a print statement to better indicate the filtering steps' statuses">
       <option name="closed" value="true" />
@@ -375,6 +364,11 @@
           <line>140</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scripts/analyze_commit_history_new.py</url>
+          <line>88</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -384,8 +378,8 @@
     <SUITE FILE_PATH="coverage/model_evolution$sample_recent_models.coverage" NAME="sample_recent_models Coverage Results" MODIFIED="1785208990219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/model_evolution$select_models.coverage" NAME="select_models Coverage Results" MODIFIED="1785093787536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_get_commit_logs.coverage" NAME="TO_DELETE_get_commit_logs Coverage Results" MODIFIED="1731073465254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
-    <SUITE FILE_PATH="coverage/model_evolution$analyze_commit_history_new.coverage" NAME="analyze_commit_history_new Coverage Results" MODIFIED="1785253728488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
-    <SUITE FILE_PATH="coverage/model_evolution$.coverage" NAME=" Coverage Results" MODIFIED="1785257329464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/model_evolution$.coverage" NAME=" Coverage Results" MODIFIED="1785267362816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/model_evolution$analyze_commit_history_new.coverage" NAME="analyze_commit_history_new Coverage Results" MODIFIED="1785267502725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_craw_safetensors_discussion.coverage" NAME="TO_DELETE_craw_safetensors_discussion Coverage Results" MODIFIED="1730824189735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
     <SUITE FILE_PATH="coverage/model_evolution$TO_DELETE_get_models.coverage" NAME="TO_DELETE_get_models Coverage Results" MODIFIED="1785094907655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_merge_csvs.coverage" NAME="TO_DELETE_merge_csvs Coverage Results" MODIFIED="1731084451736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
