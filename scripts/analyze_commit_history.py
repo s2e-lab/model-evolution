@@ -87,7 +87,7 @@ if __name__ == '__main__':
     input_file = DATA_DIR / f"selected_{group_type}_commits{suffix}.csv"
 
     if not input_file.exists():
-        print(f"Input file {input_file} does not exist. Please run the previous script to generate it.")
+        print(f"Input file {input_file} does not exist. Please run `get_commit_logs.py` to generate it.")
         print("If you are running this script to retry, make sure to run hotfix/compute_failed_recent_history.py")
         sys.exit(1)
 

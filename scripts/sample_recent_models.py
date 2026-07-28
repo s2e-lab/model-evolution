@@ -14,7 +14,7 @@ import pandas as pd
 from utils import load, DATA_DIR, calculate_sample_size
 
 
-def sample_NEW(df: pd.DataFrame, seed: int = 42):
+def sample(df: pd.DataFrame, seed: int = 42):
     """
     Return a temporally stratified random sample.
 
@@ -64,7 +64,7 @@ def sample_NEW(df: pd.DataFrame, seed: int = 42):
 
     return sampled_df
 
-def sample(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = None) -> pd.DataFrame:
+def sample_OLD(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = None) -> pd.DataFrame:
     """
     Return a temporally stratified sample.
 
@@ -153,14 +153,14 @@ if __name__ == "__main__":
     # Step 1: Load the repositories' metadata.
     print(f"Loading recent repository data from {input_file.name}...")
     df = load(input_file)
-    df_previous = pd.read_csv(DATA_DIR / "v1_selected_recent/repositories_evolution_recent_commits_processed.csv")
-    previous_repos = set(df_previous["repo_url"].tolist())
-    print(f"Found {len(previous_repos)} previous repositories.")
+    # df_previous = pd.read_csv(DATA_DIR / "v1_selected_recent/repositories_evolution_recent_commits_processed.csv")
+    # previous_repos = set(df_previous["repo_url"].tolist())
+    # print(f"Found {len(previous_repos)} previous repositories.")
 
     # Step 2: Sample recent repositories.
     print(f"Sampling from {len(df)} recent repositories...")
 
-    df_recent = sample(df, seed=42, previous_repos=previous_repos)
+    df_recent = sample(df, seed=42)#, previous_repos=previous_repos)
     df_recent.reset_index(drop=True, inplace=True)
 
     print(f"Selected repositories: {len(df_recent)} recent repos")

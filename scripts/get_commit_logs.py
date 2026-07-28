@@ -2,8 +2,6 @@
 This script clones the repositories from Hugging Face and extracts the commit history.
 It reads the repositories from a JSON file (subset of model repositories) and saves the commits to a CSV file.
 It also saves the errors to a separate CSV file.
-
-Notice that if you want to retry the repositories that failed, you should run with the argument `--retry`.
 @Author: Joanna C. S. Santos
 """
 import os
@@ -70,13 +68,6 @@ def parse_args():
         choices=["legacy", "recent"],
         help="Type of repository group to process: 'legacy' or 'recent'."
     )
-    # Optional boolean flag
-    parser.add_argument(
-        "--retry",
-        action="store_true",
-        help="If set, the script will  retry the repositories that failed."
-    )
-
     return parser.parse_args()
 
 
@@ -105,26 +96,20 @@ if __name__ == "__main__":
     # Parse command line arguments
     args = parse_args()
     group_type = args.group_type
-    should_retry = args.retry
     print(f"Group type: {group_type}")
-    print(f"Retry: {should_retry}")
 
-    # Process the repositories
-    if should_retry:
-        input_file = DATA_DIR / f"selected_{group_type}_errors.csv"
-        df = pd.read_csv(input_file)
-        repo_urls = df["repo_url"].tolist()
-        print(f"Retrying the repositories that failed from {input_file}")
-        output_file = input_file.stem.replace("_errors", "_commits_retried") + ".csv"
-        error_file = output_file.replace("commits", "errors")
-    else:
-        # read start index and end index from the command line
-        input_file = DATA_DIR / f"selected_{group_type}_repos.json"
-        df = pd.read_json(input_file)
-        repo_urls = df["id"].tolist()
-        print(f"Extracting commits from {input_file}")
-        output_file = input_file.stem.replace("_repos", "_commits") + ".csv"
-        error_file = output_file.replace("commits", "errors")
+    # load previously used stuff
+    df_previous = pd.read_csv(DATA_DIR / "v1_selected_recent/repositories_evolution_recent_commits_processed.csv")
+    previous_repos = set(df_previous["repo_url"].tolist())
+    print(f"Found {len(previous_repos)} previous repositories.")
+
+    # read start index and end index from the command line
+    input_file = DATA_DIR / f"selected_{group_type}_repos.json"
+    df = pd.read_json(input_file)
+    repo_urls = df["id"].tolist()
+    print(f"Extracting commits from {input_file.name}")
+    output_file = input_file.stem.replace("_repos", "_commits") + ".csv"
+    error_file = output_file.replace("commits", "errors")
 
     # iterates over the repositories
     commits, errors = [], []
@@ -136,6 +121,7 @@ if __name__ == "__main__":
     error_file = DATA_DIR / error_file
 
     for i, repo_url in tqdm(enumerate(repo_urls), unit="repo", total=len(repo_urls)):
+        if repo_url in previous_repos: continue # Skip repositories that have already been processed
         clone_path = os.path.join("./tmp", repo_url.replace("/", "+"))
         try:
             repo = clone(repo_url, clone_path, True)
