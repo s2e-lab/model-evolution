@@ -6,5 +6,4 @@
 #$ -q long             # Specify queue
 #$ -N model_analysis   # Specify job name
 conda activate HFStudy
-python get_commit_logs.py recent  # Application to execute
-python analyze_commit_history.py recent  # Application to execute
+HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent  # Application to execute
