@@ -190,13 +190,13 @@ def download_model_files(repo: str, sha: str, dir_name: str, model_files: list[s
                 hf_hub_download(repo_id=repo, filename=filename, local_dir=dir_name, revision=sha,
                                 user_agent=user_agent)
             except Exception as e:
-                logger.debug(f"⚠️ Failed to download {file} (attempt {attempt}): {e}")
+                logger.debug(f"⚠️ Failed to download {filename} (attempt {attempt}): {e}")
                 if attempt < max_retries:
                     wait = base_delay * (2 ** (attempt - 1))
                     logger.debug(f"🔁 Retrying in {wait} seconds...")
                     time.sleep(wait)
                 else:
-                    raise RuntimeError(f"❌ Download failed after {max_retries} attempts for {file}")
+                    raise RuntimeError(f"❌ Download failed after {max_retries} attempts for {filename}")
 
     return sha
 
