@@ -26,7 +26,7 @@ from huggingface_hub import HfApi
 from huggingface_hub.utils import HfHubHTTPError, RepositoryNotFoundError
 from tqdm import tqdm
 from dotenv import load_dotenv
-from utils import load, DATA_DIR, SCRIPTS_DIR
+from utils import load, DATA_DIR, SCRIPTS_DIR, get_file_extension
 from pathlib import Path
 import json
 
@@ -89,7 +89,7 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
                 # Copy the dictionary instead of modifying the object's internal __dict__ directly.
                 repo_file = vars(sibling).copy()
                 filename = repo_file.get("rfilename", "")
-                repo_file["extension"] = filename.rsplit(".", 2)[-1]
+                repo_file["extension"] = get_file_extension(filename)
                 repo_files.append(repo_file)
             return model_info.usedStorage, repo_files, ""
         except RepositoryNotFoundError:
