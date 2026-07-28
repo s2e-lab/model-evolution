@@ -1,16 +1,68 @@
 import argparse
 import atexit
+import logging
 import os
 import sys
 from pathlib import Path
-
+import sqlite3
 import pandas as pd
-from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection
-from analyticaml.model_parser import detect_serialization_format
+import json
 from tqdm import tqdm
 
-from utils import DATA_DIR, RESULTS_DIR
-from utils import delete_folder, clone
+from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection, SerializationMethod
+from analyticaml.model_parser import detect_serialization_format
+from utils import DATA_DIR, download_model_files, get_file_extension
+from utils import delete_folder
+
+# configure logger
+DEBUG = True
+logging.basicConfig(
+    level=logging.DEBUG if DEBUG else logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    handlers=[logging.StreamHandler(sys.stdout)],
+)
+
+logger = logging.getLogger(__name__)
+
+
+def load_cache(cache_path: Path) -> None:
+    with sqlite3.connect(cache_path) as connection:
+        fields = ",".join([
+            "repo_url TEXT NOT NULL",
+            "commit_hash TEXT NOT NULL",
+            "results TEXT NOT NULL",
+            "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        ])
+        pk = "repo_url, commit_hash"
+        connection.execute(f"CREATE TABLE IF NOT EXISTS analysis_cache ({fields}, PRIMARY KEY({pk}))")
+
+
+def get_cached_analysis(cache_path: Path, repo_url: str, commit_hash: str, ) -> list | None:
+    with sqlite3.connect(cache_path) as connection:
+        row = connection.execute(
+            "SELECT results FROM analysis_cache WHERE repo_url = ? AND commit_hash = ?",
+            (repo_url, commit_hash),
+        ).fetchone()
+
+    if row is None:
+        return None
+
+    return json.loads(row[0])
+
+
+def save_to_cache(cache_path: Path, repo_url: str, commit_hash: str, results: list, ) -> None:
+    with sqlite3.connect(cache_path) as connection:
+        connection.execute("""
+                           INSERT INTO analysis_cache (repo_url, commit_hash, results, updated_at)
+                           VALUES (?, ?, ?, CURRENT_TIMESTAMP) ON CONFLICT(repo_url, commit_hash) DO
+                           UPDATE SET
+                               results = excluded.results,
+                               updated_at = CURRENT_TIMESTAMP
+                           """, (repo_url, commit_hash, json.dumps(results, default=str),)
+                           )
+
+
 
 
 def parse_args():
@@ -19,19 +71,9 @@ def parse_args():
     :return: the parsed arguments
     """
     parser = argparse.ArgumentParser(description="Process repository group.")
-    # Positional arguments with strict choices
-    parser.add_argument(
-        "group_type",
-        choices=["legacy", "recent"],
-        help="Type of repository group to process: 'legacy' or 'recent'."
-    )
-    # Optional argument: retry
-    parser.add_argument(
-        "--retry",
-        action="store_true",
-        help="Retry failed commits from the previous run."
-    )
-
+    parser.add_argument("--group_type", required=True, choices=["legacy", "recent"], help="Choices: 'legacy' or 'recent'.")
+    parser.add_argument("--begin", type=int, default=None, help="Starting row index (inclusive).")
+    parser.add_argument("--end", type=int, default=None, help="Ending row index (exclusive).")
     return parser.parse_args()
 
 
@@ -43,7 +85,7 @@ def filter_by_extension(changed_files: str):
     :return: True if there is a model file in the list, False otherwise.
     """
     changed_files = changed_files.split(";")
-    file_extensions = [Path(f).suffix[1:] for f in changed_files]
+    file_extensions = [get_file_extension(f) for f in changed_files]
     return any([ext in MODEL_FILE_EXTENSIONS for ext in file_extensions])
 
 
@@ -53,7 +95,7 @@ def is_model_file(file_path: str):
     :param file_path: the file path
     :return: True if the file is a model file, False otherwise.
     """
-    return Path(file_path).suffix[1:] in MODEL_FILE_EXTENSIONS
+    return get_file_extension(file_path) in MODEL_FILE_EXTENSIONS
 
 
 def cleanup():
@@ -62,12 +104,110 @@ def cleanup():
     delete_folder(temp_folder)
 
 
+def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: int | None) -> None:
+    # load cache
+    cache_path = DATA_DIR / "_commit_analysis_cache.sqlite3"
+    load_cache(cache_path)
+
+    # create the output dataframes
+    df_output = pd.DataFrame(
+        columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date", "is_in_commit", ], )
+    df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
+    error_output = csv_output.with_name(csv_output.name.replace("commits", "errors"))
+    df_slice = df.iloc[begin:end]
+    for _, row in tqdm(df_slice.iterrows(), total=len(df_slice), unit="commit"):
+        repo_url = row["repo_url"]
+        commit_hash = row["commit_hash"]
+        cached_results = get_cached_analysis(cache_path, repo_url, commit_hash)
+
+        if cached_results is not None:
+            for result in cached_results:
+                df_output.loc[len(df_output)] = result
+            continue
+
+        repo_clone_path = temp_folder / repo_url.replace("/", "+")
+
+        # if it already exists, remove it, so we can make a new empty one (to avoid clone errors)
+        delete_folder(repo_clone_path)
+        os.makedirs(repo_clone_path)  # make needed folders
+        print(f"Downloading model files from {repo_clone_path}")
+
+        all_model_files = [f for f in row["all_files_in_tree"].split(";") if is_model_file(f)]
+        changed_files = [
+            parts[1]
+            for item in row["changed_files"].split(";")
+            if len(parts := item.split(maxsplit=1)) == 2
+        ]
+
+        try:
+            commit_results = []
+            download_model_files(repo_url, commit_hash, repo_clone_path, [x for x in all_model_files if get_file_extension(x) != "safetensors"],
+                                 logger)
+            for model_file in all_model_files:
+                extension = get_file_extension(model_file)
+                model_file_path = os.path.join(repo_clone_path, model_file)
+                # check if it is a symbolic file pointing to nowhere
+                if os.path.islink(model_file_path) and not os.path.exists(model_file_path):
+                    serialization_format = "UNDETERMINED (symbolic link)"
+                else:
+                    serialization_format = detect_serialization_format(
+                        model_file_path) if extension != "safetensors" else SerializationMethod.SAFETENSORS
+                result = {
+                    "repo_url": repo_url,
+                    "commit_hash": commit_hash,
+                    "model_file_path": model_file,
+                    "serialization_format": str(serialization_format),
+                    "message": row["message"],
+                    "author": row["author"],
+                    "date": row["date"],
+                    "is_in_commit": model_file in changed_files,
+                }
+                commit_results.append(result)
+
+            save_to_cache(cache_path, repo_url, commit_hash, commit_results)
+
+            for result in commit_results:
+                df_output.loc[len(df_output)] = result
+        except Exception as e:
+            print(f"Error processing {commit_hash}: {e}")
+            df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": str(e)}
+
+
+    # after all is said and done, how many unique [repo_url,commit_hash] we have in total?
+    print(f"Unique commits: {len(df_output[['repo_url', 'commit_hash']].drop_duplicates())}")
+
+    # save the output dataframes
+    df_output.to_csv(csv_output, index=False)
+    df_errors.to_csv(error_output, index=False)
+
+
+def load_commits(commit_file: Path) -> pd.DataFrame:
+    if not commit_file.exists():
+        logger.debug(f"Input file {commit_file} does not exist. Please run `get_commit_logs.py` to generate it.")
+        exit(1)
+
+    logger.debug(f"Loading the commit history data from {commit_file.name}...")
+    df_commits = pd.read_csv(commit_file).fillna("")
+    logger.debug(f"Total number of commits: {len(df_commits)}")
+    # identify the commits that have at least one model file
+    df_commits = df_commits[df_commits["changed_files"].apply(lambda x: filter_by_extension(x))]
+    df_commits.reset_index(drop=True, inplace=True)
+    logger.debug(f"Number of commits touching at least one model file: {len(df_commits)}")
+    return df_commits
+
+
 if __name__ == '__main__':
+    logger.debug(f'Is HF-TRANSFER enabled? {os.environ.get("HF_HUB_ENABLE_HF_TRANSFER", "False")}')
+
     # create a temporary folder to clone the repositories
     temp_folder = Path("./tmp")
     temp_folder.mkdir(exist_ok=True)
     # register the cleanup function to be called at the end
     atexit.register(cleanup)
+
+    # Parse the command line arguments
+    args = parse_args()
+    group_type = args.group_type
 
     # Check if the SSH connection is working
     if not check_ssh_connection():
@@ -76,102 +216,15 @@ if __name__ == '__main__':
         print("Run the following command to check if your SSH connection is working:")
         print("ssh -T git@hf.co")
         print("If it is anonymous, you need to add your SSH key to your HuggingFace account.")
-        sys.exit(1)
-
-    # Parse the command line arguments
-    args = parse_args()
-    group_type = args.group_type
-    suffix = "_retry" if args.retry else ""
+        exit(1)
 
     # Load the repositories and set nan columns to empty string
-    input_file = DATA_DIR / f"selected_{group_type}_commits{suffix}.csv"
+    input_file = DATA_DIR / f"selected_{group_type}_commits.csv"
+    output_file = DATA_DIR / f"repositories_evolution_{group_type}_commits.csv"
+    df_commits = load_commits(input_file)
+    analyze_slice(df_commits, output_file, begin=args.begin, end=args.end)
 
-    if not input_file.exists():
-        print(f"Input file {input_file} does not exist. Please run `get_commit_logs.py` to generate it.")
-        print("If you are running this script to retry, make sure to run hotfix/compute_failed_recent_history.py")
-        sys.exit(1)
-
-    print(f"Loading the commit history data from {input_file}...")
-    df_commits = pd.read_csv(input_file).fillna("")
-    print("Total number of commits:", len(df_commits))
-
-    # identify the commits that have at least one model file
-    df_commits = df_commits[df_commits["changed_files"].apply(lambda x: filter_by_extension(x))]
-    df_commits.reset_index(drop=True, inplace=True)
-    print("Number of commits touching at least one model file:", len(df_commits))
-
-    # this is the last repository URL and object, used to avoid cloning the same repository multiple times
-    last_repo_url, last_repo_obj, last_clone_path = None, None, None
-
-    # create the output dataframes
-    df_output = pd.DataFrame(columns=["repo_url", "commit_hash", "model_file_path", "serialization_format",
-                                      "message", "author", "date", "is_in_commit"])
-    df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
-
-    # Analysis configuration
-    print(f"Start processing (range = {0}-{len(df_commits)}) for group {group_type}...")
-    save_at, out_filename = 1000, f"repositories_evolution_{group_type}_commits{suffix}.csv"
-
-    # iterate over the range of commits
-    for index, row in tqdm(df_commits.iterrows(), total=len(df_commits), unit="commit"):
-        all_model_files = [f for f in row["all_files_in_tree"].split(";") if is_model_file(f)]
-        changed_files = [x.split()[1] for x in row["changed_files"].split(";")]
-        try:
-            # checkout repository at that commit hash
-            commit_hash = row["commit_hash"]
-            repo_url = row["repo_url"]
-            clone_path = temp_folder / repo_url.replace("/", "+")
-
-            if last_repo_url != repo_url:
-                # close the last repository and delete the folder
-                if last_repo_obj:
-                    last_repo_obj.close()
-                    delete_folder(last_clone_path)
-                # clone the repository
-                repo = clone(repo_url, clone_path, single_branch=True, no_tags=True)
-                # update the last repository URL and object
-                last_repo_url, last_repo_obj, last_clone_path = repo_url, repo, clone_path
-
-            # checkout the commit hash
-            last_repo_obj.git.checkout(commit_hash, force=True)
-
-            # iterate over the files touched in the commit (modified, added, or deleted)
-            for file_path in all_model_files:
-                full_file_path = os.path.join(clone_path, file_path)
-                # check if it is a symbolic file pointing to nowhere
-                if os.path.islink(full_file_path) and not os.path.exists(full_file_path):
-                    serialization_format = "UNDETERMINED (symbolic link)"
-                else:
-                    serialization_format = detect_serialization_format(full_file_path)
-                # add to df_output
-                df_output.loc[len(df_output)] = {
-                    "repo_url": repo_url,
-                    "commit_hash": commit_hash,
-                    "model_file_path": os.path.join(repo_url, file_path),
-                    "serialization_format": serialization_format,
-                    "message": row["message"],
-                    "author": row["author"],
-                    "date": row["date"],
-                    "is_in_commit": file_path in changed_files,
-                }
-                # print(f"File: {file_path}, Format: {serialization_format}")
-        except Exception as e:
-            print(f"Error processing {commit_hash}: {e}")
-            df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": e}
-
-        # SAVES THE DATAFRAME EVERY save_at ITERATIONS
-        if index != 0 and index % save_at == 0:
-            df_output.to_csv(DATA_DIR / out_filename, index=False)
-            df_errors.to_csv(DATA_DIR / out_filename.replace("commits", "errors"), index=False)
-
-    # after all is said and done, how many unique [repo_url,commit_hash] we have in total?
-    print(f"Unique commits: {len(df_output[['repo_url', 'commit_hash']].drop_duplicates())}")
-
-    # save the output dataframes
-    df_output.to_csv(DATA_DIR / out_filename, index=False)
-    df_errors.to_csv(DATA_DIR / out_filename.replace("commits", "errors"), index=False)
-
-    print(f"Output saved to {DATA_DIR}/{out_filename}")
+    print(f"Output saved to {output_file.name}")
     print("Done!")
     print("Recommended next steps:")
     print("1. Run the tests on tests/test_analyze_commit_history.py to check the results.")
