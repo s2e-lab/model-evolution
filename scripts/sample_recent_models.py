@@ -43,11 +43,10 @@ def sample(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = None, 
     df = df.dropna(subset=[date_col])
     if exclude_repos:
         df = df[~df[repo_col].isin(exclude_repos)]
-    df["quarter"] = (
-        df[date_col]
-        .dt.tz_localize(None)
-        .dt.to_period("Q")
-    )
+    print(f"Sampling from {len(df)} repositories...")
+
+    df["quarter"] = df[date_col].dt.tz_localize(None).dt.to_period("Q")
+
 
     quarters = sorted(df["quarter"].unique())
     sampled_idx = []

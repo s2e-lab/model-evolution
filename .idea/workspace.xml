@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/analyze_commit_history.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/analyze_commit_history.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/sample_recent_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/sample_recent_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_get_commit_logs.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_get_commit_logs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +122,7 @@
       <recent name="D:\Portfolio\GitHub\wip-model-evolution\data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.analyze_commit_history">
+  <component name="RunManager" selected="Python tests.Python tests for test_get_commit_logs.TestModelsCommits">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="model-evolution" />
       <option name="ENV_FILES" value="" />
@@ -254,8 +257,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.analyze_commit_history" />
         <item itemvalue="Python tests.Python tests for test_get_commit_logs.TestModelsCommits" />
+        <item itemvalue="Python.analyze_commit_history" />
         <item itemvalue="Python.get_commit_logs" />
         <item itemvalue="Python.sample_recent_models" />
         <item itemvalue="Python tests.Python tests for test_get_commit_logs.TestModelsCommits.test_get_commit_logs" />
@@ -293,7 +296,7 @@
       <workItem from="1784935288261" duration="11000" />
       <workItem from="1784935320391" duration="7000" />
       <workItem from="1784935391396" duration="1751000" />
-      <workItem from="1785093017236" duration="94583000" />
+      <workItem from="1785093017236" duration="95990000" />
     </task>
     <task id="LOCAL-00001" summary="added a print statement to better indicate the filtering steps' statuses">
       <option name="closed" value="true" />
@@ -373,7 +376,7 @@
     <SUITE FILE_PATH="coverage/model_evolution$select_models.coverage" NAME="select_models Coverage Results" MODIFIED="1785093787536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_get_commit_logs.coverage" NAME="TO_DELETE_get_commit_logs Coverage Results" MODIFIED="1731073465254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/model_evolution$analyze_commit_history_new.coverage" NAME="analyze_commit_history Coverage Results" MODIFIED="1785269256281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
-    <SUITE FILE_PATH="coverage/model_evolution$.coverage" NAME=" Coverage Results" MODIFIED="1785273236793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/model_evolution$.coverage" NAME=" Coverage Results" MODIFIED="1785276381834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_craw_safetensors_discussion.coverage" NAME="TO_DELETE_craw_safetensors_discussion Coverage Results" MODIFIED="1730824189735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/bot" />
     <SUITE FILE_PATH="coverage/model_evolution$TO_DELETE_get_models.coverage" NAME="TO_DELETE_get_models Coverage Results" MODIFIED="1785094907655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_merge_csvs.coverage" NAME="TO_DELETE_merge_csvs Coverage Results" MODIFIED="1731084451736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

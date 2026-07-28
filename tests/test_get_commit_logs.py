@@ -15,10 +15,10 @@ class TestModelsCommits(unittest.TestCase):
 
     def run_assertions(self, df_commits: DataFrame, df_errors:DataFrame, df_repos: DataFrame):
         # check the number of unique repos in each frame is the same
-        missing =  set(df_repos["id"]) - (set(df_commits["repo_url"]) | set(df_errors["repo_url"]))
+        missing =  set(df_repos["id"]) - set(df_commits["repo_url"])
         self.assertEqual(len(missing), 0, f"Missing repositories: {missing}")
         # check that errors are empty
-        # self.assertTrue(df_errors.empty)
+        self.assertTrue(df_errors.empty)
 
     def test_get_commit_logs(self):
         for group in ["legacy", "recent"]:

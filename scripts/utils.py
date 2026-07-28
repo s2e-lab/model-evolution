@@ -182,21 +182,21 @@ def download_model_files(repo: str, sha: str, dir_name: str, model_files: list[s
     """
     user_agent = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                   "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0")
-    max_retries, base_delay = 5, 5  # Maximum number of retries and base delay in seconds
-    for filename in (pbar := tqdm(model_files, unit='file')):
-        pbar.set_postfix_str(filename)
+    max_retries, base_delay = 2, 5  # Maximum number of retries and base delay in seconds
+    for f in (pbar := tqdm(model_files, unit='file')):
+        pbar.set_postfix_str(f)
         for attempt in range(1, max_retries + 1):
             try:
-                hf_hub_download(repo_id=repo, filename=filename, local_dir=dir_name, revision=sha,
-                                user_agent=user_agent)
+                hf_hub_download(repo_id=repo, filename=f, local_dir=dir_name, revision=sha, user_agent=user_agent)
+                break
             except Exception as e:
-                logger.debug(f"⚠️ Failed to download {filename} (attempt {attempt}): {e}")
+                logger.debug(f"⚠️ Failed to download {f} (attempt {attempt}/{max_retries}): {e}")
                 if attempt < max_retries:
                     wait = base_delay * (2 ** (attempt - 1))
                     logger.debug(f"🔁 Retrying in {wait} seconds...")
                     time.sleep(wait)
                 else:
-                    raise RuntimeError(f"❌ Download failed after {max_retries} attempts for {filename}")
+                    raise RuntimeError(f"❌ Download failed after {max_retries} attempts for {f}")
 
     return sha
 
@@ -208,7 +208,6 @@ def get_file_extension(file_path: str) -> str:
     :return: the file extension.
     """
     return Path(file_path).suffix.lstrip(".")
-
 
 
 def enforce_ssh(logger: Logger | None = None):
