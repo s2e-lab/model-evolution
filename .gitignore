@@ -6,6 +6,7 @@ scripts/tmp/
 tmp/*
 data/*repo_size_cache.*
 data/*commits_cache.*
+data/*commit_analysis_cache.*
 data/hf_sort_by_createdAt_top1209240.json
 
 # Byte-compiled / optimized / DLL files
