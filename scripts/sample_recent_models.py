@@ -14,57 +14,7 @@ import pandas as pd
 from utils import load, DATA_DIR, calculate_sample_size
 
 
-def sample(df: pd.DataFrame, seed: int = 42):
-    """
-    Return a temporally stratified random sample.
-
-    For each creation quarter, calculate the sample size (S) needed for 95% confidence and a 5% margin of error,
-    then randomly sample that number of repositories.
-
-    :param df: DataFrame to sample from
-    :param seed: fixed random seed for reproducibility
-    :return: sampled DataFrame
-    """
-    random.seed(seed)
-
-    date_col = "created_at"
-
-    df = df.copy()
-    df[date_col] = pd.to_datetime(
-        df[date_col],
-        utc=True,
-        errors="coerce"
-    )
-
-    df = df.dropna(subset=[date_col])
-
-    df["quarter"] = (
-        df[date_col]
-        .dt.tz_localize(None)
-        .dt.to_period("Q")
-    )
-
-    quarters = sorted(df["quarter"].unique())
-    sampled_idx = []
-
-    print("Quarter sampling allocation:")
-
-    for quarter in quarters:
-        quarter_idx = df.index[df["quarter"] == quarter].tolist()
-
-        population_size = len(quarter_idx)
-        sample_size = calculate_sample_size(population_size, margin_error=0.05, confidence_level=0.95)
-
-        print(f"{quarter}: population={population_size:,}, sample={sample_size:,}")
-
-        sampled_idx.extend(random.sample(quarter_idx, sample_size))
-
-    sampled_df = df.loc[sorted(sampled_idx)].reset_index(drop=True)
-    sampled_df = sampled_df.drop(columns="quarter")
-
-    return sampled_df
-
-def sample_OLD(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = None) -> pd.DataFrame:
+def sample(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = None, exclude_repos: set | None=None) -> pd.DataFrame:
     """
     Return a temporally stratified sample.
 
@@ -73,11 +23,13 @@ def sample_OLD(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = No
 
     :param df: DataFrame to sample from.
     :param seed: Fixed random seed for reproducibility.
-    :param previous_repos: Repository identifiers analyzed previously.
+    :param previous_repos: Repository identifiers analyzed previously that you'd like to prioritize to pick to avoid re-running everything for cached results.
+    :param exclude_repos:  Repositories to exclude from sampling because they are known to fail.
     :return: Sampled DataFrame.
     """
     random.seed(seed)
     previous_repos = previous_repos or set()
+    exclude_repos = exclude_repos or set()
 
     date_col = "created_at"
     repo_col = "id"  # Change to "id" if that is the identifier in df.
@@ -89,7 +41,8 @@ def sample_OLD(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = No
         errors="coerce"
     )
     df = df.dropna(subset=[date_col])
-
+    if exclude_repos:
+        df = df[~df[repo_col].isin(exclude_repos)]
     df["quarter"] = (
         df[date_col]
         .dt.tz_localize(None)
@@ -153,14 +106,14 @@ if __name__ == "__main__":
     # Step 1: Load the repositories' metadata.
     print(f"Loading recent repository data from {input_file.name}...")
     df = load(input_file)
-    # df_previous = pd.read_csv(DATA_DIR / "v1_selected_recent/repositories_evolution_recent_commits_processed.csv")
-    # previous_repos = set(df_previous["repo_url"].tolist())
-    # print(f"Found {len(previous_repos)} previous repositories.")
+    df_previous = pd.read_json(DATA_DIR / "selected_recent_repos.json")
+    previous_repos = set(df_previous["id"].tolist())
+    print(f"Found {len(previous_repos)} previous repositories.")
 
     # Step 2: Sample recent repositories.
     print(f"Sampling from {len(df)} recent repositories...")
 
-    df_recent = sample(df, seed=42)#, previous_repos=previous_repos)
+    df_recent = sample(df, seed=42, previous_repos=previous_repos, exclude_repos={'thejosango/nuha','AI-Sweden-Models/gpt-sw3-6.7b-v2'})
     df_recent.reset_index(drop=True, inplace=True)
 
     print(f"Selected repositories: {len(df_recent)} recent repos")

@@ -169,8 +169,8 @@ if __name__ == "__main__":
     print(f"Extracting commits for repos listed in {input_file.name}")
     extract_all_commits(repo_urls, output_file, error_file)
 
-    print(f"Commits saved to {output_file}")
-    print(f"Errors saved to {error_file}")
+    print(f"Commits saved to {output_file.name}")
+    print(f"Errors saved to {error_file.name}")
     print("Done!")
     print("Recommended next steps:")
     print("1. Run the tests on tests/test_get_commit_logs.py to check the results.")
