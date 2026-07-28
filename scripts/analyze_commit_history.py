@@ -228,5 +228,4 @@ if __name__ == '__main__':
     print("Done!")
     print("Recommended next steps:")
     print("1. Run the tests on tests/test_analyze_commit_history.py to check the results.")
-    print("1. Run the hotfix to discard extra repos from the recent group, to balance out the sizes on each category.")
     print("2. Run the notebooks for the corresponding RQs that use this data.")
