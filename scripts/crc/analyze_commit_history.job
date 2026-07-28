@@ -6,7 +6,7 @@
 #$ -q long             # Specify queue
 #$ -N model_analysis   # Specify job name
 conda activate HFStudy
-cd ../../AnalyticaML
-pip install .
-cd ../model-evolution/scripts
+#cd ../../AnalyticaML
+#pip install .
+#cd ../model-evolution/scripts
 HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 0 --end 3 # Application to execute
