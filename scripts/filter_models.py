@@ -89,7 +89,7 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
                 # Copy the dictionary instead of modifying the object's internal __dict__ directly.
                 repo_file = vars(sibling).copy()
                 filename = repo_file.get("rfilename", "")
-                repo_file["extension"] = (filename.rsplit(".", 1)[-1] if "." in filename else "")
+                repo_file["extension"] = filename.rsplit(".", 2)[-1]
                 repo_files.append(repo_file)
             return model_info.usedStorage, repo_files, ""
         except RepositoryNotFoundError:
@@ -307,7 +307,8 @@ if __name__ == "__main__":
     print(f"There are {len(df_recent)} recent repositories that passes all exclusion criteria (E1--E4).")
 
     # Step 4 - Save the data
-    save(df_legacy, out_legacy_models_file, compress=False)
+    print("Saving filtered models to disk...")
+    # save(df_legacy, out_legacy_models_file, compress=False)
     save(df_recent, out_recent_models_file, compress=True)
 
     # Print summary information

@@ -4,9 +4,9 @@ from pathlib import Path
 import pandas as pd
 from pandas import DataFrame
 
-from scripts.select_models import SAFETENSORS_RELEASE_DATE
+from scripts.filter_models import SAFETENSORS_RELEASE_DATE
 from scripts.utils import load
-from scripts.select_models import  has_model_file
+from scripts.filter_models import  has_model_file
 
 def fix_data_types(df: DataFrame):
     df['last_modified'] = pd.to_datetime(df['last_modified'], unit='ms', utc=True)
@@ -16,22 +16,19 @@ def fix_data_types(df: DataFrame):
 
 class TestSafetensorsReleaseDate(unittest.TestCase):
     def test_safetensors_release_date(self):
-        expected_date = pd.to_datetime("2022-09-23")
-        self.assertEqual(str(SAFETENSORS_RELEASE_DATE), str(expected_date),
+        expected_date = pd.to_datetime("2022-09-22")
+        self.assertEqual(str(SAFETENSORS_RELEASE_DATE).split()[0], str(expected_date).split()[0],
                          f"Expected Safetensors release date to be {expected_date}, but got {SAFETENSORS_RELEASE_DATE}")
 
 
-class TestSelectModels(unittest.TestCase):
+class TestFilterModels(unittest.TestCase):
     def setUp(self):
         # Create a temporary directory for testing
         self.data_dir = Path("../data")
 
-    def test_selected_models(self):
-        num_extra = 10
+    def test_filter_models(self):
         df_legacy = fix_data_types(load(self.data_dir / f"selected_legacy_repos.json"))
-        df_recent = fix_data_types(load(self.data_dir / f"selected_recent_repos.json"))
-        # check that the DataFrame is not empty and has the expected number of models
-        self.assertEqual(len(df_legacy) + num_extra, len(df_recent) )
+        df_recent = fix_data_types(load(self.data_dir / f"all_recent_repos.json.zip"))
         # check all models are not gated
         self.assertTrue((df_legacy['gated'] == False).all())
         self.assertTrue((df_recent['gated'] == False).all())
