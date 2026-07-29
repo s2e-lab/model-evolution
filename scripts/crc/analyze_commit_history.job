@@ -9,4 +9,4 @@ conda activate HFStudy
 #cd ../../AnalyticaML
 #pip install .
 #cd ../model-evolution/scripts
-HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 0 --end 10750
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 2682 --end 10750

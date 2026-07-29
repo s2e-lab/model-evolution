@@ -38,6 +38,39 @@ def load_cache(cache_path: Path) -> None:
         connection.execute(f"CREATE TABLE IF NOT EXISTS analysis_cache ({fields}, PRIMARY KEY({pk}))")
 
 
+def load_cache_in_memory(cache_path: Path, df_slice: pd.DataFrame, ) -> dict[tuple[str, str], list]:
+    keys = list(
+        df_slice[["repo_url", "commit_hash"]]
+        .drop_duplicates()
+        .itertuples(index=False, name=None)
+    )
+    with sqlite3.connect(cache_path) as connection:
+        connection.execute("""CREATE TEMP TABLE requested_commits (
+                repo_url TEXT NOT NULL,
+                commit_hash TEXT NOT NULL,
+                PRIMARY KEY (repo_url, commit_hash)
+            )""")
+
+        connection.executemany("INSERT OR IGNORE INTO requested_commits (repo_url, commit_hash) VALUES (?, ?)",
+            keys,
+        )
+
+        rows = connection.execute("""
+                                  SELECT cache.repo_url,
+                                         cache.commit_hash,
+                                         cache.results
+                                  FROM analysis_cache AS cache
+                                           INNER JOIN requested_commits AS requested
+                                                      ON cache.repo_url = requested.repo_url
+                                                          AND cache.commit_hash = requested.commit_hash
+                                  """).fetchall()
+
+    return {
+        (repo_url, commit_hash): json.loads(results)
+        for repo_url, commit_hash, results in rows
+    }
+
+
 def get_cached_analysis(cache_path: Path, repo_url: str, commit_hash: str, ) -> list | None:
     with sqlite3.connect(cache_path) as connection:
         row = connection.execute(
@@ -61,8 +94,6 @@ def save_to_cache(cache_path: Path, repo_url: str, commit_hash: str, results: li
                                updated_at = CURRENT_TIMESTAMP
                            """, (repo_url, commit_hash, json.dumps(results, default=str),)
                            )
-
-
 
 
 def parse_args():
@@ -98,7 +129,7 @@ def is_model_file(file_path: str):
     return get_file_extension(file_path) in MODEL_FILE_EXTENSIONS
 
 
-def cleanup(folders:list) -> None:
+def cleanup(folders: list) -> None:
     logger.info("Performing cleanup...")
     # delete the temporary folder
     for folder in folders:
@@ -117,10 +148,15 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
     error_output = csv_output.with_name(csv_output.name.replace("commits", "errors"))
     df_slice = df.iloc[begin:end]
+
+    cache = load_cache_in_memory(cache_path, df_slice)
+    logger.info(f"We already have {len(cache)} rows in {cache_path.name}")
+    logger.info(f"It will grab the remaining {len(df_slice) - len(cache)} rows")
+
     for _, row in tqdm(df_slice.iterrows(), total=len(df_slice), unit="commit"):
         repo_url = row["repo_url"]
         commit_hash = row["commit_hash"]
-        cached_results = get_cached_analysis(cache_path, repo_url, commit_hash)
+        cached_results = cache.get(repo_url,commit_hash) #get_cached_analysis(cache_path, repo_url, commit_hash)
 
         if cached_results is not None:
             for result in cached_results:
