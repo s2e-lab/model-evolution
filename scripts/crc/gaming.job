@@ -1,0 +1,20 @@
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 0 --end 1000
+./notify.sh "DONE" "0 -- 1000"
+
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 1000 --end 2000
+./notify.sh "DONE" "1000 -- 2000"
+
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 2000 --end 3000
+./notify.sh "DONE" "2000 -- 3000"
+
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 3000 --end 4000
+./notify.sh "DONE" "3000 -- 4000"
+
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 4000 --end 5000
+./notify.sh "DONE" "4000 -- 5000"
+
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 5000 --end 6000
+./notify.sh "DONE" "5000 -- 6000"
+
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 6000 --end 7000
+./notify.sh "DONE" "6000 -- 7000"
