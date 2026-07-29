@@ -8,6 +8,7 @@ data/*repo_size_cache.*
 data/*commits_cache.*
 data/*commit_analysis_cache.*
 data/hf_sort_by_createdAt_top1209240.json
+scripts/notify.sh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
