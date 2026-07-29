@@ -182,7 +182,7 @@ def download_model_files(repo: str, sha: str, dir_name: str, model_files: list[s
     """
     user_agent = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                   "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0")
-    max_retries, base_delay = 2, 5  # Maximum number of retries and base delay in seconds
+    max_retries, base_delay = 1, 5  # Maximum number of retries and base delay in seconds
     for f in (pbar := tqdm(model_files, unit='file')):
         pbar.set_postfix_str(f)
         for attempt in range(1, max_retries + 1):
@@ -196,7 +196,7 @@ def download_model_files(repo: str, sha: str, dir_name: str, model_files: list[s
                     logger.debug(f"🔁 Retrying in {wait} seconds...")
                     time.sleep(wait)
                 else:
-                    raise RuntimeError(f"❌ Download failed after {max_retries} attempts for {f}")
+                    raise RuntimeError(f"❌ Download failed after {max_retries} attempt(s) for {f}")
 
     return sha
 
