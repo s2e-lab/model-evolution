@@ -4,7 +4,7 @@ from utils import DATA_DIR
 from analyze_commit_history import load_cache
 
 # Source database containing newer cached results.
-new_cache = DATA_DIR / "_JOANNA_commit_analysis_cache.sqlite3"
+new_cache = DATA_DIR / "_NEW2_commit_analysis_cache.sqlite3"
 
 # Destination database containing the existing cached results.
 cache_path = DATA_DIR / "_commit_analysis_cache.sqlite3"

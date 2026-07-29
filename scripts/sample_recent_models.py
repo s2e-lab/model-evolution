@@ -105,14 +105,21 @@ if __name__ == "__main__":
     # Step 1: Load the repositories' metadata.
     print(f"Loading recent repository data from {input_file.name}...")
     df = load(input_file)
+
+    # Step 1.1: When we need to retry from where we stopped to grab more samples after some failed
+    # we load the previous ones such that we can ensure they are still selected again
     df_previous = pd.read_json(DATA_DIR / "selected_recent_repos.json")
     previous_repos = set(df_previous["id"].tolist())
     print(f"Found {len(previous_repos)} previous repositories.")
+    exclude_repos = {
+        'thejosango/nuha', 'AI-Sweden-Models/gpt-sw3-6.7b-v2'
+        'fayetitchenal/segformer_finetuned_test_110424', 'besimray/miner_id_3_794df6f6-b398-448d-8972-ec017a83142c_1730836890', 'kiupuc/speecht5_tts'
+    }
 
     # Step 2: Sample recent repositories.
     print(f"Sampling from {len(df)} recent repositories...")
 
-    df_recent = sample(df, seed=42, previous_repos=previous_repos, exclude_repos={'thejosango/nuha','AI-Sweden-Models/gpt-sw3-6.7b-v2'})
+    df_recent = sample(df, seed=42, previous_repos=previous_repos, exclude_repos=exclude_repos)
     df_recent.reset_index(drop=True, inplace=True)
 
     print(f"Selected repositories: {len(df_recent)} recent repos")
