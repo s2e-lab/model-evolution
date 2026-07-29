@@ -114,12 +114,11 @@ if __name__ == "__main__":
     exclude_repos = {
         'thejosango/nuha', 'AI-Sweden-Models/gpt-sw3-6.7b-v2'
         'fayetitchenal/segformer_finetuned_test_110424', 'besimray/miner_id_3_794df6f6-b398-448d-8972-ec017a83142c_1730836890', 'kiupuc/speecht5_tts',
-        'iamanaiart/LCM-hardcoreHentai13_v13Baked-openvino', 'EmbeddedLLM/Phi-3-vision-128k-instruct-onnx'
+        'iamanaiart/LCM-hardcoreHentai13_v13Baked-openvino', 'EmbeddedLLM/Phi-3-vision-128k-instruct-onnx',
+        'SR467/xzg','mjmanashti/fingemma-2b-ti','CHShakish/my-pet-dog', 'sartifyllc/African-Cross-Lingua-Embeddings-Model', 'JaaackXD/Llama-3-70B-Instruct-GGUF','polyconnect/dqn-SpaceInvadersNoFrameskip-v4', 'Kwai-Kolors/Kolors',
     }
 
     # Step 2: Sample recent repositories.
-    print(f"Sampling from {len(df)} recent repositories...")
-
     df_recent = sample(df, seed=42, previous_repos=previous_repos, exclude_repos=exclude_repos)
     df_recent.reset_index(drop=True, inplace=True)
 

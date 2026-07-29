@@ -164,7 +164,7 @@ if __name__ == "__main__":
 
     # where to save data
     output_file = DATA_DIR / f"{input_file.stem.replace('_repos', '_commits')}.csv"
-    error_file = output_file.with_name(output_file.name.replace("commits", "errors"))
+    error_file = output_file.with_name(output_file.name.replace("_commits", "_errors"))
 
     print(f"Extracting commits for repos listed in {input_file.name}")
     extract_all_commits(repo_urls, output_file, error_file)
@@ -173,5 +173,5 @@ if __name__ == "__main__":
     print(f"Errors saved to {error_file.name}")
     print("Done!")
     print("Recommended next steps:")
-    print("1. Run the tests on tests/test_get_commit_logs.py to check the results.")
-    print("2. Run the scripts/analyze_commit_history.py to identify the serialization format used in each saved model file.")
+    print("\t1. Run the tests on tests/test_get_commit_logs.py to check the results.")
+    print("\t2. Run the scripts/analyze_commit_history.py to identify the serialization format used in each saved model file.")

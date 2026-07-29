@@ -50,57 +50,49 @@ HF_TOKEN=<your_huggingface_token>
   It will save the metadata of all models in the `../data/` folder.
   File name will be `hf_sort_by_createdAt_topN.json.zip`, where `N` is the number of model repositories.
 
-#### Step 2: Filtering the models using the criteria described in our methodology
+#### Step 2: Selecting the models using the criteria described in our methodology
 
 - `./filter_models.py`: Script to filter the repositories from HuggingFace using our filtering criteria based on
   creation / last update dates. Heads up that, this script takes over a day to execute (being significantly slower if you have slow network connection and/or do not have a pro Hugging Face account, with more limited API limits).
   ```bash
     python filter_models.py
   ```
-  It will select model repositories and save the filtered list in two files:
-    - `../data/selected_legacy_repos.json`: Group 1. Repositories created **before** safetensors' release.
-    - `../data/all_recent_repos.json`. Group 2. Repositories created **after** safetensors' release. 
+  It will filter model repositories and save the filtered list in two files:
+    - `../data/selected_legacy_repos.json`: Group 1. Repositories created **before** safetensors release.
+    - `../data/all_recent_repos.json`. Group 2. Repositories created **after** safetensors release. 
 
 - `./sample_recent_models.py`: Script to downsample the _recent_ repositories from using our sampling strategy described in the paper.
-    - `../data/selected_recent_repos.json`. Group 2 sample. **_Sampled_** repositories created **after** safetensors' release.
+    - `../data/selected_recent_repos.json`. Group 2 sample. **_Sampled_** repositories created **after** safetensors release.
 
 #### Step 3: Getting the commit history of the models
 
 - `get_commit_logs.py`: Script to get metadata of all models from HuggingFace.
   It will produce commit history for each model repository and save it on the data folder.
-  This script will take a long time to run (~1 hour each group type).
+  This script will take a long time to run (~2 hours each group type).
 
 ```bash
-python get_commit_logs.py group_type [--retry]
+python get_commit_logs.py --group_type <value> 
 ```
 
-Where `group_type` is either `legacy` or `recent`, and `--retry` is an optional argument that will retry
-extracting the commits for the repositories that previously failed. It parses the CSV file with errors to retry those.
+Where `group_type` is either `legacy` or `recent`.
 
-```
 
-Example: below it will extract the commit logs for legacy models.
+
+Example: below it will extract the commit logs for legacy models. 
 The second command then retries the repos that failed. 
 
 ```bash
-python get_commit_logs.py legacy
-python get_commit_logs.py legacy --retry 
+python get_commit_logs.py legacy 
 ```
 
 It will save the commit history for each model in the `../data/` folder.
-File names will be `selected_<group_type>_commits.csv`
-and `selected_<group_type>_errors.csv`
-Notice that if you run the script with `--retry` it will create a new file with the errors and not overwrite the
-previous.
-These files would be named as: `selected_<group_type>_commits_retried.csv`
-and `selected_<group_type>_errors_retried.csv`.
+File names will be `selected_<group_type>_commits.csv` and `selected_<group_type>_errors.csv`
 
 #### Step 4: Analyzing the commit history to identify the serialization format
 
-- `analyze_commit_history.py`: Script to analyze the commit history of the models to identify the serialization format
-  using at a given time.
+- `analyze_commit_history.py`: Script to analyze the commit history of the models to identify the serialization format using at a given time.
   ```bash
-  python analyze_commit_history.py <group_type>
+  python analyze_commit_history.py --group_type <group_type>
   ```
   It requires the `group_type` argument, which can be either `legacy` or `recent`.
   The script will generate a CSV file with the commit history analysis on the `../data/` folder.
