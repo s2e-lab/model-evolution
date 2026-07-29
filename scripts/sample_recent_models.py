@@ -113,7 +113,8 @@ if __name__ == "__main__":
     print(f"Found {len(previous_repos)} previous repositories.")
     exclude_repos = {
         'thejosango/nuha', 'AI-Sweden-Models/gpt-sw3-6.7b-v2'
-        'fayetitchenal/segformer_finetuned_test_110424', 'besimray/miner_id_3_794df6f6-b398-448d-8972-ec017a83142c_1730836890', 'kiupuc/speecht5_tts'
+        'fayetitchenal/segformer_finetuned_test_110424', 'besimray/miner_id_3_794df6f6-b398-448d-8972-ec017a83142c_1730836890', 'kiupuc/speecht5_tts',
+        'iamanaiart/LCM-hardcoreHentai13_v13Baked-openvino', 'EmbeddedLLM/Phi-3-vision-128k-instruct-onnx'
     }
 
     # Step 2: Sample recent repositories.
