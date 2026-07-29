@@ -151,7 +151,7 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     cache = load_cache_in_memory(cache_path, df_slice)
     logger.info(f"We already have {len(cache)} rows in {cache_path.name}")
     logger.info(f"It will grab the remaining {len(df_slice) - len(cache)} rows")
-
+    exit(0)
     for _, row in tqdm(df_slice.iterrows(), total=len(df_slice), unit="commit"):
         repo_url = row["repo_url"]
         commit_hash = row["commit_hash"]
