@@ -228,3 +228,9 @@ def enforce_ssh(logger: Logger | None = None):
     log("ssh -T git@hf.co")
     log("If it is anonymous, you need to add your SSH key to your Hugging Face account.")
     sys.exit(1)
+
+def get_tmp_folder() -> Path:
+    import socket
+    if "crc.nd.edu" in socket.gethostname():
+        return Path("/groups/jdasilv2/tmp")
+    return Path("./tmp")

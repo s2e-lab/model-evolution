@@ -11,14 +11,14 @@ from tqdm import tqdm
 
 from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection, SerializationMethod
 from analyticaml.model_parser import detect_serialization_format
-from utils import DATA_DIR, download_model_files, get_file_extension
+from utils import DATA_DIR, download_model_files, get_file_extension, get_tmp_folder, enforce_ssh
 from utils import delete_folder
 
 # configure logger
 DEBUG = False
 logging.basicConfig(
     level=logging.DEBUG if DEBUG else logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
+    format="%(asctime)s [%(levelname)s] %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
     handlers=[logging.StreamHandler(sys.stdout)],
 )
@@ -98,10 +98,12 @@ def is_model_file(file_path: str):
     return get_file_extension(file_path) in MODEL_FILE_EXTENSIONS
 
 
-def cleanup():
-    print("Performing cleanup...")
+def cleanup(folders:list) -> None:
+    logger.info("Performing cleanup...")
     # delete the temporary folder
-    delete_folder(temp_folder)
+    for folder in folders:
+        is_deleted = delete_folder(folder)
+        logger.info(f"Deleted folder {folder}? {is_deleted}")
 
 
 def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: int | None) -> None:
@@ -168,12 +170,12 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
             for result in commit_results:
                 df_output.loc[len(df_output)] = result
         except Exception as e:
-            print(f"Error processing {commit_hash}: {e}")
+            logger.error(f"Error processing {commit_hash}: {e}")
             df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": str(e)}
 
 
     # after all is said and done, how many unique [repo_url,commit_hash] we have in total?
-    print(f"Unique commits: {len(df_output[['repo_url', 'commit_hash']].drop_duplicates())}")
+    logger.info(f"Unique commits: {len(df_output[['repo_url', 'commit_hash']].drop_duplicates())}")
 
     # save the output dataframes
     df_output.to_csv(csv_output, index=False)
@@ -199,23 +201,19 @@ if __name__ == '__main__':
     logger.debug(f'Is HF-TRANSFER enabled? {os.environ.get("HF_HUB_ENABLE_HF_TRANSFER", "False")}')
 
     # create a temporary folder to clone the repositories
-    temp_folder = Path("./tmp")
+    temp_folder = get_tmp_folder()
     temp_folder.mkdir(exist_ok=True)
+    logger.info(f"Temp folder: {temp_folder.resolve()}")
+    logger.info(f"HF_HUB_CACHE={os.getenv('HF_HUB_CACHE')}")
     # register the cleanup function to be called at the end
-    atexit.register(cleanup)
+    atexit.register(cleanup, [temp_folder])
 
     # Parse the command line arguments
     args = parse_args()
     group_type = args.group_type
 
     # Check if the SSH connection is working
-    if not check_ssh_connection():
-        print("Please set up your SSH keys on HuggingFace.")
-        print("https://huggingface.co/docs/hub/en/security-git-ssh")
-        print("Run the following command to check if your SSH connection is working:")
-        print("ssh -T git@hf.co")
-        print("If it is anonymous, you need to add your SSH key to your HuggingFace account.")
-        exit(1)
+    enforce_ssh(logger)
 
     # Load the repositories and set nan columns to empty string
     input_file = DATA_DIR / f"selected_{group_type}_commits.csv"
@@ -223,8 +221,8 @@ if __name__ == '__main__':
     df_commits = load_commits(input_file)
     analyze_slice(df_commits, output_file, begin=args.begin, end=args.end)
 
-    print(f"Output saved to {output_file.name}")
-    print("Done!")
-    print("Recommended next steps:")
-    print("1. Run the tests on tests/test_analyze_commit_history.py to check the results.")
-    print("2. Run the notebooks for the corresponding RQs that use this data.")
+    logger.info(f"Output saved to {output_file.name}")
+    logger.info("Done!")
+    logger.info("Recommended next steps:")
+    logger.info("1. Run the tests on tests/test_analyze_commit_history.py to check the results.")
+    logger.info("2. Run the notebooks for the corresponding RQs that use this data.")
