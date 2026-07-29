@@ -143,8 +143,7 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     load_cache(cache_path)
 
     # create the output dataframes
-    df_output = pd.DataFrame(
-        columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date", "is_in_commit", ], )
+    output_rows = []
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
     error_output = csv_output.with_name(csv_output.name.replace("commits", "errors"))
     df_slice = df.iloc[begin:end]
@@ -156,11 +155,10 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     for _, row in tqdm(df_slice.iterrows(), total=len(df_slice), unit="commit"):
         repo_url = row["repo_url"]
         commit_hash = row["commit_hash"]
-        cached_results = cache.get(repo_url,commit_hash) #get_cached_analysis(cache_path, repo_url, commit_hash)
+        cached_results = cache.get((repo_url,commit_hash)) #get_cached_analysis(cache_path, repo_url, commit_hash)
 
         if cached_results is not None:
-            for result in cached_results:
-                df_output.loc[len(df_output)] = result
+            output_rows.extend(cached_results)
             continue
 
         repo_clone_path = temp_folder / repo_url.replace("/", "+")
@@ -203,12 +201,14 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
 
             save_to_cache(cache_path, repo_url, commit_hash, commit_results)
 
-            for result in commit_results:
-                df_output.loc[len(df_output)] = result
+            output_rows.extend(commit_results)
         except Exception as e:
             logger.error(f"Error processing {commit_hash}: {e}")
             df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": str(e)}
 
+
+    df_output = pd.DataFrame(output_rows,
+        columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date", "is_in_commit", ], )
 
     # after all is said and done, how many unique [repo_url,commit_hash] we have in total?
     logger.info(f"Unique commits: {len(df_output[['repo_url', 'commit_hash']].drop_duplicates())}")
