@@ -211,6 +211,8 @@ if __name__ == '__main__':
     # Parse the command line arguments
     args = parse_args()
     group_type = args.group_type
+    logger.info(f"Group type: {args.group_type}")
+    logger.info(f"Range: {args.begin} - {args.end}")
 
     # Check if the SSH connection is working
     enforce_ssh(logger)
