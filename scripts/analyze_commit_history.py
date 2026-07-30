@@ -145,7 +145,7 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     # create the output dataframes
     output_rows = []
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
-    error_output = csv_output.with_name(csv_output.name.replace("commits", "errors"))
+    error_output = csv_output.with_name(csv_output.name.replace("_commits", f"_errors_{begin}-{end}"))
     df_slice = df.iloc[begin:end]
 
     cache = load_cache_in_memory(cache_path, df_slice)
@@ -176,8 +176,9 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
 
         try:
             commit_results = []
-            download_model_files(repo_url, commit_hash, repo_clone_path, [x for x in all_model_files if get_file_extension(x) != "safetensors"],
-                                 logger)
+            files_to_download = [x for x in all_model_files if get_file_extension(x) != "safetensors"]
+            if len(files_to_download) > 10: continue # skip for now
+            download_model_files(repo_url, commit_hash, repo_clone_path, files_to_download, logger)
             for model_file in all_model_files:
                 extension = get_file_extension(model_file)
                 model_file_path = os.path.join(repo_clone_path, model_file)
