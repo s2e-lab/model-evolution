@@ -10,7 +10,7 @@ conda activate HFStudy
 #pip install .
 #cd ../model-evolution/scripts
 
-HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 7000 --end 8000
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 7500 --end 8000
 ./notify.sh "DONE" "7500 -- 8000"
 
 HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 8000 --end 9000
