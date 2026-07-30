@@ -177,7 +177,7 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
         try:
             commit_results = []
             files_to_download = [x for x in all_model_files if get_file_extension(x) != "safetensors"]
-            if len(files_to_download) <= 10 or len(files_to_download) > 20: continue # skip for now
+            if len(files_to_download) > 20: continue # skip for now
             download_model_files(repo_url, commit_hash, repo_clone_path, files_to_download, logger)
             for model_file in all_model_files:
                 extension = get_file_extension(model_file)

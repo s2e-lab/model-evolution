@@ -10,20 +10,16 @@ conda activate HFStudy
 #pip install .
 #cd ../model-evolution/scripts
 
-HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 7500 --end 8000
-./notify.sh "DONE" "7500 -- 8000"
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 3000 --end 4000
+./notify.sh "DONE" "3000 -- 4000"
 
-HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 8000 --end 9000
-./notify.sh "DONE" "8000 -- 9000"
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 4000 --end 5000
+./notify.sh "DONE" "4000 -- 5000"
 
-HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 9000 --end 10000
-./notify.sh "DONE" "9000 -- 10000"
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 5000 --end 6000
+./notify.sh "DONE" "5000 -- 6000"
 
-HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 10000 --end 11000
-./notify.sh "DONE" "10000 -- 11000"
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 6000 --end 7000
+./notify.sh "DONE" "6000 -- 7000"
 
-HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 11000 --end 12000
-./notify.sh "DONE" "11000 -- 12000"
 
-HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 12000 --end 13000
-./notify.sh "DONE" "12000 -- 13000"
