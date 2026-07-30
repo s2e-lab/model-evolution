@@ -116,6 +116,19 @@ if __name__ == "__main__":
         'fayetitchenal/segformer_finetuned_test_110424', 'besimray/miner_id_3_794df6f6-b398-448d-8972-ec017a83142c_1730836890', 'kiupuc/speecht5_tts',
         'iamanaiart/LCM-hardcoreHentai13_v13Baked-openvino', 'EmbeddedLLM/Phi-3-vision-128k-instruct-onnx',
         'SR467/xzg','mjmanashti/fingemma-2b-ti','CHShakish/my-pet-dog', 'sartifyllc/African-Cross-Lingua-Embeddings-Model', 'JaaackXD/Llama-3-70B-Instruct-GGUF','polyconnect/dqn-SpaceInvadersNoFrameskip-v4', 'Kwai-Kolors/Kolors',
+
+        "AkshayPM/t5base-fine-tuned",
+        "MadFritz/sac-BipedalWalker-v3",
+        "VERSIL91/026600af-ccd9-4b63-966a-939e5dfcccd0",
+        "Zilun/GeoRSSD",
+        "dzanbek/ac4d17d9-5346-4e15-b45c-46285cf7c718",
+        "eeeebbb2/fb074c61-11a3-4256-bf44-f870513053c6",
+        "fayetitchenal/segformer_finetuned_test_110424",
+        "marcogfedozzi/ppo-LunarLander-v2",
+        "mattaq/nnUNet-GelGenie-15-Dec-2023",
+        "songhee/rugged-car",
+        "uni-zhuan/a2c-PandaReachDense-v3",
+
     }
 
     # Step 2: Sample recent repositories.
