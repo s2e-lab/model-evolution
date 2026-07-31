@@ -6,10 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0ce379dc-b656-471e-9cfe-7fb291bf7486.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0ce379dc-b656-471e-9cfe-7fb291bf7486.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/analyze_commit_history.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/analyze_commit_history.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/notebooks/nb_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/nb_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1CommitsDistribution_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1CommitsDistribution_both.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1CommitsDistribution_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1CommitsDistribution_recent.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1Heatmap_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1Heatmap_both.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1Heatmap_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1Heatmap_recent.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/rq1_dataset_stats_both.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/rq1_dataset_stats_both.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/rq1_dataset_stats_recent.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/rq1_dataset_stats_recent.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/safetensors_commits_by_tool_both.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/safetensors_commits_by_tool_both.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/safetensors_commits_not_by_tool_both.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/safetensors_commits_not_by_tool_both.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +87,7 @@
     "Python.get_commit_logs.executor": "Run",
     "Python.get_models.executor": "Run",
     "Python.merge_repo_evolution_caches.executor": "Run",
-    "Python.nb_utils.executor": "Debug",
+    "Python.nb_utils.executor": "Run",
     "Python.process_commit_history.executor": "Run",
     "Python.sample_recent_models.executor": "Run",
     "Python.select_models-v2.executor": "Run",
@@ -314,7 +319,7 @@
       <workItem from="1784935391396" duration="1751000" />
       <workItem from="1785093017236" duration="116896000" />
       <workItem from="1785344333278" duration="5774000" />
-      <workItem from="1785364994773" duration="42904000" />
+      <workItem from="1785364994773" duration="44895000" />
     </task>
     <task id="LOCAL-00001" summary="added a print statement to better indicate the filtering steps' statuses">
       <option name="closed" value="true" />
@@ -414,7 +419,7 @@
     <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_analyze_commit_history.coverage" NAME="TO_DELETE_analyze_commit_history Coverage Results" MODIFIED="1731179302599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/model_evolution$convert_repo_evolution_to_db_cache.coverage" NAME="convert_repo_evolution_to_db_cache Coverage Results" MODIFIED="1785269034851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/hotfixes" />
     <SUITE FILE_PATH="coverage/model_evolution$convert_json_cache_to_db.coverage" NAME="convert_json_cache_to_db Coverage Results" MODIFIED="1785173569889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/hotfixes" />
-    <SUITE FILE_PATH="coverage/model_evolution$nb_utils.coverage" NAME="nb_utils Coverage Results" MODIFIED="1785528688415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/notebooks" />
+    <SUITE FILE_PATH="coverage/model_evolution$nb_utils.coverage" NAME="nb_utils Coverage Results" MODIFIED="1785528774222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/notebooks" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$analyzed_merged_prs.coverage" NAME="analyzed_merged_prs Coverage Results" MODIFIED="1730852837038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/model_evolution$get_commit_logs.coverage" NAME="get_commit_logs Coverage Results" MODIFIED="1785520994278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/model_evolution$utils.coverage" NAME="utils Coverage Results" MODIFIED="1785096592941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
