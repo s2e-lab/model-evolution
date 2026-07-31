@@ -13,7 +13,7 @@ from analyticaml import MODEL_FILE_EXTENSIONS, check_ssh_connection, Serializati
 from analyticaml.model_parser import detect_serialization_format
 from utils import DATA_DIR, download_model_files, get_file_extension, get_tmp_folder, enforce_ssh
 from utils import delete_folder
-
+from sample_recent_models import load_repos_to_exclude, save_repos_to_exclude
 
 # configure logger
 DEBUG = False
@@ -154,6 +154,8 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     logger.info(f"It will grab the remaining {len(df_slice) - len(cache)} rows")
     # exit(0)
     failed_repos = set()
+
+
     for _, row in (pbar := tqdm(df_slice.iterrows(), total=len(df_slice), unit="commit")):
         repo_url = row["repo_url"]
         commit_hash = row["commit_hash"]
@@ -216,7 +218,6 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
             logger.error(f"Error processing {commit_hash}: {e}")
             df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": str(e)}
 
-
     df_output = pd.DataFrame(output_rows,
         columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date", "is_in_commit", ], )
 
@@ -226,6 +227,7 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     # save the output dataframes
     df_output.to_csv(csv_output, index=False)
     df_errors.to_csv(error_output, index=False)
+    save_repos_to_exclude(failed_repos)
 
 
 def load_commits(commit_file: Path) -> pd.DataFrame:
