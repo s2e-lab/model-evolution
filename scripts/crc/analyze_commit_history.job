@@ -11,5 +11,5 @@ conda activate HFStudy
 #cd ../model-evolution/scripts
 
 ./notify.sh "STARTING" "0 -- end"
-HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin
+HF_HUB_CACHE=/groups/jdasilv2/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent
 ./notify.sh "DONE" "0 -- end"
