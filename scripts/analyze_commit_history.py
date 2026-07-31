@@ -253,15 +253,16 @@ def load_commits(commit_file: Path) -> pd.DataFrame:
 
 
 if __name__ == '__main__':
-    logger.debug(f'Is HF-TRANSFER enabled? {os.environ.get("HF_HUB_ENABLE_HF_TRANSFER", "False")}')
-
     # create a temporary folder to clone the repositories
     temp_folder = get_tmp_folder()
     temp_folder.mkdir(exist_ok=True)
-    logger.info(f"Temp folder: {temp_folder.resolve()}")
-    logger.info(f"HF_HUB_CACHE={os.getenv('HF_HUB_CACHE')}")
     # register the cleanup function to be called at the end
     atexit.register(cleanup, [temp_folder])
+
+    # print some info
+    logger.info(f'HF-TRANSFER enabled? {os.environ.get("HF_HUB_ENABLE_HF_TRANSFER", "False")}')
+    logger.info(f"HF_HUB_CACHE={os.getenv('HF_HUB_CACHE')}")
+    logger.info(f"TEMP FOLDER: {temp_folder.resolve()}")
 
     # Parse the command line arguments
     args = parse_args()
