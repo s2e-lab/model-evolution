@@ -170,7 +170,7 @@ def handle_remove_readonly(func, path, exc):
         raise
 
 
-def download_model_files(repo: str, sha: str, dir_name: str, model_files: list[str], logger: Logger, timeout:float=None) -> None:
+def download_model_files(repo: str, sha: str, dir_name: str, model_files: list[str], logger: Logger, timeout: float | None = None,) -> None:
     """
     Download individual files from a HuggingFace model repository.
     :param repo: HuggingFace model repo ID (e.g., org/repo-name).
@@ -208,7 +208,9 @@ def download_model_files(repo: str, sha: str, dir_name: str, model_files: list[s
                         logger.debug(f"🔁 Retrying in {wait} seconds...")
                         time.sleep(wait)
                     else:
-                        raise RuntimeError(f"❌ Download failed after {max_retries} attempt(s) for {f}")
+                        raise RuntimeError(
+                            f"❌ Download failed after {max_retries} attempt(s) for {f}"
+                        ) from e
     finally:
         if timeout is not None:
             signal.setitimer(signal.ITIMER_REAL, 0)

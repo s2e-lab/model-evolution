@@ -14,7 +14,7 @@ from analyticaml.model_parser import detect_serialization_format
 from utils import DATA_DIR, download_model_files, get_file_extension, get_tmp_folder, enforce_ssh
 from utils import delete_folder
 
-DOWNLOAD_TIMEOUT = 5 # timout in seconds
+DOWNLOAD_TIMEOUT = 20 # timout in seconds
 
 # configure logger
 DEBUG = False
@@ -154,9 +154,10 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     logger.info(f"We already have {len(cache)} rows in {cache_path.name}")
     logger.info(f"It will grab the remaining {len(df_slice) - len(cache)} rows")
     # exit(0)
-    for _, row in tqdm(df_slice.iterrows(), total=len(df_slice), unit="commit"):
+    for _, row in (pbar := tqdm(df_slice.iterrows(), total=len(df_slice), unit="commit")):
         repo_url = row["repo_url"]
         commit_hash = row["commit_hash"]
+        pbar.set_postfix_str(f"{repo_url}@{commit_hash}")
         cached_results = cache.get((repo_url,commit_hash)) #get_cached_analysis(cache_path, repo_url, commit_hash)
 
         if cached_results is not None:
