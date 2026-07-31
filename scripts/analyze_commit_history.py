@@ -224,6 +224,8 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
 
     df_output = pd.DataFrame(output_rows,
         columns=["repo_url", "commit_hash", "model_file_path", "serialization_format", "message", "author", "date", "is_in_commit", ], )
+    # exclude repos that had one or more commits that failed, since these are not reliable to be included
+    df_output = df_output[~df_output["repo_url"].isin(failed_repos)]
 
     # after all is said and done, how many unique [repo_url,commit_hash] we have in total?
     logger.info(f"Unique commits: {len(df_output[['repo_url', 'commit_hash']].drop_duplicates())}")

@@ -99,16 +99,9 @@ File names will be `selected_<group_type>_commits.csv` and `selected_<group_type
   The file will be named `repositories_evolution_<group_type>_commits.csv` (as well its error
   logs `repositories_evolution_<group_type>_errors.csv`).
 
-#### Step 5: Post process the commit evolution data
+#### Step 5: Iteratively get more recent samples as needed
 
-- `process_commit_history.py`: Script to post-process the commit evolution data to generate the final dataset
-  for analysis.
-  ```bash
-  python process_commit_history.py
-  ```
-  The script will generate a CSV file with the post-processed commit evolution data on the `../data/` folder.
-  The file will be named `repositories_evolution_<group_type>_commits_processed.csv`.
-  This is the file that will be used in the Jupyter notebooks for analysis.
+Notice because the process of getting the commit history is slow, we first get a sample of the recent repositories and analyze their commit history. If we find that the sample is not enough to answer our research questions, we can iteratively get more samples of the recent repositories and analyze their commit history. To do this, we can run the `sample_recent_models.py` script again and repeat steps 3 and 4 but only for **_recent_** repositories (that is, passing `--group_type recent` as argument).
 
 ### RQ3: Getting SFConvertBot Data
 

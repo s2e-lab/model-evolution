@@ -35,7 +35,7 @@ def read_repositories_evolution(group: Literal['recent', 'legacy', 'both'] | str
         df = pd.concat([df_recent, df_legacy], ignore_index=True)
         return df
 
-    df = pd.read_csv(DATA_DIR / f"repositories_evolution_{group}_commits_processed.csv")
+    df = pd.read_csv(DATA_DIR / f"repositories_evolution_{group}_commits.csv")
     # ensure date is in datetime format
     df['date'] = pd.to_datetime(df['date'])
     # Calculate elapsed days since reference date (safetensors first release)
