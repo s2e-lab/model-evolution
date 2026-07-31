@@ -100,13 +100,19 @@ def sample(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = None, 
 
 
 def load_repos_to_include() -> set[str]:
-    df_previous = pd.read_json(DATA_DIR / "selected_recent_repos.json")
-    return set(df_previous["id"].tolist())
+    input_file = DATA_DIR / "selected_recent_repos.json"
+    if input_file.exists():
+        df_previous = pd.read_json(input_file)
+        return set(df_previous["id"].tolist())
+    return set()
 
 
 def load_repos_to_exclude() -> set[str]:
-    df_errors = pd.read_csv(DATA_DIR / "_commit_analysis_repo_errors.csv")
-    return set(df_errors["repo_url"].tolist())
+    input_file = DATA_DIR / "_commit_analysis_repo_errors.csv"
+    if input_file.exists():
+        df_errors = pd.read_csv(input_file)
+        return set(df_errors["repo_url"].tolist())
+    return set()
 
 
 def save_repos_to_exclude(repo_urls: set) -> None:
