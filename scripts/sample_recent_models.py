@@ -11,10 +11,12 @@ is distributed proportionally to the number of repositories in each quarter.
 
 import random
 import pandas as pd
+from git import repo
+
 from utils import load, DATA_DIR, calculate_sample_size
 
 
-def sample(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = None, exclude_repos: set | None=None) -> pd.DataFrame:
+def sample(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = None, exclude_repos: set | None = None) -> pd.DataFrame:
     """
     Return a temporally stratified sample.
 
@@ -46,7 +48,6 @@ def sample(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = None, 
     print(f"Sampling from {len(df)} repositories...")
 
     df["quarter"] = df[date_col].dt.tz_localize(None).dt.to_period("Q")
-
 
     quarters = sorted(df["quarter"].unique())
     sampled_idx = []
@@ -112,23 +113,69 @@ if __name__ == "__main__":
     previous_repos = set(df_previous["id"].tolist())
     print(f"Found {len(previous_repos)} previous repositories.")
     exclude_repos = {
-        'thejosango/nuha', 'AI-Sweden-Models/gpt-sw3-6.7b-v2'
-        'fayetitchenal/segformer_finetuned_test_110424', 'besimray/miner_id_3_794df6f6-b398-448d-8972-ec017a83142c_1730836890', 'kiupuc/speecht5_tts',
-        'iamanaiart/LCM-hardcoreHentai13_v13Baked-openvino', 'EmbeddedLLM/Phi-3-vision-128k-instruct-onnx',
-        'SR467/xzg','mjmanashti/fingemma-2b-ti','CHShakish/my-pet-dog', 'sartifyllc/African-Cross-Lingua-Embeddings-Model', 'JaaackXD/Llama-3-70B-Instruct-GGUF','polyconnect/dqn-SpaceInvadersNoFrameskip-v4', 'Kwai-Kolors/Kolors',
-
+        "AI-Sweden-Models/gpt-sw3-6.7b-v2",
         "AkshayPM/t5base-fine-tuned",
-        "MadFritz/sac-BipedalWalker-v3",
-        "VERSIL91/026600af-ccd9-4b63-966a-939e5dfcccd0",
-        "Zilun/GeoRSSD",
+        "besimray/miner_id_3_794df6f6-b398-448d-8972-ec017a83142c_1730836890",
+        "CHShakish/my-pet-dog",
+        "digiplay/YabaLMixAnimeRealistic_V1.0",
         "dzanbek/ac4d17d9-5346-4e15-b45c-46285cf7c718",
         "eeeebbb2/fb074c61-11a3-4256-bf44-f870513053c6",
+        "EmbeddedLLM/Phi-3-vision-128k-instruct-onnx",
         "fayetitchenal/segformer_finetuned_test_110424",
+        "FoodDesert/Boring_Embeddings",
+        "iamanaiart/LCM-hardcoreHentai13_v13Baked-openvino",
+        "immich-app/ViT-L-14__openai",
+        "JaaackXD/Llama-3-70B-Instruct-GGUF",
+        "just-dna-seq/GenNet",
+        "Kha37lid/khalidouaze",
+        "kiupuc/speecht5_tts",
+        "Kwai-Kolors/Kolors",
+        "LazarusNLP/congen-indobert-base",
+        "licyk/sd-embeddings",
+        "ll00292007/Stable-diffusion-mode",
+        "MadFritz/sac-BipedalWalker-v3",
         "marcogfedozzi/ppo-LunarLander-v2",
         "mattaq/nnUNet-GelGenie-15-Dec-2023",
+        "mjmanashti/fingemma-2b-ti",
+        "monadical-labs/minecraft-skin-generator",
+        "Outimus/models-and-stuff",
+        "polyconnect/dqn-SpaceInvadersNoFrameskip-v4",
+        "qgallouedec/ppo-EnduroNoFrameskip-v4-3540983129",
+        "qgallouedec/ppo-HumanoidBulletEnv-v0-617916820",
+        "qgallouedec/ppo-QbertNoFrameskip-v4-3013272349",
+        "qgallouedec/qrdqn-LunarLander-v2-3752531572",
+        "qgallouedec/sac-Pendulum-v1-3420645740",
+        "qgallouedec/td3-Humanoid-v3-2919924285",
+        "qgallouedec/td3-Humanoid-v3-3604187374",
+        "qgallouedec/td3-Pendulum-v1-2563443305",
+        "qgallouedec/trpo-BipedalWalkerHardcore-v3-3280772883",
+        "qgallouedec/trpo-Hopper-v3-1699917211",
+        "qgallouedec/trpo-Humanoid-v3-1622997425",
+        "qgallouedec/trpo-MountainCarContinuous-v0-2747342494",
+        "qgallouedec/trpo-Swimmer-v3-3893167513",
+        "sartifyllc/African-Cross-Lingua-Embeddings-Model",
+        "sololee/sdModels",
         "songhee/rugged-car",
+        "SR467/xzg",
+        "stablediffusionapi/wand-magic2",
+        "tanaka5/models0918",
+        "teticio/latent-audio-diffusion-256",
+        "thejosango/nuha",
+        "tzs/ppo-LunarLander-v2",
         "uni-zhuan/a2c-PandaReachDense-v3",
-
+        "VERSIL91/026600af-ccd9-4b63-966a-939e5dfcccd0",
+        "vumichien/ppo-LunarLander-v2",
+        "Xenova/bert-base-multilingual-uncased",
+        "Xenova/bert-base-uncased",
+        "Xenova/convnext-base-224",
+        "Xenova/dinov2-large",
+        "Xenova/mbart-large-50-many-to-many-mmt",
+        "Xenova/mms-lid-4017",
+        "Xenova/multi-qa-mpnet-base-dot-v1",
+        "Xenova/opus-mt-en-mul",
+        "Xenova/opus-mt-uk-en",
+        "Zilun/GeoRSCLIP",
+        "Zilun/GeoRSSD",
     }
 
     # Step 2: Sample recent repositories.

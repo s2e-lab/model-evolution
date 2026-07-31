@@ -14,6 +14,8 @@ from analyticaml.model_parser import detect_serialization_format
 from utils import DATA_DIR, download_model_files, get_file_extension, get_tmp_folder, enforce_ssh
 from utils import delete_folder
 
+DOWNLOAD_TIMEOUT = 5 # timout in seconds
+
 # configure logger
 DEBUG = False
 logging.basicConfig(
@@ -38,7 +40,7 @@ def load_cache(cache_path: Path) -> None:
         connection.execute(f"CREATE TABLE IF NOT EXISTS analysis_cache ({fields}, PRIMARY KEY({pk}))")
 
 
-def load_cache_in_memory(cache_path: Path, df_slice: pd.DataFrame, ) -> dict[tuple[str, str], list]:
+def load_cache_in_memory(cache_path: Path, df_slice: pd.DataFrame) -> dict[tuple[str, str], list]:
     keys = list(
         df_slice[["repo_url", "commit_hash"]]
         .drop_duplicates()
@@ -177,8 +179,8 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
         try:
             commit_results = []
             files_to_download = [x for x in all_model_files if get_file_extension(x) != "safetensors"]
-            if len(files_to_download) > 20: continue # skip for now
-            download_model_files(repo_url, commit_hash, repo_clone_path, files_to_download, logger)
+            download_model_files(repo_url, commit_hash, repo_clone_path, files_to_download, logger, timeout=DOWNLOAD_TIMEOUT)
+
             for model_file in all_model_files:
                 extension = get_file_extension(model_file)
                 model_file_path = os.path.join(repo_clone_path, model_file)
@@ -221,16 +223,16 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
 
 def load_commits(commit_file: Path) -> pd.DataFrame:
     if not commit_file.exists():
-        logger.debug(f"Input file {commit_file} does not exist. Please run `get_commit_logs.py` to generate it.")
+        logger.info(f"Input file {commit_file} does not exist. Please run `get_commit_logs.py` to generate it.")
         exit(1)
 
-    logger.debug(f"Loading the commit history data from {commit_file.name}...")
+    logger.info(f"Loading the commit history data from {commit_file.name}...")
     df_commits = pd.read_csv(commit_file).fillna("")
-    logger.debug(f"Total number of commits: {len(df_commits)}")
+    logger.info(f"Total number of commits: {len(df_commits)}")
     # identify the commits that have at least one model file
     df_commits = df_commits[df_commits["changed_files"].apply(lambda x: filter_by_extension(x))]
     df_commits.reset_index(drop=True, inplace=True)
-    logger.debug(f"Number of commits touching at least one model file: {len(df_commits)}")
+    logger.info(f"Number of commits touching at least one model file: {len(df_commits)}")
     return df_commits
 
 
