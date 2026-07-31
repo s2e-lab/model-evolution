@@ -212,7 +212,7 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
 
             output_rows.extend(commit_results)
         except Exception as e:
-            failed_repos.append(repo_url)
+            failed_repos.add(repo_url)
             logger.error(f"Error processing {commit_hash}: {e}")
             df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": str(e)}
 
