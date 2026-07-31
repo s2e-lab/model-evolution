@@ -137,6 +137,10 @@ def cleanup(folders: list) -> None:
         is_deleted = delete_folder(folder)
         logger.info(f"Deleted folder {folder}? {is_deleted}")
 
+def _make_suffix(begin: int | None, end: int | None) -> str:
+    if begin is None and end is None:
+        return ""
+    return f"{begin or 0}_{end if end is not None else 'END'}"
 
 def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: int | None) -> None:
     # load cache
@@ -146,13 +150,13 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     # create the output dataframes
     output_rows = []
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
-    error_output = csv_output.with_name(csv_output.name.replace("_commits", f"_errors_{begin}-{end}"))
+    error_output = csv_output.with_name(csv_output.name.replace("_commits", f"_errors_{_make_suffix(begin, end)}"))
     df_slice = df.iloc[begin:end]
 
     cache = load_cache_in_memory(cache_path, df_slice)
     logger.info(f"We already have {len(cache)} rows in {cache_path.name}")
     logger.info(f"It will grab the remaining {len(df_slice) - len(cache)} rows")
-    exit(0)
+    # exit(0)
     failed_repos = set()
 
 
@@ -229,6 +233,9 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     df_errors.to_csv(error_output, index=False)
     save_repos_to_exclude(failed_repos)
 
+    logger.info(f"Output saved to {csv_output.name}")
+    logger.info(f"Errors saved to {error_output.name}")
+
 
 def load_commits(commit_file: Path) -> pd.DataFrame:
     if not commit_file.exists():
@@ -271,7 +278,7 @@ if __name__ == '__main__':
     df_commits = load_commits(input_file)
     analyze_slice(df_commits, output_file, begin=args.begin, end=args.end)
 
-    logger.info(f"Output saved to {output_file.name}")
+
     logger.info("Done!")
     logger.info("Recommended next steps:")
     logger.info("1. Run the tests on tests/test_analyze_commit_history.py to check the results.")
