@@ -140,7 +140,7 @@ def cleanup(folders: list) -> None:
 def _make_suffix(begin: int | None, end: int | None) -> str:
     if begin is None and end is None:
         return ""
-    return f"{begin or 0}_{end if end is not None else 'END'}"
+    return f"_{begin or 0}_{end if end is not None else 'END'}"
 
 def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: int | None) -> None:
     # load cache
@@ -150,7 +150,7 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     # create the output dataframes
     output_rows = []
     df_errors = pd.DataFrame(columns=["repo_url", "commit_hash", "error"])
-    error_output = csv_output.with_name(csv_output.name.replace("_commits", f"_errors_{_make_suffix(begin, end)}"))
+    error_output = csv_output.with_name(csv_output.name.replace("_commits", f"_errors{_make_suffix(begin, end)}"))
     df_slice = df.iloc[begin:end]
 
     cache = load_cache_in_memory(cache_path, df_slice)
