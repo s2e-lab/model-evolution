@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#$ -M jdasilv2@nd.edu   # Email address for job notification
+#$ -m abe              # Send mail when job begins, ends and aborts
+#$ -pe smp 12          # Specify parallel environment and legal core size
+#$ -q long             # Specify queue
+#$ -N model_analysis   # Specify job name
+conda activate HFStudy
+
+python get_commits_logs.py --group_type recent
+./notify.sh "get_commits_logs.py DONE" "3000 -- 4000"
