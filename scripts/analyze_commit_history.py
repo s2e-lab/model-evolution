@@ -14,7 +14,6 @@ from analyticaml.model_parser import detect_serialization_format
 from utils import DATA_DIR, download_model_files, get_file_extension, get_tmp_folder, enforce_ssh
 from utils import delete_folder
 
-DOWNLOAD_TIMEOUT = 20 # timout in seconds
 
 # configure logger
 DEBUG = False
@@ -154,10 +153,15 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     logger.info(f"We already have {len(cache)} rows in {cache_path.name}")
     logger.info(f"It will grab the remaining {len(df_slice) - len(cache)} rows")
     # exit(0)
+    failed_repos = set()
     for _, row in (pbar := tqdm(df_slice.iterrows(), total=len(df_slice), unit="commit")):
         repo_url = row["repo_url"]
         commit_hash = row["commit_hash"]
         pbar.set_postfix_str(repo_url)
+        if repo_url in failed_repos:
+            logger.warning(f"Skipping remaining commits for {repo_url} because it failed before")
+            continue
+
         cached_results = cache.get((repo_url,commit_hash)) #get_cached_analysis(cache_path, repo_url, commit_hash)
 
         if cached_results is not None:
@@ -180,7 +184,8 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
         try:
             commit_results = []
             files_to_download = [x for x in all_model_files if get_file_extension(x) != "safetensors"]
-            download_model_files(repo_url, commit_hash, repo_clone_path, files_to_download, logger, timeout=DOWNLOAD_TIMEOUT)
+            if len(files_to_download) > 20: raise RuntimeError(f"Too many files to download: {len(files_to_download)}")
+            download_model_files(repo_url, commit_hash, repo_clone_path, files_to_download, logger)
 
             for model_file in all_model_files:
                 extension = get_file_extension(model_file)
@@ -207,6 +212,7 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
 
             output_rows.extend(commit_results)
         except Exception as e:
+            failed_repos.append(repo_url)
             logger.error(f"Error processing {commit_hash}: {e}")
             df_errors.loc[len(df_errors)] = {"repo_url": repo_url, "commit_hash": commit_hash, "error": str(e)}
 
