@@ -59,6 +59,11 @@ def read_repositories_evolution(group: Literal['recent', 'legacy', 'both'] | str
     for index, row in tqdm(df.iterrows(), total=len(df), unit="commit"):
         commit_hash = row["commit_hash"]
         model_file_path = row["model_file_path"]
+        repo_url = row["repo_url"]
+        #FIXME i dont know why this is happening, but it is happening, so there is that
+        if not model_file_path.startswith(repo_url):
+            model_file_path = f"{repo_url}/{model_file_path}"
+            # exit(0)
         if df.at[index, "is_in_commit"]:
             df.at[index, "change_status"] = changed_files[f"{model_file_path}&&{commit_hash}"]
 
@@ -308,8 +313,10 @@ if __name__ == "__main__":
     #     r = compute_year_range(year)
     #     print(year, r[0], r[-1])
 
-    all = extract_metadata('recent')
+    # all = extract_metadata('recent')
+    #
+    # print(all['speechbrain/ssl-wav2vec2-base-librispeech']['last_modified'])
+    # print(all['speechbrain/ssl-wav2vec2-base-librispeech']['created_at'])
+    # print(all['speechbrain/ssl-wav2vec2-base-librispeech']['lastModified'])
 
-    print(all['speechbrain/ssl-wav2vec2-base-librispeech']['last_modified'])
-    print(all['speechbrain/ssl-wav2vec2-base-librispeech']['created_at'])
-    print(all['speechbrain/ssl-wav2vec2-base-librispeech']['lastModified'])
+    df_recent = read_repositories_evolution("recent")

@@ -1,20 +1,20 @@
-# commits in all logs (total),28904
-# commits modifying/adding/deleting at least one serialized model,13338
-# repos associated with commits modifying/adding/deleting at least one serialized model,1703
-# commits adding at least one serialized model,4950
-# repos associated with commits adding at least one serialized model,1700
-# commits containing at least one model file in its tree,13280
-# commits not containing at least one model file,58
-# repos,1703
+# commits in all logs (total),50604
+# commits modifying/adding/deleting at least one serialized model,20553
+# repos associated with commits modifying/adding/deleting at least one serialized model,3183
+# commits adding at least one serialized model,7391
+# repos associated with commits adding at least one serialized model,3180
+# commits containing at least one model file in its tree,20468
+# commits not containing at least one model file,85
+# repos,3183
 last commit date,2024-12-31 12:30:54
-# commits adding safetensor files,3369
-# repos with commits adding safetensor files,1084
-# commits adding safetensor files made by the converter,112
-# repos with commits adding safetensor files made by the converter,111
-# commits adding safetensor files made by developers,3257
-# repos with commits adding safetensor files made by developers,975
+# commits adding safetensor files,4840
+# repos with commits adding safetensor files,2098
+# commits adding safetensor files made by the converter,182
+# repos with commits adding safetensor files made by the converter,180
+# commits adding safetensor files made by developers,4658
+# repos with commits adding safetensor files made by developers,1922
 how many days until safetensors is first added,84
-date with max number of adoptions,2024-02-01
-# repos that used the conversion tool,111
-# repos with old pytorch_model.bin files after conversion,95
-% repos with old pytorch_model.bin files after conversion,85.58558558558559
+date with max number of adoptions,2024-02-03
+# repos that used the conversion tool,180
+# repos with old pytorch_model.bin files after conversion,151
+% repos with old pytorch_model.bin files after conversion,83.88888888888889
