@@ -157,7 +157,7 @@ def analyze_slice(df: pd.DataFrame, csv_output: Path, begin: int | None, end: in
     for _, row in (pbar := tqdm(df_slice.iterrows(), total=len(df_slice), unit="commit")):
         repo_url = row["repo_url"]
         commit_hash = row["commit_hash"]
-        pbar.set_postfix_str(f"{repo_url}@{commit_hash}")
+        pbar.set_postfix_str(repo_url)
         cached_results = cache.get((repo_url,commit_hash)) #get_cached_analysis(cache_path, repo_url, commit_hash)
 
         if cached_results is not None:

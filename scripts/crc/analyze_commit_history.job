@@ -9,6 +9,24 @@ conda activate HFStudy
 #cd ../../AnalyticaML
 #pip install .
 #cd ../model-evolution/scripts
-./notify.sh "STARTING" "0 -- all"
-HF_HUB_CACHE=tmp/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent
-./notify.sh "DONE" "0 -- all"
+./notify.sh "STARTING" "0 -- 2500"
+HF_HUB_CACHE=tmp/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 0 --end 2500
+./notify.sh "DONE" "0 -- 2500"
+
+./notify.sh "STARTING" "2500 -- 5000"
+HF_HUB_CACHE=tmp/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 2500 --end 5000
+./notify.sh "DONE" "2500 -- 5000"
+
+./notify.sh "STARTING" "5000 -- 7500"
+HF_HUB_CACHE=tmp/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 5000 --end 7500
+./notify.sh "DONE" "5000 -- 7500"
+
+./notify.sh "STARTING" "7500 -- 10000"
+HF_HUB_CACHE=tmp/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 7500 --end 10000
+./notify.sh "DONE" "7500 -- 10000"
+
+
+./notify.sh "STARTING" "10000 -- end"
+HF_HUB_CACHE=tmp/hf_cache HF_HUB_ENABLE_HF_TRANSFER=1 python analyze_commit_history.py --group_type recent --begin 10000
+./notify.sh "DONE" "10000 -- end"
+
