@@ -6,6 +6,6 @@
 #$ -q long             # Specify queue
 #$ -N model_analysis   # Specify job name
 conda activate HFStudy
-
+./notify.sh "get_commits_logs.py" "STARTED"
 python get_commits_logs.py --group_type recent
-./notify.sh "get_commits_logs.py DONE" "3000 -- 4000"
+./notify.sh "get_commits_logs.py" "DONE"
