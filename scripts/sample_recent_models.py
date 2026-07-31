@@ -117,8 +117,8 @@ def load_repos_to_exclude() -> set[str]:
 
 def save_repos_to_exclude(repo_urls: set) -> None:
     repos_with_errors = load_repos_to_exclude()
-    all_repos = repos_with_errors | repo_urls
-    df_errors = pd.DataFrame({"repo_url": list(all_repos)})
+    all_repos = sorted(list(repos_with_errors | repo_urls))
+    df_errors = pd.DataFrame({"repo_url": all_repos})
     df_errors.to_csv(DATA_DIR / "_commit_analysis_repo_errors.csv", index=False)
 
 
