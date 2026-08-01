@@ -7,15 +7,13 @@
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ1CommitsDistribution_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1CommitsDistribution_both.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ1CommitsDistribution_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1CommitsDistribution_recent.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ1Heatmap_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1Heatmap_both.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ1Heatmap_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1Heatmap_recent.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/rq1_dataset_stats_both.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/rq1_dataset_stats_both.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/rq1_dataset_stats_recent.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/rq1_dataset_stats_recent.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/safetensors_commits_by_tool_both.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/safetensors_commits_by_tool_both.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/safetensors_commits_not_by_tool_both.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/safetensors_commits_not_by_tool_both.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_both.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_both.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_both.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_recent.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_recent.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsRepoCreation_recent.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsYearly_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsYearly_both.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ2FormatsYearly_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ2FormatsYearly_recent.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq2_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq2_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,7 +317,7 @@
       <workItem from="1784935391396" duration="1751000" />
       <workItem from="1785093017236" duration="116896000" />
       <workItem from="1785344333278" duration="5774000" />
-      <workItem from="1785364994773" duration="44895000" />
+      <workItem from="1785364994773" duration="46053000" />
     </task>
     <task id="LOCAL-00001" summary="added a print statement to better indicate the filtering steps' statuses">
       <option name="closed" value="true" />
