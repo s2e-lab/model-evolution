@@ -144,6 +144,16 @@ Notice because the process of getting the commit history is slow, we first get a
   It will save the data in `../data/sfconvertbot_pr_metadata.csv.zip`.
   File is zipped because it is too large to be stored in the repository.
 
+#### Step 5: Get baseline of repos that had PRs from the SFConvertBot
+
+- `bot/get_repo_pr_baseline.py`: Script to get the baseline PR information from the repositories that had PRs from the SF convert bot. This allows us to compare whether the merge rates of those PRs are consistent for those repos, or if the SFconvert bot PRs are being ignore.
+  ```bash
+  python get_repo_pr_baseline.py
+  ```
+  It will save the data in `../data/repo_pr_baseline.csv`.
+
+
+
 ### RQ4: Scraping StackOverflow posts and GitHub PRs
 
 
