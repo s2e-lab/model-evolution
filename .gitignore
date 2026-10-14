@@ -9,7 +9,7 @@ data/*commits_cache.*
 data/*commit_analysis_cache.*
 data/hf_sort_by_createdAt_top1209240.json
 scripts/notify.sh
-
+data/*_OLD.*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

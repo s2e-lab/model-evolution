@@ -3,10 +3,10 @@
 """
 It applies four exclusion criteria to select model repositories to include on our study.
 Exclusion criteria:
-    (E1) - Not modified on or after 2024
-    (E2) - Does not have at least one model file
-    (E3) - Gated (i.e. private)
-    (E4) - Size <= `SIZE_LIMIT` (i.e. 1TB)
+    (E1) - Gated (i.e. private)
+    (E2) - Not modified on or after 2024
+    (E3) - Does not have at least one model file
+    (E4) - Size >= `SIZE_LIMIT` (see global variable below)
 @Author: Joanna C. S. Santos
 """
 
@@ -38,7 +38,7 @@ SAFETENSORS_RELEASE_DATE = pd.to_datetime("2022-09-22", utc=True)
 FIRST_DAY_OF_2024 = pd.to_datetime("2024-01-01", utc=True)
 SIZE_LIMIT = 1 * 1024 * 1024 * 1024 * 1024  # 1 TB
 api = HfApi(token=HF_API_TOKEN)
-
+DEBUG = False # If true, it prints errors
 
 def has_model_file(model_files: list) -> bool:
     """
@@ -66,7 +66,7 @@ def get_wait_time(response: Response, fallback=30.0) -> float:
 
 
 def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initial_backoff: float = 5.0, max_backoff: float = 300.0, ) -> tuple[
-    int, list[dict], str]:
+    int, list[dict], str|None]:
     """
     Gets repository size and file metadata from the Hugging Face API.
     Retries:
@@ -91,11 +91,10 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
                 filename = repo_file.get("rfilename", "")
                 repo_file["extension"] = get_file_extension(filename)
                 repo_files.append(repo_file)
-            return model_info.usedStorage, repo_files, ""
+            return model_info.usedStorage, repo_files, None
         except RepositoryNotFoundError:
             # This may mean nonexistent, private, gated, or inaccessible.
-            print(f"[NOT ACCESSIBLE] {repo_id}")
-            return 0, [], f"[RepositoryNotFoundError] {repo_id}"
+            return -1, [], f"[RepositoryNotFoundError] {repo_id}"
 
         except HfHubHTTPError as error:
             response = error.response
@@ -103,15 +102,13 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
 
             # Do not repeatedly retry ordinary client-side failures.
             if status_code in {400, 401, 403, 404}:
-                print(f"[HTTP {status_code}] Skipping {repo_id}")
-                return 0, [], f"[HfHubHTTPError {status_code}] {repo_id}"
+                return -1, [], f"[HfHubHTTPError {status_code}] {repo_id}"
 
             # Retry rate limits and temporary server errors.
             if status_code == 429 or (status_code is not None and 500 <= status_code < 600):
                 attempt += 1
                 if max_retries is not None and attempt > max_retries:
-                    print(f"[GAVE UP] {repo_id} after {max_retries} retries")
-                    return 0, [], f"[MAX_RETRIES EXCEEDED (retried {max_retries} times)] {repo_id}"
+                    return -1, [], f"[MAX_RETRIES EXCEEDED (retried {max_retries} times)] {repo_id}"
                 exponential_wait = min(initial_backoff * (2 ** (attempt - 1)), max_backoff, )
                 wait_seconds = get_wait_time(response, fallback=exponential_wait, )
                 print(f"[HTTP {status_code}] {repo_id}: waiting {wait_seconds:.1f}s before retry #{attempt}")
@@ -119,8 +116,7 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
                 continue
 
             # Unexpected HTTP error: report rather than hiding it.
-            print(f"[HTTP ERROR] {repo_id}:  {status_code} — {error}")
-            return 0, [], f"[HTTP ERROR] {repo_id}:  {status_code} — {error}"
+            return -1, [], f"[HTTP ERROR] {repo_id}:  {status_code} — {error}"
 
         except (
                 requests.exceptions.ConnectTimeout,
@@ -130,8 +126,7 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
             attempt += 1
 
             if max_retries is not None and attempt > max_retries:
-                print(f"[GAVE UP] {repo_id} after {max_retries} retries {error}")
-                return 0, []
+                return -1, [], f"[MAX_RETRIES EXCEEDED (retried {max_retries} times)] {repo_id}"
 
             wait_seconds = min(initial_backoff * (2 ** (attempt - 1)), max_backoff, )
             wait_seconds += random.uniform(0, 2)
@@ -143,17 +138,13 @@ def get_repo_size(repo_id: str, sha: str, max_retries: int | None = None, initia
 
         except Exception as error:
             # Preserve unexpected errors instead of silently treating them as zero-byte repositories.
-            print(f"[UNEXPECTED ERROR] {repo_id}:  {type(error).__name__}: {error}")
-            return 0, [], f"[UNEXPECTED ERROR] {repo_id}:  {type(error).__name__}: {error}"
-    return 0, [], f"[UNKNOWN ERROR] {repo_id}"
+            return -1, [], f"[UNEXPECTED ERROR] {repo_id}:  {type(error).__name__}: {error}"
+    return -1, [], f"[UNKNOWN ERROR] {repo_id}"
 
 
 def exclude_models(df: pd.DataFrame) -> pd.DataFrame:
     """
-    This function excludes models based on the following exclusion criteria (EC):
-    (E1) - Not modified on or after 2024
-    (E2) - Does not have at least one model file
-    (E3) - Gated (i.e. private)
+    This function excludes models based on the exclusion criteria E1--E3 mentioned at the script header.
     :param df: data frame with all models' metadata
     :return: a data frame with models that do not match any of the exclusion criteria.
     """
@@ -182,20 +173,25 @@ def load_cache(cache_path: Path) -> None:
                 "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
             ]
             pk = "repo_id,sha"
-            connection.execute(f"CREATE TABLE IF NOT EXISTS repo_sizes ({fields.join(', ')}, PRIMARY KEY({pk}))")
+            connection.execute(f"CREATE TABLE IF NOT EXISTS repo_sizes ({', '.join(fields)}, PRIMARY KEY({pk}))")
             connection.commit()
 
 
-def get_cached_repo_size(cache_path: Path, repo_id: str, sha: str) -> tuple[int, list | None]:
+def get_cached_repo_size(cache_path: Path, repo_id: str, sha: str, include_failed_repos:bool=True) -> tuple[int, list | None]:
     """
-    Return a previously successful result from the cache.
-    Returns None when no successful cached result exists.
+    Return a previously (size, siblings) result from the cache.
+    Returns None when not found in cached results.
     :param cache_path: path to the cache database file.
     :param repo_id: id of the repository
     :param sha: sha of the repository
+    :param include_failed_repos: if True, it will return the size for a previously failed repo.
+    Notice in this case, the size = -1 and siblings = []
     """
     with sqlite3.connect(cache_path) as connection:
-        query = "SELECT size, siblings  FROM repo_sizes WHERE repo_id = ? AND sha = ?"
+        if include_failed_repos:
+            query = "SELECT size, siblings  FROM repo_sizes WHERE repo_id = ? AND sha = ?"
+        else:
+            query = "SELECT size, siblings  FROM repo_sizes WHERE repo_id = ? AND sha = ? AND error IS NULL AND size >= 0"
         row = connection.execute(query, (repo_id, sha)).fetchone()
         if row is None: return -1, None
         size, siblings_json = row
@@ -234,16 +230,19 @@ def filter_by_size(df: pd.DataFrame) -> pd.DataFrame:
     cache_file = DATA_DIR / "_repo_size_cache.sqlite3"
     load_cache(cache_file)
 
+
     # get the size of the repositories and add to the dataframe
     for idx, repo in tqdm(df.iterrows(), total=len(df), unit="repo"):
         size, siblings = get_cached_repo_size(cache_file, repo.id, repo.sha)
         if size < 0 and siblings is None:
             size, siblings, error = get_repo_size(repo["id"], repo["sha"])
             save_to_cache(cache_file, repo["id"], repo["sha"], size, siblings, error)
+            if error and DEBUG:
+                print("Failed to retrieve repo size:", error)
         # Update data frame with the retrieved size and siblings info
         df.at[idx, "size"], df.at[idx, "siblings"] = size, siblings
 
-    # exclude repositories that are larger than 2 TB and not empty or that we could not retrieve its value
+    # exclude repositories that are larger than SIZE_LIMIT and not empty or that we could not retrieve its value
     return df[(df["size"] < SIZE_LIMIT) & (df["size"] > 0)]
 
 
@@ -266,17 +265,23 @@ def select_recent(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def save(df: pd.DataFrame, output_path: Path, compress: bool = False) -> None:
+    """
+    Save the data frame in a zip file containing the data in JSON format.
+    :param df: data frame with all models'  metadata
+    :param output_path: path to save the data frame to (it will be a zipped file)
+    :param compress: whether to compress (true) or not (false) the zip file.
+    """
     df.to_json(output_path, orient="records", indent=2)
     if compress:
         with zipfile.ZipFile(output_path.with_suffix(".json.zip"), 'w', compression=zipfile.ZIP_DEFLATED) as zip_ref:
             zip_ref.write(output_path, arcname=output_path.name)
-        output_path.unlink()  # Delete the uncompressed file
+        output_path.unlink()  # Delete the unzipped JSON file
 
 
 if __name__ == "__main__":
     input_file = DATA_DIR / "hf_sort_by_createdAt_top1209240.json.zip"
-    out_legacy_models_file = DATA_DIR / "selected_legacy_repos.json"
-    out_recent_models_file = DATA_DIR / "all_recent_repos.json"
+    out_legacy_models_file = DATA_DIR / "selected_legacy_repos_NEW.json"
+    out_recent_models_file = DATA_DIR / "all_recent_repos_NEW.json"
 
     # Step 1: Load the repositories' metadata
     print(f"Loading data from {input_file.name}...")
@@ -286,13 +291,13 @@ if __name__ == "__main__":
     df['gated'] = df['gated'].astype(bool)
     df['size'] = 0  # initialize size column
 
-    # Notice that 2022-03-02T23:29:04.000Z assigned to all repositories created before HF began storing creation dates.
+    # Notice that 2022-03-02T23:29:04.000Z assigned to all repos created before HF began storing creation dates.
     print("Min creation date = ", df["created_at"].min())
 
     # Step 2 - Exclude models
     print(f"Excluding models from {input_file.name} (initial size = {len(df)})...")
-    df = exclude_models(df)
-    print(f"After applying global exclusion criteria (E1--E3), {len(df)} repositories left.")
+    df = exclude_models(df) # applies exclusion criteria E1--E3 (i.e., all but size-based exclusion)
+    print(f"Total #repos that passes exclusion criteria (E1--E3), {len(df)} repositories left.")
 
     # Step 3 - Inspect the repositories and identify legacy and recent repositories
     print("Finding and filtering legacy repositories...")
@@ -306,9 +311,11 @@ if __name__ == "__main__":
     df_recent = filter_by_size(df_recent)
     print(f"There are {len(df_recent)} recent repositories that passes all exclusion criteria (E1--E4).")
 
+    print(f"Total #repos that passes all criteria (E1--E4): {len(df_recent)+len(df_legacy)}")
+
     # Step 4 - Save the data
     print("Saving filtered models to disk...")
-    # save(df_legacy, out_legacy_models_file, compress=False)
+    save(df_legacy, out_legacy_models_file, compress=False)
     save(df_recent, out_recent_models_file, compress=True)
 
     # Print summary information
