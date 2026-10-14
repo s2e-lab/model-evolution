@@ -150,6 +150,11 @@ def extract_all_commits(repositories: list, output_path: Path, error_path: Path,
     save(commits, commits_columns, output_path)
     save(errors, error_columns, error_path)
 
+    print("Finished.")
+    print("Total commits:", len(commits))
+    print("Total errors:", len(errors))
+    print("Saved at:", output_path.name)
+
 
 if __name__ == "__main__":
     # ensure we have SSH setup with Hugging Face
