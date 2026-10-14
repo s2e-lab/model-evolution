@@ -381,6 +381,7 @@ timm/convnext_large.fb_in22k_ft_in1k_384,9d73a4cdc40f56d948b06d73da5f6fcd146efc0
 timm/convnext_pico.d1_in1k,5b0de146c6d2fe64ee81ca0023cf9270b2ee77ee,timm/convnext_pico.d1_in1k/model.safetensors,safetensors,Update model config and README,Ross Wightman,2023-03-31 18:32:53,True,190,+
 timm/convnext_xlarge.fb_in22k_ft_in1k,dafcdc3610d5ee0edf24d113cfcf3617513c3094,timm/convnext_xlarge.fb_in22k_ft_in1k/model.safetensors,safetensors,Update model config and README,Ross Wightman,2023-03-31 18:46:38,True,190,+
 timm/convnext_xlarge.fb_in22k_ft_in1k_384,d8eacd737c20ec561dfb9756c2be96dc1a08f143,model.safetensors,safetensors,Update model config and README,Ross Wightman,2023-03-31 18:49:52,True,190,+
+Sociovestix/lenu_JP,907446b536863d93cf0eb82d4c9c320d86d03e76,model.safetensors,safetensors,added model,Alexander Arimond,2024-06-17 03:33:55,True,634,+
 timm/fbnetv3_b.ra2_in1k,8c69afda58d4031244d975be630237b5e51d6969,timm/fbnetv3_b.ra2_in1k/model.safetensors,safetensors,Update model config and README,Ross Wightman,2023-04-27 18:48:34,True,217,+
 timm/fbnetv3_d.ra2_in1k,9fbaa8253fb3c0a9a47454afda48dd8495ded699,timm/fbnetv3_d.ra2_in1k/model.safetensors,safetensors,Update model config and README,Ross Wightman,2023-04-27 18:48:42,True,217,+
 timm/lcnet_100.ra2_in1k,1a0e151205eca932adcf2cf842d208d6a1d27c43,model.safetensors,safetensors,Update model config and README,Ross Wightman,2023-04-27 18:49:02,True,217,+
@@ -2893,6 +2894,7 @@ timm/regnety_320.swag_lc_in1k,a5c7b59d1af57583df5dee2c172ec2a73e917f5b,model.saf
 timm/regnety_640.seer,a57397aca5164aba8ac401d55ccb4479feee87aa,model.safetensors,safetensors,Add model,Ross Wightman,2023-03-20 20:56:49,True,179,+
 timm/gcresnext50ts.ch_in1k,0bace2ed7043b5cc58fd393e2392813c79a86a17,timm/gcresnext50ts.ch_in1k/model.safetensors,safetensors,Add model,Ross Wightman,2023-03-22 03:15:06,True,181,+
 timm/gernet_l.idstcv_in1k,9f5f8f1b8614894b5ef10a197586da32165d70b9,timm/gernet_l.idstcv_in1k/model.safetensors,safetensors,Add model,Ross Wightman,2023-03-22 03:15:42,True,181,+
+timm/repvgg_b1g4.rvgg_in1k,93f9ab00cc063bf70e034156e6fb39a4ed81af06,model.safetensors,safetensors,Add model,Ross Wightman,2023-03-22 03:21:26,True,181,+
 timm/repvgg_b2.rvgg_in1k,a89a4d219174b6457bccb43f9d3c4f1137b2b597,model.safetensors,safetensors,Add model,Ross Wightman,2023-03-22 03:22:51,True,181,+
 timm/resnet33ts.ra2_in1k,1cebaa9b090928c0433147ec3b19bfdc1910a364,model.safetensors,safetensors,Add model,Ross Wightman,2023-03-22 03:27:16,True,181,+
 timm/resnet51q.ra2_in1k,c18ffd9ef3a968f522a3ba623058b21d1c08037b,model.safetensors,safetensors,Add model,Ross Wightman,2023-03-22 03:27:39,True,181,+
@@ -23350,6 +23352,7 @@ stuser2023/Llama2-7b-finetuned,d43200f3c31205ce05d1232a882eb4bfb9185edb,stuser20
 stuser2023/Llama2-7b-finetuned,d43200f3c31205ce05d1232a882eb4bfb9185edb,stuser2023/Llama2-7b-finetuned/model-00002-of-00002.safetensors,safetensors,Upload LlamaForCausalLM,tc lin,2023-11-17 22:20:34,True,421,+
 stuser2023/Llama2-7b-finetuned,f5ceed277f27e3627ad2e9e54384c4b6366f95e9,stuser2023/Llama2-7b-finetuned/adapter_model.safetensors,safetensors,"Training in progress, step 100",tc lin,2023-11-17 21:53:37,True,421,+
 tkcho/cp-commerce-clf-kr-sku-brand-fddd80fe82c43d1c26fa0774e92ee218,fb7a55c1ae5016e87c4f5c492a8c91b9c89cb006,tkcho/cp-commerce-clf-kr-sku-brand-fddd80fe82c43d1c26fa0774e92ee218/model.safetensors,safetensors,Upload BertForSequenceClassification,tk cho,2024-01-11 00:59:06,True,476,+
+tkcho/cp-commerce-clf-kr-sku-brand-f1ca175883c364ebc033f473f12f9b86,169b1d4e2be140a16957b773d6febacb27f7f4d5,model.safetensors,safetensors,Upload BertForSequenceClassification,tk cho,2024-01-12 21:30:34,True,477,+
 tkcho/cp-commerce-clf-kr-sku-brand-18fe769db5a0256ac984c0c1edf9483a,6dec7657f91d8126b919f4e0fb9c3f22f7257636,tkcho/cp-commerce-clf-kr-sku-brand-18fe769db5a0256ac984c0c1edf9483a/model.safetensors,safetensors,Upload BertForSequenceClassification,tk cho,2024-01-11 08:25:19,True,476,+
 tkcho/cp-commerce-clf-kr-sku-brand-12017b4fcdc7cc888f4c7b15bbe520c0,15c7a023ee78549ec9ebe5ff0b5d02549700001b,tkcho/cp-commerce-clf-kr-sku-brand-12017b4fcdc7cc888f4c7b15bbe520c0/model.safetensors,safetensors,Upload BertForSequenceClassification,tk cho,2024-01-11 11:30:01,True,476,+
 tkcho/cp-commerce-clf-kr-sku-brand-952799711fb51b50748175dabcf25ef2,52f9920ed94d842e52b0fd3fcbc472a14bd17b43,model.safetensors,safetensors,Upload BertForSequenceClassification,tk cho,2024-01-11 11:48:53,True,476,+
