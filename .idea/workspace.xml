@@ -316,7 +316,7 @@
       <workItem from="1786561031466" duration="809000" />
       <workItem from="1786641676966" duration="44000" />
       <workItem from="1787604889699" duration="1811000" />
-      <workItem from="1791919298637" duration="17756000" />
+      <workItem from="1791919298637" duration="18578000" />
     </task>
     <task id="LOCAL-00001" summary="added a print statement to better indicate the filtering steps' statuses">
       <option name="closed" value="true" />
@@ -397,7 +397,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/model_evolution$select_models_v2.coverage" NAME="select_models-v2 Coverage Results" MODIFIED="1785176829088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/model_evolution$fix_file_extension.coverage" NAME="fix_file_extension Coverage Results" MODIFIED="1785256826071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/hotfixes" />
-    <SUITE FILE_PATH="coverage/model_evolution$sample_recent_models.coverage" NAME="sample_recent_models Coverage Results" MODIFIED="1791942198489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/model_evolution$sample_recent_models.coverage" NAME="sample_recent_models Coverage Results" MODIFIED="1791942872837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/model_evolution$select_models.coverage" NAME="select_models Coverage Results" MODIFIED="1785093787536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/wip_model_evolution$TO_DELETE_get_commit_logs.coverage" NAME="TO_DELETE_get_commit_logs Coverage Results" MODIFIED="1731073465254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/model_evolution$analyze_commit_history_new.coverage" NAME="analyze_commit_history Coverage Results" MODIFIED="1785269256281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
