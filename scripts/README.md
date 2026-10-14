@@ -61,6 +61,21 @@ HF_TOKEN=<your_huggingface_token>
     - `../data/selected_legacy_repos.json`: Group 1. Repositories created **before** safetensors release.
     - `../data/all_recent_repos.json`. Group 2. Repositories created **after** safetensors release. 
 
+  To speed up repeated or resumed runs, the script stores repository-size and file-metadata lookups in
+  `../data/_repo_size_cache.sqlite3`. Each cache entry is keyed by the repository ID and revision SHA:
+
+    - On a cache hit, the script reuses the stored repository size and file list instead of making another
+      Hugging Face API request.
+    - On a cache miss, the script requests the metadata from Hugging Face and immediately saves the result, so an
+      interrupted run can continue without repeating completed lookups.
+    - A repository with a new revision SHA receives a new cache entry, ensuring that changed repositories are
+      queried again.
+    - Failed or inaccessible repository lookups are also cached (with size `-1`) and excluded from the selected
+      repositories. This avoids repeatedly requesting repositories that already failed during later runs.
+
+  The cache persists between executions. To force the script to retrieve all repository metadata again, remove
+  `../data/_repo_size_cache.sqlite3` before running the script.
+
 - `./sample_recent_models.py`: Script to downsample the _recent_ repositories from using our sampling strategy described in the paper.
     - `../data/selected_recent_repos.json`. Group 2 sample. **_Sampled_** repositories created **after** safetensors release.
 

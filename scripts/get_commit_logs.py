@@ -13,7 +13,7 @@ import sqlite3
 import git
 import pandas as pd
 from tqdm import tqdm
-
+import time
 from utils import clone, DATA_DIR, delete_folder, enforce_ssh
 
 NULL_TREE = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
@@ -150,6 +150,11 @@ def extract_all_commits(repositories: list, output_path: Path, error_path: Path,
     save(commits, commits_columns, output_path)
     save(errors, error_columns, error_path)
 
+    print("Finished.")
+    print("Total commits:", len(commits))
+    print("Total errors:", len(errors))
+    print("Saved at:", output_path.name)
+
 
 if __name__ == "__main__":
     # ensure we have SSH setup with Hugging Face
@@ -166,7 +171,7 @@ if __name__ == "__main__":
     output_file = DATA_DIR / f"{input_file.stem.replace('_repos', '_commits')}.csv"
     error_file = output_file.with_name(output_file.name.replace("_commits", "_errors"))
 
-    print(f"Extracting commits for repos listed in {input_file.name}")
+    print(f"Extracting commits for repos listed in {input_file.name} at {time.time()}")
     extract_all_commits(repo_urls, output_file, error_file)
 
     print(f"Commits saved to {output_file.name}")
