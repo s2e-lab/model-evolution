@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b5547ba8-0dd8-47fb-bf2e-a89b23d694d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../AnalyticaML/analyticaml.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ1CommitsDistribution_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1CommitsDistribution_recent.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/RQ1Heatmap_recent.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1Heatmap_recent.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/rq1_dataset_stats_recent.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/rq1_dataset_stats_recent.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/safetensors_commits_not_by_tool_recent.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/safetensors_commits_not_by_tool_recent.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/get_commit_logs.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/get_commit_logs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1CommitsDistribution_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1CommitsDistribution_both.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/RQ1Heatmap_both.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/results/RQ1Heatmap_both.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq1_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/notebooks/rq3_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/notebooks/rq3_analysis.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -320,7 +317,7 @@
       <workItem from="1786561031466" duration="809000" />
       <workItem from="1786641676966" duration="44000" />
       <workItem from="1787604889699" duration="1811000" />
-      <workItem from="1791919298637" duration="21214000" />
+      <workItem from="1791919298637" duration="26699000" />
     </task>
     <task id="LOCAL-00001" summary="added a print statement to better indicate the filtering steps' statuses">
       <option name="closed" value="true" />
