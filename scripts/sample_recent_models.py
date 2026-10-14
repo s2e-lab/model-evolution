@@ -11,7 +11,7 @@ is distributed proportionally to the number of repositories in each quarter.
 
 import random
 import pandas as pd
-from git import repo
+import time
 
 from utils import load, DATA_DIR, calculate_sample_size
 
@@ -43,8 +43,6 @@ def sample(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = None, 
         errors="coerce"
     )
     df = df.dropna(subset=[date_col])
-    if exclude_repos:
-        df = df[~df[repo_col].isin(exclude_repos)]
     print(f"Sampling from {len(df)} repositories...")
 
     df["quarter"] = df[date_col].dt.tz_localize(None).dt.to_period("Q")
@@ -58,20 +56,28 @@ def sample(df: pd.DataFrame, seed: int = 42, previous_repos: set | None = None, 
         quarter_df = df[df["quarter"] == quarter]
 
         population_size = len(quarter_df)
-        sample_size = calculate_sample_size(
+        target_sample_size = calculate_sample_size(
             population_size,
             margin_error=0.05,
             confidence_level=0.95
         )
 
+        # Excluded repositories still belong to the population. Remove them
+        # only from the candidate pool so the reported population and sample
+        # size continue to describe the original dataset.
+        eligible_df = quarter_df[
+            ~quarter_df[repo_col].isin(exclude_repos)
+        ]
+        sample_size = min(target_sample_size, len(eligible_df))
+
         # Previously analyzed repositories in this quarter.
-        previous_idx = quarter_df.index[
-            quarter_df[repo_col].isin(previous_repos)
+        previous_idx = eligible_df.index[
+            eligible_df[repo_col].isin(previous_repos)
         ].tolist()
 
         # Repositories in this quarter that have not been analyzed.
-        remaining_idx = quarter_df.index[
-            ~quarter_df[repo_col].isin(previous_repos)
+        remaining_idx = eligible_df.index[
+            ~eligible_df[repo_col].isin(previous_repos)
         ].tolist()
 
         # Randomize both pools reproducibly.
@@ -127,7 +133,7 @@ if __name__ == "__main__":
     out_recent_models_file = DATA_DIR / "selected_recent_repos.json"
 
     # Step 1: Load the repositories' metadata.
-    print(f"Loading recent repository data from {input_file.name}...")
+    print(f"Loading recent repository data from {input_file.name}... at {time.time()}")
     df = load(input_file)
 
     # Step 1.1: When we need to retry from where we stopped to grab more samples after some failed
@@ -138,7 +144,7 @@ if __name__ == "__main__":
     exclude_repos = load_repos_to_exclude()
     print(f"Found {len(exclude_repos)} previous repositories to exclude.")
 
-    previous_repos = previous_repos - exclude_repos
+
     # Step 2: Sample recent repositories.
     df_recent = sample(df, seed=42, previous_repos=previous_repos, exclude_repos=exclude_repos)
     df_recent.reset_index(drop=True, inplace=True)
