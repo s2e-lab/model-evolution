@@ -6,7 +6,7 @@ Exclusion criteria:
     (E1) - Gated (i.e. private)
     (E2) - Not modified on or after 2024
     (E3) - Does not have at least one model file
-    (E4) - Size >= `SIZE_LIMIT` (see global variable below)
+    (E4) - Empty repositories or with a size >= `SIZE_LIMIT` (see global variable below)
 @Author: Joanna C. S. Santos
 """
 
@@ -177,10 +177,10 @@ def load_cache(cache_path: Path) -> None:
             connection.commit()
 
 
-def get_cached_repo_size(cache_path: Path, repo_id: str, sha: str, include_failed_repos:bool=True) -> tuple[int, list | None]:
+def get_cached_repo_size(cache_path: Path, repo_id: str, sha: str, include_failed_repos:bool=True) -> tuple[int | None, list | None]:
     """
-    Return a previously (size, siblings) result from the cache.
-    Returns None when not found in cached results.
+    Return a previously (size, siblings) result from the cache or (None,None) when
+    (repo_id,sha) combination is not found in the cache.
     :param cache_path: path to the cache database file.
     :param repo_id: id of the repository
     :param sha: sha of the repository
@@ -193,7 +193,7 @@ def get_cached_repo_size(cache_path: Path, repo_id: str, sha: str, include_faile
         else:
             query = "SELECT size, siblings  FROM repo_sizes WHERE repo_id = ? AND sha = ? AND error IS NULL AND size >= 0"
         row = connection.execute(query, (repo_id, sha)).fetchone()
-        if row is None: return -1, None
+        if row is None: return None, None
         size, siblings_json = row
         siblings = json.loads(siblings_json) if siblings_json else []
         return size, siblings
@@ -223,9 +223,9 @@ def save_to_cache(cache_path: Path, repo_id: str, sha: str, size: int, siblings:
 
 def filter_by_size(df: pd.DataFrame) -> pd.DataFrame:
     """
-    This function filters the repositories that are larger than `SIZE_LIMIT` (E4).
+    This function filters the repositories that are larger than `SIZE_LIMIT` (E4) or that are empty.
     :param df: data frame with all models' metadata
-    :return: a data frame with the selected models that are not larger than `SIZE_LIMIT` (E4).
+    :return: a data frame with the selected repos that are non-empty and not larger than `SIZE_LIMIT` (E4).
     """
     cache_file = DATA_DIR / "_repo_size_cache.sqlite3"
     load_cache(cache_file)
@@ -234,7 +234,7 @@ def filter_by_size(df: pd.DataFrame) -> pd.DataFrame:
     # get the size of the repositories and add to the dataframe
     for idx, repo in tqdm(df.iterrows(), total=len(df), unit="repo"):
         size, siblings = get_cached_repo_size(cache_file, repo.id, repo.sha)
-        if size < 0 and siblings is None:
+        if size is None and siblings is None:
             size, siblings, error = get_repo_size(repo["id"], repo["sha"])
             save_to_cache(cache_file, repo["id"], repo["sha"], size, siblings, error)
             if error and DEBUG:
@@ -280,11 +280,11 @@ def save(df: pd.DataFrame, output_path: Path, compress: bool = False) -> None:
 
 if __name__ == "__main__":
     input_file = DATA_DIR / "hf_sort_by_createdAt_top1209240.json.zip"
-    out_legacy_models_file = DATA_DIR / "selected_legacy_repos_NEW.json"
-    out_recent_models_file = DATA_DIR / "all_recent_repos_NEW.json"
+    out_legacy_models_file = DATA_DIR / "selected_legacy_repos.json"
+    out_recent_models_file = DATA_DIR / "all_recent_repos.json"
 
     # Step 1: Load the repositories' metadata
-    print(f"Loading data from {input_file.name}...")
+    print(f"Loading data from {input_file.name} at {time.time()}")
     df = load(input_file)
     df['last_modified'] = pd.to_datetime(df['last_modified'], utc=True)
     df['created_at'] = pd.to_datetime(df['created_at'], utc=True)
