@@ -201,16 +201,3 @@ jupyter notebook
 ```
 
 Then, open the desired notebook and run the cells.
-
-## License
-
-TBD.
-
-## Citation
-
-TBD.
-
-## Contributors
-
-J.
-Does
